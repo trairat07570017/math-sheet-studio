@@ -1,15 +1,50 @@
 /**
- * Google Apps Script - Web App Entry Point
+ * Google Apps Script - Web App Entry Point & REST API for GitHub Pages
  * ระบบสร้างเอกสารการสอนคณิตศาสตร์ ม.ปลาย (อิงตามหลักสูตร สสวท.)
  */
 
 function doGet(e) {
+  // If called as an API by GitHub Pages (e.g. ?action=get_settings)
+  if (e && e.parameter && e.parameter.action) {
+    var action = e.parameter.action;
+    if (action === 'get_settings') {
+      return createJsonResponse(getSettingsFromDatabaseSheet());
+    }
+  }
+
+  // Otherwise serve HTML Web App
   var template = HtmlService.createTemplateFromFile('index');
-  
   return template.evaluate()
     .setTitle('MathSheet AI Studio — เอกสารการสอนคณิตศาสตร์ ม.ปลาย (สสวท.)')
     .addMetaTag('viewport', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     .setXFrameOptionsMode(HtmlService.XFrameOptionsMode.ALLOWALL);
+}
+
+function doPost(e) {
+  try {
+    var raw = e && e.postData && e.postData.contents ? e.postData.contents : '{}';
+    var data = JSON.parse(raw);
+    var action = data.action || '';
+
+    if (action === 'save_settings') {
+      var result = saveSettingsToDatabaseSheet(data.systemSettings, data.chapterSettings);
+      return createJsonResponse(result);
+    } else if (action === 'get_settings') {
+      return createJsonResponse(getSettingsFromDatabaseSheet());
+    } else if (action === 'save_worksheet') {
+      var docResult = saveWorksheetData(data.payload);
+      return createJsonResponse(docResult);
+    } else {
+      return createJsonResponse({ success: false, error: 'Unknown action: ' + action });
+    }
+  } catch (err) {
+    return createJsonResponse({ success: false, error: err.toString() });
+  }
+}
+
+function createJsonResponse(data) {
+  return ContentService.createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
 }
 
 function include(filename) {
@@ -427,4 +462,192 @@ function appendToWorksheetIndexLog(rootFolder, logData) {
   ]);
 
   return ss.getUrl();
+}
+
+/**
+ * ค้นหาหรือสร้าง Google Sheets สำหรับเก็บฐานข้อมูลการตั้งค่า
+ */
+function getOrCreateDatabaseSpreadsheet() {
+  var rootFolderName = 'เอกสารการสอนคณิตศาสตร์ สสวท. (MathSheet AI)';
+  var rootFolder = getOrCreateFolder(DriveApp.getRootFolder(), rootFolderName);
+  var fileName = 'ฐานข้อมูล MathSheet AI Studio (การตั้งค่า & ทะเบียน)';
+  var files = rootFolder.getFilesByName(fileName);
+  var ss;
+
+  if (files.hasNext()) {
+    ss = SpreadsheetApp.open(files.next());
+  } else {
+    ss = SpreadsheetApp.create(fileName);
+    var ssFile = DriveApp.getFileById(ss.getId());
+    rootFolder.addFile(ssFile);
+    DriveApp.getRootFolder().removeFile(ssFile);
+
+    // สร้าง Sheet 1: การตั้งค่าระบบ
+    var sysSheet = ss.getActiveSheet();
+    sysSheet.setName('การตั้งค่าระบบ');
+    sysSheet.appendRow(['คีย์ (Key)', 'ค่าที่ตั้งไว้ (Value)', 'คำอธิบาย (Description)', 'บันทึกล่าสุด (Last Updated)']);
+    sysSheet.getRange(1, 1, 1, 4).setBackground('#0f172a').setFontColor('#ffffff').setFontWeight('bold');
+    sysSheet.appendRow(['school', 'โรงเรียนมัธยมวิทยาคม (สสวท.)', 'ชื่อโรงเรียน/สถาบัน', new Date().toLocaleString('th-TH')]);
+    sysSheet.appendRow(['teacher', 'กลุ่มสาระการเรียนรู้คณิตศาสตร์', 'ชื่อครูผู้สอน', new Date().toLocaleString('th-TH')]);
+    sysSheet.appendRow(['academicYear', 'ภาคเรียนที่ 2 ปีการศึกษา 2567', 'ปีการศึกษา', new Date().toLocaleString('th-TH')]);
+    sysSheet.appendRow(['mathScale', '1.15', 'ขนาดตัวสมการ KaTeX (1.0, 1.15, 1.25)', new Date().toLocaleString('th-TH')]);
+    sysSheet.setFrozenRows(1);
+
+    // สร้าง Sheet 2: รหัสวิชาประจำบท
+    var chapSheet = ss.insertSheet('รหัสวิชาประจำบท');
+    chapSheet.appendRow(['รหัสบท (ID)', 'ชื่อบทเรียน (Title)', 'รหัสวิชา (Code)', 'ชื่อรายวิชา (Subject)', 'รหัสวิชารวม (Combined)', 'ระดับชั้น (Grade)', 'ภาคเรียน (Semester)', 'บันทึกล่าสุด']);
+    chapSheet.getRange(1, 1, 1, 8).setBackground('#1e3a8a').setFontColor('#ffffff').setFontWeight('bold');
+    chapSheet.setFrozenRows(1);
+  }
+
+  return ss;
+}
+
+/**
+ * บันทึกการตั้งค่าลง Google Sheets
+ */
+function saveSettingsToDatabaseSheet(systemSettings, chapterSettings) {
+  try {
+    var ss = getOrCreateDatabaseSpreadsheet();
+    var nowStr = Utilities.formatDate(new Date(), 'Asia/Bangkok', 'yyyy-MM-dd HH:mm:ss');
+
+    // 1. บันทึกการตั้งค่าระบบส่วนกลาง
+    if (systemSettings) {
+      var sysSheet = ss.getSheetByName('การตั้งค่าระบบ');
+      if (!sysSheet) {
+        sysSheet = ss.insertSheet('การตั้งค่าระบบ');
+        sysSheet.appendRow(['คีย์ (Key)', 'ค่าที่ตั้งไว้ (Value)', 'คำอธิบาย (Description)', 'บันทึกล่าสุด (Last Updated)']);
+        sysSheet.getRange(1, 1, 1, 4).setBackground('#0f172a').setFontColor('#ffffff').setFontWeight('bold');
+        sysSheet.setFrozenRows(1);
+      }
+
+      var keys = ['school', 'teacher', 'academicYear', 'mathScale'];
+      var descMap = {
+        school: 'ชื่อโรงเรียน/สถาบัน',
+        teacher: 'ชื่อครูผู้สอน',
+        academicYear: 'ปีการศึกษา',
+        mathScale: 'ขนาดตัวสมการ KaTeX'
+      };
+
+      var data = sysSheet.getDataRange().getValues();
+      var keyRowMap = {};
+      for (var r = 1; r < data.length; r++) {
+        keyRowMap[data[r][0]] = r + 1; // 1-based row index
+      }
+
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i];
+        if (systemSettings[k] !== undefined) {
+          if (keyRowMap[k]) {
+            sysSheet.getRange(keyRowMap[k], 2, 1, 3).setValues([[systemSettings[k], descMap[k] || '', nowStr]]);
+          } else {
+            sysSheet.appendRow([k, systemSettings[k], descMap[k] || '', nowStr]);
+          }
+        }
+      }
+    }
+
+    // 2. บันทึกการตั้งค่ารายบท (Chapter Cascade Settings)
+    if (chapterSettings && Array.isArray(chapterSettings)) {
+      var chapSheet = ss.getSheetByName('รหัสวิชาประจำบท');
+      if (!chapSheet) {
+        chapSheet = ss.insertSheet('รหัสวิชาประจำบท');
+        chapSheet.appendRow(['รหัสบท (ID)', 'ชื่อบทเรียน (Title)', 'รหัสวิชา (Code)', 'ชื่อรายวิชา (Subject)', 'รหัสวิชารวม (Combined)', 'ระดับชั้น (Grade)', 'ภาคเรียน (Semester)', 'บันทึกล่าสุด']);
+        chapSheet.getRange(1, 1, 1, 8).setBackground('#1e3a8a').setFontColor('#ffffff').setFontWeight('bold');
+        chapSheet.setFrozenRows(1);
+      }
+
+      var chapData = chapSheet.getDataRange().getValues();
+      var chapRowMap = {};
+      for (var cr = 1; cr < chapData.length; cr++) {
+        chapRowMap[chapData[cr][0]] = cr + 1;
+      }
+
+      for (var c = 0; c < chapterSettings.length; c++) {
+        var ch = chapterSettings[c];
+        if (ch && ch.id) {
+          var rowValues = [
+            ch.id,
+            ch.title || ch.chapterTitle || '',
+            ch.code || ch.subjectCode || 'ค31202',
+            ch.subject || ch.subjectName || 'คณิตศาสตร์เพิ่มเติม 2',
+            ch.combinedSubjectCode || '',
+            ch.grade || 'มัธยมศึกษาปีที่ 4',
+            ch.semester || 'ภาคเรียนที่ 2',
+            nowStr
+          ];
+
+          if (chapRowMap[ch.id]) {
+            chapSheet.getRange(chapRowMap[ch.id], 1, 1, 8).setValues([rowValues]);
+          } else {
+            chapSheet.appendRow(rowValues);
+          }
+        }
+      }
+    }
+
+    return {
+      success: true,
+      message: 'บันทึกการตั้งค่าลง Google Sheets สำเร็จแล้ว',
+      spreadsheetUrl: ss.getUrl(),
+      spreadsheetName: ss.getName(),
+      timestamp: nowStr
+    };
+  } catch (err) {
+    console.error('saveSettingsToDatabaseSheet error:', err);
+    return { success: false, error: err.toString() };
+  }
+}
+
+/**
+ * ดึงข้อมูลการตั้งค่าจาก Google Sheets
+ */
+function getSettingsFromDatabaseSheet() {
+  try {
+    var ss = getOrCreateDatabaseSpreadsheet();
+    var systemSettings = {};
+    var chapterSettings = {};
+
+    // 1. อ่านการตั้งค่าระบบ
+    var sysSheet = ss.getSheetByName('การตั้งค่าระบบ');
+    if (sysSheet) {
+      var sysData = sysSheet.getDataRange().getValues();
+      for (var r = 1; r < sysData.length; r++) {
+        var key = sysData[r][0];
+        var val = sysData[r][1];
+        if (key) {
+          systemSettings[key] = val;
+        }
+      }
+    }
+
+    // 2. อ่านการตั้งค่ารายบท
+    var chapSheet = ss.getSheetByName('รหัสวิชาประจำบท');
+    if (chapSheet) {
+      var chData = chapSheet.getDataRange().getValues();
+      for (var cr = 1; cr < chData.length; cr++) {
+        var id = chData[cr][0];
+        if (id) {
+          chapterSettings[id] = {
+            id: id,
+            title: chData[cr][1],
+            code: chData[cr][2],
+            subject: chData[cr][3],
+            combinedSubjectCode: chData[cr][4],
+            grade: chData[cr][5],
+            semester: chData[cr][6]
+          };
+        }
+      }
+    }
+
+    return {
+      success: true,
+      systemSettings: systemSettings,
+      chapterSettings: chapterSettings,
+      spreadsheetUrl: ss.getUrl()
+    };
+  } catch (err) {
+    return { success: false, error: err.toString() };
+  }
 }

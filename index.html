@@ -3447,9 +3447,37 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           <span style="font-size: 0.78rem; color: #64748b;">ปรับขนาดเศษส่วน $\frac{a}{b}$, กรณฑ์ $\sqrt[n]{x}$, และเลขชี้กำลัง $a^x$ ให้อ่านง่าย ชัดเจน</span>
         </div>
 
+        <!-- GOOGLE SHEETS DATABASE SECTION -->
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.9rem 1rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem;">
+            <div style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.92rem; color: #10b981;">
+              <span>📊 ฐานข้อมูล Google Sheets (Database Sync)</span>
+            </div>
+            <span id="gasApiStatusBadge" style="font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 500;">🟢 ออนไลน์พร้อมเชื่อมต่อ</span>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.45; margin-bottom: 0.65rem;">
+            ซิงค์การตั้งค่า รหัสวิชา และประวัติชีทกับ Google Sheets อัตโนมัติ ทำให้คุณครูเปิดใช้งานบน GitHub Pages ข้ามเครื่อง (คอม, iPad, มือถือ) แล้วได้ข้อมูลตรงกันตลอดเวลา
+          </div>
+          <div class="field-wrap" style="margin-bottom: 0.6rem;">
+            <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">Google Apps Script Web App Endpoint URL:</label>
+            <input type="text" class="penpot-input" id="inputGasApiUrl" style="font-size: 0.78rem; font-family: var(--font-mono); color: #6ee7b7;" placeholder="https://script.google.com/macros/s/.../exec">
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <button type="button" class="btn-action" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); color: #34d399; font-size: 0.78rem; padding: 0.45rem 0.8rem;" onclick="syncSettingsToGoogleSheet(true)">
+              <span>⬆️ ซิงค์ขึ้น Sheets ทันที</span>
+            </button>
+            <button type="button" class="btn-action" style="background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa; font-size: 0.78rem; padding: 0.45rem 0.8rem;" onclick="fetchSettingsFromGoogleSheet(true)">
+              <span>⬇️ ดึงข้อมูลล่าสุดจาก Sheets</span>
+            </button>
+            <a id="linkOpenGoogleSheetDb" href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration: none; background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15); color: #f1f5f9; font-size: 0.78rem; padding: 0.45rem 0.8rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <span>📊 เปิดตาราง Google Sheets</span>
+            </a>
+          </div>
+        </div>
+
         <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 8px; padding: 0.75rem 0.9rem; font-size: 0.82rem; color: #93c5fd; display: flex; align-items: center; gap: 0.5rem;">
           <span>💡</span>
-          <span>ข้อมูลที่บันทึกจะถูกเก็บในเครื่องของท่านอัตโนมัติ (LocalStorage) ไม่ต้องกรอกซ้ำเมื่อเข้าสู่ระบบใหม่</span>
+          <span>ข้อมูลที่บันทึกจะถูกเก็บในเครื่องของท่านอัตโนมัติ (LocalStorage) และซิงค์ขึ้น Google Sheets ส่วนกลางทันที</span>
         </div>
       </div>
 
@@ -7585,15 +7613,36 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           })
           .saveWorksheetData(payload);
       } else {
-        // Local simulation fallback
-        setTimeout(() => {
+        // Running on GitHub Pages or outside GAS iframe: Call Google Apps Script REST API
+        fetch(getGasApiUrl(), {
+          method: 'POST',
+          body: JSON.stringify({
+            action: 'save_worksheet',
+            payload: payload
+          })
+        })
+        .then(response => response.json())
+        .then(res => {
+          if (saveBtn) {
+            saveBtn.disabled = false;
+            saveBtn.innerHTML = originalBtnHtml;
+          }
+          if (res && res.success) {
+            res.exerciseCount = payload.exercises.length;
+            showSaveSuccessModal(res);
+          } else {
+            alert('เกิดข้อผิดพลาดในการบันทึกเอกสาร: ' + (res ? res.error : 'ไม่ทราบสาเหตุ'));
+          }
+        })
+        .catch(err => {
+          console.warn('GAS REST save failed, using local simulation fallback:', err);
           if (saveBtn) {
             saveBtn.disabled = false;
             saveBtn.innerHTML = originalBtnHtml;
           }
           const mockRes = {
             success: true,
-            message: 'จำลองการบันทึกสำเร็จ (โหมด Local Browser)',
+            message: 'บันทึกในเครื่องจำลอง (เนื่องจากเชื่อมต่อ API ไม่สำเร็จ)',
             fileName: `[${payload.gradeShort}] ${payload.sheet} - ${payload.topicTitle}`,
             folderName: `เอกสารการสอนคณิตศาสตร์ สสวท. (MathSheet AI) / ${payload.gradeShort}`,
             docUrl: 'https://docs.google.com/document/u/0/',
@@ -7603,9 +7652,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             timestamp: new Date().toLocaleString('th-TH'),
             isLocalMock: true
           };
-          console.log('Saved payload to Drive backend (Simulation):', payload);
           showSaveSuccessModal(mockRes);
-        }, 500);
+        });
       }
     }
 
@@ -7646,6 +7694,26 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     // -------------------------------------------------------------
     // SYSTEM SETTINGS & CHAPTER CASCADE LOGIC
     // -------------------------------------------------------------
+    const DEFAULT_GAS_API_URL = 'https://script.google.com/macros/s/AKfycbzZqi430lwr86KWrIJev5SWw-Y8VzLucxtUYMVY6bQIvsOzmd7TKCNHgH5JVnqbzII8/exec';
+
+    function getGasApiUrl() {
+      try {
+        return localStorage.getItem('mathSheet_gasApiUrl') || DEFAULT_GAS_API_URL;
+      } catch (e) {
+        return DEFAULT_GAS_API_URL;
+      }
+    }
+
+    function setGasApiUrl(url) {
+      try {
+        if (url && url.trim()) {
+          localStorage.setItem('mathSheet_gasApiUrl', url.trim());
+        }
+      } catch (e) {
+        console.warn('LocalStorage gasApiUrl save error:', e);
+      }
+    }
+
     let currentSystemSettings = {
       school: 'โรงเรียนมัธยมวิทยาคม (สสวท.)',
       teacher: 'กลุ่มสาระการเรียนรู้คณิตศาสตร์',
@@ -7658,6 +7726,16 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       document.getElementById('inputSystemTeacher').value = currentSystemSettings.teacher || '';
       document.getElementById('inputSystemAcademicYear').value = currentSystemSettings.academicYear || '';
       document.getElementById('selectMathScale').value = currentSystemSettings.mathScale || '1.15';
+      
+      const gasInput = document.getElementById('inputGasApiUrl');
+      if (gasInput) gasInput.value = getGasApiUrl();
+
+      const savedSheetUrl = localStorage.getItem('mathSheet_spreadsheetUrl');
+      const sheetLink = document.getElementById('linkOpenGoogleSheetDb');
+      if (sheetLink && savedSheetUrl) {
+        sheetLink.href = savedSheetUrl;
+      }
+
       document.getElementById('systemSettingsModal').classList.add('open');
     }
 
@@ -7670,6 +7748,11 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       const teacher = document.getElementById('inputSystemTeacher').value.trim() || 'กลุ่มสาระการเรียนรู้คณิตศาสตร์';
       const academicYear = document.getElementById('inputSystemAcademicYear').value.trim() || 'ภาคเรียนที่ 2 ปีการศึกษา 2567';
       const mathScale = document.getElementById('selectMathScale').value || '1.15';
+
+      const gasInput = document.getElementById('inputGasApiUrl');
+      if (gasInput && gasInput.value.trim()) {
+        setGasApiUrl(gasInput.value.trim());
+      }
 
       currentSystemSettings = { school, teacher, academicYear, mathScale };
       try {
@@ -7691,6 +7774,175 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       closeSystemSettingsModal();
       showSystemToast('✅ บันทึกการตั้งค่าระบบส่วนกลางเรียบร้อยแล้ว');
+
+      // Sync asynchronously to Google Sheets database
+      syncSettingsToGoogleSheet(false);
+    }
+
+    // -------------------------------------------------------------
+    // GOOGLE SHEETS DATABASE API SYNC CONTROLLER
+    // -------------------------------------------------------------
+    async function syncSettingsToGoogleSheet(showToastNotice = false) {
+      const badge = document.getElementById('gasApiStatusBadge');
+      if (badge) {
+        badge.textContent = '⏳ กำลังซิงค์ขึ้น Sheets...';
+        badge.style.background = 'rgba(234, 179, 8, 0.2)';
+        badge.style.color = '#fde047';
+      }
+
+      const chapterList = CHAPTERS_DATA.map(chap => ({
+        id: chap.id,
+        title: chap.chapterTitle,
+        code: chap.subjectCode || 'ค31202',
+        subject: chap.subjectName || 'คณิตศาสตร์เพิ่มเติม 2',
+        combinedSubjectCode: chap.combinedSubjectCode || `${chap.subjectName || 'คณิตศาสตร์เพิ่มเติม 2'} (${chap.subjectCode || 'ค31202'})`,
+        grade: chap.grade || 'มัธยมศึกษาปีที่ 4',
+        semester: chap.semester || 'ภาคเรียนที่ 2'
+      }));
+
+      try {
+        const response = await fetch(getGasApiUrl(), {
+          method: 'POST',
+          body: JSON.stringify({
+            action: 'save_settings',
+            systemSettings: currentSystemSettings,
+            chapterSettings: chapterList
+          })
+        });
+        const result = await response.json();
+
+        if (result && result.success) {
+          if (badge) {
+            badge.textContent = '🟢 ซิงค์กับ Google Sheets สำเร็จ';
+            badge.style.background = 'rgba(16, 185, 129, 0.2)';
+            badge.style.color = '#34d399';
+          }
+          if (result.spreadsheetUrl) {
+            localStorage.setItem('mathSheet_spreadsheetUrl', result.spreadsheetUrl);
+            const link = document.getElementById('linkOpenGoogleSheetDb');
+            if (link) link.href = result.spreadsheetUrl;
+          }
+          if (showToastNotice) {
+            showSystemToast('📊 ซิงค์ข้อมูลการตั้งค่าขึ้น Google Sheets สำเร็จเรียบร้อย');
+          }
+        } else {
+          throw new Error(result ? result.error : 'ไม่ทราบสาเหตุ');
+        }
+      } catch (err) {
+        console.warn('syncSettingsToGoogleSheet error:', err);
+        if (badge) {
+          badge.textContent = '🟡 ออฟไลน์ (บันทึกในเครื่องแทน)';
+          badge.style.background = 'rgba(239, 68, 68, 0.2)';
+          badge.style.color = '#f87171';
+        }
+        if (showToastNotice) {
+          showSystemToast('⚠️ ไม่สามารถเชื่อมต่อ Google Sheets ได้ (บันทึกไว้ในเบราว์เซอร์แล้ว)');
+        }
+      }
+    }
+
+    async function fetchSettingsFromGoogleSheet(showToastNotice = false) {
+      const badge = document.getElementById('gasApiStatusBadge');
+      if (badge) {
+        badge.textContent = '⏳ กำลังดึงข้อมูลจาก Sheets...';
+        badge.style.background = 'rgba(234, 179, 8, 0.2)';
+        badge.style.color = '#fde047';
+      }
+
+      try {
+        const response = await fetch(getGasApiUrl(), {
+          method: 'POST',
+          body: JSON.stringify({
+            action: 'get_settings'
+          })
+        });
+        const result = await response.json();
+
+        if (result && result.success) {
+          // 1. Sync System Settings
+          if (result.systemSettings) {
+            const sys = result.systemSettings;
+            if (sys.school) currentSystemSettings.school = sys.school;
+            if (sys.teacher) currentSystemSettings.teacher = sys.teacher;
+            if (sys.academicYear) currentSystemSettings.academicYear = sys.academicYear;
+            if (sys.mathScale) currentSystemSettings.mathScale = String(sys.mathScale);
+
+            try {
+              localStorage.setItem('mathSheet_systemSettings', JSON.stringify(currentSystemSettings));
+            } catch (e) {}
+
+            if (document.getElementById('fieldSchool')) document.getElementById('fieldSchool').value = currentSystemSettings.school;
+            if (document.getElementById('fieldTeacher')) document.getElementById('fieldTeacher').value = currentSystemSettings.teacher;
+            if (document.getElementById('inputSystemSchool')) document.getElementById('inputSystemSchool').value = currentSystemSettings.school;
+            if (document.getElementById('inputSystemTeacher')) document.getElementById('inputSystemTeacher').value = currentSystemSettings.teacher;
+            if (document.getElementById('inputSystemAcademicYear')) document.getElementById('inputSystemAcademicYear').value = currentSystemSettings.academicYear;
+            if (document.getElementById('selectMathScale')) document.getElementById('selectMathScale').value = currentSystemSettings.mathScale;
+
+            applyMathScale(currentSystemSettings.mathScale);
+          }
+
+          // 2. Sync Chapter Settings Cascade
+          if (result.chapterSettings) {
+            Object.keys(result.chapterSettings).forEach(chapId => {
+              const chData = result.chapterSettings[chapId];
+              const chap = CHAPTERS_DATA.find(c => c.id === chapId);
+              if (chap && chData) {
+                chap.subjectCode = chData.code;
+                chap.subjectName = chData.subject;
+                chap.combinedSubjectCode = chData.combinedSubjectCode || `${chData.subject} (${chData.code})`;
+                chap.grade = chData.grade;
+                chap.semester = chData.semester;
+
+                try {
+                  localStorage.setItem('mathSheet_chapterSettings_' + chapId, JSON.stringify(chData));
+                } catch (e) {}
+
+                if (Array.isArray(chap.topics)) {
+                  chap.topics.forEach(t => {
+                    if (CURRICULUM_DATABASE[t.id]) {
+                      CURRICULUM_DATABASE[t.id].subjectCode = chap.combinedSubjectCode;
+                      if (chap.grade) CURRICULUM_DATABASE[t.id].grade = chap.grade;
+                      if (chap.semester) CURRICULUM_DATABASE[t.id].semester = chap.semester;
+                    }
+                  });
+                }
+              }
+            });
+            renderSidebarTree();
+          }
+
+          if (result.spreadsheetUrl) {
+            localStorage.setItem('mathSheet_spreadsheetUrl', result.spreadsheetUrl);
+            const link = document.getElementById('linkOpenGoogleSheetDb');
+            if (link) link.href = result.spreadsheetUrl;
+          }
+
+          if (badge) {
+            badge.textContent = '🟢 อัปเดตข้อมูลตรงกับ Sheets แล้ว';
+            badge.style.background = 'rgba(16, 185, 129, 0.2)';
+            badge.style.color = '#34d399';
+          }
+
+          syncToPaper();
+          renderPaperSheet();
+
+          if (showToastNotice) {
+            showSystemToast('📥 ดึงข้อมูลการตั้งค่าล่าสุดจาก Google Sheets สำเร็จ');
+          }
+        } else {
+          throw new Error(result ? result.error : 'ไม่พบข้อมูล');
+        }
+      } catch (err) {
+        console.warn('fetchSettingsFromGoogleSheet error:', err);
+        if (badge) {
+          badge.textContent = '🟡 โหลดจาก LocalStorage ในเครื่อง';
+          badge.style.background = 'rgba(239, 68, 68, 0.2)';
+          badge.style.color = '#f87171';
+        }
+        if (showToastNotice) {
+          showSystemToast('⚠️ ไม่สามารถดึงข้อมูลจาก Sheets ได้ (ใช้ข้อมูลในเครื่องแทน)');
+        }
+      }
     }
 
     function applyMathScale(scale) {
@@ -7811,6 +8063,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       closeChapterSettingsModal();
       showSystemToast(`🚀 ปรับใช้รหัสวิชา ${code} สู่ 4 คาบใน${chap.chapterTitle.split(':')[0]} เรียบร้อยแล้ว`);
+
+      // Sync asynchronously to Google Sheets database
+      syncSettingsToGoogleSheet(false);
     }
 
     // Load all saved settings from localStorage
@@ -7942,6 +8197,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       }
 
       initKaTeXPolling();
+
+      // Fetch latest settings from Google Sheets database in background
+      try {
+        fetchSettingsFromGoogleSheet(false);
+      } catch (err) {
+        console.warn('fetchSettingsFromGoogleSheet background error:', err);
+      }
     }
 
     // Support both pre-loaded and asynchronous execution environments
