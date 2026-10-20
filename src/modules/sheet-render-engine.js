@@ -25,6 +25,19 @@
     const el = rootElement || document.body;
     if (typeof window.renderMathInElement === 'function') {
       try {
+        // Pre-sanitize any equation-stage that might have unrendered \begin{...} without $$
+        const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage') : [];
+        if (stages.length) {
+          stages.forEach(function(stg) {
+            if (!stg.querySelector('.katex')) {
+              const raw = stg.textContent.trim();
+              if (raw.indexOf('\\begin{aligned}') !== -1 && raw.indexOf('$$') === -1 && raw.indexOf('\\[') === -1) {
+                stg.innerHTML = '$$' + raw + '$$';
+              }
+            }
+          });
+        }
+
         window.renderMathInElement(el, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
@@ -222,7 +235,16 @@
       }
       const conceptBody = document.getElementById('contentConceptBody');
       if (conceptBody) {
-        conceptBody.innerHTML = modeData.conceptHtml || '';
+        let ch = modeData.conceptHtml || '';
+        // Defensive check: ensure any equation-stage with \begin{aligned} has $$
+        ch = ch.replace(/<div class="equation-stage">([\s\S]*?)<\/div>/g, function(match, inner) {
+          const trimmed = inner.trim();
+          if (trimmed && !trimmed.startsWith('$$') && !trimmed.startsWith('\\[') && trimmed.includes('\\begin{')) {
+            return '<div class="equation-stage">\n    $$' + trimmed + '$$\n  </div>';
+          }
+          return match;
+        });
+        conceptBody.innerHTML = ch;
       }
 
       // Update Part 2 (Exercises)
@@ -293,7 +315,11 @@
             ${ex.latex ? `
               <div class="sheet-solution-box" style="margin: 0.3rem 0 0.15rem 0; padding: 0.45rem 0.75rem; background: #f8fafc; border-left: 3px solid #2563eb; border-radius: 4px;">
                 <div style="font-size: 0.88rem; font-weight: 600; color: #1d4ed8; margin-bottom: 0.2rem;">📘 แสดงวิธีทำ:</div>
-                <div class="equation-stage" style="overflow-x: auto; color: #0f172a;">$$${ex.latex}$$</div>
+                <div class="equation-stage" style="overflow-x: auto; color: #0f172a;">$$${(function(lat) {
+                  let l = (lat || '').trim();
+                  if (l.startsWith('$$') && l.endsWith('$$')) l = l.slice(2, -2).trim();
+                  return l.replace(/\\\\([a-zA-Z]+)/g, '\\$1');
+                })(ex.latex)}$$</div>
                 ${ex.placeholder ? `<div style="font-size: 0.82rem; color: #64748b; font-style: italic; margin-top: 0.2rem;">${ex.placeholder}</div>` : ''}
               </div>
             ` : `

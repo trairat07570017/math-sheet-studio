@@ -4,28 +4,47 @@ Complex Numbers (จำนวนเชิงซ้อน ม.5) - Part 1
 Chapters 1 & 2: คาบที่ 1 ถึง 8
 """
 
+import re
+
+def clean_latex(s):
+    if not s:
+        return ""
+    s = s.strip()
+    if s.startswith("$$") and s.endswith("$$"):
+        s = s[2:-2].strip()
+    return re.sub(r"\\\\([a-zA-Z]+)", lambda m: "\\" + m.group(1), s)
+
+def clean_text(s):
+    if not s:
+        return ""
+    return re.sub(r"\\\\([a-zA-Z]+)", lambda m: "\\" + m.group(1), s)
+
 def register_complex_part1(lessons_dict):
     def add(lid, chap_num, p_num, title, desc, f_title, formulas, tip, ex1, q1, q2, ex2, q3, q4, ex3, q5, q6):
+        f_clean = clean_latex(formulas)
+        if not (f_clean.startswith("$$") or f_clean.startswith("\\[")):
+            f_clean = f"$${f_clean}$$"
+
         concept_html = f"""<div class="sheet-formula-box">
-  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;">📌 {f_title}</div>
+  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;">📌 {clean_text(f_title)}</div>
   <div class="equation-stage">
-    {formulas}
+    {f_clean}
   </div>
   <div style="font-size: 0.88rem; color: #475569; margin-top: 0.25rem;">
-    💡 <strong>เทคนิคคิดเร็ว:</strong> {tip}
+    💡 <strong>เทคนิคคิดเร็ว:</strong> {clean_text(tip)}
   </div>
 </div>"""
 
         ex_list = [
-            {"title": f"ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) {ex1[0]}", "points": "", "latex": ex1[1], "placeholder": f"(วิธีทำตามเฉลยด้านบน: {ex1[2]})"},
-            {"title": f"ข้อที่ 1. {q1[0]}", "answer": q1[1], "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
-            {"title": f"ข้อที่ 2. {q2[0]}", "answer": q2[1], "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
-            {"title": f"ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) {ex2[0]}", "points": "", "latex": ex2[1], "placeholder": f"(วิธีทำตามเฉลยด้านบน: {ex2[2]})"},
-            {"title": f"ข้อที่ 3. {q3[0]}", "answer": q3[1], "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
-            {"title": f"ข้อที่ 4. {q4[0]}", "answer": q4[1], "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
-            {"title": f"ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) {ex3[0]}", "points": "", "latex": ex3[1], "placeholder": f"(วิธีทำตามเฉลยด้านบน: {ex3[2]})"},
-            {"title": f"ข้อที่ 5. {q5[0]}", "answer": q5[1], "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
-            {"title": f"ข้อที่ 6. {q6[0]}", "answer": q6[1], "points": "", "latex": "", "answerType": "handwriting-large", "placeholder": ""}
+            {"title": f"ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) {clean_text(ex1[0])}", "points": "", "latex": clean_latex(ex1[1]), "placeholder": f"(วิธีทำตามเฉลยด้านบน: {clean_text(ex1[2])})"},
+            {"title": f"ข้อที่ 1. {clean_text(q1[0])}", "answer": clean_text(q1[1]), "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
+            {"title": f"ข้อที่ 2. {clean_text(q2[0])}", "answer": clean_text(q2[1]), "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
+            {"title": f"ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) {clean_text(ex2[0])}", "points": "", "latex": clean_latex(ex2[1]), "placeholder": f"(วิธีทำตามเฉลยด้านบน: {clean_text(ex2[2])})"},
+            {"title": f"ข้อที่ 3. {clean_text(q3[0])}", "answer": clean_text(q3[1]), "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
+            {"title": f"ข้อที่ 4. {clean_text(q4[0])}", "answer": clean_text(q4[1]), "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
+            {"title": f"ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) {clean_text(ex3[0])}", "points": "", "latex": clean_latex(ex3[1]), "placeholder": f"(วิธีทำตามเฉลยด้านบน: {clean_text(ex3[2])})"},
+            {"title": f"ข้อที่ 5. {clean_text(q5[0])}", "answer": clean_text(q5[1]), "points": "", "latex": "", "answerType": "handwriting-normal", "placeholder": ""},
+            {"title": f"ข้อที่ 6. {clean_text(q6[0])}", "answer": clean_text(q6[1]), "points": "", "latex": "", "answerType": "handwriting-large", "placeholder": ""}
         ]
 
         lessons_dict[lid] = {

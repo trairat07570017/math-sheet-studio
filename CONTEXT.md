@@ -325,6 +325,7 @@
   - รวมเข้ากับ `src/data/curriculum.json` ทำให้คลังบทเรียนในสตูดิโอมีขนาดรวม **48 คาบเรียน** (ม.4 Expo-Log 24 คาบ + ม.5 Complex Numbers 24 คาบ)
   - อัปเดต `CurriculumStore` ให้รองรับหลายหน่วยการเรียนรู้พร้อมกัน (`unit-expo-log` และ `unit-complex` สถานะ `"ready"`)
   - เมนูด้านซ้ายและระบบค้นหาแบบอัจฉริยะ (⌘K) สามารถค้นหาและสลับบทเรียนข้ามหน่วยได้อย่างราบรื่น
+  - **KaTeX Delimiters & Double-Backslash Normalization:** แก้ไขการตกหล่นของตัวคั่น `$$` ในกล่องสูตรตอนที่ 1 ทั้ง 24 คาบ และทำความสะอาดคำสั่ง LaTeX ที่ติด backslash ซ้อน (`\\frac`, `\\cos`, `\\text`) พร้อมเพิ่มระบบตรวจจับและ Wrap `$$` อัตโนมัติ (Defensive Pre-sanitization) ใน `SheetRenderEngine.typesetMath` ทำให้สมการทุกจุดเรนเดอร์คมชัด 100% ปราศจากโค้ดดิบหลุดรอด
 
 ---
 

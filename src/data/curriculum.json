@@ -3277,7 +3277,7 @@
     "desc": "นิยามหน่วยจินตภาพ i = sqrt(-1), i^2 = -1 และการคำนวณวัฏจักรเลขยกกำลัง i^n",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 1: กำเนิดจำนวนเชิงซ้อนและหน่วยจินตภาพ (i)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามหน่วยจินตภาพ $i$ และวัฏจักรของ $i^n$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\ni &= \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1 \\\\[4pt]\ni^n &= i^r \\quad \\text{เมื่อ } r \\text{ คือเศษจากการนำ } n \\div 4 \\quad (i^0 = i^4 = 1)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ผลบวกของ $i$ ยกกำลังเรียงติดกัน 4 พจน์ มีค่าเท่ากับศูนย์เสมอ นั่นคือ $i^n + i^{n+1} + i^{n+2} + i^{n+3} = 0$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามหน่วยจินตภาพ $i$ และวัฏจักรของ $i^n$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\ni &= \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1 \\\\[4pt]\ni^n &= i^r \\quad \\text{เมื่อ } r \\text{ คือเศษจากการนำ } n \\div 4 \\quad (i^0 = i^4 = 1)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ผลบวกของ $i$ ยกกำลังเรียงติดกัน 4 พจน์ มีค่าเท่ากับศูนย์เสมอ นั่นคือ $i^n + i^{n+1} + i^{n+2} + i^{n+3} = 0$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $i^{25} + i^{50} + i^{75} + i^{100}$",
@@ -3349,7 +3349,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 1: กำเนิดจำนวนเชิงซ้อนและหน่วยจินตภาพ (i)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามหน่วยจินตภาพ $i$ และวัฏจักรของ $i^n$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\ni &= \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1 \\\\[4pt]\ni^n &= i^r \\quad \\text{เมื่อ } r \\text{ คือเศษจากการนำ } n \\div 4 \\quad (i^0 = i^4 = 1)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ผลบวกของ $i$ ยกกำลังเรียงติดกัน 4 พจน์ มีค่าเท่ากับศูนย์เสมอ นั่นคือ $i^n + i^{n+1} + i^{n+2} + i^{n+3} = 0$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามหน่วยจินตภาพ $i$ และวัฏจักรของ $i^n$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\ni &= \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1 \\\\[4pt]\ni^n &= i^r \\quad \\text{เมื่อ } r \\text{ คือเศษจากการนำ } n \\div 4 \\quad (i^0 = i^4 = 1)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ผลบวกของ $i$ ยกกำลังเรียงติดกัน 4 พจน์ มีค่าเท่ากับศูนย์เสมอ นั่นคือ $i^n + i^{n+1} + i^{n+2} + i^{n+3} = 0$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $i^{25} + i^{50} + i^{75} + i^{100}$",
@@ -3373,7 +3373,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 1: กำเนิดจำนวนเชิงซ้อนและหน่วยจินตภาพ (i)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามหน่วยจินตภาพ $i$ และวัฏจักรของ $i^n$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\ni &= \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1 \\\\[4pt]\ni^n &= i^r \\quad \\text{เมื่อ } r \\text{ คือเศษจากการนำ } n \\div 4 \\quad (i^0 = i^4 = 1)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ผลบวกของ $i$ ยกกำลังเรียงติดกัน 4 พจน์ มีค่าเท่ากับศูนย์เสมอ นั่นคือ $i^n + i^{n+1} + i^{n+2} + i^{n+3} = 0$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามหน่วยจินตภาพ $i$ และวัฏจักรของ $i^n$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\ni &= \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1 \\\\[4pt]\ni^n &= i^r \\quad \\text{เมื่อ } r \\text{ คือเศษจากการนำ } n \\div 4 \\quad (i^0 = i^4 = 1)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ผลบวกของ $i$ ยกกำลังเรียงติดกัน 4 พจน์ มีค่าเท่ากับศูนย์เสมอ นั่นคือ $i^n + i^{n+1} + i^{n+2} + i^{n+3} = 0$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาค่าของ $i^{37} - i^{58} + i^{79} - i^{96}$",
@@ -3440,7 +3440,7 @@
     "desc": "การเขียนจำนวนเชิงซ้อนในรูปคู่อันดับ (a, b) และรูปมาตรฐาน z = a + bi ส่วนจริง Re(z) และส่วนจินตภาพ Im(z)",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 2: นิยามคู่อันดับและรูปมาตรฐาน a + bi",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานของจำนวนเชิงซ้อน $z = a + bi$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= a + bi \\quad (a, b \\in \\mathbb{R}) \\\\[4pt]\n\\text{Re}(z) &= a \\quad (\\text{ส่วนจริง}), \\quad \\text{Im}(z) = b \\quad (\\text{ส่วนจินตภาพ})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ส่วนจินตภาพ $\\text{Im}(z)$ คือสัมประสิทธิ์ $b$ เท่านั้น โดยไม่นำสัญลักษณ์ $i$ มาเขียน\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานของจำนวนเชิงซ้อน $z = a + bi$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= a + bi \\quad (a, b \\in \\mathbb{R}) \\\\[4pt]\n\\text{Re}(z) &= a \\quad (\\text{ส่วนจริง}), \\quad \\text{Im}(z) = b \\quad (\\text{ส่วนจินตภาพ})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ส่วนจินตภาพ $\\text{Im}(z)$ คือสัมประสิทธิ์ $b$ เท่านั้น โดยไม่นำสัญลักษณ์ $i$ มาเขียน\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 4 - 7i$ จงหา $\\text{Re}(z)$ และ $\\text{Im}(z)$",
@@ -3512,7 +3512,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 2: นิยามคู่อันดับและรูปมาตรฐาน a + bi",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานของจำนวนเชิงซ้อน $z = a + bi$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= a + bi \\quad (a, b \\in \\mathbb{R}) \\\\[4pt]\n\\text{Re}(z) &= a \\quad (\\text{ส่วนจริง}), \\quad \\text{Im}(z) = b \\quad (\\text{ส่วนจินตภาพ})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ส่วนจินตภาพ $\\text{Im}(z)$ คือสัมประสิทธิ์ $b$ เท่านั้น โดยไม่นำสัญลักษณ์ $i$ มาเขียน\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานของจำนวนเชิงซ้อน $z = a + bi$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= a + bi \\quad (a, b \\in \\mathbb{R}) \\\\[4pt]\n\\text{Re}(z) &= a \\quad (\\text{ส่วนจริง}), \\quad \\text{Im}(z) = b \\quad (\\text{ส่วนจินตภาพ})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ส่วนจินตภาพ $\\text{Im}(z)$ คือสัมประสิทธิ์ $b$ เท่านั้น โดยไม่นำสัญลักษณ์ $i$ มาเขียน\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 4 - 7i$ จงหา $\\text{Re}(z)$ และ $\\text{Im}(z)$",
@@ -3536,7 +3536,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 2: นิยามคู่อันดับและรูปมาตรฐาน a + bi",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานของจำนวนเชิงซ้อน $z = a + bi$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= a + bi \\quad (a, b \\in \\mathbb{R}) \\\\[4pt]\n\\text{Re}(z) &= a \\quad (\\text{ส่วนจริง}), \\quad \\text{Im}(z) = b \\quad (\\text{ส่วนจินตภาพ})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ส่วนจินตภาพ $\\text{Im}(z)$ คือสัมประสิทธิ์ $b$ เท่านั้น โดยไม่นำสัญลักษณ์ $i$ มาเขียน\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานของจำนวนเชิงซ้อน $z = a + bi$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= a + bi \\quad (a, b \\in \\mathbb{R}) \\\\[4pt]\n\\text{Re}(z) &= a \\quad (\\text{ส่วนจริง}), \\quad \\text{Im}(z) = b \\quad (\\text{ส่วนจินตภาพ})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ส่วนจินตภาพ $\\text{Im}(z)$ คือสัมประสิทธิ์ $b$ เท่านั้น โดยไม่นำสัญลักษณ์ $i$ มาเขียน\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. กำหนด $z = -3 + 5i$ จงหาค่าของ $2\\text{Re}(z) - 3\\text{Im}(z)$",
@@ -3603,7 +3603,7 @@
     "desc": "หลักการเท่ากันของจำนวนเชิงซ้อน การเทียบส่วนจริงเท่ากับส่วนจริง และส่วนจินตภาพเท่ากับส่วนจินตภาพ",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 3: การเท่ากันของจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการเท่ากัน $a + bi = c + di$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\na + bi = c + di \\iff a = c \\quad \\text{และ} \\quad b = d\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนเชิงซ้อนไม่มีสมบัติการจัดลำดับ (ไม่มีมากกว่าหรือน้อยกว่า เช่น $2+3i > 1+2i$ ไม่มีความหมาย)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการเท่ากัน $a + bi = c + di$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na + bi = c + di \\iff a = c \\quad \\text{และ} \\quad b = d\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนเชิงซ้อนไม่มีสมบัติการจัดลำดับ (ไม่มีมากกว่าหรือน้อยกว่า เช่น $2+3i > 1+2i$ ไม่มีความหมาย)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาจำนวนจริง $x, y$ ที่ทำให้ $(2x - 3) + (y + 4)i = 5 - 2i$",
@@ -3675,7 +3675,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 3: การเท่ากันของจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการเท่ากัน $a + bi = c + di$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\na + bi = c + di \\iff a = c \\quad \\text{และ} \\quad b = d\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนเชิงซ้อนไม่มีสมบัติการจัดลำดับ (ไม่มีมากกว่าหรือน้อยกว่า เช่น $2+3i > 1+2i$ ไม่มีความหมาย)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการเท่ากัน $a + bi = c + di$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na + bi = c + di \\iff a = c \\quad \\text{และ} \\quad b = d\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนเชิงซ้อนไม่มีสมบัติการจัดลำดับ (ไม่มีมากกว่าหรือน้อยกว่า เช่น $2+3i > 1+2i$ ไม่มีความหมาย)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาจำนวนจริง $x, y$ ที่ทำให้ $(2x - 3) + (y + 4)i = 5 - 2i$",
@@ -3699,7 +3699,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 3: การเท่ากันของจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการเท่ากัน $a + bi = c + di$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\na + bi = c + di \\iff a = c \\quad \\text{และ} \\quad b = d\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนเชิงซ้อนไม่มีสมบัติการจัดลำดับ (ไม่มีมากกว่าหรือน้อยกว่า เช่น $2+3i > 1+2i$ ไม่มีความหมาย)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการเท่ากัน $a + bi = c + di$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na + bi = c + di \\iff a = c \\quad \\text{และ} \\quad b = d\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนเชิงซ้อนไม่มีสมบัติการจัดลำดับ (ไม่มีมากกว่าหรือน้อยกว่า เช่น $2+3i > 1+2i$ ไม่มีความหมาย)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาจำนวนจริง $x, y$ จากสมการ $(3x + 1) + (4 - 2y)i = 10 + 8i$",
@@ -3766,7 +3766,7 @@
     "desc": "การบวกและลบจำนวนเชิงซ้อน เอกลักษณ์การบวก 0 และตัวผกผันการบวก -z",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 4: การบวกและการลบจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การบวกและการลบจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n(a + bi) + (c + di) &= (a + c) + (b + d)i \\\\[4pt]\n(a + bi) - (c + di) &= (a - c) + (b - d)i \\\\[4pt]\n\\text{ตัวผกผันการบวก: } -z &= -a - bi \\quad (z + (-z) = 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> บวก/ลบ ส่วนจริงกับส่วนจริง และส่วนจินตภาพกับส่วนจินตภาพ เสมือนการรวมพจน์ในพีชคณิต\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การบวกและการลบจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n(a + bi) + (c + di) &= (a + c) + (b + d)i \\\\[4pt]\n(a + bi) - (c + di) &= (a - c) + (b - d)i \\\\[4pt]\n\\text{ตัวผกผันการบวก: } -z &= -a - bi \\quad (z + (-z) = 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> บวก/ลบ ส่วนจริงกับส่วนจริง และส่วนจินตภาพกับส่วนจินตภาพ เสมือนการรวมพจน์ในพีชคณิต\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z_1 = 3 - 5i$ และ $z_2 = -2 + 8i$ จงหา $z_1 + z_2$ และ $2z_1 - 3z_2$",
@@ -3838,7 +3838,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 4: การบวกและการลบจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การบวกและการลบจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n(a + bi) + (c + di) &= (a + c) + (b + d)i \\\\[4pt]\n(a + bi) - (c + di) &= (a - c) + (b - d)i \\\\[4pt]\n\\text{ตัวผกผันการบวก: } -z &= -a - bi \\quad (z + (-z) = 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> บวก/ลบ ส่วนจริงกับส่วนจริง และส่วนจินตภาพกับส่วนจินตภาพ เสมือนการรวมพจน์ในพีชคณิต\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การบวกและการลบจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n(a + bi) + (c + di) &= (a + c) + (b + d)i \\\\[4pt]\n(a + bi) - (c + di) &= (a - c) + (b - d)i \\\\[4pt]\n\\text{ตัวผกผันการบวก: } -z &= -a - bi \\quad (z + (-z) = 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> บวก/ลบ ส่วนจริงกับส่วนจริง และส่วนจินตภาพกับส่วนจินตภาพ เสมือนการรวมพจน์ในพีชคณิต\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z_1 = 3 - 5i$ และ $z_2 = -2 + 8i$ จงหา $z_1 + z_2$ และ $2z_1 - 3z_2$",
@@ -3862,7 +3862,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 4: การบวกและการลบจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การบวกและการลบจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n(a + bi) + (c + di) &= (a + c) + (b + d)i \\\\[4pt]\n(a + bi) - (c + di) &= (a - c) + (b - d)i \\\\[4pt]\n\\text{ตัวผกผันการบวก: } -z &= -a - bi \\quad (z + (-z) = 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> บวก/ลบ ส่วนจริงกับส่วนจริง และส่วนจินตภาพกับส่วนจินตภาพ เสมือนการรวมพจน์ในพีชคณิต\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การบวกและการลบจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n(a + bi) + (c + di) &= (a + c) + (b + d)i \\\\[4pt]\n(a + bi) - (c + di) &= (a - c) + (b - d)i \\\\[4pt]\n\\text{ตัวผกผันการบวก: } -z &= -a - bi \\quad (z + (-z) = 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> บวก/ลบ ส่วนจริงกับส่วนจริง และส่วนจินตภาพกับส่วนจินตภาพ เสมือนการรวมพจน์ในพีชคณิต\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาผลบวก $(4 - 7i) + (-6 + 3i) - (2 - 5i)$",
@@ -3929,7 +3929,7 @@
     "desc": "การคูณจำนวนเชิงซ้อน เอกลักษณ์การคูณ 1 และการกระจายกำลังสองสมบูรณ์โดยใช้สมบัติ i^2 = -1",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 5: การคูณจำนวนเชิงซ้อนและการกระจายกำลังสอง",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการคูณจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n(a + bi)(c + di) &= (ac - bd) + (ad + bc)i \\\\[4pt]\n(a + bi)^2 &= (a^2 - b^2) + 2abi\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ พจน์หน้าคูณหน้าลบหลังคูณหลัง $(ac-bd)$ เพราะ $i^2 = -1$ ส่วนพจน์ $i$ คิดจากไกลคูณไกลบวกใกล้คูณใกล้\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการคูณจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n(a + bi)(c + di) &= (ac - bd) + (ad + bc)i \\\\[4pt]\n(a + bi)^2 &= (a^2 - b^2) + 2abi\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ พจน์หน้าคูณหน้าลบหลังคูณหลัง $(ac-bd)$ เพราะ $i^2 = -1$ ส่วนพจน์ $i$ คิดจากไกลคูณไกลบวกใกล้คูณใกล้\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาผลคูณของ $(2 + 3i)(4 - 5i)$",
@@ -4001,7 +4001,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 5: การคูณจำนวนเชิงซ้อนและการกระจายกำลังสอง",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการคูณจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n(a + bi)(c + di) &= (ac - bd) + (ad + bc)i \\\\[4pt]\n(a + bi)^2 &= (a^2 - b^2) + 2abi\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ พจน์หน้าคูณหน้าลบหลังคูณหลัง $(ac-bd)$ เพราะ $i^2 = -1$ ส่วนพจน์ $i$ คิดจากไกลคูณไกลบวกใกล้คูณใกล้\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการคูณจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n(a + bi)(c + di) &= (ac - bd) + (ad + bc)i \\\\[4pt]\n(a + bi)^2 &= (a^2 - b^2) + 2abi\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ พจน์หน้าคูณหน้าลบหลังคูณหลัง $(ac-bd)$ เพราะ $i^2 = -1$ ส่วนพจน์ $i$ คิดจากไกลคูณไกลบวกใกล้คูณใกล้\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาผลคูณของ $(2 + 3i)(4 - 5i)$",
@@ -4025,7 +4025,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 5: การคูณจำนวนเชิงซ้อนและการกระจายกำลังสอง",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการคูณจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n(a + bi)(c + di) &= (ac - bd) + (ad + bc)i \\\\[4pt]\n(a + bi)^2 &= (a^2 - b^2) + 2abi\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ พจน์หน้าคูณหน้าลบหลังคูณหลัง $(ac-bd)$ เพราะ $i^2 = -1$ ส่วนพจน์ $i$ คิดจากไกลคูณไกลบวกใกล้คูณใกล้\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการคูณจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n(a + bi)(c + di) &= (ac - bd) + (ad + bc)i \\\\[4pt]\n(a + bi)^2 &= (a^2 - b^2) + 2abi\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ พจน์หน้าคูณหน้าลบหลังคูณหลัง $(ac-bd)$ เพราะ $i^2 = -1$ ส่วนพจน์ $i$ คิดจากไกลคูณไกลบวกใกล้คูณใกล้\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาผลคูณ $(3 - 2i)(1 + 4i)$",
@@ -4092,7 +4092,7 @@
     "desc": "นิยามสังยุค z-bar = a - bi สมบัติการกระจายสังยุค และสูตรผลคูณ z * z-bar = a^2 + b^2",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 6: สังยุคของจำนวนเชิงซ้อน (Conjugate) และสมบัติ",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามและสมบัติของสังยุค $\\bar{z}$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies \\bar{z} = a - bi \\\\[4pt]\nz \\cdot \\bar{z} &= a^2 + b^2 \\ge 0, \\quad z + \\bar{z} = 2a = 2\\text{Re}(z) \\\\[4pt]\n\\overline{z_1 \\pm z_2} &= \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}, \\quad \\overline{(z^n)} = (\\bar{z})^n\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z \\cdot \\bar{z} = a^2 + b^2$ ได้จำนวนจริงบวกเสมอ ไม่มี $i$ หลงเหลือ (ประโยชน์มหาศาลในการกำจัด $i$ ที่ตัวส่วน)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามและสมบัติของสังยุค $\\bar{z}$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies \\bar{z} = a - bi \\\\[4pt]\nz \\cdot \\bar{z} &= a^2 + b^2 \\ge 0, \\quad z + \\bar{z} = 2a = 2\\text{Re}(z) \\\\[4pt]\n\\overline{z_1 \\pm z_2} &= \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}, \\quad \\overline{(z^n)} = (\\bar{z})^n\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z \\cdot \\bar{z} = a^2 + b^2$ ได้จำนวนจริงบวกเสมอ ไม่มี $i$ หลงเหลือ (ประโยชน์มหาศาลในการกำจัด $i$ ที่ตัวส่วน)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 3 - 4i$ จงหา $\\bar{z}$ และค่าของ $z \\cdot \\bar{z}$",
@@ -4119,7 +4119,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) กำหนด $z_1 = 2 + 3i$ และ $z_2 = 1 - i$ จงแสดงว่า $\\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}$",
           "points": "",
-          "latex": "\\begin{aligned}\nz_1 z_2 &= (2+3i)(1-i) = 2 - 2i + 3i - 3i^2 = 5 + i \\\\\\\\[2pt]\n\\\\overline{z_1 z_2} &= 5 - i \\\\\\\\[4pt]\n\\\\bar{z_1} \\cdot \\\\bar{z_2} &= (2-3i)(1+i) = 2 + 2i - 3i - 3i^2 = 5 - i \\\\\\\\[4pt]\n\\\\therefore \\\\overline{z_1 z_2} &= \\\\bar{z_1} \\\\cdot \\\\bar{z_2}\n\\end{aligned}",
+          "latex": "\\begin{aligned}\nz_1 z_2 &= (2+3i)(1-i) = 2 - 2i + 3i - 3i^2 = 5 + i \\\\\\\\[2pt]\n\\overline{z_1 z_2} &= 5 - i \\\\\\\\[4pt]\n\\bar{z_1} \\cdot \\bar{z_2} &= (2-3i)(1+i) = 2 + 2i - 3i - 3i^2 = 5 - i \\\\\\\\[4pt]\n\\therefore \\overline{z_1 z_2} &= \\bar{z_1} \\cdot \\bar{z_2}\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: สังยุคกระจายในผลคูณได้เสมอ)"
         },
         {
@@ -4164,7 +4164,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 6: สังยุคของจำนวนเชิงซ้อน (Conjugate) และสมบัติ",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามและสมบัติของสังยุค $\\bar{z}$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies \\bar{z} = a - bi \\\\[4pt]\nz \\cdot \\bar{z} &= a^2 + b^2 \\ge 0, \\quad z + \\bar{z} = 2a = 2\\text{Re}(z) \\\\[4pt]\n\\overline{z_1 \\pm z_2} &= \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}, \\quad \\overline{(z^n)} = (\\bar{z})^n\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z \\cdot \\bar{z} = a^2 + b^2$ ได้จำนวนจริงบวกเสมอ ไม่มี $i$ หลงเหลือ (ประโยชน์มหาศาลในการกำจัด $i$ ที่ตัวส่วน)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามและสมบัติของสังยุค $\\bar{z}$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies \\bar{z} = a - bi \\\\[4pt]\nz \\cdot \\bar{z} &= a^2 + b^2 \\ge 0, \\quad z + \\bar{z} = 2a = 2\\text{Re}(z) \\\\[4pt]\n\\overline{z_1 \\pm z_2} &= \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}, \\quad \\overline{(z^n)} = (\\bar{z})^n\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z \\cdot \\bar{z} = a^2 + b^2$ ได้จำนวนจริงบวกเสมอ ไม่มี $i$ หลงเหลือ (ประโยชน์มหาศาลในการกำจัด $i$ ที่ตัวส่วน)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 3 - 4i$ จงหา $\\bar{z}$ และค่าของ $z \\cdot \\bar{z}$",
@@ -4175,7 +4175,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) กำหนด $z_1 = 2 + 3i$ และ $z_2 = 1 - i$ จงแสดงว่า $\\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}$",
           "points": "",
-          "latex": "\\begin{aligned}\nz_1 z_2 &= (2+3i)(1-i) = 2 - 2i + 3i - 3i^2 = 5 + i \\\\\\\\[2pt]\n\\\\overline{z_1 z_2} &= 5 - i \\\\\\\\[4pt]\n\\\\bar{z_1} \\cdot \\\\bar{z_2} &= (2-3i)(1+i) = 2 + 2i - 3i - 3i^2 = 5 - i \\\\\\\\[4pt]\n\\\\therefore \\\\overline{z_1 z_2} &= \\\\bar{z_1} \\\\cdot \\\\bar{z_2}\n\\end{aligned}",
+          "latex": "\\begin{aligned}\nz_1 z_2 &= (2+3i)(1-i) = 2 - 2i + 3i - 3i^2 = 5 + i \\\\\\\\[2pt]\n\\overline{z_1 z_2} &= 5 - i \\\\\\\\[4pt]\n\\bar{z_1} \\cdot \\bar{z_2} &= (2-3i)(1+i) = 2 + 2i - 3i - 3i^2 = 5 - i \\\\\\\\[4pt]\n\\therefore \\overline{z_1 z_2} &= \\bar{z_1} \\cdot \\bar{z_2}\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: สังยุคกระจายในผลคูณได้เสมอ)"
         },
         {
@@ -4188,7 +4188,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 6: สังยุคของจำนวนเชิงซ้อน (Conjugate) และสมบัติ",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามและสมบัติของสังยุค $\\bar{z}$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies \\bar{z} = a - bi \\\\[4pt]\nz \\cdot \\bar{z} &= a^2 + b^2 \\ge 0, \\quad z + \\bar{z} = 2a = 2\\text{Re}(z) \\\\[4pt]\n\\overline{z_1 \\pm z_2} &= \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}, \\quad \\overline{(z^n)} = (\\bar{z})^n\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z \\cdot \\bar{z} = a^2 + b^2$ ได้จำนวนจริงบวกเสมอ ไม่มี $i$ หลงเหลือ (ประโยชน์มหาศาลในการกำจัด $i$ ที่ตัวส่วน)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามและสมบัติของสังยุค $\\bar{z}$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies \\bar{z} = a - bi \\\\[4pt]\nz \\cdot \\bar{z} &= a^2 + b^2 \\ge 0, \\quad z + \\bar{z} = 2a = 2\\text{Re}(z) \\\\[4pt]\n\\overline{z_1 \\pm z_2} &= \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1} \\cdot \\bar{z_2}, \\quad \\overline{(z^n)} = (\\bar{z})^n\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z \\cdot \\bar{z} = a^2 + b^2$ ได้จำนวนจริงบวกเสมอ ไม่มี $i$ หลงเหลือ (ประโยชน์มหาศาลในการกำจัด $i$ ที่ตัวส่วน)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. กำหนด $z = -5 + 12i$ จงหาค่าของ $z \\cdot \\bar{z}$",
@@ -4255,7 +4255,7 @@
     "desc": "เทคนิคการหารจำนวนเชิงซ้อนโดยนำสังยุคของตัวส่วนคูณทั้งเศษและส่วนเพื่อจัดรูปให้อยู่ในรูป a + bi",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 7: การหารจำนวนเชิงซ้อนและการจัดรูปตัวส่วน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการหารจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{z_1 \\cdot \\bar{z_2}}{z_2 \\cdot \\bar{z_2}} = \\frac{(a+bi)(c-di)}{c^2 + d^2} \\\\[4pt]\n&= \\left(\\frac{ac+bd}{c^2+d^2}\\right) + \\left(\\frac{bc-ad}{c^2+d^2}\\right)i\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ไม่ต้องท่องสูตรยาว ให้นำสังยุคของตัวส่วนคูณทั้งบนและล่าง ตัวส่วนจะกลายเป็นจำนวนจริง $c^2 + d^2$ ทันที\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการหารจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{z_1 \\cdot \\bar{z_2}}{z_2 \\cdot \\bar{z_2}} = \\frac{(a+bi)(c-di)}{c^2 + d^2} \\\\[4pt]\n&= \\left(\\frac{ac+bd}{c^2+d^2}\\right) + \\left(\\frac{bc-ad}{c^2+d^2}\\right)i\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ไม่ต้องท่องสูตรยาว ให้นำสังยุคของตัวส่วนคูณทั้งบนและล่าง ตัวส่วนจะกลายเป็นจำนวนจริง $c^2 + d^2$ ทันที\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียน $\\frac{3 + 4i}{1 - 2i}$ ในรูป $a + bi$",
@@ -4327,7 +4327,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 7: การหารจำนวนเชิงซ้อนและการจัดรูปตัวส่วน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการหารจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{z_1 \\cdot \\bar{z_2}}{z_2 \\cdot \\bar{z_2}} = \\frac{(a+bi)(c-di)}{c^2 + d^2} \\\\[4pt]\n&= \\left(\\frac{ac+bd}{c^2+d^2}\\right) + \\left(\\frac{bc-ad}{c^2+d^2}\\right)i\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ไม่ต้องท่องสูตรยาว ให้นำสังยุคของตัวส่วนคูณทั้งบนและล่าง ตัวส่วนจะกลายเป็นจำนวนจริง $c^2 + d^2$ ทันที\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการหารจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{z_1 \\cdot \\bar{z_2}}{z_2 \\cdot \\bar{z_2}} = \\frac{(a+bi)(c-di)}{c^2 + d^2} \\\\[4pt]\n&= \\left(\\frac{ac+bd}{c^2+d^2}\\right) + \\left(\\frac{bc-ad}{c^2+d^2}\\right)i\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ไม่ต้องท่องสูตรยาว ให้นำสังยุคของตัวส่วนคูณทั้งบนและล่าง ตัวส่วนจะกลายเป็นจำนวนจริง $c^2 + d^2$ ทันที\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียน $\\frac{3 + 4i}{1 - 2i}$ ในรูป $a + bi$",
@@ -4351,7 +4351,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 7: การหารจำนวนเชิงซ้อนและการจัดรูปตัวส่วน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการหารจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{z_1 \\cdot \\bar{z_2}}{z_2 \\cdot \\bar{z_2}} = \\frac{(a+bi)(c-di)}{c^2 + d^2} \\\\[4pt]\n&= \\left(\\frac{ac+bd}{c^2+d^2}\\right) + \\left(\\frac{bc-ad}{c^2+d^2}\\right)i\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ไม่ต้องท่องสูตรยาว ให้นำสังยุคของตัวส่วนคูณทั้งบนและล่าง ตัวส่วนจะกลายเป็นจำนวนจริง $c^2 + d^2$ ทันที\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรการหารจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{z_1 \\cdot \\bar{z_2}}{z_2 \\cdot \\bar{z_2}} = \\frac{(a+bi)(c-di)}{c^2 + d^2} \\\\[4pt]\n&= \\left(\\frac{ac+bd}{c^2+d^2}\\right) + \\left(\\frac{bc-ad}{c^2+d^2}\\right)i\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ไม่ต้องท่องสูตรยาว ให้นำสังยุคของตัวส่วนคูณทั้งบนและล่าง ตัวส่วนจะกลายเป็นจำนวนจริง $c^2 + d^2$ ทันที\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงเขียน $\\frac{2 + 3i}{2 - i}$ ในรูป $a + bi$",
@@ -4418,7 +4418,7 @@
     "desc": "นิยามและการหาตัวผกผันการคูณ (อินเวอร์สการคูณ) z^-1 = z-bar / |z|^2 และการแก้สมการเชิงซ้อน",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 8: ตัวผกผันการคูณของจำนวนเชิงซ้อน (z^-1)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ตัวผกผันการคูณของจำนวนเชิงซ้อน $z^{-1}$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz^{-1} &= \\frac{1}{z} = \\frac{\\bar{z}}{a^2 + b^2} = \\frac{a - bi}{a^2 + b^2} \\\\[4pt]\nz \\cdot z^{-1} &= 1 \\quad (\\text{เมื่อ } z \\neq 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> หา $z^{-1}$ เร็วมาก: แค่กลับเครื่องหมายหน้า $i$ เป็น $\\bar{z}$ แล้วหารด้วย $a^2 + b^2$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ตัวผกผันการคูณของจำนวนเชิงซ้อน $z^{-1}$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz^{-1} &= \\frac{1}{z} = \\frac{\\bar{z}}{a^2 + b^2} = \\frac{a - bi}{a^2 + b^2} \\\\[4pt]\nz \\cdot z^{-1} &= 1 \\quad (\\text{เมื่อ } z \\neq 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> หา $z^{-1}$ เร็วมาก: แค่กลับเครื่องหมายหน้า $i$ เป็น $\\bar{z}$ แล้วหารด้วย $a^2 + b^2$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 3 - 4i$ จงหาตัวผกผันการคูณ $z^{-1}$",
@@ -4490,7 +4490,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 8: ตัวผกผันการคูณของจำนวนเชิงซ้อน (z^-1)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ตัวผกผันการคูณของจำนวนเชิงซ้อน $z^{-1}$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz^{-1} &= \\frac{1}{z} = \\frac{\\bar{z}}{a^2 + b^2} = \\frac{a - bi}{a^2 + b^2} \\\\[4pt]\nz \\cdot z^{-1} &= 1 \\quad (\\text{เมื่อ } z \\neq 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> หา $z^{-1}$ เร็วมาก: แค่กลับเครื่องหมายหน้า $i$ เป็น $\\bar{z}$ แล้วหารด้วย $a^2 + b^2$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ตัวผกผันการคูณของจำนวนเชิงซ้อน $z^{-1}$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz^{-1} &= \\frac{1}{z} = \\frac{\\bar{z}}{a^2 + b^2} = \\frac{a - bi}{a^2 + b^2} \\\\[4pt]\nz \\cdot z^{-1} &= 1 \\quad (\\text{เมื่อ } z \\neq 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> หา $z^{-1}$ เร็วมาก: แค่กลับเครื่องหมายหน้า $i$ เป็น $\\bar{z}$ แล้วหารด้วย $a^2 + b^2$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 3 - 4i$ จงหาตัวผกผันการคูณ $z^{-1}$",
@@ -4514,7 +4514,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 8: ตัวผกผันการคูณของจำนวนเชิงซ้อน (z^-1)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ตัวผกผันการคูณของจำนวนเชิงซ้อน $z^{-1}$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz^{-1} &= \\frac{1}{z} = \\frac{\\bar{z}}{a^2 + b^2} = \\frac{a - bi}{a^2 + b^2} \\\\[4pt]\nz \\cdot z^{-1} &= 1 \\quad (\\text{เมื่อ } z \\neq 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> หา $z^{-1}$ เร็วมาก: แค่กลับเครื่องหมายหน้า $i$ เป็น $\\bar{z}$ แล้วหารด้วย $a^2 + b^2$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ตัวผกผันการคูณของจำนวนเชิงซ้อน $z^{-1}$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz^{-1} &= \\frac{1}{z} = \\frac{\\bar{z}}{a^2 + b^2} = \\frac{a - bi}{a^2 + b^2} \\\\[4pt]\nz \\cdot z^{-1} &= 1 \\quad (\\text{เมื่อ } z \\neq 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> หา $z^{-1}$ เร็วมาก: แค่กลับเครื่องหมายหน้า $i$ เป็น $\\bar{z}$ แล้วหารด้วย $a^2 + b^2$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาตัวผกผันการคูณของ $z = 1 + 2i$",
@@ -4581,7 +4581,7 @@
     "desc": "การแทนจำนวนเชิงซ้อนด้วยจุดและเวกเตอร์ในระนาบเชิงซ้อน (แกนจริงและแกนจินตภาพ)",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 9: ระนาบเชิงซ้อน (Argand Plane) และเวกเตอร์",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ระนาบเชิงซ้อน (Argand Plane)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz = a + bi &\\longleftrightarrow \\text{จุด } (a, b) \\quad \\text{หรือเวกเตอร์ที่มีจุดเริ่มต้นที่ } (0,0) \\\\[4pt]\n\\text{แกน X} &= \\text{แกนจริง (Real Axis)}, \\quad \\text{แกน Y} = \\text{แกนจินตภาพ (Imaginary Axis)}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> การบวกและลบจำนวนเชิงซ้อนสอดคล้องกับการบวกและลบเวกเตอร์ (กฎรูปสี่เหลี่ยมด้านขนาน)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ระนาบเชิงซ้อน (Argand Plane)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz = a + bi &\\longleftrightarrow \\text{จุด } (a, b) \\quad \\text{หรือเวกเตอร์ที่มีจุดเริ่มต้นที่ } (0,0) \\\\[4pt]\n\\text{แกน X} &= \\text{แกนจริง (Real Axis)}, \\quad \\text{แกน Y} = \\text{แกนจินตภาพ (Imaginary Axis)}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> การบวกและลบจำนวนเชิงซ้อนสอดคล้องกับการบวกและลบเวกเตอร์ (กฎรูปสี่เหลี่ยมด้านขนาน)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียนจุดที่แทนจำนวนเชิงซ้อน $z_1 = 3 + 2i$, $z_2 = -4 + i$, $z_3 = -2 - 3i$, $z_4 = 4 - 2i$ และระบุจตุภาค",
@@ -4653,7 +4653,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 9: ระนาบเชิงซ้อน (Argand Plane) และเวกเตอร์",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ระนาบเชิงซ้อน (Argand Plane)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz = a + bi &\\longleftrightarrow \\text{จุด } (a, b) \\quad \\text{หรือเวกเตอร์ที่มีจุดเริ่มต้นที่ } (0,0) \\\\[4pt]\n\\text{แกน X} &= \\text{แกนจริง (Real Axis)}, \\quad \\text{แกน Y} = \\text{แกนจินตภาพ (Imaginary Axis)}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> การบวกและลบจำนวนเชิงซ้อนสอดคล้องกับการบวกและลบเวกเตอร์ (กฎรูปสี่เหลี่ยมด้านขนาน)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ระนาบเชิงซ้อน (Argand Plane)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz = a + bi &\\longleftrightarrow \\text{จุด } (a, b) \\quad \\text{หรือเวกเตอร์ที่มีจุดเริ่มต้นที่ } (0,0) \\\\[4pt]\n\\text{แกน X} &= \\text{แกนจริง (Real Axis)}, \\quad \\text{แกน Y} = \\text{แกนจินตภาพ (Imaginary Axis)}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> การบวกและลบจำนวนเชิงซ้อนสอดคล้องกับการบวกและลบเวกเตอร์ (กฎรูปสี่เหลี่ยมด้านขนาน)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียนจุดที่แทนจำนวนเชิงซ้อน $z_1 = 3 + 2i$, $z_2 = -4 + i$, $z_3 = -2 - 3i$, $z_4 = 4 - 2i$ และระบุจตุภาค",
@@ -4677,7 +4677,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 9: ระนาบเชิงซ้อน (Argand Plane) และเวกเตอร์",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ระนาบเชิงซ้อน (Argand Plane)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz = a + bi &\\longleftrightarrow \\text{จุด } (a, b) \\quad \\text{หรือเวกเตอร์ที่มีจุดเริ่มต้นที่ } (0,0) \\\\[4pt]\n\\text{แกน X} &= \\text{แกนจริง (Real Axis)}, \\quad \\text{แกน Y} = \\text{แกนจินตภาพ (Imaginary Axis)}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> การบวกและลบจำนวนเชิงซ้อนสอดคล้องกับการบวกและลบเวกเตอร์ (กฎรูปสี่เหลี่ยมด้านขนาน)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ระนาบเชิงซ้อน (Argand Plane)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz = a + bi &\\longleftrightarrow \\text{จุด } (a, b) \\quad \\text{หรือเวกเตอร์ที่มีจุดเริ่มต้นที่ } (0,0) \\\\[4pt]\n\\text{แกน X} &= \\text{แกนจริง (Real Axis)}, \\quad \\text{แกน Y} = \\text{แกนจินตภาพ (Imaginary Axis)}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> การบวกและลบจำนวนเชิงซ้อนสอดคล้องกับการบวกและลบเวกเตอร์ (กฎรูปสี่เหลี่ยมด้านขนาน)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาคู่อันดับที่แทน $z = 5 - 8i$ และ $\\bar{z}$",
@@ -4744,7 +4744,7 @@
     "desc": "นิยามค่าสัมบูรณ์ |z| = sqrt(a^2 + b^2) แทนระยะทางจากจุดกำเนิดถึงจุด z ในระนาบเชิงซ้อน",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 10: นิยามค่าสัมบูรณ์ของจำนวนเชิงซ้อน (Modulus)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามค่าสัมบูรณ์ $|z|$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies |z| = \\sqrt{a^2 + b^2} \\\\[4pt]\n|z|^2 &= z \\cdot \\bar{z} = a^2 + b^2\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $|z|$ คือระยะทางจริงจาก $(0,0)$ ถึง $(a,b)$ เสมอ จึงมีค่าเป็นจำนวนจริงบวกหรือศูนย์ ($|z| \\ge 0$) ไม่มีทางติดลบหรือมี $i$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามค่าสัมบูรณ์ $|z|$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies |z| = \\sqrt{a^2 + b^2} \\\\[4pt]\n|z|^2 &= z \\cdot \\bar{z} = a^2 + b^2\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $|z|$ คือระยะทางจริงจาก $(0,0)$ ถึง $(a,b)$ เสมอ จึงมีค่าเป็นจำนวนจริงบวกหรือศูนย์ ($|z| \\ge 0$) ไม่มีทางติดลบหรือมี $i$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าสัมบูรณ์ของ $z_1 = 3 + 4i$, $z_2 = 5 - 12i$, $z_3 = 1 - i$",
@@ -4816,7 +4816,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 10: นิยามค่าสัมบูรณ์ของจำนวนเชิงซ้อน (Modulus)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามค่าสัมบูรณ์ $|z|$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies |z| = \\sqrt{a^2 + b^2} \\\\[4pt]\n|z|^2 &= z \\cdot \\bar{z} = a^2 + b^2\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $|z|$ คือระยะทางจริงจาก $(0,0)$ ถึง $(a,b)$ เสมอ จึงมีค่าเป็นจำนวนจริงบวกหรือศูนย์ ($|z| \\ge 0$) ไม่มีทางติดลบหรือมี $i$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามค่าสัมบูรณ์ $|z|$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies |z| = \\sqrt{a^2 + b^2} \\\\[4pt]\n|z|^2 &= z \\cdot \\bar{z} = a^2 + b^2\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $|z|$ คือระยะทางจริงจาก $(0,0)$ ถึง $(a,b)$ เสมอ จึงมีค่าเป็นจำนวนจริงบวกหรือศูนย์ ($|z| \\ge 0$) ไม่มีทางติดลบหรือมี $i$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าสัมบูรณ์ของ $z_1 = 3 + 4i$, $z_2 = 5 - 12i$, $z_3 = 1 - i$",
@@ -4840,7 +4840,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 10: นิยามค่าสัมบูรณ์ของจำนวนเชิงซ้อน (Modulus)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามค่าสัมบูรณ์ $|z|$</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies |z| = \\sqrt{a^2 + b^2} \\\\[4pt]\n|z|^2 &= z \\cdot \\bar{z} = a^2 + b^2\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $|z|$ คือระยะทางจริงจาก $(0,0)$ ถึง $(a,b)$ เสมอ จึงมีค่าเป็นจำนวนจริงบวกหรือศูนย์ ($|z| \\ge 0$) ไม่มีทางติดลบหรือมี $i$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามค่าสัมบูรณ์ $|z|$</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= a + bi \\implies |z| = \\sqrt{a^2 + b^2} \\\\[4pt]\n|z|^2 &= z \\cdot \\bar{z} = a^2 + b^2\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $|z|$ คือระยะทางจริงจาก $(0,0)$ ถึง $(a,b)$ เสมอ จึงมีค่าเป็นจำนวนจริงบวกหรือศูนย์ ($|z| \\ge 0$) ไม่มีทางติดลบหรือมี $i$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาค่าสัมบูรณ์ของ $z = -8 + 15i$",
@@ -4907,12 +4907,12 @@
     "desc": "สมบัติการกระจายค่าสัมบูรณ์ในผลคูณ ผลหาร เลขยกกำลัง |z1*z2| = |z1|*|z2| และอสมการสามเหลี่ยม",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 11: สมบัติสำคัญของค่าสัมบูรณ์และการคำนวณทางลัด",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติเด่นของค่าสัมบูรณ์</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n|z| &= |\\bar{z}| = |-z|, \\quad |z|^2 = z\\bar{z} \\\\[4pt]\n|z_1 z_2| &= |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n \\\\[4pt]\n|z_1 + z_2| &\\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ยกกำลังเยอะๆ ห้ามคูณตรงเด็ดขาด! ให้แจก $|\\cdot|$ เข้าไปในแต่ละตัว แล้วคิดตัวเลขยกกำลัง\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติเด่นของค่าสัมบูรณ์</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n|z| &= |\\bar{z}| = |-z|, \\quad |z|^2 = z\\bar{z} \\\\[4pt]\n|z_1 z_2| &= |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n \\\\[4pt]\n|z_1 + z_2| &\\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ยกกำลังเยอะๆ ห้ามคูณตรงเด็ดขาด! ให้แจก $|\\cdot|$ เข้าไปในแต่ละตัว แล้วคิดตัวเลขยกกำลัง\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\left|\\frac{(1 + i)^8 (3 - 4i)^3}{(2 - 2\\sqrt{3}i)^2}\\right|$",
           "points": "",
-          "latex": "\\begin{aligned}\n|1 + i| &= \\sqrt{1^2+1^2} = \\sqrt{2} \\implies |1+i|^8 = (\\\\sqrt{2})^8 = 16 \\\\\\\\[3pt]\n|3 - 4i| &= \\sqrt{3^2+(-4)^2} = 5 \\implies |3-4i|^3 = 5^3 = 125 \\\\\\\\[3pt]\n|2 - 2\\sqrt{3}i| &= \\sqrt{2^2+(-2\\sqrt{3})^2} = \\sqrt{4+12} = 4 \\implies 4^2 = 16 \\\\\\\\[4pt]\n\\text{ผลลัพธ์} &= \\frac{16 \\cdot 125}{16} = 125\n\\end{aligned}",
+          "latex": "\\begin{aligned}\n|1 + i| &= \\sqrt{1^2+1^2} = \\sqrt{2} \\implies |1+i|^8 = (\\sqrt{2})^8 = 16 \\\\\\\\[3pt]\n|3 - 4i| &= \\sqrt{3^2+(-4)^2} = 5 \\implies |3-4i|^3 = 5^3 = 125 \\\\\\\\[3pt]\n|2 - 2\\sqrt{3}i| &= \\sqrt{2^2+(-2\\sqrt{3})^2} = \\sqrt{4+12} = 4 \\implies 4^2 = 16 \\\\\\\\[4pt]\n\\text{ผลลัพธ์} &= \\frac{16 \\cdot 125}{16} = 125\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แจกค่าสัมบูรณ์เข้าไปทีละก้อนแล้วคิดเลข)"
         },
         {
@@ -4979,12 +4979,12 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 11: สมบัติสำคัญของค่าสัมบูรณ์และการคำนวณทางลัด",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติเด่นของค่าสัมบูรณ์</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n|z| &= |\\bar{z}| = |-z|, \\quad |z|^2 = z\\bar{z} \\\\[4pt]\n|z_1 z_2| &= |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n \\\\[4pt]\n|z_1 + z_2| &\\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ยกกำลังเยอะๆ ห้ามคูณตรงเด็ดขาด! ให้แจก $|\\cdot|$ เข้าไปในแต่ละตัว แล้วคิดตัวเลขยกกำลัง\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติเด่นของค่าสัมบูรณ์</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n|z| &= |\\bar{z}| = |-z|, \\quad |z|^2 = z\\bar{z} \\\\[4pt]\n|z_1 z_2| &= |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n \\\\[4pt]\n|z_1 + z_2| &\\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ยกกำลังเยอะๆ ห้ามคูณตรงเด็ดขาด! ให้แจก $|\\cdot|$ เข้าไปในแต่ละตัว แล้วคิดตัวเลขยกกำลัง\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\left|\\frac{(1 + i)^8 (3 - 4i)^3}{(2 - 2\\sqrt{3}i)^2}\\right|$",
           "points": "",
-          "latex": "\\begin{aligned}\n|1 + i| &= \\sqrt{1^2+1^2} = \\sqrt{2} \\implies |1+i|^8 = (\\\\sqrt{2})^8 = 16 \\\\\\\\[3pt]\n|3 - 4i| &= \\sqrt{3^2+(-4)^2} = 5 \\implies |3-4i|^3 = 5^3 = 125 \\\\\\\\[3pt]\n|2 - 2\\sqrt{3}i| &= \\sqrt{2^2+(-2\\sqrt{3})^2} = \\sqrt{4+12} = 4 \\implies 4^2 = 16 \\\\\\\\[4pt]\n\\text{ผลลัพธ์} &= \\frac{16 \\cdot 125}{16} = 125\n\\end{aligned}",
+          "latex": "\\begin{aligned}\n|1 + i| &= \\sqrt{1^2+1^2} = \\sqrt{2} \\implies |1+i|^8 = (\\sqrt{2})^8 = 16 \\\\\\\\[3pt]\n|3 - 4i| &= \\sqrt{3^2+(-4)^2} = 5 \\implies |3-4i|^3 = 5^3 = 125 \\\\\\\\[3pt]\n|2 - 2\\sqrt{3}i| &= \\sqrt{2^2+(-2\\sqrt{3})^2} = \\sqrt{4+12} = 4 \\implies 4^2 = 16 \\\\\\\\[4pt]\n\\text{ผลลัพธ์} &= \\frac{16 \\cdot 125}{16} = 125\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แจกค่าสัมบูรณ์เข้าไปทีละก้อนแล้วคิดเลข)"
         },
         {
@@ -5003,7 +5003,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 11: สมบัติสำคัญของค่าสัมบูรณ์และการคำนวณทางลัด",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติเด่นของค่าสัมบูรณ์</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n|z| &= |\\bar{z}| = |-z|, \\quad |z|^2 = z\\bar{z} \\\\[4pt]\n|z_1 z_2| &= |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n \\\\[4pt]\n|z_1 + z_2| &\\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ยกกำลังเยอะๆ ห้ามคูณตรงเด็ดขาด! ให้แจก $|\\cdot|$ เข้าไปในแต่ละตัว แล้วคิดตัวเลขยกกำลัง\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติเด่นของค่าสัมบูรณ์</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n|z| &= |\\bar{z}| = |-z|, \\quad |z|^2 = z\\bar{z} \\\\[4pt]\n|z_1 z_2| &= |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n \\\\[4pt]\n|z_1 + z_2| &\\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ยกกำลังเยอะๆ ห้ามคูณตรงเด็ดขาด! ให้แจก $|\\cdot|$ เข้าไปในแต่ละตัว แล้วคิดตัวเลขยกกำลัง\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาค่าของ $|(2 + 2i)^4 (1 - \\sqrt{3}i)^3|$",
@@ -5070,7 +5070,7 @@
     "desc": "สมการทางเรขาคณิตของเซตของจุดในระนาบเชิงซ้อน เช่น สมการวงกลม |z - z0| = r และเส้นตรงแบ่งครึ่งตั้งฉาก",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 12: กราฟและเซตของจุดในระนาบเชิงซ้อน (Locus)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เซตของจุดในระนาบเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n|z - z_0| &= r \\longleftrightarrow \\text{วงกลมที่มีจุดศูนย์กลางที่ } z_0 \\text{ และรัศมี } r \\\\[4pt]\n|z - z_1| &= |z - z_2| \\longleftrightarrow \\text{เส้นตรงแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรงเชื่อม } z_1, z_2\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แทน $z = x + yi$ เพื่อแปลงสมการเชิงซ้อนกลับเป็นสมการพิกัดฉาก $x, y$ ทางเรขาคณิตวิเคราะห์\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เซตของจุดในระนาบเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n|z - z_0| &= r \\longleftrightarrow \\text{วงกลมที่มีจุดศูนย์กลางที่ } z_0 \\text{ และรัศมี } r \\\\[4pt]\n|z - z_1| &= |z - z_2| \\longleftrightarrow \\text{เส้นตรงแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรงเชื่อม } z_1, z_2\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แทน $z = x + yi$ เพื่อแปลงสมการเชิงซ้อนกลับเป็นสมการพิกัดฉาก $x, y$ ทางเรขาคณิตวิเคราะห์\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาสมการในพิกัดฉากและอธิบายลักษณะกราฟของ $|z - (2 + 3i)| = 4$",
@@ -5142,7 +5142,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 12: กราฟและเซตของจุดในระนาบเชิงซ้อน (Locus)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เซตของจุดในระนาบเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n|z - z_0| &= r \\longleftrightarrow \\text{วงกลมที่มีจุดศูนย์กลางที่ } z_0 \\text{ และรัศมี } r \\\\[4pt]\n|z - z_1| &= |z - z_2| \\longleftrightarrow \\text{เส้นตรงแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรงเชื่อม } z_1, z_2\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แทน $z = x + yi$ เพื่อแปลงสมการเชิงซ้อนกลับเป็นสมการพิกัดฉาก $x, y$ ทางเรขาคณิตวิเคราะห์\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เซตของจุดในระนาบเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n|z - z_0| &= r \\longleftrightarrow \\text{วงกลมที่มีจุดศูนย์กลางที่ } z_0 \\text{ และรัศมี } r \\\\[4pt]\n|z - z_1| &= |z - z_2| \\longleftrightarrow \\text{เส้นตรงแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรงเชื่อม } z_1, z_2\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แทน $z = x + yi$ เพื่อแปลงสมการเชิงซ้อนกลับเป็นสมการพิกัดฉาก $x, y$ ทางเรขาคณิตวิเคราะห์\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาสมการในพิกัดฉากและอธิบายลักษณะกราฟของ $|z - (2 + 3i)| = 4$",
@@ -5166,7 +5166,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 12: กราฟและเซตของจุดในระนาบเชิงซ้อน (Locus)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เซตของจุดในระนาบเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n|z - z_0| &= r \\longleftrightarrow \\text{วงกลมที่มีจุดศูนย์กลางที่ } z_0 \\text{ และรัศมี } r \\\\[4pt]\n|z - z_1| &= |z - z_2| \\longleftrightarrow \\text{เส้นตรงแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรงเชื่อม } z_1, z_2\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แทน $z = x + yi$ เพื่อแปลงสมการเชิงซ้อนกลับเป็นสมการพิกัดฉาก $x, y$ ทางเรขาคณิตวิเคราะห์\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เซตของจุดในระนาบเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n|z - z_0| &= r \\longleftrightarrow \\text{วงกลมที่มีจุดศูนย์กลางที่ } z_0 \\text{ และรัศมี } r \\\\[4pt]\n|z - z_1| &= |z - z_2| \\longleftrightarrow \\text{เส้นตรงแบ่งครึ่งและตั้งฉากกับส่วนของเส้นตรงเชื่อม } z_1, z_2\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แทน $z = x + yi$ เพื่อแปลงสมการเชิงซ้อนกลับเป็นสมการพิกัดฉาก $x, y$ ทางเรขาคณิตวิเคราะห์\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาจุดศูนย์กลางและรัศมีของวงกลม $|z + 4 - i| = 5$",
@@ -5233,12 +5233,12 @@
     "desc": "การแปลง z = a + bi ให้อยู่ในรูปเชิงขั้ว r(cos theta + i sin theta) หรือ r cis theta และการหามุมอาร์กิวเมนต์",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 13: รูปเชิงขั้วของจำนวนเชิงซ้อน (Polar Form) และอาร์กิวเมนต์",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปเชิงขั้ว (Polar Form)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta \\\\[4pt]\nr &= |z| = \\sqrt{a^2 + b^2} \\ge 0, \\quad \\tan\\theta = \\frac{b}{a}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ต้องระวังจตุภาคของ $(a, b)$ เสมอในการหามุม $\\theta$ (เช่น Q2: $\\pi - \\alpha$, Q3: $\\pi + \\alpha$, Q4: $2\\pi - \\alpha$)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปเชิงขั้ว (Polar Form)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta \\\\[4pt]\nr &= |z| = \\sqrt{a^2 + b^2} \\ge 0, \\quad \\tan\\theta = \\frac{b}{a}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ต้องระวังจตุภาคของ $(a, b)$ เสมอในการหามุม $\\theta$ (เช่น Q2: $\\pi - \\alpha$, Q3: $\\pi + \\alpha$, Q4: $2\\pi - \\alpha$)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียน $z = 1 + \\sqrt{3}i$ ในรูปเชิงขั้ว",
           "points": "",
-          "latex": "\\begin{aligned}\nr &= \\sqrt{1^2 + (\\\\sqrt{3})^2} = \\sqrt{1 + 3} = 2 \\\\\\\\[4pt]\n(a, b) &= (1, \\\\sqrt{3}) \\\\in Q1 \\\\implies \\\\tan\\\\theta = \\\\frac{\\\\sqrt{3}}{1} \\\\implies \\\\theta = \\\\frac{\\\\pi}{3} \\\\; (60^\\\\circ) \\\\\\\\[4pt]\nz &= 2\\\\left(\\\\cos\\\\frac{\\\\pi}{3} + i\\\\sin\\\\frac{\\\\pi}{3}\\\\right)\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nr &= \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = 2 \\\\\\\\[4pt]\n(a, b) &= (1, \\sqrt{3}) \\in Q1 \\implies \\tan\\theta = \\frac{\\sqrt{3}}{1} \\implies \\theta = \\frac{\\pi}{3} \\\\; (60^\\circ) \\\\\\\\[4pt]\nz &= 2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: หา r จากขนาด และหามุมจาก tan โดยดูจตุภาคประกอบ)"
         },
         {
@@ -5260,7 +5260,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงแปลง $z = 4\\left(\\cos\\frac{5\\pi}{6} + i\\sin\\frac{5\\pi}{6}\\right)$ ให้อยู่ในรูป $a + bi$",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\cos\\\\frac{5\\\\pi}{6} &= -\\\\frac{\\\\sqrt{3}}{2}, \\\\quad \\\\sin\\\\frac{5\\\\pi}{6} = \\\\frac{1}{2} \\\\\\\\[4pt]\nz &= 4\\\\left(-\\\\frac{\\\\sqrt{3}}{2} + \\\\frac{1}{2}i\\\\right) = -2\\\\sqrt{3} + 2i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\cos\\frac{5\\pi}{6} &= -\\frac{\\sqrt{3}}{2}, \\quad \\sin\\frac{5\\pi}{6} = \\frac{1}{2} \\\\\\\\[4pt]\nz &= 4\\left(-\\frac{\\sqrt{3}}{2} + \\frac{1}{2}i\\right) = -2\\sqrt{3} + 2i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แทนค่า cos และ sin ตามมุม แล้วคูณ r กระจายเข้าไป)"
         },
         {
@@ -5282,7 +5282,7 @@
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาอาร์กิวเมนต์หลัก $\\text{Arg}(z)$ เมื่อ $z = 2 - 2i$",
           "points": "",
-          "latex": "\\begin{aligned}\nr &= \\\\sqrt{2^2+(-2)^2} = 2\\\\sqrt{2} \\\\\\\\[4pt]\n(2, -2) &\\\\in Q4 \\\\implies \\\\theta = 2\\\\pi - \\\\frac{\\\\pi}{4} = \\\\frac{7\\\\pi}{4} \\\\; (\\\\text{หรือ } -\\\\frac{\\\\pi}{4})\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nr &= \\sqrt{2^2+(-2)^2} = 2\\sqrt{2} \\\\\\\\[4pt]\n(2, -2) &\\in Q4 \\implies \\theta = 2\\pi - \\frac{\\pi}{4} = \\frac{7\\pi}{4} \\\\; (\\text{หรือ } -\\frac{\\pi}{4})\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: จุดอยู่ในจตุภาคที่ 4 มุมเท่ากับ 7pi/4)"
         },
         {
@@ -5305,31 +5305,31 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 13: รูปเชิงขั้วของจำนวนเชิงซ้อน (Polar Form) และอาร์กิวเมนต์",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปเชิงขั้ว (Polar Form)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta \\\\[4pt]\nr &= |z| = \\sqrt{a^2 + b^2} \\ge 0, \\quad \\tan\\theta = \\frac{b}{a}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ต้องระวังจตุภาคของ $(a, b)$ เสมอในการหามุม $\\theta$ (เช่น Q2: $\\pi - \\alpha$, Q3: $\\pi + \\alpha$, Q4: $2\\pi - \\alpha$)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปเชิงขั้ว (Polar Form)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta \\\\[4pt]\nr &= |z| = \\sqrt{a^2 + b^2} \\ge 0, \\quad \\tan\\theta = \\frac{b}{a}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ต้องระวังจตุภาคของ $(a, b)$ เสมอในการหามุม $\\theta$ (เช่น Q2: $\\pi - \\alpha$, Q3: $\\pi + \\alpha$, Q4: $2\\pi - \\alpha$)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียน $z = 1 + \\sqrt{3}i$ ในรูปเชิงขั้ว",
           "points": "",
-          "latex": "\\begin{aligned}\nr &= \\sqrt{1^2 + (\\\\sqrt{3})^2} = \\sqrt{1 + 3} = 2 \\\\\\\\[4pt]\n(a, b) &= (1, \\\\sqrt{3}) \\\\in Q1 \\\\implies \\\\tan\\\\theta = \\\\frac{\\\\sqrt{3}}{1} \\\\implies \\\\theta = \\\\frac{\\\\pi}{3} \\\\; (60^\\\\circ) \\\\\\\\[4pt]\nz &= 2\\\\left(\\\\cos\\\\frac{\\\\pi}{3} + i\\\\sin\\\\frac{\\\\pi}{3}\\\\right)\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nr &= \\sqrt{1^2 + (\\sqrt{3})^2} = \\sqrt{1 + 3} = 2 \\\\\\\\[4pt]\n(a, b) &= (1, \\sqrt{3}) \\in Q1 \\implies \\tan\\theta = \\frac{\\sqrt{3}}{1} \\implies \\theta = \\frac{\\pi}{3} \\\\; (60^\\circ) \\\\\\\\[4pt]\nz &= 2\\left(\\cos\\frac{\\pi}{3} + i\\sin\\frac{\\pi}{3}\\right)\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: หา r จากขนาด และหามุมจาก tan โดยดูจตุภาคประกอบ)"
         },
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงแปลง $z = 4\\left(\\cos\\frac{5\\pi}{6} + i\\sin\\frac{5\\pi}{6}\\right)$ ให้อยู่ในรูป $a + bi$",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\cos\\\\frac{5\\\\pi}{6} &= -\\\\frac{\\\\sqrt{3}}{2}, \\\\quad \\\\sin\\\\frac{5\\\\pi}{6} = \\\\frac{1}{2} \\\\\\\\[4pt]\nz &= 4\\\\left(-\\\\frac{\\\\sqrt{3}}{2} + \\\\frac{1}{2}i\\\\right) = -2\\\\sqrt{3} + 2i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\cos\\frac{5\\pi}{6} &= -\\frac{\\sqrt{3}}{2}, \\quad \\sin\\frac{5\\pi}{6} = \\frac{1}{2} \\\\\\\\[4pt]\nz &= 4\\left(-\\frac{\\sqrt{3}}{2} + \\frac{1}{2}i\\right) = -2\\sqrt{3} + 2i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แทนค่า cos และ sin ตามมุม แล้วคูณ r กระจายเข้าไป)"
         },
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาอาร์กิวเมนต์หลัก $\\text{Arg}(z)$ เมื่อ $z = 2 - 2i$",
           "points": "",
-          "latex": "\\begin{aligned}\nr &= \\\\sqrt{2^2+(-2)^2} = 2\\\\sqrt{2} \\\\\\\\[4pt]\n(2, -2) &\\\\in Q4 \\\\implies \\\\theta = 2\\\\pi - \\\\frac{\\\\pi}{4} = \\\\frac{7\\\\pi}{4} \\\\; (\\\\text{หรือ } -\\\\frac{\\\\pi}{4})\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nr &= \\sqrt{2^2+(-2)^2} = 2\\sqrt{2} \\\\\\\\[4pt]\n(2, -2) &\\in Q4 \\implies \\theta = 2\\pi - \\frac{\\pi}{4} = \\frac{7\\pi}{4} \\\\; (\\text{หรือ } -\\frac{\\pi}{4})\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: จุดอยู่ในจตุภาคที่ 4 มุมเท่ากับ 7pi/4)"
         }
       ]
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 13: รูปเชิงขั้วของจำนวนเชิงซ้อน (Polar Form) และอาร์กิวเมนต์",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปเชิงขั้ว (Polar Form)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta \\\\[4pt]\nr &= |z| = \\sqrt{a^2 + b^2} \\ge 0, \\quad \\tan\\theta = \\frac{b}{a}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ต้องระวังจตุภาคของ $(a, b)$ เสมอในการหามุม $\\theta$ (เช่น Q2: $\\pi - \\alpha$, Q3: $\\pi + \\alpha$, Q4: $2\\pi - \\alpha$)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปเชิงขั้ว (Polar Form)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta \\\\[4pt]\nr &= |z| = \\sqrt{a^2 + b^2} \\ge 0, \\quad \\tan\\theta = \\frac{b}{a}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ต้องระวังจตุภาคของ $(a, b)$ เสมอในการหามุม $\\theta$ (เช่น Q2: $\\pi - \\alpha$, Q3: $\\pi + \\alpha$, Q4: $2\\pi - \\alpha$)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงเขียน $z = -1 + i$ ในรูปเชิงขั้ว",
@@ -5396,12 +5396,12 @@
     "desc": "ทฤษฎีบทการคูณและการหารรูปเชิงขั้ว รัศมีคูณ/หารกัน แต่มุมนำมาบวก/ลบกัน",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 14: การคูณและการหารในรูปเชิงขั้ว",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคูณและหารรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz_1 z_2 &= r_1 r_2 [\\\\cos(\\\\theta_1 + \\\\theta_2) + i\\\\sin(\\\\theta_1 + \\\\theta_2)] \\\\\\\\[4pt]\n\\\\frac{z_1}{z_2} &= \\\\frac{r_1}{r_2} [\\\\cos(\\\\theta_1 - \\\\theta_2) + i\\\\sin(\\\\theta_1 - \\\\theta_2)]\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คูณกัน ➔ รัศมีคูณกัน มุมบวกกัน | หารกัน ➔ รัศมีหารกัน มุมลบกัน (คิดเลขไวกว่ารูปพีชคณิตมหาศาล)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคูณและหารรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz_1 z_2 &= r_1 r_2 [\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)] \\\\\\\\[4pt]\n\\frac{z_1}{z_2} &= \\frac{r_1}{r_2} [\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)]\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คูณกัน ➔ รัศมีคูณกัน มุมบวกกัน | หารกัน ➔ รัศมีหารกัน มุมลบกัน (คิดเลขไวกว่ารูปพีชคณิตมหาศาล)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z_1 = 2(\\cos 40^\\circ + i\\sin 40^\\circ)$ และ $z_2 = 3(\\cos 20^\\circ + i\\sin 20^\\circ)$ จงหา $z_1 z_2$",
           "points": "",
-          "latex": "\\begin{aligned}\nz_1 z_2 &= (2 \\\\cdot 3)[\\\\cos(40^\\\\circ + 20^\\\\circ) + i\\\\sin(40^\\\\circ + 20^\\\\circ)] \\\\\\\\[4pt]\n&= 6(\\\\cos 60^\\\\circ + i\\\\sin 60^\\\\circ) \\\\\\\\[4pt]\n&= 6\\\\left(\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i\\\\right) = 3 + 3\\\\sqrt{3}i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz_1 z_2 &= (2 \\cdot 3)[\\cos(40^\\circ + 20^\\circ) + i\\sin(40^\\circ + 20^\\circ)] \\\\\\\\[4pt]\n&= 6(\\cos 60^\\circ + i\\sin 60^\\circ) \\\\\\\\[4pt]\n&= 6\\left(\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\\right) = 3 + 3\\sqrt{3}i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: นำ r คูณกัน แล้วนำมุมมาบวกกัน 40 + 20 = 60 องศา)"
         },
         {
@@ -5423,7 +5423,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\frac{z_1}{z_2}$ เมื่อ $z_1 = 8(\\cos 130^\\circ + i\\sin 130^\\circ)$ และ $z_2 = 4(\\cos 40^\\circ + i\\sin 40^\\circ)$",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\frac{z_1}{z_2} &= \\\\frac{8}{4}[\\\\cos(130^\\\\circ - 40^\\\\circ) + i\\\\sin(130^\\\\circ - 40^\\\\circ)] \\\\\\\\[4pt]\n&= 2(\\\\cos 90^\\\\circ + i\\\\sin 90^\\\\circ) \\\\\\\\[4pt]\n&= 2(0 + 1i) = 2i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{8}{4}[\\cos(130^\\circ - 40^\\circ) + i\\sin(130^\\circ - 40^\\circ)] \\\\\\\\[4pt]\n&= 2(\\cos 90^\\circ + i\\sin 90^\\circ) \\\\\\\\[4pt]\n&= 2(0 + 1i) = 2i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: นำ r หารกัน และนำมุมมาลบกัน)"
         },
         {
@@ -5445,7 +5445,7 @@
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1+i)(\\sqrt{3}+i)$ โดยใช้รูปเชิงขั้ว",
           "points": "",
-          "latex": "\\begin{aligned}\n1+i &= \\\\sqrt{2}\\\\text{cis}(45^\\\\circ), \\\\quad \\\\sqrt{3}+i = 2\\\\text{cis}(30^\\\\circ) \\\\\\\\[4pt]\n(1+i)(\\\\sqrt{3}+i) &= 2\\\\sqrt{2}\\\\text{cis}(45^\\\\circ + 30^\\\\circ) = 2\\\\sqrt{2}\\\\text{cis}(75^\\\\circ)\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n1+i &= \\sqrt{2}\\text{cis}(45^\\circ), \\quad \\sqrt{3}+i = 2\\text{cis}(30^\\circ) \\\\\\\\[4pt]\n(1+i)(\\sqrt{3}+i) &= 2\\sqrt{2}\\text{cis}(45^\\circ + 30^\\circ) = 2\\sqrt{2}\\text{cis}(75^\\circ)\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลงเป็นเชิงขั้วก่อนแล้วนำมุมมาบวกกัน)"
         },
         {
@@ -5468,31 +5468,31 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 14: การคูณและการหารในรูปเชิงขั้ว",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคูณและหารรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz_1 z_2 &= r_1 r_2 [\\\\cos(\\\\theta_1 + \\\\theta_2) + i\\\\sin(\\\\theta_1 + \\\\theta_2)] \\\\\\\\[4pt]\n\\\\frac{z_1}{z_2} &= \\\\frac{r_1}{r_2} [\\\\cos(\\\\theta_1 - \\\\theta_2) + i\\\\sin(\\\\theta_1 - \\\\theta_2)]\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คูณกัน ➔ รัศมีคูณกัน มุมบวกกัน | หารกัน ➔ รัศมีหารกัน มุมลบกัน (คิดเลขไวกว่ารูปพีชคณิตมหาศาล)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคูณและหารรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz_1 z_2 &= r_1 r_2 [\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)] \\\\\\\\[4pt]\n\\frac{z_1}{z_2} &= \\frac{r_1}{r_2} [\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)]\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คูณกัน ➔ รัศมีคูณกัน มุมบวกกัน | หารกัน ➔ รัศมีหารกัน มุมลบกัน (คิดเลขไวกว่ารูปพีชคณิตมหาศาล)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z_1 = 2(\\cos 40^\\circ + i\\sin 40^\\circ)$ และ $z_2 = 3(\\cos 20^\\circ + i\\sin 20^\\circ)$ จงหา $z_1 z_2$",
           "points": "",
-          "latex": "\\begin{aligned}\nz_1 z_2 &= (2 \\\\cdot 3)[\\\\cos(40^\\\\circ + 20^\\\\circ) + i\\\\sin(40^\\\\circ + 20^\\\\circ)] \\\\\\\\[4pt]\n&= 6(\\\\cos 60^\\\\circ + i\\\\sin 60^\\\\circ) \\\\\\\\[4pt]\n&= 6\\\\left(\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i\\\\right) = 3 + 3\\\\sqrt{3}i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz_1 z_2 &= (2 \\cdot 3)[\\cos(40^\\circ + 20^\\circ) + i\\sin(40^\\circ + 20^\\circ)] \\\\\\\\[4pt]\n&= 6(\\cos 60^\\circ + i\\sin 60^\\circ) \\\\\\\\[4pt]\n&= 6\\left(\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\\right) = 3 + 3\\sqrt{3}i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: นำ r คูณกัน แล้วนำมุมมาบวกกัน 40 + 20 = 60 องศา)"
         },
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\frac{z_1}{z_2}$ เมื่อ $z_1 = 8(\\cos 130^\\circ + i\\sin 130^\\circ)$ และ $z_2 = 4(\\cos 40^\\circ + i\\sin 40^\\circ)$",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\frac{z_1}{z_2} &= \\\\frac{8}{4}[\\\\cos(130^\\\\circ - 40^\\\\circ) + i\\\\sin(130^\\\\circ - 40^\\\\circ)] \\\\\\\\[4pt]\n&= 2(\\\\cos 90^\\\\circ + i\\\\sin 90^\\\\circ) \\\\\\\\[4pt]\n&= 2(0 + 1i) = 2i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\frac{z_1}{z_2} &= \\frac{8}{4}[\\cos(130^\\circ - 40^\\circ) + i\\sin(130^\\circ - 40^\\circ)] \\\\\\\\[4pt]\n&= 2(\\cos 90^\\circ + i\\sin 90^\\circ) \\\\\\\\[4pt]\n&= 2(0 + 1i) = 2i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: นำ r หารกัน และนำมุมมาลบกัน)"
         },
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1+i)(\\sqrt{3}+i)$ โดยใช้รูปเชิงขั้ว",
           "points": "",
-          "latex": "\\begin{aligned}\n1+i &= \\\\sqrt{2}\\\\text{cis}(45^\\\\circ), \\\\quad \\\\sqrt{3}+i = 2\\\\text{cis}(30^\\\\circ) \\\\\\\\[4pt]\n(1+i)(\\\\sqrt{3}+i) &= 2\\\\sqrt{2}\\\\text{cis}(45^\\\\circ + 30^\\\\circ) = 2\\\\sqrt{2}\\\\text{cis}(75^\\\\circ)\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n1+i &= \\sqrt{2}\\text{cis}(45^\\circ), \\quad \\sqrt{3}+i = 2\\text{cis}(30^\\circ) \\\\\\\\[4pt]\n(1+i)(\\sqrt{3}+i) &= 2\\sqrt{2}\\text{cis}(45^\\circ + 30^\\circ) = 2\\sqrt{2}\\text{cis}(75^\\circ)\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลงเป็นเชิงขั้วก่อนแล้วนำมุมมาบวกกัน)"
         }
       ]
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 14: การคูณและการหารในรูปเชิงขั้ว",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคูณและหารรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz_1 z_2 &= r_1 r_2 [\\\\cos(\\\\theta_1 + \\\\theta_2) + i\\\\sin(\\\\theta_1 + \\\\theta_2)] \\\\\\\\[4pt]\n\\\\frac{z_1}{z_2} &= \\\\frac{r_1}{r_2} [\\\\cos(\\\\theta_1 - \\\\theta_2) + i\\\\sin(\\\\theta_1 - \\\\theta_2)]\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คูณกัน ➔ รัศมีคูณกัน มุมบวกกัน | หารกัน ➔ รัศมีหารกัน มุมลบกัน (คิดเลขไวกว่ารูปพีชคณิตมหาศาล)\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคูณและหารรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz_1 z_2 &= r_1 r_2 [\\cos(\\theta_1 + \\theta_2) + i\\sin(\\theta_1 + \\theta_2)] \\\\\\\\[4pt]\n\\frac{z_1}{z_2} &= \\frac{r_1}{r_2} [\\cos(\\theta_1 - \\theta_2) + i\\sin(\\theta_1 - \\theta_2)]\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คูณกัน ➔ รัศมีคูณกัน มุมบวกกัน | หารกัน ➔ รัศมีหารกัน มุมลบกัน (คิดเลขไวกว่ารูปพีชคณิตมหาศาล)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาผลคูณ $4(\\cos 15^\\circ + i\\sin 15^\\circ) \\cdot 2(\\cos 30^\\circ + i\\sin 30^\\circ)$",
@@ -5559,12 +5559,12 @@
     "desc": "การหาสังยุค z-bar และตัวผกผันการคูณ z^-1 ในรูปเชิงขั้วโดยการกลับเครื่องหมายของมุม theta เป็น -theta",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 15: สังยุคและตัวผกผันในรูปเชิงขั้ว",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สังยุคและตัวผกผันในรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= r(\\\\cos\\\\theta + i\\\\sin\\\\theta) \\\\\\\\[4pt]\n\\\\bar{z} &= r(\\\\cos(-\\\\theta) + i\\\\sin(-\\\\theta)) = r(\\\\cos\\\\theta - i\\\\sin\\\\theta) \\\\\\\\[4pt]\nz^{-1} &= \\\\frac{1}{r}(\\\\cos(-\\\\theta) + i\\\\sin(-\\\\theta))\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สังยุค $\\bar{z}$ คือการสะท้อนข้ามแกนจริง ขนาด $r$ เท่าเดิมแต่มุมสลับเป็น $-\\theta$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สังยุคและตัวผกผันในรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\\\\\[4pt]\n\\bar{z} &= r(\\cos(-\\theta) + i\\sin(-\\theta)) = r(\\cos\\theta - i\\sin\\theta) \\\\\\\\[4pt]\nz^{-1} &= \\frac{1}{r}(\\cos(-\\theta) + i\\sin(-\\theta))\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สังยุค $\\bar{z}$ คือการสะท้อนข้ามแกนจริง ขนาด $r$ เท่าเดิมแต่มุมสลับเป็น $-\\theta$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 4(\\cos 35^\\circ + i\\sin 35^\\circ)$ จงหา $\\bar{z}$ และ $z^{-1}$ ในรูปเชิงขั้ว",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\bar{z} &= 4[\\\\cos(-35^\\\\circ) + i\\\\sin(-35^\\\\circ)] = 4(\\\\cos 325^\\\\circ + i\\\\sin 325^\\\\circ) \\\\\\\\[4pt]\nz^{-1} &= \\\\frac{1}{4}[\\\\cos(-35^\\\\circ) + i\\\\sin(-35^\\\\circ)] = \\\\frac{1}{4}(\\\\cos 325^\\\\circ + i\\\\sin 325^\\\\circ)\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\bar{z} &= 4[\\cos(-35^\\circ) + i\\sin(-35^\\circ)] = 4(\\cos 325^\\circ + i\\sin 325^\\circ) \\\\\\\\[4pt]\nz^{-1} &= \\frac{1}{4}[\\cos(-35^\\circ) + i\\sin(-35^\\circ)] = \\frac{1}{4}(\\cos 325^\\circ + i\\sin 325^\\circ)\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: เปลี่ยนมุม theta เป็น -theta หรือ 360 - theta)"
         },
         {
@@ -5586,7 +5586,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงหาค่าของ $z \\cdot \\bar{z}$ เมื่อ $z = 3(\\cos 70^\\circ + i\\sin 70^\\circ)$",
           "points": "",
-          "latex": "\\begin{aligned}\nz \\\\cdot \\\\bar{z} &= (3 \\\\cdot 3)[\\\\cos(70^\\\\circ - 70^\\\\circ) + i\\\\sin(70^\\\\circ - 70^\\\\circ)] \\\\\\\\[4pt]\n&= 9(\\\\cos 0^\\\\circ + i\\\\sin 0^\\\\circ) = 9(1 + 0) = 9 = r^2\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz \\cdot \\bar{z} &= (3 \\cdot 3)[\\cos(70^\\circ - 70^\\circ) + i\\sin(70^\\circ - 70^\\circ)] \\\\\\\\[4pt]\n&= 9(\\cos 0^\\circ + i\\sin 0^\\circ) = 9(1 + 0) = 9 = r^2\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ผลคูณกับสังยุคได้ r^2 เสมอ)"
         },
         {
@@ -5608,7 +5608,7 @@
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาตัวผกผันการคูณของ $z = 2(\\cos\\pi/3 + i\\sin\\pi/3)$ ในรูป $a+bi$",
           "points": "",
-          "latex": "\\begin{aligned}\nz^{-1} &= \\\\frac{1}{2}[\\\\cos(-\\\\pi/3) + i\\\\sin(-\\\\pi/3)] \\\\\\\\[4pt]\n&= \\\\frac{1}{2}\\\\left(\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i\\\\right) = \\\\frac{1}{4} - \\\\frac{\\\\sqrt{3}}{4}i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz^{-1} &= \\frac{1}{2}[\\cos(-\\pi/3) + i\\sin(-\\pi/3)] \\\\\\\\[4pt]\n&= \\frac{1}{2}\\left(\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i\\right) = \\frac{1}{4} - \\frac{\\sqrt{3}}{4}i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: กลับค่า r เป็น 1/r และมุมติดลบ)"
         },
         {
@@ -5631,31 +5631,31 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 15: สังยุคและตัวผกผันในรูปเชิงขั้ว",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สังยุคและตัวผกผันในรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= r(\\\\cos\\\\theta + i\\\\sin\\\\theta) \\\\\\\\[4pt]\n\\\\bar{z} &= r(\\\\cos(-\\\\theta) + i\\\\sin(-\\\\theta)) = r(\\\\cos\\\\theta - i\\\\sin\\\\theta) \\\\\\\\[4pt]\nz^{-1} &= \\\\frac{1}{r}(\\\\cos(-\\\\theta) + i\\\\sin(-\\\\theta))\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สังยุค $\\bar{z}$ คือการสะท้อนข้ามแกนจริง ขนาด $r$ เท่าเดิมแต่มุมสลับเป็น $-\\theta$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สังยุคและตัวผกผันในรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\\\\\[4pt]\n\\bar{z} &= r(\\cos(-\\theta) + i\\sin(-\\theta)) = r(\\cos\\theta - i\\sin\\theta) \\\\\\\\[4pt]\nz^{-1} &= \\frac{1}{r}(\\cos(-\\theta) + i\\sin(-\\theta))\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สังยุค $\\bar{z}$ คือการสะท้อนข้ามแกนจริง ขนาด $r$ เท่าเดิมแต่มุมสลับเป็น $-\\theta$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z = 4(\\cos 35^\\circ + i\\sin 35^\\circ)$ จงหา $\\bar{z}$ และ $z^{-1}$ ในรูปเชิงขั้ว",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\bar{z} &= 4[\\\\cos(-35^\\\\circ) + i\\\\sin(-35^\\\\circ)] = 4(\\\\cos 325^\\\\circ + i\\\\sin 325^\\\\circ) \\\\\\\\[4pt]\nz^{-1} &= \\\\frac{1}{4}[\\\\cos(-35^\\\\circ) + i\\\\sin(-35^\\\\circ)] = \\\\frac{1}{4}(\\\\cos 325^\\\\circ + i\\\\sin 325^\\\\circ)\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\bar{z} &= 4[\\cos(-35^\\circ) + i\\sin(-35^\\circ)] = 4(\\cos 325^\\circ + i\\sin 325^\\circ) \\\\\\\\[4pt]\nz^{-1} &= \\frac{1}{4}[\\cos(-35^\\circ) + i\\sin(-35^\\circ)] = \\frac{1}{4}(\\cos 325^\\circ + i\\sin 325^\\circ)\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: เปลี่ยนมุม theta เป็น -theta หรือ 360 - theta)"
         },
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงหาค่าของ $z \\cdot \\bar{z}$ เมื่อ $z = 3(\\cos 70^\\circ + i\\sin 70^\\circ)$",
           "points": "",
-          "latex": "\\begin{aligned}\nz \\\\cdot \\\\bar{z} &= (3 \\\\cdot 3)[\\\\cos(70^\\\\circ - 70^\\\\circ) + i\\\\sin(70^\\\\circ - 70^\\\\circ)] \\\\\\\\[4pt]\n&= 9(\\\\cos 0^\\\\circ + i\\\\sin 0^\\\\circ) = 9(1 + 0) = 9 = r^2\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz \\cdot \\bar{z} &= (3 \\cdot 3)[\\cos(70^\\circ - 70^\\circ) + i\\sin(70^\\circ - 70^\\circ)] \\\\\\\\[4pt]\n&= 9(\\cos 0^\\circ + i\\sin 0^\\circ) = 9(1 + 0) = 9 = r^2\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ผลคูณกับสังยุคได้ r^2 เสมอ)"
         },
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาตัวผกผันการคูณของ $z = 2(\\cos\\pi/3 + i\\sin\\pi/3)$ ในรูป $a+bi$",
           "points": "",
-          "latex": "\\begin{aligned}\nz^{-1} &= \\\\frac{1}{2}[\\\\cos(-\\\\pi/3) + i\\\\sin(-\\\\pi/3)] \\\\\\\\[4pt]\n&= \\\\frac{1}{2}\\\\left(\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i\\\\right) = \\\\frac{1}{4} - \\\\frac{\\\\sqrt{3}}{4}i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz^{-1} &= \\frac{1}{2}[\\cos(-\\pi/3) + i\\sin(-\\pi/3)] \\\\\\\\[4pt]\n&= \\frac{1}{2}\\left(\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i\\right) = \\frac{1}{4} - \\frac{\\sqrt{3}}{4}i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: กลับค่า r เป็น 1/r และมุมติดลบ)"
         }
       ]
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 15: สังยุคและตัวผกผันในรูปเชิงขั้ว",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สังยุคและตัวผกผันในรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= r(\\\\cos\\\\theta + i\\\\sin\\\\theta) \\\\\\\\[4pt]\n\\\\bar{z} &= r(\\\\cos(-\\\\theta) + i\\\\sin(-\\\\theta)) = r(\\\\cos\\\\theta - i\\\\sin\\\\theta) \\\\\\\\[4pt]\nz^{-1} &= \\\\frac{1}{r}(\\\\cos(-\\\\theta) + i\\\\sin(-\\\\theta))\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สังยุค $\\bar{z}$ คือการสะท้อนข้ามแกนจริง ขนาด $r$ เท่าเดิมแต่มุมสลับเป็น $-\\theta$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สังยุคและตัวผกผันในรูปเชิงขั้ว</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\\\\\[4pt]\n\\bar{z} &= r(\\cos(-\\theta) + i\\sin(-\\theta)) = r(\\cos\\theta - i\\sin\\theta) \\\\\\\\[4pt]\nz^{-1} &= \\frac{1}{r}(\\cos(-\\theta) + i\\sin(-\\theta))\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สังยุค $\\bar{z}$ คือการสะท้อนข้ามแกนจริง ขนาด $r$ เท่าเดิมแต่มุมสลับเป็น $-\\theta$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. ถ้า $z = 2\\text{cis}(50^\\circ)$ จงหา $\\bar{z}$",
@@ -5722,12 +5722,12 @@
     "desc": "เทคนิคการคำนวณนิพจน์ตรีโกณมิติซับซ้อนและการคูณต่อเนื่องหลายพจน์ด้วยรูปเชิงขั้ว",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 16: การประยุกต์รูปเชิงขั้วกับมุมพิเศษและจตุภาค",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การคำนวณรูปเชิงขั้วหลายพจน์</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz_1 z_2 \\\\dots z_k &= (r_1 r_2 \\\\dots r_k) \\\\, \\\\text{cis}(\\\\theta_1 + \\\\theta_2 + \\\\dots + \\\\theta_k) \\\\\\\\[4pt]\n\\\\text{cis}(\\\\theta + 2k\\\\pi) &= \\\\text{cis}(\\\\theta)\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้ามุมบวกกันแล้วเกิน $360^\\circ$ หรือ $2\\pi$ ให้นำ $360^\\circ$ ไปลบออกจนกว่าจะได้มุมในรอบแรก\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การคำนวณรูปเชิงขั้วหลายพจน์</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz_1 z_2 \\dots z_k &= (r_1 r_2 \\dots r_k) \\\\, \\text{cis}(\\theta_1 + \\theta_2 + \\dots + \\theta_k) \\\\\\\\[4pt]\n\\text{cis}(\\theta + 2k\\pi) &= \\text{cis}(\\theta)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้ามุมบวกกันแล้วเกิน $360^\\circ$ หรือ $2\\pi$ ให้นำ $360^\\circ$ ไปลบออกจนกว่าจะได้มุมในรอบแรก\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\frac{(\\cos 25^\\circ + i\\sin 25^\\circ)^3 (\\cos 15^\\circ + i\\sin 15^\\circ)^5}{\\cos 30^\\circ + i\\sin 30^\\circ}$",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\text{มุมรวมเศษ} &= 3(25^\\\\circ) + 5(15^\\\\circ) = 75^\\\\circ + 75^\\\\circ = 150^\\\\circ \\\\\\\\[4pt]\n\\\\text{ลบมุมส่วน} &= 150^\\\\circ - 30^\\\\circ = 120^\\\\circ \\\\\\\\[4pt]\n\\\\text{ผลลัพธ์} &= \\\\cos 120^\\\\circ + i\\\\sin 120^\\\\circ = -\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\text{มุมรวมเศษ} &= 3(25^\\circ) + 5(15^\\circ) = 75^\\circ + 75^\\circ = 150^\\circ \\\\\\\\[4pt]\n\\text{ลบมุมส่วน} &= 150^\\circ - 30^\\circ = 120^\\circ \\\\\\\\[4pt]\n\\text{ผลลัพธ์} &= \\cos 120^\\circ + i\\sin 120^\\circ = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: รวบมุมทั้งหมดโดยการคูณเป็นบวกและการหารเป็นลบ)"
         },
         {
@@ -5749,7 +5749,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1+\\sqrt{3}i)^3$",
           "points": "",
-          "latex": "\\begin{aligned}\n1+\\\\sqrt{3}i &= 2\\\\text{cis}(60^\\\\circ) \\\\\\\\[4pt]\n(1+\\\\sqrt{3}i)^3 &= 2^3 \\\\text{cis}(3 \\\\times 60^\\\\circ) = 8\\\\text{cis}(180^\\\\circ) \\\\\\\\[4pt]\n&= 8(-1 + 0i) = -8\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n1+\\sqrt{3}i &= 2\\text{cis}(60^\\circ) \\\\\\\\[4pt]\n(1+\\sqrt{3}i)^3 &= 2^3 \\text{cis}(3 \\times 60^\\circ) = 8\\text{cis}(180^\\circ) \\\\\\\\[4pt]\n&= 8(-1 + 0i) = -8\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลงเป็นเชิงขั้ว ยกกำลัง r และคูณมุมด้วย 3)"
         },
         {
@@ -5771,7 +5771,7 @@
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) กำหนดให้ $z = 2\\text{cis}(75^\\circ)$ จงหา $\\text{Im}(z^2)$",
           "points": "",
-          "latex": "\\begin{aligned}\nz^2 &= 2^2 \\\\text{cis}(2 \\\\times 75^\\\\circ) = 4\\\\text{cis}(150^\\\\circ) \\\\\\\\[4pt]\n\\\\text{Im}(z^2) &= 4\\\\sin 150^\\\\circ = 4\\\\left(\\\\frac{1}{2}\\\\right) = 2\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz^2 &= 2^2 \\text{cis}(2 \\times 75^\\circ) = 4\\text{cis}(150^\\circ) \\\\\\\\[4pt]\n\\text{Im}(z^2) &= 4\\sin 150^\\circ = 4\\left(\\frac{1}{2}\\right) = 2\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ยกกำลังสองมุมเป็น 150 องศา แล้วหา 4 sin 150)"
         },
         {
@@ -5794,31 +5794,31 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 16: การประยุกต์รูปเชิงขั้วกับมุมพิเศษและจตุภาค",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การคำนวณรูปเชิงขั้วหลายพจน์</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz_1 z_2 \\\\dots z_k &= (r_1 r_2 \\\\dots r_k) \\\\, \\\\text{cis}(\\\\theta_1 + \\\\theta_2 + \\\\dots + \\\\theta_k) \\\\\\\\[4pt]\n\\\\text{cis}(\\\\theta + 2k\\\\pi) &= \\\\text{cis}(\\\\theta)\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้ามุมบวกกันแล้วเกิน $360^\\circ$ หรือ $2\\pi$ ให้นำ $360^\\circ$ ไปลบออกจนกว่าจะได้มุมในรอบแรก\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การคำนวณรูปเชิงขั้วหลายพจน์</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz_1 z_2 \\dots z_k &= (r_1 r_2 \\dots r_k) \\\\, \\text{cis}(\\theta_1 + \\theta_2 + \\dots + \\theta_k) \\\\\\\\[4pt]\n\\text{cis}(\\theta + 2k\\pi) &= \\text{cis}(\\theta)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้ามุมบวกกันแล้วเกิน $360^\\circ$ หรือ $2\\pi$ ให้นำ $360^\\circ$ ไปลบออกจนกว่าจะได้มุมในรอบแรก\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\frac{(\\cos 25^\\circ + i\\sin 25^\\circ)^3 (\\cos 15^\\circ + i\\sin 15^\\circ)^5}{\\cos 30^\\circ + i\\sin 30^\\circ}$",
           "points": "",
-          "latex": "\\begin{aligned}\n\\\\text{มุมรวมเศษ} &= 3(25^\\\\circ) + 5(15^\\\\circ) = 75^\\\\circ + 75^\\\\circ = 150^\\\\circ \\\\\\\\[4pt]\n\\\\text{ลบมุมส่วน} &= 150^\\\\circ - 30^\\\\circ = 120^\\\\circ \\\\\\\\[4pt]\n\\\\text{ผลลัพธ์} &= \\\\cos 120^\\\\circ + i\\\\sin 120^\\\\circ = -\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n\\text{มุมรวมเศษ} &= 3(25^\\circ) + 5(15^\\circ) = 75^\\circ + 75^\\circ = 150^\\circ \\\\\\\\[4pt]\n\\text{ลบมุมส่วน} &= 150^\\circ - 30^\\circ = 120^\\circ \\\\\\\\[4pt]\n\\text{ผลลัพธ์} &= \\cos 120^\\circ + i\\sin 120^\\circ = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: รวบมุมทั้งหมดโดยการคูณเป็นบวกและการหารเป็นลบ)"
         },
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1+\\sqrt{3}i)^3$",
           "points": "",
-          "latex": "\\begin{aligned}\n1+\\\\sqrt{3}i &= 2\\\\text{cis}(60^\\\\circ) \\\\\\\\[4pt]\n(1+\\\\sqrt{3}i)^3 &= 2^3 \\\\text{cis}(3 \\\\times 60^\\\\circ) = 8\\\\text{cis}(180^\\\\circ) \\\\\\\\[4pt]\n&= 8(-1 + 0i) = -8\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\n1+\\sqrt{3}i &= 2\\text{cis}(60^\\circ) \\\\\\\\[4pt]\n(1+\\sqrt{3}i)^3 &= 2^3 \\text{cis}(3 \\times 60^\\circ) = 8\\text{cis}(180^\\circ) \\\\\\\\[4pt]\n&= 8(-1 + 0i) = -8\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลงเป็นเชิงขั้ว ยกกำลัง r และคูณมุมด้วย 3)"
         },
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) กำหนดให้ $z = 2\\text{cis}(75^\\circ)$ จงหา $\\text{Im}(z^2)$",
           "points": "",
-          "latex": "\\begin{aligned}\nz^2 &= 2^2 \\\\text{cis}(2 \\\\times 75^\\\\circ) = 4\\\\text{cis}(150^\\\\circ) \\\\\\\\[4pt]\n\\\\text{Im}(z^2) &= 4\\\\sin 150^\\\\circ = 4\\\\left(\\\\frac{1}{2}\\\\right) = 2\n\\\\end{aligned}",
+          "latex": "\\begin{aligned}\nz^2 &= 2^2 \\text{cis}(2 \\times 75^\\circ) = 4\\text{cis}(150^\\circ) \\\\\\\\[4pt]\n\\text{Im}(z^2) &= 4\\sin 150^\\circ = 4\\left(\\frac{1}{2}\\right) = 2\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ยกกำลังสองมุมเป็น 150 องศา แล้วหา 4 sin 150)"
         }
       ]
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 16: การประยุกต์รูปเชิงขั้วกับมุมพิเศษและจตุภาค",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การคำนวณรูปเชิงขั้วหลายพจน์</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz_1 z_2 \\\\dots z_k &= (r_1 r_2 \\\\dots r_k) \\\\, \\\\text{cis}(\\\\theta_1 + \\\\theta_2 + \\\\dots + \\\\theta_k) \\\\\\\\[4pt]\n\\\\text{cis}(\\\\theta + 2k\\\\pi) &= \\\\text{cis}(\\\\theta)\n\\\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้ามุมบวกกันแล้วเกิน $360^\\circ$ หรือ $2\\pi$ ให้นำ $360^\\circ$ ไปลบออกจนกว่าจะได้มุมในรอบแรก\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 การคำนวณรูปเชิงขั้วหลายพจน์</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz_1 z_2 \\dots z_k &= (r_1 r_2 \\dots r_k) \\\\, \\text{cis}(\\theta_1 + \\theta_2 + \\dots + \\theta_k) \\\\\\\\[4pt]\n\\text{cis}(\\theta + 2k\\pi) &= \\text{cis}(\\theta)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้ามุมบวกกันแล้วเกิน $360^\\circ$ หรือ $2\\pi$ ให้นำ $360^\\circ$ ไปลบออกจนกว่าจะได้มุมในรอบแรก\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาค่าของ $\\text{cis}(40^\\circ) \\cdot \\text{cis}(60^\\circ) \\cdot \\text{cis}(80^\\circ)$",
@@ -5885,7 +5885,7 @@
     "desc": "ทฤษฎีบทของเดอมัวร์ [r(cos theta + i sin theta)]^n = r^n (cos n*theta + i sin n*theta) สำหรับคำนวณเลขยกกำลังสูง",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 17: ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem) เลขยกกำลังสูง",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\[4pt]\nz^n &= r^n (\\cos n\\theta + i\\sin n\\theta) = r^n\\,\\text{cis}(n\\theta) \\quad (\\forall n \\in \\mathbb{Z})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าโจทย์ให้ยกกำลังสูง ๆ เช่น $(\\sqrt{3}+i)^{12}$ ให้แปลงเป็นรูปเชิงขั้วก่อนเสมอ แล้วคูณ $n$ เข้าไปที่มุม\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\[4pt]\nz^n &= r^n (\\cos n\\theta + i\\sin n\\theta) = r^n\\,\\text{cis}(n\\theta) \\quad (\\forall n \\in \\mathbb{Z})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าโจทย์ให้ยกกำลังสูง ๆ เช่น $(\\sqrt{3}+i)^{12}$ ให้แปลงเป็นรูปเชิงขั้วก่อนเสมอ แล้วคูณ $n$ เข้าไปที่มุม\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1 + i)^{10}$ โดยใช้ทฤษฎีบทของเดอมัวร์",
@@ -5957,7 +5957,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 17: ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem) เลขยกกำลังสูง",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\[4pt]\nz^n &= r^n (\\cos n\\theta + i\\sin n\\theta) = r^n\\,\\text{cis}(n\\theta) \\quad (\\forall n \\in \\mathbb{Z})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าโจทย์ให้ยกกำลังสูง ๆ เช่น $(\\sqrt{3}+i)^{12}$ ให้แปลงเป็นรูปเชิงขั้วก่อนเสมอ แล้วคูณ $n$ เข้าไปที่มุม\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\[4pt]\nz^n &= r^n (\\cos n\\theta + i\\sin n\\theta) = r^n\\,\\text{cis}(n\\theta) \\quad (\\forall n \\in \\mathbb{Z})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าโจทย์ให้ยกกำลังสูง ๆ เช่น $(\\sqrt{3}+i)^{12}$ ให้แปลงเป็นรูปเชิงขั้วก่อนเสมอ แล้วคูณ $n$ เข้าไปที่มุม\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1 + i)^{10}$ โดยใช้ทฤษฎีบทของเดอมัวร์",
@@ -5981,7 +5981,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 17: ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem) เลขยกกำลังสูง",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\[4pt]\nz^n &= r^n (\\cos n\\theta + i\\sin n\\theta) = r^n\\,\\text{cis}(n\\theta) \\quad (\\forall n \\in \\mathbb{Z})\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าโจทย์ให้ยกกำลังสูง ๆ เช่น $(\\sqrt{3}+i)^{12}$ ให้แปลงเป็นรูปเชิงขั้วก่อนเสมอ แล้วคูณ $n$ เข้าไปที่มุม\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทของเดอมัวร์ (De Moivre's Theorem)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } z &= r(\\cos\\theta + i\\sin\\theta) \\\\[4pt]\nz^n &= r^n (\\cos n\\theta + i\\sin n\\theta) = r^n\\,\\text{cis}(n\\theta) \\quad (\\forall n \\in \\mathbb{Z})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าโจทย์ให้ยกกำลังสูง ๆ เช่น $(\\sqrt{3}+i)^{12}$ ให้แปลงเป็นรูปเชิงขั้วก่อนเสมอ แล้วคูณ $n$ เข้าไปที่มุม\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาค่าของ $(\\sqrt{3} + i)^6$",
@@ -6048,7 +6048,7 @@
     "desc": "การประยุกต์ทฤษฎีบทของเดอมัวร์กับ z^-n และการคำนวณสมการเลขยกกำลัง",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 18: เดอมัวร์กับเลขชี้กำลังเป็นจำนวนเต็มลบและเศษส่วน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เดอมัวร์กับเลขชี้กำลังจำนวนเต็มลบ</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz^{-n} &= [r(\\cos\\theta + i\\sin\\theta)]^{-n} \\\\[4pt]\n&= r^{-n} [\\cos(-n\\theta) + i\\sin(-n\\theta)] = \\frac{1}{r^n} [\\cos(n\\theta) - i\\sin(n\\theta)]\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z^{-n}$ คือการกลับค่ารัศมีเป็น $1/r^n$ และมุมกลับเครื่องหมายเป็น $-n\\theta$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เดอมัวร์กับเลขชี้กำลังจำนวนเต็มลบ</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz^{-n} &= [r(\\cos\\theta + i\\sin\\theta)]^{-n} \\\\[4pt]\n&= r^{-n} [\\cos(-n\\theta) + i\\sin(-n\\theta)] = \\frac{1}{r^n} [\\cos(n\\theta) - i\\sin(n\\theta)]\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z^{-n}$ คือการกลับค่ารัศมีเป็น $1/r^n$ และมุมกลับเครื่องหมายเป็น $-n\\theta$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1 - \\sqrt{3}i)^{-6}$",
@@ -6120,7 +6120,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 18: เดอมัวร์กับเลขชี้กำลังเป็นจำนวนเต็มลบและเศษส่วน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เดอมัวร์กับเลขชี้กำลังจำนวนเต็มลบ</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz^{-n} &= [r(\\cos\\theta + i\\sin\\theta)]^{-n} \\\\[4pt]\n&= r^{-n} [\\cos(-n\\theta) + i\\sin(-n\\theta)] = \\frac{1}{r^n} [\\cos(n\\theta) - i\\sin(n\\theta)]\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z^{-n}$ คือการกลับค่ารัศมีเป็น $1/r^n$ และมุมกลับเครื่องหมายเป็น $-n\\theta$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เดอมัวร์กับเลขชี้กำลังจำนวนเต็มลบ</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz^{-n} &= [r(\\cos\\theta + i\\sin\\theta)]^{-n} \\\\[4pt]\n&= r^{-n} [\\cos(-n\\theta) + i\\sin(-n\\theta)] = \\frac{1}{r^n} [\\cos(n\\theta) - i\\sin(n\\theta)]\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z^{-n}$ คือการกลับค่ารัศมีเป็น $1/r^n$ และมุมกลับเครื่องหมายเป็น $-n\\theta$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $(1 - \\sqrt{3}i)^{-6}$",
@@ -6144,7 +6144,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 18: เดอมัวร์กับเลขชี้กำลังเป็นจำนวนเต็มลบและเศษส่วน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เดอมัวร์กับเลขชี้กำลังจำนวนเต็มลบ</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz^{-n} &= [r(\\cos\\theta + i\\sin\\theta)]^{-n} \\\\[4pt]\n&= r^{-n} [\\cos(-n\\theta) + i\\sin(-n\\theta)] = \\frac{1}{r^n} [\\cos(n\\theta) - i\\sin(n\\theta)]\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z^{-n}$ คือการกลับค่ารัศมีเป็น $1/r^n$ และมุมกลับเครื่องหมายเป็น $-n\\theta$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เดอมัวร์กับเลขชี้กำลังจำนวนเต็มลบ</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz^{-n} &= [r(\\cos\\theta + i\\sin\\theta)]^{-n} \\\\[4pt]\n&= r^{-n} [\\cos(-n\\theta) + i\\sin(-n\\theta)] = \\frac{1}{r^n} [\\cos(n\\theta) - i\\sin(n\\theta)]\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> $z^{-n}$ คือการกลับค่ารัศมีเป็น $1/r^n$ และมุมกลับเครื่องหมายเป็น $-n\\theta$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหาค่าของ $(1 + i)^{-8}$",
@@ -6211,7 +6211,7 @@
     "desc": "ทฤษฎีบทการหารากที่ n ของจำนวนเชิงซ้อน z = r cis theta จะมีทั้งหมด n รากที่แตกต่างกันเสมอ",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 19: การหารากที่ n ของจำนวนเชิงซ้อน (ทฤษฎีบทการหาราก)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากที่ $n$ ของจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) \\implies \\text{รากที่ } n \\text{ มีทั้งหมด } n \\text{ ค่า:} \\\\[4pt]\nw_k &= \\sqrt[n]{r}\\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right] \\\\[4pt]\n\\text{เมื่อ } k &= 0, 1, 2, \\dots, n-1\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> รากทุกตัวมีขนาดเท่ากันคือ $\\sqrt[n]{r}$ และมีมุมห่างเท่าๆ กันตัวละ $\\frac{2\\pi}{n}$ หรือ $\\frac{360^\\circ}{n}$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากที่ $n$ ของจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) \\implies \\text{รากที่ } n \\text{ มีทั้งหมด } n \\text{ ค่า:} \\\\[4pt]\nw_k &= \\sqrt[n]{r}\\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right] \\\\[4pt]\n\\text{เมื่อ } k &= 0, 1, 2, \\dots, n-1\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> รากทุกตัวมีขนาดเท่ากันคือ $\\sqrt[n]{r}$ และมีมุมห่างเท่าๆ กันตัวละ $\\frac{2\\pi}{n}$ หรือ $\\frac{360^\\circ}{n}$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหารากที่ 3 ทั้งหมดของ $8i$",
@@ -6283,7 +6283,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 19: การหารากที่ n ของจำนวนเชิงซ้อน (ทฤษฎีบทการหาราก)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากที่ $n$ ของจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) \\implies \\text{รากที่ } n \\text{ มีทั้งหมด } n \\text{ ค่า:} \\\\[4pt]\nw_k &= \\sqrt[n]{r}\\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right] \\\\[4pt]\n\\text{เมื่อ } k &= 0, 1, 2, \\dots, n-1\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> รากทุกตัวมีขนาดเท่ากันคือ $\\sqrt[n]{r}$ และมีมุมห่างเท่าๆ กันตัวละ $\\frac{2\\pi}{n}$ หรือ $\\frac{360^\\circ}{n}$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากที่ $n$ ของจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) \\implies \\text{รากที่ } n \\text{ มีทั้งหมด } n \\text{ ค่า:} \\\\[4pt]\nw_k &= \\sqrt[n]{r}\\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right] \\\\[4pt]\n\\text{เมื่อ } k &= 0, 1, 2, \\dots, n-1\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> รากทุกตัวมีขนาดเท่ากันคือ $\\sqrt[n]{r}$ และมีมุมห่างเท่าๆ กันตัวละ $\\frac{2\\pi}{n}$ หรือ $\\frac{360^\\circ}{n}$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหารากที่ 3 ทั้งหมดของ $8i$",
@@ -6307,7 +6307,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 19: การหารากที่ n ของจำนวนเชิงซ้อน (ทฤษฎีบทการหาราก)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากที่ $n$ ของจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) \\implies \\text{รากที่ } n \\text{ มีทั้งหมด } n \\text{ ค่า:} \\\\[4pt]\nw_k &= \\sqrt[n]{r}\\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right] \\\\[4pt]\n\\text{เมื่อ } k &= 0, 1, 2, \\dots, n-1\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> รากทุกตัวมีขนาดเท่ากันคือ $\\sqrt[n]{r}$ และมีมุมห่างเท่าๆ กันตัวละ $\\frac{2\\pi}{n}$ หรือ $\\frac{360^\\circ}{n}$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากที่ $n$ ของจำนวนเชิงซ้อน</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nz &= r(\\cos\\theta + i\\sin\\theta) \\implies \\text{รากที่ } n \\text{ มีทั้งหมด } n \\text{ ค่า:} \\\\[4pt]\nw_k &= \\sqrt[n]{r}\\left[\\cos\\left(\\frac{\\theta + 2k\\pi}{n}\\right) + i\\sin\\left(\\frac{\\theta + 2k\\pi}{n}\\right)\\right] \\\\[4pt]\n\\text{เมื่อ } k &= 0, 1, 2, \\dots, n-1\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> รากทุกตัวมีขนาดเท่ากันคือ $\\sqrt[n]{r}$ และมีมุมห่างเท่าๆ กันตัวละ $\\frac{2\\pi}{n}$ หรือ $\\frac{360^\\circ}{n}$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงหารากที่ 2 ทั้งหมดของ $3 + 4i$",
@@ -6374,7 +6374,7 @@
     "desc": "การศึกษารากที่ n ของ 1 (Roots of Unity: z^n = 1) และการกระจายจุดยอดของรูป n เหลี่ยมด้านเท่ามุมเท่า",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 20: รากของเอกลักษณ์ (Roots of Unity) และรูป n เหลี่ยมด้านเท่า",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รากที่ $n$ ของเอกลักษณ์ ($z^n = 1$)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\omega_k &= \\cos\\left(\\frac{2k\\pi}{n}\\right) + i\\sin\\left(\\frac{2k\\pi}{n}\\right) \\quad (k = 0, 1, \\dots, n-1) \\\\[4pt]\n1 + \\omega + \\omega^2 + \\dots + \\omega^{n-1} &= 0\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดที่แทนรากที่ $n$ ของ 1 จะเป็นจุดยอดของรูป $n$ เหลี่ยมด้านเท่ามุมเท่า ที่แนบในวงกลมหนึ่งหน่วย $|z| = 1$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รากที่ $n$ ของเอกลักษณ์ ($z^n = 1$)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\omega_k &= \\cos\\left(\\frac{2k\\pi}{n}\\right) + i\\sin\\left(\\frac{2k\\pi}{n}\\right) \\quad (k = 0, 1, \\dots, n-1) \\\\[4pt]\n1 + \\omega + \\omega^2 + \\dots + \\omega^{n-1} &= 0\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดที่แทนรากที่ $n$ ของ 1 จะเป็นจุดยอดของรูป $n$ เหลี่ยมด้านเท่ามุมเท่า ที่แนบในวงกลมหนึ่งหน่วย $|z| = 1$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหารากที่ 3 ทั้งหมดของ $1$ และแสดงสมบัติ $1 + \\omega + \\omega^2 = 0$",
@@ -6446,7 +6446,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 20: รากของเอกลักษณ์ (Roots of Unity) และรูป n เหลี่ยมด้านเท่า",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รากที่ $n$ ของเอกลักษณ์ ($z^n = 1$)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\omega_k &= \\cos\\left(\\frac{2k\\pi}{n}\\right) + i\\sin\\left(\\frac{2k\\pi}{n}\\right) \\quad (k = 0, 1, \\dots, n-1) \\\\[4pt]\n1 + \\omega + \\omega^2 + \\dots + \\omega^{n-1} &= 0\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดที่แทนรากที่ $n$ ของ 1 จะเป็นจุดยอดของรูป $n$ เหลี่ยมด้านเท่ามุมเท่า ที่แนบในวงกลมหนึ่งหน่วย $|z| = 1$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รากที่ $n$ ของเอกลักษณ์ ($z^n = 1$)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\omega_k &= \\cos\\left(\\frac{2k\\pi}{n}\\right) + i\\sin\\left(\\frac{2k\\pi}{n}\\right) \\quad (k = 0, 1, \\dots, n-1) \\\\[4pt]\n1 + \\omega + \\omega^2 + \\dots + \\omega^{n-1} &= 0\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดที่แทนรากที่ $n$ ของ 1 จะเป็นจุดยอดของรูป $n$ เหลี่ยมด้านเท่ามุมเท่า ที่แนบในวงกลมหนึ่งหน่วย $|z| = 1$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหารากที่ 3 ทั้งหมดของ $1$ และแสดงสมบัติ $1 + \\omega + \\omega^2 = 0$",
@@ -6470,7 +6470,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 20: รากของเอกลักษณ์ (Roots of Unity) และรูป n เหลี่ยมด้านเท่า",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รากที่ $n$ ของเอกลักษณ์ ($z^n = 1$)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\omega_k &= \\cos\\left(\\frac{2k\\pi}{n}\\right) + i\\sin\\left(\\frac{2k\\pi}{n}\\right) \\quad (k = 0, 1, \\dots, n-1) \\\\[4pt]\n1 + \\omega + \\omega^2 + \\dots + \\omega^{n-1} &= 0\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดที่แทนรากที่ $n$ ของ 1 จะเป็นจุดยอดของรูป $n$ เหลี่ยมด้านเท่ามุมเท่า ที่แนบในวงกลมหนึ่งหน่วย $|z| = 1$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รากที่ $n$ ของเอกลักษณ์ ($z^n = 1$)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\omega_k &= \\cos\\left(\\frac{2k\\pi}{n}\\right) + i\\sin\\left(\\frac{2k\\pi}{n}\\right) \\quad (k = 0, 1, \\dots, n-1) \\\\[4pt]\n1 + \\omega + \\omega^2 + \\dots + \\omega^{n-1} &= 0\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดที่แทนรากที่ $n$ ของ 1 จะเป็นจุดยอดของรูป $n$ เหลี่ยมด้านเท่ามุมเท่า ที่แนบในวงกลมหนึ่งหน่วย $|z| = 1$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. ถ้า $\\omega$ เป็นรากที่ 3 ของ 1 ที่ไม่ใช่ 1 จงหาค่าของ $(1 - \\omega)(1 - \\omega^2)$",
@@ -6537,7 +6537,7 @@
     "desc": "การแก้สมการกำลังสอง ax^2 + bx + c = 0 เมื่อ b^2 - 4ac < 0 โดยใช้สูตรกำลังสองและจำนวนจินตภาพ",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 21: การแก้สมการกำลังสองที่มีคำตอบเป็นจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคำตอบสมการกำลังสอง</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nax^2 + bx + c &= 0 \\\\[4pt]\nx &= \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a} \\quad (\\text{เมื่อ } b^2 - 4ac < 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เมื่อตัวแปรใต้รูทติดลบ ให้ดึงเครื่องหมายลบออกมาเป็น $i$ ด้านนอก เช่น $\\sqrt{-16} = 4i$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคำตอบสมการกำลังสอง</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nax^2 + bx + c &= 0 \\\\[4pt]\nx &= \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a} \\quad (\\text{เมื่อ } b^2 - 4ac < 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เมื่อตัวแปรใต้รูทติดลบ ให้ดึงเครื่องหมายลบออกมาเป็น $i$ ด้านนอก เช่น $\\sqrt{-16} = 4i$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงแก้สมการ $x^2 + 2x + 5 = 0$",
@@ -6609,7 +6609,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 21: การแก้สมการกำลังสองที่มีคำตอบเป็นจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคำตอบสมการกำลังสอง</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nax^2 + bx + c &= 0 \\\\[4pt]\nx &= \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a} \\quad (\\text{เมื่อ } b^2 - 4ac < 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เมื่อตัวแปรใต้รูทติดลบ ให้ดึงเครื่องหมายลบออกมาเป็น $i$ ด้านนอก เช่น $\\sqrt{-16} = 4i$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคำตอบสมการกำลังสอง</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nax^2 + bx + c &= 0 \\\\[4pt]\nx &= \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a} \\quad (\\text{เมื่อ } b^2 - 4ac < 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เมื่อตัวแปรใต้รูทติดลบ ให้ดึงเครื่องหมายลบออกมาเป็น $i$ ด้านนอก เช่น $\\sqrt{-16} = 4i$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงแก้สมการ $x^2 + 2x + 5 = 0$",
@@ -6633,7 +6633,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 21: การแก้สมการกำลังสองที่มีคำตอบเป็นจำนวนเชิงซ้อน",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคำตอบสมการกำลังสอง</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\nax^2 + bx + c &= 0 \\\\[4pt]\nx &= \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a} \\quad (\\text{เมื่อ } b^2 - 4ac < 0)\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เมื่อตัวแปรใต้รูทติดลบ ให้ดึงเครื่องหมายลบออกมาเป็น $i$ ด้านนอก เช่น $\\sqrt{-16} = 4i$\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สูตรคำตอบสมการกำลังสอง</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\nax^2 + bx + c &= 0 \\\\[4pt]\nx &= \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a} = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a} \\quad (\\text{เมื่อ } b^2 - 4ac < 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เมื่อตัวแปรใต้รูทติดลบ ให้ดึงเครื่องหมายลบออกมาเป็น $i$ ด้านนอก เช่น $\\sqrt{-16} = 4i$\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงแก้สมการ $x^2 - 4x + 13 = 0$",
@@ -6700,7 +6700,7 @@
     "desc": "พหุนามดีกรี n มีรากเชิงซ้อน n ตัว และทฤษฎีบทรากคู่สังยุค (ถ้า a+bi เป็นคำตอบ แล้ว a-bi ต้องเป็นคำตอบด้วย)",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 22: ทฤษฎีบทมูลฐานของพีชคณิตและทฤษฎีบทรากสังยุค",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากคู่สังยุค (Conjugate Root Theorem)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } P(x) \\text{ มีสัมประสิทธิ์เป็นจำนวนจริง และ } & z = a + bi \\text{ เป็นรากของ } P(x) = 0 \\\\[4pt]\n\\implies & \\bar{z} = a - bi \\text{ ต้องเป็นรากของ } P(x) = 0 \\text{ ด้วย}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คำตอบที่เป็นจำนวนจินตภาพจะมาเป็นคู่สังยุคเสมอ พหุนามดีกรีคี่จึงต้องมีคำตอบเป็นจำนวนจริงอย่างน้อย 1 ตัวแน่นอน\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากคู่สังยุค (Conjugate Root Theorem)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } P(x) \\text{ มีสัมประสิทธิ์เป็นจำนวนจริง และ } & z = a + bi \\text{ เป็นรากของ } P(x) = 0 \\\\[4pt]\n\\implies & \\bar{z} = a - bi \\text{ ต้องเป็นรากของ } P(x) = 0 \\text{ ด้วย}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คำตอบที่เป็นจำนวนจินตภาพจะมาเป็นคู่สังยุคเสมอ พหุนามดีกรีคี่จึงต้องมีคำตอบเป็นจำนวนจริงอย่างน้อย 1 ตัวแน่นอน\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนดพหุนาม $P(x)$ ดีกรี 3 มีสัมประสิทธิ์เป็นจำนวนจริง มีรากสองตัวคือ $2$ และ $1 + 3i$ จงหาพหุนาม $P(x)$",
@@ -6772,7 +6772,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 22: ทฤษฎีบทมูลฐานของพีชคณิตและทฤษฎีบทรากสังยุค",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากคู่สังยุค (Conjugate Root Theorem)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } P(x) \\text{ มีสัมประสิทธิ์เป็นจำนวนจริง และ } & z = a + bi \\text{ เป็นรากของ } P(x) = 0 \\\\[4pt]\n\\implies & \\bar{z} = a - bi \\text{ ต้องเป็นรากของ } P(x) = 0 \\text{ ด้วย}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คำตอบที่เป็นจำนวนจินตภาพจะมาเป็นคู่สังยุคเสมอ พหุนามดีกรีคี่จึงต้องมีคำตอบเป็นจำนวนจริงอย่างน้อย 1 ตัวแน่นอน\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากคู่สังยุค (Conjugate Root Theorem)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } P(x) \\text{ มีสัมประสิทธิ์เป็นจำนวนจริง และ } & z = a + bi \\text{ เป็นรากของ } P(x) = 0 \\\\[4pt]\n\\implies & \\bar{z} = a - bi \\text{ ต้องเป็นรากของ } P(x) = 0 \\text{ ด้วย}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คำตอบที่เป็นจำนวนจินตภาพจะมาเป็นคู่สังยุคเสมอ พหุนามดีกรีคี่จึงต้องมีคำตอบเป็นจำนวนจริงอย่างน้อย 1 ตัวแน่นอน\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนดพหุนาม $P(x)$ ดีกรี 3 มีสัมประสิทธิ์เป็นจำนวนจริง มีรากสองตัวคือ $2$ และ $1 + 3i$ จงหาพหุนาม $P(x)$",
@@ -6796,7 +6796,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 22: ทฤษฎีบทมูลฐานของพีชคณิตและทฤษฎีบทรากสังยุค",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากคู่สังยุค (Conjugate Root Theorem)</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n\\text{ถ้า } P(x) \\text{ มีสัมประสิทธิ์เป็นจำนวนจริง และ } & z = a + bi \\text{ เป็นรากของ } P(x) = 0 \\\\[4pt]\n\\implies & \\bar{z} = a - bi \\text{ ต้องเป็นรากของ } P(x) = 0 \\text{ ด้วย}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คำตอบที่เป็นจำนวนจินตภาพจะมาเป็นคู่สังยุคเสมอ พหุนามดีกรีคี่จึงต้องมีคำตอบเป็นจำนวนจริงอย่างน้อย 1 ตัวแน่นอน\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ทฤษฎีบทรากคู่สังยุค (Conjugate Root Theorem)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{ถ้า } P(x) \\text{ มีสัมประสิทธิ์เป็นจำนวนจริง และ } & z = a + bi \\text{ เป็นรากของ } P(x) = 0 \\\\[4pt]\n\\implies & \\bar{z} = a - bi \\text{ ต้องเป็นรากของ } P(x) = 0 \\text{ ด้วย}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> คำตอบที่เป็นจำนวนจินตภาพจะมาเป็นคู่สังยุคเสมอ พหุนามดีกรีคี่จึงต้องมีคำตอบเป็นจำนวนจริงอย่างน้อย 1 ตัวแน่นอน\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. ถ้า $2 - i$ เป็นคำตอบหนึ่งของ $x^3 - 5x^2 + 9x - 5 = 0$ จงหาคำตอบที่เหลือ",
@@ -6863,7 +6863,7 @@
     "desc": "เทคนิคการหารสังเคราะห์ การแยกตัวประกอบ และการหารากเชิงซ้อนของสมการพหุนามดีกรี 3 และ 4",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 23: การแก้สมการพหุนามดีกรีสามและสี่",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ขั้นตอนการแก้สมการพหุนาม</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n1. &\\text{ หาตัวประกอบตรรกยะ } c = \\pm \\frac{\\text{ตัวประกอบของ } a_0}{\\text{ตัวประกอบของ } a_n} \\\\[4pt]\n2. &\\text{ ใช้การหารสังเคราะห์ลดทอนดีกรีจนเหลือสมการกำลังสอง} \\\\[4pt]\n3. &\\text{ ใช้สูตรกำลังสองหารากเชิงซ้อนที่เหลือ}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าสุ่มตัวประกอบตรรกยะเจอ 1 ตัว ดีกรี 3 จะยุบเหลือสมการกำลังสองทันที ซึ่งใช้สูตรแก้ได้เสมอ\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ขั้นตอนการแก้สมการพหุนาม</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n1. &\\text{ หาตัวประกอบตรรกยะ } c = \\pm \\frac{\\text{ตัวประกอบของ } a_0}{\\text{ตัวประกอบของ } a_n} \\\\[4pt]\n2. &\\text{ ใช้การหารสังเคราะห์ลดทอนดีกรีจนเหลือสมการกำลังสอง} \\\\[4pt]\n3. &\\text{ ใช้สูตรกำลังสองหารากเชิงซ้อนที่เหลือ}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าสุ่มตัวประกอบตรรกยะเจอ 1 ตัว ดีกรี 3 จะยุบเหลือสมการกำลังสองทันที ซึ่งใช้สูตรแก้ได้เสมอ\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาคำตอบทั้งหมดของสมการ $x^3 - 3x^2 + 7x - 5 = 0$",
@@ -6935,7 +6935,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 23: การแก้สมการพหุนามดีกรีสามและสี่",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ขั้นตอนการแก้สมการพหุนาม</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n1. &\\text{ หาตัวประกอบตรรกยะ } c = \\pm \\frac{\\text{ตัวประกอบของ } a_0}{\\text{ตัวประกอบของ } a_n} \\\\[4pt]\n2. &\\text{ ใช้การหารสังเคราะห์ลดทอนดีกรีจนเหลือสมการกำลังสอง} \\\\[4pt]\n3. &\\text{ ใช้สูตรกำลังสองหารากเชิงซ้อนที่เหลือ}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าสุ่มตัวประกอบตรรกยะเจอ 1 ตัว ดีกรี 3 จะยุบเหลือสมการกำลังสองทันที ซึ่งใช้สูตรแก้ได้เสมอ\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ขั้นตอนการแก้สมการพหุนาม</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n1. &\\text{ หาตัวประกอบตรรกยะ } c = \\pm \\frac{\\text{ตัวประกอบของ } a_0}{\\text{ตัวประกอบของ } a_n} \\\\[4pt]\n2. &\\text{ ใช้การหารสังเคราะห์ลดทอนดีกรีจนเหลือสมการกำลังสอง} \\\\[4pt]\n3. &\\text{ ใช้สูตรกำลังสองหารากเชิงซ้อนที่เหลือ}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าสุ่มตัวประกอบตรรกยะเจอ 1 ตัว ดีกรี 3 จะยุบเหลือสมการกำลังสองทันที ซึ่งใช้สูตรแก้ได้เสมอ\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาคำตอบทั้งหมดของสมการ $x^3 - 3x^2 + 7x - 5 = 0$",
@@ -6959,7 +6959,7 @@
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 23: การแก้สมการพหุนามดีกรีสามและสี่",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ขั้นตอนการแก้สมการพหุนาม</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n1. &\\text{ หาตัวประกอบตรรกยะ } c = \\pm \\frac{\\text{ตัวประกอบของ } a_0}{\\text{ตัวประกอบของ } a_n} \\\\[4pt]\n2. &\\text{ ใช้การหารสังเคราะห์ลดทอนดีกรีจนเหลือสมการกำลังสอง} \\\\[4pt]\n3. &\\text{ ใช้สูตรกำลังสองหารากเชิงซ้อนที่เหลือ}\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าสุ่มตัวประกอบตรรกยะเจอ 1 ตัว ดีกรี 3 จะยุบเหลือสมการกำลังสองทันที ซึ่งใช้สูตรแก้ได้เสมอ\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ขั้นตอนการแก้สมการพหุนาม</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n1. &\\text{ หาตัวประกอบตรรกยะ } c = \\pm \\frac{\\text{ตัวประกอบของ } a_0}{\\text{ตัวประกอบของ } a_n} \\\\[4pt]\n2. &\\text{ ใช้การหารสังเคราะห์ลดทอนดีกรีจนเหลือสมการกำลังสอง} \\\\[4pt]\n3. &\\text{ ใช้สูตรกำลังสองหารากเชิงซ้อนที่เหลือ}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าสุ่มตัวประกอบตรรกยะเจอ 1 ตัว ดีกรี 3 จะยุบเหลือสมการกำลังสองทันที ซึ่งใช้สูตรแก้ได้เสมอ\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. จงแก้สมการ $x^3 - 2x^2 + 4x - 8 = 0$",
@@ -7026,7 +7026,7 @@
     "desc": "โจทย์ประยุกต์แบบบูรณาการข้อสอบ A-Level คณิตประยุกต์ 1 รวมสมบัติสังยุค ค่าสัมบูรณ์ เดอมัวร์ และสมการพหุนาม",
     "worksheet": {
       "sheetName": "ใบงานคาบที่ 24: ตะลุยโจทย์ประยุกต์และแนวข้อสอบเข้ามหาวิทยาลัย (สสวท. / A-Level)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เทคนิคทำโจทย์ข้อสอบแข่งขัน A-Level</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n1. & \\text{ ถ้าโจทย์ติด } z \\text{ และ } \\bar{z} \\text{ ปนกัน ให้สมมุติ } z = a + bi \\text{ แล้วเทียบสัมประสิทธิ์} \\\\[4pt]\n2. & \\text{ ถ้าโจทย์ถามขนาด } |z| \\text{ ให้พยายามใช้สมบัติ } |z|^2 = z\\bar{z} \\text{ หรือแจกค่าสัมบูรณ์} \\\\[4pt]\n3. & \\text{ ข้อสอบที่ถามเลขยกกำลังสูง ให้รีบแปลงเป็นเชิงขั้ว } r\\,\\text{cis}\\,\\theta\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ที่มี $|z| = 1$ ซึ่งมีสมบัติพิเศษสุดเจ๋งคือ $\\bar{z} = \\frac{1}{z}$ นำไปแทนค่าได้ทันที\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เทคนิคทำโจทย์ข้อสอบแข่งขัน A-Level</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n1. & \\text{ ถ้าโจทย์ติด } z \\text{ และ } \\bar{z} \\text{ ปนกัน ให้สมมุติ } z = a + bi \\text{ แล้วเทียบสัมประสิทธิ์} \\\\[4pt]\n2. & \\text{ ถ้าโจทย์ถามขนาด } |z| \\text{ ให้พยายามใช้สมบัติ } |z|^2 = z\\bar{z} \\text{ หรือแจกค่าสัมบูรณ์} \\\\[4pt]\n3. & \\text{ ข้อสอบที่ถามเลขยกกำลังสูง ให้รีบแปลงเป็นเชิงขั้ว } r\\,\\text{cis}\\,\\theta\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ที่มี $|z| = 1$ ซึ่งมีสมบัติพิเศษสุดเจ๋งคือ $\\bar{z} = \\frac{1}{z}$ นำไปแทนค่าได้ทันที\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z$ เป็นจำนวนเชิงซ้อนที่สอดคล้องกับ $2z + 3\\bar{z} = 5 + 2i$ จงหาค่าของ $|z|^2$",
@@ -7053,7 +7053,7 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) กำหนดให้ $z$ เป็นจำนวนเชิงซ้อนซึ่ง $|z| = 1$ จงแสดงว่า $\\left|z + \\frac{1}{z}\\right| = |z + \\bar{z}| = 2|\\text{Re}(z)|$",
           "points": "",
-          "latex": "\\begin{aligned}\n|z| = 1 &\\implies |z|^2 = z\\\\bar{z} = 1 \\implies \\\\frac{1}{z} = \\\\bar{z} \\\\\\\\[4pt]\n\\\\left|z + \\\\frac{1}{z}\\\\right| &= |z + \\\\bar{z}| = |2\\\\text{Re}(z)| = 2|\\\\text{Re}(z)|\n\\end{aligned}",
+          "latex": "\\begin{aligned}\n|z| = 1 &\\implies |z|^2 = z\\bar{z} = 1 \\implies \\frac{1}{z} = \\bar{z} \\\\\\\\[4pt]\n\\left|z + \\frac{1}{z}\\right| &= |z + \\bar{z}| = |2\\text{Re}(z)| = 2|\\text{Re}(z)|\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ใช้สมบัติ 1/z = z-bar เมื่อ |z| = 1)"
         },
         {
@@ -7075,7 +7075,7 @@
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\left(\\frac{1+\\sqrt{3}i}{2}\\right)^{2024} + \\left(\\frac{1-\\sqrt{3}i}{2}\\right)^{2024}$",
           "points": "",
-          "latex": "\\begin{aligned}\nz_1 &= \\\\text{cis}(60^\\\\circ) \\implies z_1^6 = \\\\text{cis}(360^\\\\circ) = 1 \\\\\\\\[4pt]\n2024 \\\\div 6 &= 337 \\\\text{ เศษ } 2 \\\\\\\\[4pt]\nz_1^{2024} &= z_1^2 = \\\\text{cis}(120^\\\\circ) = -\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i \\\\\\\\[4pt]\nz_2^{2024} &= (\\\\bar{z_1})^{2024} = \\\\overline{z_1^{2024}} = -\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i \\\\\\\\[4pt]\n\\\\text{ผลรวม} &= \\\\left(-\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i\\\\right) + \\\\left(-\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i\\\\right) = -1\n\\end{aligned}",
+          "latex": "\\begin{aligned}\nz_1 &= \\text{cis}(60^\\circ) \\implies z_1^6 = \\text{cis}(360^\\circ) = 1 \\\\\\\\[4pt]\n2024 \\div 6 &= 337 \\text{ เศษ } 2 \\\\\\\\[4pt]\nz_1^{2024} &= z_1^2 = \\text{cis}(120^\\circ) = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i \\\\\\\\[4pt]\nz_2^{2024} &= (\\bar{z_1})^{2024} = \\overline{z_1^{2024}} = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i \\\\\\\\[4pt]\n\\text{ผลรวม} &= \\left(-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\\right) + \\left(-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i\\right) = -1\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ใช้สมบัติ z^6 = 1 คิดเฉพาะเศษ 2 พจน์)"
         },
         {
@@ -7098,7 +7098,7 @@
     },
     "summary": {
       "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว คาบที่ 24: ตะลุยโจทย์ประยุกต์และแนวข้อสอบเข้ามหาวิทยาลัย (สสวท. / A-Level)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เทคนิคทำโจทย์ข้อสอบแข่งขัน A-Level</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n1. & \\text{ ถ้าโจทย์ติด } z \\text{ และ } \\bar{z} \\text{ ปนกัน ให้สมมุติ } z = a + bi \\text{ แล้วเทียบสัมประสิทธิ์} \\\\[4pt]\n2. & \\text{ ถ้าโจทย์ถามขนาด } |z| \\text{ ให้พยายามใช้สมบัติ } |z|^2 = z\\bar{z} \\text{ หรือแจกค่าสัมบูรณ์} \\\\[4pt]\n3. & \\text{ ข้อสอบที่ถามเลขยกกำลังสูง ให้รีบแปลงเป็นเชิงขั้ว } r\\,\\text{cis}\\,\\theta\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ที่มี $|z| = 1$ ซึ่งมีสมบัติพิเศษสุดเจ๋งคือ $\\bar{z} = \\frac{1}{z}$ นำไปแทนค่าได้ทันที\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เทคนิคทำโจทย์ข้อสอบแข่งขัน A-Level</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n1. & \\text{ ถ้าโจทย์ติด } z \\text{ และ } \\bar{z} \\text{ ปนกัน ให้สมมุติ } z = a + bi \\text{ แล้วเทียบสัมประสิทธิ์} \\\\[4pt]\n2. & \\text{ ถ้าโจทย์ถามขนาด } |z| \\text{ ให้พยายามใช้สมบัติ } |z|^2 = z\\bar{z} \\text{ หรือแจกค่าสัมบูรณ์} \\\\[4pt]\n3. & \\text{ ข้อสอบที่ถามเลขยกกำลังสูง ให้รีบแปลงเป็นเชิงขั้ว } r\\,\\text{cis}\\,\\theta\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ที่มี $|z| = 1$ ซึ่งมีสมบัติพิเศษสุดเจ๋งคือ $\\bar{z} = \\frac{1}{z}$ นำไปแทนค่าได้ทันที\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนด $z$ เป็นจำนวนเชิงซ้อนที่สอดคล้องกับ $2z + 3\\bar{z} = 5 + 2i$ จงหาค่าของ $|z|^2$",
@@ -7109,20 +7109,20 @@
         {
           "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) กำหนดให้ $z$ เป็นจำนวนเชิงซ้อนซึ่ง $|z| = 1$ จงแสดงว่า $\\left|z + \\frac{1}{z}\\right| = |z + \\bar{z}| = 2|\\text{Re}(z)|$",
           "points": "",
-          "latex": "\\begin{aligned}\n|z| = 1 &\\implies |z|^2 = z\\\\bar{z} = 1 \\implies \\\\frac{1}{z} = \\\\bar{z} \\\\\\\\[4pt]\n\\\\left|z + \\\\frac{1}{z}\\\\right| &= |z + \\\\bar{z}| = |2\\\\text{Re}(z)| = 2|\\\\text{Re}(z)|\n\\end{aligned}",
+          "latex": "\\begin{aligned}\n|z| = 1 &\\implies |z|^2 = z\\bar{z} = 1 \\implies \\frac{1}{z} = \\bar{z} \\\\\\\\[4pt]\n\\left|z + \\frac{1}{z}\\right| &= |z + \\bar{z}| = |2\\text{Re}(z)| = 2|\\text{Re}(z)|\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ใช้สมบัติ 1/z = z-bar เมื่อ |z| = 1)"
         },
         {
           "title": "ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\left(\\frac{1+\\sqrt{3}i}{2}\\right)^{2024} + \\left(\\frac{1-\\sqrt{3}i}{2}\\right)^{2024}$",
           "points": "",
-          "latex": "\\begin{aligned}\nz_1 &= \\\\text{cis}(60^\\\\circ) \\implies z_1^6 = \\\\text{cis}(360^\\\\circ) = 1 \\\\\\\\[4pt]\n2024 \\\\div 6 &= 337 \\\\text{ เศษ } 2 \\\\\\\\[4pt]\nz_1^{2024} &= z_1^2 = \\\\text{cis}(120^\\\\circ) = -\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i \\\\\\\\[4pt]\nz_2^{2024} &= (\\\\bar{z_1})^{2024} = \\\\overline{z_1^{2024}} = -\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i \\\\\\\\[4pt]\n\\\\text{ผลรวม} &= \\\\left(-\\\\frac{1}{2} + \\\\frac{\\\\sqrt{3}}{2}i\\\\right) + \\\\left(-\\\\frac{1}{2} - \\\\frac{\\\\sqrt{3}}{2}i\\\\right) = -1\n\\end{aligned}",
+          "latex": "\\begin{aligned}\nz_1 &= \\text{cis}(60^\\circ) \\implies z_1^6 = \\text{cis}(360^\\circ) = 1 \\\\\\\\[4pt]\n2024 \\div 6 &= 337 \\text{ เศษ } 2 \\\\\\\\[4pt]\nz_1^{2024} &= z_1^2 = \\text{cis}(120^\\circ) = -\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i \\\\\\\\[4pt]\nz_2^{2024} &= (\\bar{z_1})^{2024} = \\overline{z_1^{2024}} = -\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i \\\\\\\\[4pt]\n\\text{ผลรวม} &= \\left(-\\frac{1}{2} + \\frac{\\sqrt{3}}{2}i\\right) + \\left(-\\frac{1}{2} - \\frac{\\sqrt{3}}{2}i\\right) = -1\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: ใช้สมบัติ z^6 = 1 คิดเฉพาะเศษ 2 พจน์)"
         }
       ]
     },
     "quiz": {
       "sheetName": "แบบทดสอบย่อย Exit Ticket คาบที่ 24: ตะลุยโจทย์ประยุกต์และแนวข้อสอบเข้ามหาวิทยาลัย (สสวท. / A-Level)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เทคนิคทำโจทย์ข้อสอบแข่งขัน A-Level</div>\n  <div class=\"equation-stage\">\n    \\begin{aligned}\n1. & \\text{ ถ้าโจทย์ติด } z \\text{ และ } \\bar{z} \\text{ ปนกัน ให้สมมุติ } z = a + bi \\text{ แล้วเทียบสัมประสิทธิ์} \\\\[4pt]\n2. & \\text{ ถ้าโจทย์ถามขนาด } |z| \\text{ ให้พยายามใช้สมบัติ } |z|^2 = z\\bar{z} \\text{ หรือแจกค่าสัมบูรณ์} \\\\[4pt]\n3. & \\text{ ข้อสอบที่ถามเลขยกกำลังสูง ให้รีบแปลงเป็นเชิงขั้ว } r\\,\\text{cis}\\,\\theta\n\\end{aligned}\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ที่มี $|z| = 1$ ซึ่งมีสมบัติพิเศษสุดเจ๋งคือ $\\bar{z} = \\frac{1}{z}$ นำไปแทนค่าได้ทันที\n  </div>\n</div>",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เทคนิคทำโจทย์ข้อสอบแข่งขัน A-Level</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n1. & \\text{ ถ้าโจทย์ติด } z \\text{ และ } \\bar{z} \\text{ ปนกัน ให้สมมุติ } z = a + bi \\text{ แล้วเทียบสัมประสิทธิ์} \\\\[4pt]\n2. & \\text{ ถ้าโจทย์ถามขนาด } |z| \\text{ ให้พยายามใช้สมบัติ } |z|^2 = z\\bar{z} \\text{ หรือแจกค่าสัมบูรณ์} \\\\[4pt]\n3. & \\text{ ข้อสอบที่ถามเลขยกกำลังสูง ให้รีบแปลงเป็นเชิงขั้ว } r\\,\\text{cis}\\,\\theta\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อสอบชอบออกโจทย์ที่มี $|z| = 1$ ซึ่งมีสมบัติพิเศษสุดเจ๋งคือ $\\bar{z} = \\frac{1}{z}$ นำไปแทนค่าได้ทันที\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ข้อที่ 1. ถ้า $z + 2\\bar{z} = 9 - 3i$ จงหาจำนวนเชิงซ้อน $z$",
