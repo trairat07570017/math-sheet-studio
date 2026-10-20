@@ -1967,6 +1967,39 @@
       text-rendering: geometricPrecision;
     }
 
+    /* KaTeX Superscripts & Exponents Optimization: High Legibility & Clarity */
+    .katex .msupsub {
+      font-size: 0.88em !important;
+      vertical-align: 0.25em;
+    }
+
+    .katex .sizing.reset-size6.size3.mtight,
+    .katex .mtight {
+      font-size: 0.88em !important;
+      font-weight: 500;
+    }
+
+    /* Question Title Math (โจทย์ข้อสอบ): Clear, crisp exponents and balanced fractions */
+    .exercise-header .katex,
+    .sheet-exercise .exercise-header .katex {
+      font-size: calc(1.22em * var(--math-scale, 1.15)) !important;
+      vertical-align: -0.08em;
+      letter-spacing: 0.02em;
+    }
+
+    .exercise-header .katex .msupsub,
+    .sheet-exercise .exercise-header .katex .msupsub,
+    .exercise-header .katex .mtight,
+    .sheet-exercise .exercise-header .katex .mtight {
+      font-size: 0.88em !important;
+      font-weight: 600 !important;
+    }
+
+    .exercise-header .katex .mord.mfrac,
+    .sheet-exercise .exercise-header .katex .mord.mfrac {
+      font-size: 1.12em !important;
+    }
+
     /* Worked example solution box: compact, neat and not oversized */
     .sheet-solution-box {
       margin: 0.3rem 0 0.2rem 0;
@@ -2587,13 +2620,29 @@
       }
 
       .exercise-header .katex {
-        font-size: 1.14em !important;
+        font-size: calc(1.22em * var(--math-scale, 1.15)) !important;
         padding: 0 2px !important;
         line-height: normal !important;
+        vertical-align: -0.08em !important;
+      }
+
+      .exercise-header .katex .msupsub,
+      .exercise-header .katex .mtight,
+      .sheet-exercise .katex .msupsub,
+      .sheet-exercise .katex .mtight,
+      .katex .msupsub,
+      .katex .mtight {
+        font-size: 0.88em !important;
+        font-weight: 600 !important;
+      }
+
+      .exercise-header .katex .mord.mfrac,
+      .sheet-exercise .katex .mord.mfrac {
+        font-size: 1.12em !important;
       }
 
       .sheet-exercise .katex {
-        font-size: 1.15em !important;
+        font-size: 1.18em !important;
       }
 
       /* 10. Student Handwriting Response Grids (5+ Lines of Ruled Workspace) */
@@ -8710,13 +8759,54 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     });
   
     // -------------------------------------------------------------
-    // PRISTINE PRINT CONTROLLER (A4 PERFECT REPRODUCTION)
+    // PRISTINE PRINT CONTROLLER & AUTOMATIC DYNAMIC PDF NAMING
     // -------------------------------------------------------------
+    let originalDocTitleBeforePrint = document.title;
+
+    function getWorksheetPrintFileName() {
+      const data = CURRICULUM_DATABASE[currentTopicId];
+      const fSheet = document.getElementById('fieldSheet');
+      const fSubject = document.getElementById('fieldSubject');
+      
+      let sheetName = (fSheet && fSheet.value.trim()) ? fSheet.value.trim() : '';
+      if (!sheetName && data) {
+        const modeData = data[currentSheetMode] || data.worksheet;
+        sheetName = modeData ? modeData.sheetName : data.title;
+      }
+      if (!sheetName) sheetName = 'ใบงานคณิตศาสตร์';
+
+      const grade = data ? data.gradeShort : 'ม.ปลาย';
+      
+      // Extract clean subject code if available, e.g. ค31202
+      let subCode = '';
+      if (fSubject && fSubject.value) {
+        const match = fSubject.value.match(/\(([^)]+)\)/);
+        if (match) {
+          subCode = match[1].trim();
+        } else if (fSubject.value.trim().length <= 10) {
+          subCode = fSubject.value.trim();
+        }
+      }
+      
+      // Clean invalid filename characters: / \ : * ? " < > |
+      const cleanSheetName = sheetName.replace(/[/\\?%*:|"<>]/g, '-').replace(/\s+/g, ' ').trim();
+      
+      if (subCode) {
+        return `[${grade}-${subCode}] ${cleanSheetName}`;
+      } else {
+        return `[${grade}] ${cleanSheetName}`;
+      }
+    }
+
     function prepareAndPrint() {
       const paper = document.getElementById('a4Paper');
       if (paper) {
         paper.style.transform = 'none';
       }
+
+      // Dynamically assign document.title so Save as PDF defaults to worksheet name
+      originalDocTitleBeforePrint = document.title;
+      document.title = getWorksheetPrintFileName();
 
       setTimeout(() => {
         window.print();
@@ -8728,12 +8818,18 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       if (paper) {
         paper.style.transform = 'none';
       }
+      originalDocTitleBeforePrint = document.title;
+      document.title = getWorksheetPrintFileName();
     });
 
     window.addEventListener('afterprint', () => {
       const paper = document.getElementById('a4Paper');
       if (paper) {
         paper.style.transform = `scale(${currentZoom})`;
+      }
+      // Restore web app document title
+      if (originalDocTitleBeforePrint) {
+        document.title = originalDocTitleBeforePrint;
       }
     });
 
