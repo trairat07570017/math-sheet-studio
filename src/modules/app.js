@@ -9,7 +9,7 @@
   'use strict';
 
   // Navigation & UI State
-  let expandedUnitId = null;
+  let expandedUnitId = 'unit-expo-log';
   let expandedChapterId = 'chapter-1';
   let editingExerciseIndex = -1;
   let activeEditingChapterId = null;
@@ -201,7 +201,11 @@
     const parentChap = chapters.find(c => c.topics && c.topics.some(t => t.id === topicId));
     if (parentChap) {
       expandedChapterId = parentChap.id;
-      expandedUnitId = 'unit-expo-log';
+      const units = window.CurriculumStore.getUnits();
+      const parentUnit = units.find(u => u.chapters && u.chapters.some(c => c.id === parentChap.id));
+      if (parentUnit) {
+        expandedUnitId = parentUnit.id;
+      }
       renderSidebarTree();
     }
 
@@ -822,8 +826,10 @@
     const chap = chapters.find(c => c.id === chapId);
     if (!chap) return;
 
-    const subjectName = document.getElementById('inputChapterSubjectName').value.trim() || 'คณิตศาสตร์เพิ่มเติม 2';
-    const subjectCode = document.getElementById('inputChapterSubjectCode').value.trim() || 'ค31202';
+    const defaultSubjectName = chap.subjectName || 'คณิตศาสตร์เพิ่มเติม 2';
+    const defaultSubjectCode = chap.subjectCode || 'ค31202';
+    const subjectName = document.getElementById('inputChapterSubjectName').value.trim() || defaultSubjectName;
+    const subjectCode = document.getElementById('inputChapterSubjectCode').value.trim() || defaultSubjectCode;
     const grade = document.getElementById('selectChapterGrade').value;
     const semester = document.getElementById('selectChapterSemester').value;
     const combinedSubjectCode = `${subjectName} (${subjectCode})`;
