@@ -1,8 +1,11 @@
 **/**
 !appsscript.json
-!*.js
-!*.gs
-!*.html
+!Code.gs
+!index.html
+build.js
+package.json
 CONTEXT.md
 README.md
 docs/**
+src/**
+scripts/**

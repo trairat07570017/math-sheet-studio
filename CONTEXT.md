@@ -15,6 +15,10 @@
 | **A4 Sheet Canvas** | ส่วนแสดงผลตัวอย่างเอกสารจำลองขนาด A4 แบบ Real-time ที่ตรงกับสิ่งที่พิมพ์ออกมาจริง |
 | **KaTeX Engine** | ระบบเรนเดอร์สูตรและสัญลักษณ์คณิตศาสตร์จากรหัส LaTeX ให้คมชัดและโหลดเร็ว |
 | **GAS Bridge** | ชั้นการเชื่อมต่อระหว่างหน้าบ้าน HTML/JS และหลังบ้าน Google Apps Script (`google.script.run`) |
+| **Curriculum Store** | โมดูลลึก (Deep Module) จัดการข้อมูลและลำดับขั้นของหลักสูตร 24 คาบเรียน โจทย์ตัวอย่าง และข้อสอบ พร้อมระบบ Overlay Layer และป้องกันข้อมูลสูญหาย |
+| **Storage Gateway** | โมดูลลึกด้านการจัดเก็บข้อมูล ทำหน้าที่เป็น Seam พร้อม 2 Adapters (`GasNativeAdapter` และ `HttpRestAdapter`) รองรับทั้ง Google Apps Script และ GitHub Pages พร้อมคิวออฟไลน์ |
+| **Sheet Render Engine** | โมดูลลึกสำหรับรวบรวม DOM เอกสาร A4 ควบคุมการเรนเดอร์ KaTeX ภายในตัว และจัดการระบบตัดหน้ากระดาษพิมพ์แบบไร้รอยต่อ |
+| **Asset Pipeline** | ระบบรวมโมดูลต้นทาง (`src/`) สู่ไฟล์ผลลัพธ์แบบ Zero-Dependency (`build.js`) สำหรับ Deploy บน GitHub Pages และ GAS |
 
 ---
 
@@ -282,6 +286,24 @@
   3. กำหนด `window.handleKaTeXLoaded` ใน `<head>` ล่วงหน้า และคง KaTeX polling ทุก 75ms ไว้เพื่อความปลอดภัยสูงสุด
   4. ทำ **Pre-rendered Static Content**: ใส่โจทย์ทั้ง 8 ข้อ (2 ตัวอย่าง + 6 แบบฝึกหัด) และกล่องสรุปสูตรของคาบที่ 1 ลงใน HTML markup โดยตรงล่วงหน้า ทำให้ทันทีที่หน้าเว็บโหลดขึ้นมา โจทย์จะปรากฏบนใบงานทันทีโดยไม่ต้องรอ JavaScript ทำงาน
   5. ปรับ `appsscript.json` เป็น `"executeAs": "USER_DEPLOYING"` และอัปเดต deployment ล่าสุดทั้ง `@1` (`AKfycbzZqi430lwr86KWrIJev5SWw-Y8VzLucxtUYMVY6bQIvsOzmd7TKCNHgH5JVnqbzII8`) และ `@2` ให้พร้อมใช้งานทันที
+
+### ADR-020: การปรับปรุงสถาปัตยกรรมสู่ Deep Modules และการจัดระเบียบโครงสร้างไฟล์ (Architecture Deepening & Modular Sources)
+- **วันที่:** 20 ตุลาคม 2569
+- **บริบท:** โค้ดเบสเดิมเติบโตเป็น Monolith ขนาด 9,482 บรรทัดใน `index.html` (CSS 4,270 บรรทัด, ข้อมูล JSON 3,267 บรรทัด, JS Logic 1,912 บรรทัด) ทำให้การแก้ไขใดๆ ต้องเขียน Python regex script ถึง 13 ไฟล์เข้ามาแทรกแก้ไข และเกิดการรั่วไหลของข้อมูลข้าม Seam (เช่น UI callers ต้องดัก `if (google.script.run)` และกลายพันธุ์ JSON arrays โดยตรง)
+- **การตัดสินใจและสถาปัตยกรรม (Deep Modules Design)**:
+  1. **Asset Pipeline & Modular Sources:**
+     - แยกโครงสร้างซอร์สโค้ดออกเป็น `src/styles/`, `src/data/curriculum.json`, และ `src/modules/`
+     - สร้าง `build.js` ด้วย Node.js มาตรฐาน (Zero-Dependency) ทำหน้าที่ Compile ซอร์สโค้ดกลับมาเป็นไฟล์ปลายทางเดี่ยวสำหรับทั้ง GitHub Pages และ Google Apps Script อย่างรวดเร็ว
+  2. **Curriculum Store Module:**
+     - ใช้ `src/data/curriculum.json` เป็น Single Source of Truth เพียงแห่งเดียว
+     - ออกแบบ Interface กะทัดรัด (`getLesson`, `updateExercise`, `reorderExercise`, `resetLesson`)
+     - จัดการความเสถียรด้วย Overlay Layer (Default Data เป็น Read-only Baseline, การแก้ไขเก็บใน Overlay `localStorage` เพื่อป้องกันการสูญหายและคืนค่าได้สะอาด 100%)
+  3. **Storage Gateway Module:**
+     - รวมการจัดเก็บข้อมูลผ่าน 2 Adapters: `GasNativeAdapter` (สำหรับ GAS Container) และ `HttpRestAdapter` (สำหรับ GitHub Pages fetch)
+     - มี Offline Queue ใน `localStorage` ป้องกันการบันทึกล้มเหลวกรณีออฟไลน์
+  4. **Sheet Render Engine Module:**
+     - รวมการประกอบ DOM ของกระดาษ A4, การควบคุมสเกลและการเรนเดอร์ KaTeX ภายในตัว
+     - จัดการ Print Isolation และการสลับ Title/Zoom อัตโนมัติ โดยตัดโค้ดที่กระจัดกระจายรอบนอกทิ้ง
 
 ---
 

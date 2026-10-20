@@ -1,0 +1,20 @@
+{
+  "name": "mathsheet-ai-studio",
+  "version": "2.0.0",
+  "description": "เครื่องมือสร้างชีทการสอนคณิตศาสตร์ ม.ปลาย (สสวท.) รองรับ KaTeX และ GitHub Pages",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "check": "node build.js --check"
+  },
+  "keywords": [
+    "math",
+    "katex",
+    "education",
+    "ipst",
+    "apps-script",
+    "google-docs"
+  ],
+  "author": "",
+  "license": "MIT"
+}

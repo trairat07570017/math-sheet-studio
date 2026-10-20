@@ -1,0 +1,1435 @@
+<body>
+
+  <div class="app-layout">
+    <div class="mobile-overlay" id="mobileOverlay" onclick="toggleSidebarDrawer(false)"></div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside class="sidebar" id="sidebarDrawer">
+      <div class="sidebar-header">
+        <div class="brand-group">
+          <div class="brand-logo-gem">
+            <span class="render-math">$\Sigma$</span>
+          </div>
+          <div class="brand-titles">
+            <h1>MathSheet <span class="badge-ai">สสวท. AI</span></h1>
+            <p class="brand-sub">ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม ม.4</p>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.4rem;">
+          <button type="button" class="btn-system-settings-icon" onclick="openSystemSettingsModal()" title="ตั้งค่าระบบส่วนกลาง (ชื่อโรงเรียน, ครูผู้สอน, ขนาดสมการ)">
+            ⚙️
+          </button>
+          <button class="btn-close-drawer" onclick="toggleSidebarDrawer(false)" aria-label="ปิดเมนู">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- SEARCH INPUT BOX -->
+      <div class="sidebar-search">
+        <div class="search-input-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="topicSearchBox" placeholder="ค้นหาคาบเรียน เช่น เลขยกกำลัง, กราฟ, log, ครึ่งชีวิต..." oninput="handleSearchTopics()">
+          <span class="search-kbd-hint">⌘K</span>
+        </div>
+      </div>
+
+      <!-- CURRICULUM ACCORDION -->
+      <div class="sidebar-content" id="sidebarTopicsContainer">
+
+  <div class="unit-section-label">
+    <span>📚 หน่วยการเรียนรู้ (สสวท. ม.ปลาย)</span>
+    <span class="unit-count-pill">6 เรื่อง</span>
+  </div>
+  <div class="units-container">
+
+      <div class="unit-card active-unit expanded" id="unitCard-unit-expo-log">
+        <button type="button" class="unit-header-btn" onclick="toggleUnit('unit-expo-log')">
+          <div class="unit-left-content">
+            <span class="unit-icon">📘</span>
+            <div class="unit-info">
+              <div class="unit-badge-row">
+                <span class="unit-grade-tag">ม.4 (เทอม 2)</span>
+                <span class="unit-status-tag ready">พร้อมสอน • 24 คาบ</span>
+              </div>
+              <div class="unit-title-text">ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 2 (ค31202)</div>
+            </div>
+          </div>
+          <span class="unit-chevron">▼</span>
+        </button>
+
+        <!-- ละแยกออกมา: 6 บทเรียนหลัก -->
+        <div class="unit-chapters-body">
+          <div class="chapters-banner-bar">
+            <span class="chapters-banner-title">📚 เลือกบทเรียนหลัก (6 บท)</span>
+            <span class="chapters-banner-hint">คลิกบทเพื่อดูคาบย่อย</span>
+          </div>
+          <div class="chapters-tree-list">
+    
+        <div class="chapter-tree-item open" id="chapItem-chapter-1">
+          <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-1')">
+            <div class="chapter-tree-title-group">
+              <span class="chapter-tree-title">บทที่ 1: เลขยกกำลังและกรณฑ์ในระบบจำนวนจริง</span>
+              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 1 - 4</span>
+            </div>
+            <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-1')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 1: เลขยกกำลังและกรณฑ์ในระบบจำนวนจริง)">
+              ⚙️
+            </button>
+            <span class="chapter-tree-chevron">▼</span>
+          </button>
+          <div class="chapter-quick-action-bar">
+            <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-1')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+              <span>⚙️ ตั้งค่าบท</span>
+            </button>
+          </div>
+          <ul class="chapter-lessons-list">
+      
+          <li>
+            <a href="javascript:void(0)" class="topic-item active" data-id="expo-l01" onclick="selectTopic('expo-l01')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 1: เลขยกกำลังชี้กำลังเต็ม</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">5 สมบัติหลัก นิยาม $a^0=1$ และ $a^{-n}=\frac{1}{a^n}$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l02" onclick="selectTopic('expo-l02')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 2: รากที่ n และกรณฑ์</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">ค่าหลักของรากที่ n และเงื่อนไข $|a|$ เมื่อ n คู่</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l03" onclick="selectTopic('expo-l03')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 3: การดำเนินการของกรณฑ์ & สังยุค</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">บวก ลบ คูณ หารกรณฑ์ และจัดรูปตัวส่วนด้วยสังยุค</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l04" onclick="selectTopic('expo-l04')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 4: เลขยกกำลังชี้กำลังตรรกยะ</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$a^{\frac{m}{n}} = (\sqrt[n]{a})^m$ และการแปลงรูป</div>
+            </a>
+          </li>
+        
+          </ul>
+        </div>
+      
+        <div class="chapter-tree-item " id="chapItem-chapter-2">
+          <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-2')">
+            <div class="chapter-tree-title-group">
+              <span class="chapter-tree-title">บทที่ 2: ฟังก์ชันเอกซ์โพเนนเชียลและกราฟ</span>
+              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 5 - 8</span>
+            </div>
+            <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-2')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 2: ฟังก์ชันเอกซ์โพเนนเชียลและกราฟ)">
+              ⚙️
+            </button>
+            <span class="chapter-tree-chevron">▼</span>
+          </button>
+          <div class="chapter-quick-action-bar">
+            <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-2')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+              <span>⚙️ ตั้งค่าบท</span>
+            </button>
+          </div>
+          <ul class="chapter-lessons-list">
+      
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l05" onclick="selectTopic('expo-l05')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 5: นิยามฟังก์ชันเอกซ์โพเนนเชียล</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">รูปแบบ $y = a^x$ เงื่อนไข $a > 0, a \neq 1$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l06" onclick="selectTopic('expo-l06')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 6: กราฟเอกซ์โพเนนเชียล</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">ฟังก์ชันเพิ่ม/ลด จุดตัด $(0,1)$ เส้นกำกับ $y=0$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l07" onclick="selectTopic('expo-l07')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 7: การเลื่อนขนานกราฟ & โดเมนเรนจ์</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$y = a^{x-h} + k$ การหาโดเมน เรนจ์ เส้นกำกับ</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l08" onclick="selectTopic('expo-l08')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 8: การเปรียบเทียบค่าเลขยกกำลัง</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">เปรียบเทียบค่าเมื่อฐาน $a > 1$ และ $0 < a < 1$</div>
+            </a>
+          </li>
+        
+          </ul>
+        </div>
+      
+        <div class="chapter-tree-item " id="chapItem-chapter-3">
+          <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-3')">
+            <div class="chapter-tree-title-group">
+              <span class="chapter-tree-title">บทที่ 3: สมการและอสมการเอกซ์โพเนนเชียล</span>
+              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 9 - 12</span>
+            </div>
+            <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-3')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 3: สมการและอสมการเอกซ์โพเนนเชียล)">
+              ⚙️
+            </button>
+            <span class="chapter-tree-chevron">▼</span>
+          </button>
+          <div class="chapter-quick-action-bar">
+            <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-3')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+              <span>⚙️ ตั้งค่าบท</span>
+            </button>
+          </div>
+          <ul class="chapter-lessons-list">
+      
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l09" onclick="selectTopic('expo-l09')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 9: สมการเอกซ์โพ: ฐานเท่ากัน</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$a^{f(x)} = a^{g(x)} \iff f(x) = g(x)$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l10" onclick="selectTopic('expo-l10')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 10: สมการเอกซ์โพ: แปลงตัวแปรพหุนาม</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">จัดรูป $A(a^x)^2 + B(a^x) + C = 0$ กำหนด $u = a^x$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l11" onclick="selectTopic('expo-l11')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 11: สมการเอกซ์โพ: ฐานไม่เท่า & สมมาตร</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$a^u = b^u$ และสมการรูป $a^x + a^{-x} = k$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l12" onclick="selectTopic('expo-l12')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 12: อสมการเอกซ์โพเนนเชียล</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">การกลับเครื่องหมายอสมการเมื่อฐาน $0 < a < 1$</div>
+            </a>
+          </li>
+        
+          </ul>
+        </div>
+      
+        <div class="chapter-tree-item " id="chapItem-chapter-4">
+          <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-4')">
+            <div class="chapter-tree-title-group">
+              <span class="chapter-tree-title">บทที่ 4: ฟังก์ชันลอการิทึมและสมบัติพื้นฐาน</span>
+              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 13 - 16</span>
+            </div>
+            <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-4')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 4: ฟังก์ชันลอการิทึมและสมบัติพื้นฐาน)">
+              ⚙️
+            </button>
+            <span class="chapter-tree-chevron">▼</span>
+          </button>
+          <div class="chapter-quick-action-bar">
+            <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-4')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+              <span>⚙️ ตั้งค่าบท</span>
+            </button>
+          </div>
+          <ul class="chapter-lessons-list">
+      
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l13" onclick="selectTopic('expo-l13')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 13: นิยามลอการิทึม (อินเวอร์ส Expo)</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$y = \log_a x \iff x = a^y$ เงื่อนไข $x > 0$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l14" onclick="selectTopic('expo-l14')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 14: กราฟของฟังก์ชันลอการิทึม</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">ฟังก์ชันเพิ่ม/ลด จุดตัด $(1,0)$ เส้นกำกับ $x=0$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l15" onclick="selectTopic('expo-l15')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 15: สมบัติพื้นฐานลอการิทึม 5 ข้อแรก</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$\log_a 1, \log_a a, \log_a(MN), \log_a(\frac{M}{N}), \log_a(M^p)$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l16" onclick="selectTopic('expo-l16')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 16: การเปลี่ยนฐาน & ยกกำลังที่ฐาน</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$\log_b a = \frac{\log_c a}{\log_c b}$ และ $\log_{b^q} a^p = \frac{p}{q}\log_b a$</div>
+            </a>
+          </li>
+        
+          </ul>
+        </div>
+      
+        <div class="chapter-tree-item " id="chapItem-chapter-5">
+          <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-5')">
+            <div class="chapter-tree-title-group">
+              <span class="chapter-tree-title">บทที่ 5: ลอการิทึมขั้นสูงและสมการลอการิทึม</span>
+              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 17 - 20</span>
+            </div>
+            <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-5')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 5: ลอการิทึมขั้นสูงและสมการลอการิทึม)">
+              ⚙️
+            </button>
+            <span class="chapter-tree-chevron">▼</span>
+          </button>
+          <div class="chapter-quick-action-bar">
+            <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-5')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+              <span>⚙️ ตั้งค่าบท</span>
+            </button>
+          </div>
+          <ul class="chapter-lessons-list">
+      
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l17" onclick="selectTopic('expo-l17')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 17: ลอการิทึมสามัญ ธรรมชาติ & แมนทิสซา</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$\log x, \ln x$, แคแรกเทอริสติกและแมนทิสซา</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l18" onclick="selectTopic('expo-l18')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 18: การเปิดตาราง & Antilogarithm</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">การประมาณค่าลอการิทึมและการหาค่าแอนติลอการิทึม</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l19" onclick="selectTopic('expo-l19')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 19: สมการลอการิทึม: ฐานเท่า & ยุบ log</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$\log_a u = \log_a v$ และการตรวจเงื่อนไข $u, v > 0$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l20" onclick="selectTopic('expo-l20')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 20: สมการลอการิทึม: เปลี่ยนตัวแปร & Take log</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">สมการกำลังสองของ log และการ take log 2 ข้าง</div>
+            </a>
+          </li>
+        
+          </ul>
+        </div>
+      
+        <div class="chapter-tree-item " id="chapItem-chapter-6">
+          <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-6')">
+            <div class="chapter-tree-title-group">
+              <span class="chapter-tree-title">บทที่ 6: อสมการลอการิทึมและการประยุกต์โจทย์จริง</span>
+              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 21 - 24</span>
+            </div>
+            <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-6')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 6: อสมการลอการิทึมและการประยุกต์โจทย์จริง)">
+              ⚙️
+            </button>
+            <span class="chapter-tree-chevron">▼</span>
+          </button>
+          <div class="chapter-quick-action-bar">
+            <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-6')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+              <span>⚙️ ตั้งค่าบท</span>
+            </button>
+          </div>
+          <ul class="chapter-lessons-list">
+      
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l21" onclick="selectTopic('expo-l21')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 21: อสมการลอการิทึม & โดเมน</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">ระวังโดเมน $u > 0$ และกลับเครื่องหมายเมื่อ $0 < a < 1$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l22" onclick="selectTopic('expo-l22')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 22: ประยุกต์: กัมมันตรังสี & ครึ่งชีวิต</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$N(t) = N_0 (\frac{1}{2})^{\frac{t}{T}}$ และ $N(t) = N_0 e^{-\lambda t}$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l23" onclick="selectTopic('expo-l23')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 23: ประยุกต์: ประชากร & ดอกเบี้ยทบต้น</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$P(t) = P_0 e^{kt}$ และ $A = P(1+\frac{r}{n})^{nt}$</div>
+            </a>
+          </li>
+        
+          <li>
+            <a href="javascript:void(0)" class="topic-item " data-id="expo-l24" onclick="selectTopic('expo-l24')">
+              <div class="topic-row-top">
+                <span class="topic-title-text">คาบที่ 24: ประยุกต์: pH กรดด่าง & เดซิเบลเสียง</span>
+                <span class="topic-tag highlight">สสวท.</span>
+              </div>
+              <div class="topic-desc-snippet">$pH = -\log[H^+]$ และ $\beta = 10\log(\frac{I}{I_0})$</div>
+            </a>
+          </li>
+        
+          </ul>
+        </div>
+      
+          </div>
+        </div>
+      </div>
+    
+      <div class="unit-card upcoming-unit">
+        <button type="button" class="unit-header-btn upcoming-btn" onclick="showUpcomingUnitModal('unit-conic')">
+          <div class="unit-left-content">
+            <span class="unit-icon">📐</span>
+            <div class="unit-info">
+              <div class="unit-badge-row">
+                <span class="unit-grade-tag">ม.4 (เทอม 2)</span>
+                <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
+              </div>
+              <div class="unit-title-text">เรขาคณิตวิเคราะห์และภาคตัดกรวย</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 2 (ค31202) • 18 คาบเรียน</div>
+            </div>
+          </div>
+          <span class="unit-upcoming-lock">🔒</span>
+        </button>
+      </div>
+    
+      <div class="unit-card upcoming-unit">
+        <button type="button" class="unit-header-btn upcoming-btn" onclick="showUpcomingUnitModal('unit-real-numbers')">
+          <div class="unit-left-content">
+            <span class="unit-icon">🔢</span>
+            <div class="unit-info">
+              <div class="unit-badge-row">
+                <span class="unit-grade-tag">ม.4 (เทอม 1)</span>
+                <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
+              </div>
+              <div class="unit-title-text">ระบบจำนวนจริงและพหุนาม</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 1 (ค31201) • 20 คาบเรียน</div>
+            </div>
+          </div>
+          <span class="unit-upcoming-lock">🔒</span>
+        </button>
+      </div>
+    
+      <div class="unit-card upcoming-unit">
+        <button type="button" class="unit-header-btn upcoming-btn" onclick="showUpcomingUnitModal('unit-trig')">
+          <div class="unit-left-content">
+            <span class="unit-icon">📈</span>
+            <div class="unit-info">
+              <div class="unit-badge-row">
+                <span class="unit-grade-tag">ม.5 (เทอม 1)</span>
+                <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
+              </div>
+              <div class="unit-title-text">ฟังก์ชันตรีโกณมิติและการประยุกต์</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 3 (ค32201) • 24 คาบเรียน</div>
+            </div>
+          </div>
+          <span class="unit-upcoming-lock">🔒</span>
+        </button>
+      </div>
+    
+      <div class="unit-card upcoming-unit">
+        <button type="button" class="unit-header-btn upcoming-btn" onclick="showUpcomingUnitModal('unit-vectors')">
+          <div class="unit-left-content">
+            <span class="unit-icon">↗️</span>
+            <div class="unit-info">
+              <div class="unit-badge-row">
+                <span class="unit-grade-tag">ม.5 (เทอม 1)</span>
+                <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
+              </div>
+              <div class="unit-title-text">เวกเตอร์ในสามมิติ</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 3 (ค32201) • 16 คาบเรียน</div>
+            </div>
+          </div>
+          <span class="unit-upcoming-lock">🔒</span>
+        </button>
+      </div>
+    
+      <div class="unit-card upcoming-unit">
+        <button type="button" class="unit-header-btn upcoming-btn" onclick="showUpcomingUnitModal('unit-calculus')">
+          <div class="unit-left-content">
+            <span class="unit-icon">∫</span>
+            <div class="unit-info">
+              <div class="unit-badge-row">
+                <span class="unit-grade-tag">ม.6 (เทอม 1)</span>
+                <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
+              </div>
+              <div class="unit-title-text">แคลคูลัสเบื้องต้น</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 5 (ค33201) • 28 คาบเรียน</div>
+            </div>
+          </div>
+          <span class="unit-upcoming-lock">🔒</span>
+        </button>
+      </div>
+    </div>
+      </div>
+
+      <div class="sidebar-footer">
+        <div><span class="pulse-dot"></span>สสวท. Curriculum Ready</div>
+        <span>24 คาบเรียน (สัปดาห์ที่ 1 - 6)</span>
+      </div>
+    </aside>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="main-workspace">
+      
+      <!-- TOP NAVIGATION BAR -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="btn-toggle-menu" onclick="toggleSidebarDrawer(true)" aria-label="เปิดเมนูด้านซ้าย">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+
+          <div class="active-topic-flow">
+            <div class="flow-title" id="flowBreadcrumb">
+              <span>คาบที่ 1: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนเต็ม</span>
+            </div>
+            <div class="flow-sub" id="flowGradeSub">
+              <span>มัธยมศึกษาปีที่ 4 (ภาคเรียนที่ 2)</span>
+              <span>•</span>
+              <span style="color: var(--neon-cyan);">คณิตศาสตร์เพิ่มเติม 2 (ค31202)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="view-switcher">
+            <button class="btn-view-mode active" id="btnModeStudio" onclick="switchMainView('studio')">
+              <span>🎛️ สตูดิโอ</span>
+            </button>
+            <button class="btn-view-mode" id="btnModePaper" onclick="switchMainView('paper')">
+              <span>📄 กระดาษ A4</span>
+            </button>
+          </div>
+
+          <button type="button" class="btn-action btn-system-settings" id="btnOpenSystemSettings" onclick="openSystemSettingsModal()" title="ตั้งค่าระบบส่วนกลาง (ชื่อโรงเรียน, ครูผู้สอน, ขนาดสมการ)">
+            <span>⚙️</span>
+            <span>ตั้งค่าระบบ</span>
+          </button>
+
+          <button type="button" class="btn-action btn-answer-key" id="btnToggleAnswerKey" onclick="toggleAnswerKey()" title="เปิด/ปิดโหมดเฉลยสำหรับคุณครู (แสดงคำตอบในใบงานและ PDF)">
+            <span>🔑</span>
+            <span class="btn-text">โหมดเฉลย</span>
+          </button>
+
+          <button class="btn-action btn-print" onclick="prepareAndPrint()">
+            <span>🖨️</span>
+            <span>พิมพ์ / PDF</span>
+          </button>
+
+          <button class="btn-action btn-save-glow" id="btnSaveSheet" onclick="saveWorkflow()">
+            <span>💾 บันทึกชีท</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- SCROLLABLE WORKSPACE CONTENT -->
+      <div class="studio-scroll-area">
+
+        <!-- PENPOT AI WORKFLOW HERO BANNER -->
+        <section class="workflow-hero">
+          <div class="hero-top-pills">
+            <span class="pill-indicator cyan">⚡ PENPOT AI WORKFLOWS ARCHITECTURE</span>
+            <span class="pill-indicator purple" id="heroBadgeTopic">สสวท. ม.ปลาย มาตรฐานใหม่</span>
+            <span class="pill-indicator">KATEX EQUATION ENGINE ACTIVE</span>
+          </div>
+
+          <h2 class="hero-headline" id="heroTopicHeadline">ระบบออกแบบชีทการสอนคณิตศาสตร์ สสวท.</h2>
+          <p class="hero-desc" id="heroTopicDesc">
+            เนื้อหา ตัวชี้วัด สูตรคณิตศาสตร์ และชุดข้อสอบถูกออกแบบตามมาตรฐาน สสวท. ม.ปลาย โดยอัตโนมัติ คุณสามารถเลือกบทเรียนจากแถบด้านซ้าย และเลือกรูปแบบเอกสารที่ต้องการได้ทันที
+          </p>
+
+          <!-- AI WORKFLOW QUICK BAR -->
+          <div class="ai-prompt-bar">
+            <span class="prompt-label">🤖 AI Quick Presets:</span>
+            <button class="btn-preset-chip" onclick="applyPreset('standard')">✨ ข้อสอบมาตรฐาน สสวท.</button>
+            <button class="btn-preset-chip" onclick="applyPreset('hard')">🔥 ข้อสอบประยุกต์ขั้นสูง (A-Level)</button>
+            <button class="btn-preset-chip" onclick="applyPreset('conceptual')">💡 เน้นความเข้าใจและนิยาม</button>
+          </div>
+
+          <!-- WORKFLOW STEP PIPELINE -->
+          <div class="workflow-nodes-bar">
+            <div class="node-step active">
+              <span class="node-num">1</span>
+              <span>เลือกบทเรียน สสวท.</span>
+            </div>
+            <span class="node-connector">➔</span>
+            <div class="node-step active">
+              <span class="node-num">2</span>
+              <span>เลือกประเภทเอกสาร</span>
+            </div>
+            <span class="node-connector">➔</span>
+            <div class="node-step active">
+              <span class="node-num">3</span>
+              <span>สรุปสูตร & ตัวอย่าง</span>
+            </div>
+            <span class="node-connector">➔</span>
+            <div class="node-step active">
+              <span class="node-num">4</span>
+              <span>ส่งออกพิมพ์ A4</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- STUDIO CONTROLS (METADATA & CONFIG) -->
+        <section class="studio-card" id="studioConfigCard">
+          <div class="card-top">
+            <div class="card-title-group">
+              <div class="card-icon">⚙️</div>
+              <h3>ตั้งค่าข้อมูลเอกสารและรูปแบบชีท</h3>
+            </div>
+            <div class="penpot-tabs">
+              <button class="penpot-tab active" id="tabWorksheet" onclick="switchSheetMode('worksheet')">แบบฝึกหัด (Worksheet)</button>
+              <button class="penpot-tab" id="tabSummary" onclick="switchSheetMode('summary')">ใบสรุปสูตร (Cheat Sheet)</button>
+              <button class="penpot-tab" id="tabQuiz" onclick="switchSheetMode('quiz')">แบบทดสอบ (Quiz)</button>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="field-wrap">
+              <label class="field-label">โรงเรียน / สถาบัน</label>
+              <input type="text" class="penpot-input" id="fieldSchool" value="โรงเรียนมัธยมวิทยาคม (สสวท.)" oninput="syncToPaper()">
+            </div>
+            <div class="field-wrap">
+              <label class="field-label">ชื่อวิชา</label>
+              <input type="text" class="penpot-input" id="fieldSubject" value="คณิตศาสตร์เพิ่มเติม 1" oninput="syncToPaper()">
+            </div>
+            <div class="field-wrap">
+              <label class="field-label">ชื่อเอกสาร / ใบงาน</label>
+              <input type="text" class="penpot-input" id="fieldSheet" value="ใบงานที่ 1: การสำรวจและประยุกต์ใช้" oninput="syncToPaper()">
+            </div>
+            <div class="field-wrap">
+              <label class="field-label">ชื่อครูผู้สอน</label>
+              <input type="text" class="penpot-input" id="fieldTeacher" value="กลุ่มสาระการเรียนรู้คณิตศาสตร์" oninput="syncToPaper()">
+            </div>
+          </div>
+
+          <!-- QUICK FORMULA INSERTER (KATEX) -->
+          <div class="formula-toolbar" id="formulaToolbar">
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--neon-cyan); margin-right: 0.25rem;">
+              ⚡ แป้นลัดสูตรคณิตศาสตร์:
+            </span>
+            <button class="formula-chip" onclick="copyFormula('\\frac{a}{b}')">เศษส่วน <span class="render-math">$\frac{a}{b}$</span></button>
+            <button class="formula-chip" onclick="copyFormula('\\sqrt{x}')">สแควรูท <span class="render-math">$\sqrt{x}$</span></button>
+            <button class="formula-chip" onclick="copyFormula('x^{n}')">เลขยกกำลัง <span class="render-math">$x^n$</span></button>
+            <button class="formula-chip" onclick="copyFormula('\\sum_{i=1}^{n} x_i')">ผลรวม <span class="render-math">$\sum_{i=1}^n x_i$</span></button>
+            <button class="formula-chip" onclick="copyFormula('\\int_{a}^{b} f(x)\\,dx')">อินทิกรัล <span class="render-math">$\int_a^b$</span></button>
+            <button class="formula-chip" onclick="copyFormula('\\lim_{x \\to 0}')">ลิมิต <span class="render-math">$\lim_{x \to 0}$</span></button>
+            <button class="formula-chip" onclick="copyFormula('\\vec{u} \\cdot \\vec{v}')">เวกเตอร์ <span class="render-math">$\vec{u} \cdot \vec{v}$</span></button>
+          </div>
+        </section>
+
+        <!-- A4 PAPER SHEET VIEWPORT (CANVAS) -->
+        <section class="canvas-viewport" id="canvasViewport">
+          <div class="canvas-zoom-toolbar">
+            <button class="btn-zoom" onclick="adjustCanvasZoom(-0.1)">−</button>
+            <span class="zoom-text" id="zoomLevel">100%</span>
+            <button class="btn-zoom" onclick="adjustCanvasZoom(0.1)">+</button>
+            <button class="btn-zoom" onclick="resetCanvasZoom()" style="font-size: 0.75rem;">Fit</button>
+            <span class="zoom-divider" style="display:inline-block; width:1px; height:16px; background:rgba(255,255,255,0.2); margin:0 4px; vertical-align:middle;"></span>
+            <button class="btn-zoom btn-zoom-key" id="btnZoomToggleKey" onclick="toggleAnswerKey()" title="เปิด/ปิดโหมดเฉลยสำหรับคุณครู">🔑 เฉลย</button>
+          </div>
+
+          <!-- THE REAL A4 WHITE PAPER SHEET -->
+          <article class="a4-paper-sheet" id="a4Paper">
+            
+            <!-- HEADER -->
+            <header class="sheet-main-header">
+              <h2 class="sheet-school-name" id="paperSchoolName">โรงเรียนมัธยมวิทยาคม (สสวท.)</h2>
+              <p class="sheet-subject-title" id="paperSubjectMeta">คณิตศาสตร์เพิ่มเติม 1 • ใบงานการเรียนรู้</p>
+              <p class="sheet-teacher-meta" id="paperTeacherMeta" style="font-size: 0.85rem; color: #475569; margin: 0.15rem 0 0.25rem 0; font-weight: 500;">ครูผู้สอน: กลุ่มสาระการเรียนรู้คณิตศาสตร์</p>
+              <p class="sheet-curriculum-standard" id="paperStandardMeta">สาระการเรียนรู้คณิตศาสตร์ มาตรฐาน สสวท.</p>
+              
+              <div class="sheet-student-meta">
+                <div>ชื่อ-นามสกุล: .....................................................................</div>
+                <div>ชั้น ม......../......</div>
+                <div>เลขที่: ..........</div>
+              </div>
+            </header>
+
+            <!-- PART 1: CONCEPTS & FORMULAS (DYNAMIC) -->
+            <div class="sheet-block" id="blockConcepts">
+              <div class="sheet-block-badge">
+                <span id="labelPart1">📘 ตอนที่ 1: สรุปสาระสำคัญและนิยามหลักสูตร สสวท.</span>
+              </div>
+              <div id="contentConceptBody">
+<div class="sheet-formula-box">
+  <div style="font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;">📌 สมบัติเลขยกกำลังเมื่อ $m, n \in \mathbb{Z}$ และ $a, b \neq 0$:</div>
+  <div class="equation-stage">
+    $\begin{aligned}
+a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
+\frac{a^m}{a^n} &= a^{m-n}, & a^{-n} &= \frac{1}{a^n}, & a^0 &= 1 \quad (a \neq 0)
+\end{aligned}$
+  </div>
+  <div style="font-size: 0.88rem; color: #475569; margin-top: 0.25rem;">
+    💡 <strong>เทคนิคคิดเร็ว:</strong> ระวังความแตกต่างระหว่าง $(-2)^4 = 16$ (ฐานเป็นลบยกกำลังคู่) กับ $-2^4 = -16$ (ลบอยู่นอกเลขยกกำลัง)
+  </div>
+</div>
+              </div>
+            </div>
+
+            <!-- PART 2: EXERCISES & PROBLEMS (DYNAMIC) -->
+            <div class="sheet-block" id="blockExercises">
+              <div class="sheet-block-badge">
+                <span id="labelPart2">✏️ ตอนที่ 2: ข้อสอบและแบบฝึกหัดทบทวน</span>
+              </div>
+              <div id="contentExerciseBody">
+
+    <div class="sheet-exercise interactive-block" data-index="0">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(0)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(0, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(0, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(0)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\frac{2^5 \cdot 4^{-2} \cdot 8^3}{16^2}$</span>
+      </div>
+      
+        <div class="sheet-solution-box" style="margin: 0.3rem 0 0.15rem 0; padding: 0.45rem 0.75rem; background: #f8fafc; border-left: 3px solid #2563eb; border-radius: 4px;">
+          <div style="font-size: 0.88rem; font-weight: 600; color: #1d4ed8; margin-bottom: 0.2rem;">📘 แสดงวิธีทำ:</div>
+          <div class="equation-stage" style="overflow-x: auto; color: #0f172a;">$$\begin{aligned}
+\frac{2^5 \cdot 4^{-2} \cdot 8^3}{16^2} &= \frac{2^5 \cdot (2^2)^{-2} \cdot (2^3)^3}{(2^4)^2} \\[6pt]
+&= \frac{2^5 \cdot 2^{-4} \cdot 2^9}{2^8} \\[6pt]
+&= \frac{2^{5 - 4 + 9}}{2^8} = \frac{2^{10}}{2^8} \\[6pt]
+&= 2^{10-8} = 2^2 = 4
+\end{aligned}$$</div>
+          <div style="font-size: 0.82rem; color: #64748b; font-style: italic; margin-top: 0.2rem;">(วิธีทำตามเฉลยด้านบน: แปลงฐานทั้งหมดให้อยู่ในรูปฐาน 2 แล้วรวมเลขชี้กำลัง)</div>
+        </div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="1">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(1)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(1, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(1, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(1)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ข้อที่ 1. จงหาค่าของ $\frac{3^4 \cdot 9^{-1} \cdot 27^2}{81^2}$</span>
+      </div>
+      
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$1$</span>
+        </div>
+      <div class="handwriting-grid" style="min-height: 145px;"></div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="2">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(2)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(2, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(2, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(2)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ข้อที่ 2. จงหาค่าของนิพจน์ $\frac{(-3)^3 \cdot 6^4}{2^3 \cdot 3^5}$</span>
+      </div>
+      
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$-18$</span>
+        </div>
+      <div class="handwriting-grid" style="min-height: 145px;"></div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="3">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(3)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(3, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(3, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(3)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ตัวอย่างที่ 2. (ครูสาธิตวิธีทำ) จงเขียน $\frac{(a^3 b^{-2})^2 (a^{-2} b^4)}{a^4 b^{-3}}$ ให้อยู่ในรูปอย่างง่ายและมีเลขชี้กำลังเป็นบวก</span>
+      </div>
+      
+        <div class="sheet-solution-box" style="margin: 0.3rem 0 0.15rem 0; padding: 0.45rem 0.75rem; background: #f8fafc; border-left: 3px solid #2563eb; border-radius: 4px;">
+          <div style="font-size: 0.88rem; font-weight: 600; color: #1d4ed8; margin-bottom: 0.2rem;">📘 แสดงวิธีทำ:</div>
+          <div class="equation-stage" style="overflow-x: auto; color: #0f172a;">$$\begin{aligned}
+\frac{(a^3 b^{-2})^2 (a^{-2} b^4)}{a^4 b^{-3}} &= \frac{(a^6 b^{-4})(a^{-2} b^4)}{a^4 b^{-3}} \\[6pt]
+&= \frac{a^{6 + (-2)} b^{-4 + 4}}{a^4 b^{-3}} = \frac{a^4 b^0}{a^4 b^{-3}} \\[6pt]
+&= \frac{a^4 \cdot 1}{a^4 b^{-3}} = a^{4-4} \cdot b^{0 - (-3)} = a^0 b^3 = b^3
+\end{aligned}$$</div>
+          <div style="font-size: 0.82rem; color: #64748b; font-style: italic; margin-top: 0.2rem;">(วิธีทำตามเฉลยด้านบน: กระจายเลขชี้กำลังเข้าในวงเล็บ รวมฐานเดียวกัน แล้วจัดให้อยู่ในรูปกำลังบวก)</div>
+        </div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="4">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(4)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(4, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(4, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(4)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ข้อที่ 3. จงเขียน $\frac{(x^2 y^{-3})^2 (x^{-1} y^4)}{x^3 y^{-2}}$ ให้อยู่ในรูปอย่างง่ายและเลขชี้กำลังเป็นบวก</span>
+      </div>
+      
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$1$</span>
+        </div>
+      <div class="handwriting-grid" style="min-height: 145px;"></div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="5">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(5)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(5, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(5, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(5)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ข้อที่ 4. กำหนดให้ $2^x = a$ และ $2^y = b$ จงเขียน $2^{3x - 2y + 1}$ ในรูปของ $a$ และ $b$</span>
+      </div>
+      
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$\frac{2a^3}{b^2}$</span>
+        </div>
+      <div class="handwriting-grid" style="min-height: 145px;"></div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="6">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(6)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(6, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(6, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(6)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ตัวอย่างที่ 3. (ครูสาธิตวิธีทำ) จงหาค่าของ $\frac{3^{n+3} - 3(3^n)}{3(3^{n+2})}$ เมื่อ $n$ เป็นจำนวนเต็มใดๆ</span>
+      </div>
+      
+        <div class="sheet-solution-box" style="margin: 0.3rem 0 0.15rem 0; padding: 0.45rem 0.75rem; background: #f8fafc; border-left: 3px solid #2563eb; border-radius: 4px;">
+          <div style="font-size: 0.88rem; font-weight: 600; color: #1d4ed8; margin-bottom: 0.2rem;">📘 แสดงวิธีทำ:</div>
+          <div class="equation-stage" style="overflow-x: auto; color: #0f172a;">$$\begin{aligned}
+\frac{3^{n+3} - 3(3^n)}{3(3^{n+2})} &= \frac{3^n \cdot 3^3 - 3 \cdot 3^n}{3 \cdot 3^n \cdot 3^2} \\[6pt]
+&= \frac{3^n (3^3 - 3)}{3^n (3 \cdot 9)} = \frac{27 - 3}{27} \\[6pt]
+&= \frac{24}{27} = \frac{8}{9}
+\end{aligned}$$</div>
+          <div style="font-size: 0.82rem; color: #64748b; font-style: italic; margin-top: 0.2rem;">(วิธีทำตามเฉลยด้านบน: ดึงตัวร่วม $3^n$ ทั้งเศษและส่วน แล้วตัดทอนให้เหลือเฉพาะตัวเลข)</div>
+        </div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="7">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(7)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(7, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(7, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(7)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ข้อที่ 5. จงหาค่าของ $\frac{2^{n+4} - 2(2^n)}{2(2^{n+3})}$ เมื่อ $n$ เป็นจำนวนเต็มใดๆ</span>
+      </div>
+      
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$\frac{7}{8}$</span>
+        </div>
+      <div class="handwriting-grid" style="min-height: 145px;"></div>
+    </div>
+    <div class="sheet-exercise interactive-block" data-index="8">
+      <div class="exercise-actions-bar no-print">
+        <button type="button" class="action-btn" onclick="openEditExerciseModal(8)" title="แก้ไขข้อสอบนี้">
+          ✏️ แก้ไข
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(8, -1)" title="เลื่อนข้อขึ้น">
+          ⬆️
+        </button>
+        <button type="button" class="action-btn" onclick="moveExercise(8, 1)" title="เลื่อนข้อลง">
+          ⬇️
+        </button>
+        <button type="button" class="action-btn delete-btn" onclick="deleteExercise(8)" title="ลบข้อนี้">
+          🗑️ ลบ
+        </button>
+      </div>
+
+      <div class="exercise-header">
+        <span>ข้อที่ 6. จงหาค่าของ $x$ ที่สอดคล้องกับสมการ $\frac{5^{x+1} + 5^x}{5^{x-1}} = 30$</span>
+      </div>
+      
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">เป็นจริงทุก $x \in \mathbb{R}$</span>
+        </div>
+      <div class="handwriting-grid" style="min-height: 165px;"></div>
+    </div>
+
+        <div class="add-exercise-container no-print">
+    <button type="button" class="btn-add-exercise-block" onclick="openAddExerciseModal()">
+      <span style="font-size: 1.2rem; line-height: 1;">＋</span>
+      <span>เพิ่มข้อสอบใหม่ในชุดนี้</span>
+    </button>
+    <button type="button" class="btn-reset-exercises" onclick="resetExercisesToDefault()" title="คืนค่าเริ่มต้นของ สสวท. สำหรับบทนี้">
+      🔄 คืนค่าเดิม
+    </button>
+  </div>
+
+              </div>
+            </div>
+
+            <!-- FOOTER -->
+            <footer class="sheet-footer-line">
+              <span id="paperFooterLabel">หัวข้อ: เซต (Sets)</span>
+              <span>เอกสารการสอนคณิตศาสตร์ ม.ปลาย สสวท.</span>
+            </footer>
+
+          </article>
+        </section>
+
+      </div>
+
+      <!-- MOBILE BOTTOM ACTION DOCK -->
+      <nav class="mobile-bottom-dock no-print" id="mobileBottomDock" aria-label="แถบเมนูลัดสำหรับมือถือ">
+        <button type="button" class="dock-btn active" id="dockBtnStudio" onclick="switchMainView('studio')" title="สลับไปหน้าสตูดิโอแก้ไข">
+          <span class="dock-icon">🎛️</span>
+          <span class="dock-label">แก้ไข</span>
+        </button>
+        <button type="button" class="dock-btn" id="dockBtnPaper" onclick="switchMainView('paper')" title="สลับไปดูกระดาษ A4">
+          <span class="dock-icon">📄</span>
+          <span class="dock-label">ดูชีท A4</span>
+        </button>
+        <button type="button" class="dock-btn dock-btn-key" id="dockBtnAnswerKey" onclick="toggleAnswerKey()" title="เปิด/ปิดโหมดเฉลยสำหรับคุณครู">
+          <span class="dock-icon">🔑</span>
+          <span class="dock-label">เฉลย</span>
+        </button>
+        <button type="button" class="dock-btn dock-btn-save" id="dockBtnSave" onclick="saveWorkflow()" title="บันทึกชีทลง Google Docs & Drive">
+          <span class="dock-icon">💾</span>
+          <span class="dock-label">บันทึกชีท</span>
+        </button>
+        <button type="button" class="dock-btn" onclick="prepareAndPrint()" title="พิมพ์หรือบันทึก PDF">
+          <span class="dock-icon">🖨️</span>
+          <span class="dock-label">พิมพ์/PDF</span>
+        </button>
+        <button type="button" class="dock-btn" onclick="openSystemSettingsModal()" title="ตั้งค่าระบบส่วนกลาง">
+          <span class="dock-icon">⚙️</span>
+          <span class="dock-label">ตั้งค่า</span>
+        </button>
+      </nav>
+    </main>
+  </div>
+
+  <!-- INTERACTIVE BLOCK EDITOR MODAL (KATEX LIVE PREVIEW) -->
+  <div class="modal-backdrop no-print" id="exerciseModal" onclick="handleModalBackdropClick(event)">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.25rem;">✏️</span>
+          <h3 id="modalTitle">แก้ไขโจทย์ข้อสอบ</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeExerciseModal()">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <!-- Quick Template Preset Selector -->
+        <div>
+          <label class="field-label" style="margin-bottom: 0.35rem;">รูปแบบโจทย์เริ่มต้น (Templates):</label>
+          <div class="template-chips">
+            <button type="button" class="template-chip active" id="tplDescriptive" onclick="applyTemplatePreset('descriptive')">📝 แสดงวิธีทำ (อัตนัย)</button>
+            <button type="button" class="template-chip" id="tplMultipleChoice" onclick="applyTemplatePreset('multiple-choice')">🔘 ปรนัย 4 ตัวเลือก (ก-ง)</button>
+            <button type="button" class="template-chip" id="tplShortAnswer" onclick="applyTemplatePreset('short-answer')">✍️ เติมคำตอบสั้น</button>
+            <button type="button" class="template-chip" id="tplProof" onclick="applyTemplatePreset('proof')">🔍 พิสูจน์ / ให้เหตุผล</button>
+          </div>
+        </div>
+
+        <!-- Question Title & Points -->
+        <div class="form-row" style="margin-bottom: 0;">
+          <div class="field-wrap" style="flex: 2;">
+            <label class="field-label">ข้อความคำถาม / หัวข้อโจทย์</label>
+            <input type="text" class="penpot-input" id="modalInputTitle" placeholder="เช่น ข้อที่ 1. กำหนดให้ A และ B เป็นเซต..." oninput="updateModalPreview()">
+          </div>
+          <div class="field-wrap" style="flex: 1;">
+            <label class="field-label">คะแนน (Points)</label>
+            <input type="text" class="penpot-input" id="modalInputPoints" placeholder="เช่น (5 คะแนน)" oninput="updateModalPreview()">
+          </div>
+        </div>
+
+        <!-- LaTeX Formula Field -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <label class="field-label">สูตรคณิตศาสตร์ / สมการ LaTeX ( KaTeX )</label>
+            <span style="font-size: 0.72rem; color: var(--neon-cyan);">คลิกสัญลักษณ์เพื่อแทรกสูตรด่วน ⚡</span>
+          </div>
+          <textarea class="penpot-input" id="modalInputLatex" rows="2" style="font-family: monospace; resize: vertical;" placeholder="เช่น A \cup B = \{x \mid x \in A \text{ หรือ } x \in B\}" oninput="updateModalPreview()"></textarea>
+
+          <!-- Quick Math Symbols Bar -->
+          <div class="symbol-pill-row">
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\frac{a}{b}')">\frac{a}{b}</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\sqrt{x}')">\sqrt{x}</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('x^{2}')">x^2</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\sum_{i=1}^{n}')">\sum</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\int_{a}^{b}')">\int</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\lim_{x \\to 0}')">\lim</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\cap')">\cap</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\cup')">\cup</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\in')">\in</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\subset')">\subset</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\vec{u}')">\vec{u}</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\pm')">\pm</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\theta')">\theta</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\pi')">\pi</button>
+            <button type="button" class="symbol-pill" onclick="insertLatexSymbol('\\infty')">\infty</button>
+          </div>
+        </div>
+
+        <!-- Answer / Working Area Type Selector -->
+        <div>
+          <label class="field-label">รูปแบบพื้นที่คำตอบของนักเรียน</label>
+          <select class="penpot-input" id="modalSelectAnswerType" onchange="handleAnswerTypeChange()">
+            <option value="handwriting-normal">เส้นบรรทัดเขียนวิธีทำมาตรฐาน (85px)</option>
+            <option value="handwriting-large">เส้นบรรทัดเขียนวิธีทำขนาดใหญ่ (135px)</option>
+            <option value="multiple-choice">ตัวเลือกปรนัย 4 ตัวเลือก (ก, ข, ค, ง)</option>
+            <option value="short-answer">บรรทัดเติมคำตอบสั้น (ตอบ: ............)</option>
+            <option value="blank">พื้นที่ตารางกราฟ / ว่างเปล่า</option>
+          </select>
+        </div>
+
+        <!-- Multiple Choice Options (conditionally shown) -->
+        <div id="modalMCOptionsWrap" style="display: none; background: rgba(255,255,255,0.03); padding: 0.75rem; border-radius: 6px; border: 1px solid rgba(255,255,255,0.08);">
+          <div style="font-size: 0.8rem; font-weight: 600; color: #94a3b8; margin-bottom: 0.5rem;">กำหนดตัวเลือก ก, ข, ค, ง (สามารถใส่สูตร $...$ ได้):</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+            <input type="text" class="penpot-input" id="mcOptionA" placeholder="ก. ตัวเลือกที่ 1" oninput="updateModalPreview()">
+            <input type="text" class="penpot-input" id="mcOptionB" placeholder="ข. ตัวเลือกที่ 2" oninput="updateModalPreview()">
+            <input type="text" class="penpot-input" id="mcOptionC" placeholder="ค. ตัวเลือกที่ 3" oninput="updateModalPreview()">
+            <input type="text" class="penpot-input" id="mcOptionD" placeholder="ง. ตัวเลือกที่ 4" oninput="updateModalPreview()">
+          </div>
+        </div>
+
+        <!-- Custom Placeholder / Guidance -->
+        <div id="modalPlaceholderWrap">
+          <label class="field-label">ข้อความแนะนำ / คำชี้แจงในกรอบ (Placeholder)</label>
+          <input type="text" class="penpot-input" id="modalInputPlaceholder" placeholder="เช่น (แสดงวิธีทำอย่างละเอียด)" oninput="updateModalPreview()">
+        </div>
+
+        <!-- Teacher Answer Key Field -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <label class="field-label">🔑 เฉลยคำตอบสำหรับคุณครู (Teacher's Answer Key)</label>
+            <span style="font-size: 0.72rem; color: #10b981;">รองรับสมการ LaTeX เช่น $x = 2$ หรือ $\frac{a}{b}$</span>
+          </div>
+          <input type="text" class="penpot-input" id="modalInputAnswer" placeholder="เช่น $1$ หรือ $\frac{2a^3}{b^2}$ (แสดงเฉพาะเมื่อเปิดโหมดเฉลย)" oninput="updateModalPreview()">
+        </div>
+
+        <!-- LIVE KATEX PREVIEW ON A4 WHITE PAPER STYLE -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.35rem;">
+            <label class="field-label">ตัวอย่างบนกระดาษ A4 เสมือนจริง (Live KaTeX Preview):</label>
+            <span style="font-size: 0.72rem; color: var(--neon-cyan);">อัปเดตอัตโนมัติ Real-time</span>
+          </div>
+          <div class="paper-preview-box" id="modalPreviewCard">
+            <div id="modalPreviewContent">
+              <!-- Rendered preview -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);" onclick="closeExerciseModal()">ยกเลิก</button>
+        <button type="button" class="btn-action primary" onclick="saveExerciseFromModal()">
+          <span>💾 บันทึกข้อสอบ</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPCOMING UNIT NOTIFICATION MODAL -->
+  <div class="modal-backdrop no-print" id="upcomingUnitModal" onclick="if(event.target.id==='upcomingUnitModal') closeUpcomingModal()">
+    <div class="modal-window" style="max-width: 480px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span id="upcomingModalIcon" style="font-size: 1.4rem;">📐</span>
+          <h3 id="upcomingModalTitle" style="color: #ffffff; font-size: 1.05rem;">หน่วยการเรียนรู้</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeUpcomingModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1rem;">
+        <div class="upcoming-box-meta">
+          <span>📚 หลักสูตร:</span>
+          <span id="upcomingModalSubject" style="color: var(--neon-cyan); font-weight: 600;">คณิตศาสตร์เพิ่มเติม สสวท.</span>
+        </div>
+
+        <div id="upcomingModalDesc" style="font-size: 0.825rem; color: #94a3b8; line-height: 1.5; background: rgba(255, 255, 255, 0.02); padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          คำอธิบายสาระการเรียนรู้
+        </div>
+
+        <div style="background: rgba(0, 245, 212, 0.08); border: 1px solid rgba(0, 245, 212, 0.25); border-radius: var(--radius-sm); padding: 0.75rem; font-size: 0.8rem; color: #e2e8f0; line-height: 1.45;">
+          💡 <strong>สถานะปัจจุบัน:</strong> หน่วยนี้กำลังจัดทำข้อสอบและใบงานมาตรฐาน สสวท. เพิ่มเติมในระบบ<br>
+          ปัจจุบันคุณครูสามารถสอนและพิมพ์ชีท <strong>ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม</strong> ได้ครบถ้วนทั้ง 24 คาบ (144 ข้อ) ครับ
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: center;">
+        <button type="button" class="btn-action primary" style="min-width: 140px; justify-content: center;" onclick="closeUpcomingModal()">
+          รับทราบ / กลับไปเลือกบทเรียน
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GLOBAL SYSTEM SETTINGS MODAL -->
+  <div class="modal-backdrop no-print" id="systemSettingsModal" onclick="if(event.target.id==='systemSettingsModal') closeSystemSettingsModal()">
+    <div class="modal-window" style="max-width: 580px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.3rem;">⚙️</span>
+          <div>
+            <h3 style="color: #ffffff; margin: 0; font-size: 1.1rem;">ตั้งค่าระบบส่วนกลาง (System Settings)</h3>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">กำหนดชื่อโรงเรียน ครูผู้สอน และขนาดตัวสมการ โดยระบบจะจำค่าไว้ถาวร</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeSystemSettingsModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1.1rem; padding: 1.25rem;">
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+            🏫 ชื่อโรงเรียน / สถาบันการศึกษา
+          </label>
+          <input type="text" class="penpot-input" id="inputSystemSchool" placeholder="เช่น โรงเรียนมัธยมวิทยาคม (สสวท.)">
+          <span style="font-size: 0.78rem; color: #64748b;">แสดงผลที่หัวกระดาษ A4 ทุกใบงาน และใช้ในการส่งออก Google Docs</span>
+        </div>
+
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+            👨‍🏫 ชื่อครูผู้สอน / กลุ่มสาระการเรียนรู้
+          </label>
+          <input type="text" class="penpot-input" id="inputSystemTeacher" placeholder="เช่น นายสมเกียรติ ยิ่งเจริญ / กลุ่มสาระการเรียนรู้คณิตศาสตร์">
+          <span style="font-size: 0.78rem; color: #64748b;">แสดงในส่วนข้อมูลผู้จัดทำ และบันทึกประวัติชีทการสอน</span>
+        </div>
+
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+            📅 ปีการศึกษา / ภาคเรียนเริ่มต้น
+          </label>
+          <input type="text" class="penpot-input" id="inputSystemAcademicYear" placeholder="เช่น ภาคเรียนที่ 2 ปีการศึกษา 2567">
+        </div>
+
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+            📐 ขนาดตัวสมการคณิตศาสตร์ (KaTeX Equation Scale)
+          </label>
+          <select class="penpot-input" id="selectMathScale" style="cursor: pointer;">
+            <option value="1.0">มาตรฐาน (100% - เหมาะกับเอกสารเน้นข้อความ)</option>
+            <option value="1.15" selected>ปานกลาง คมชัดสมดุล (115% - ค่าแนะนำ สสวท.)</option>
+            <option value="1.25">ขนาดใหญ่พิเศษ (125% - เหมาะกับสูตรซับซ้อน/พิมพ์แจก)</option>
+          </select>
+          <span style="font-size: 0.78rem; color: #64748b;">ปรับขนาดเศษส่วน $\frac{a}{b}$, กรณฑ์ $\sqrt[n]{x}$, และเลขชี้กำลัง $a^x$ ให้อ่านง่าย ชัดเจน</span>
+        </div>
+
+        <!-- GOOGLE SHEETS DATABASE SECTION -->
+        <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: 8px; padding: 0.9rem 1rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.45rem;">
+            <div style="display: flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.92rem; color: #10b981;">
+              <span>📊 ฐานข้อมูล Google Sheets (Database Sync)</span>
+            </div>
+            <span id="gasApiStatusBadge" style="font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 500;">🟢 ออนไลน์พร้อมเชื่อมต่อ</span>
+          </div>
+          <div style="font-size: 0.8rem; color: #94a3b8; line-height: 1.45; margin-bottom: 0.65rem;">
+            ซิงค์การตั้งค่า รหัสวิชา และประวัติชีทกับ Google Sheets อัตโนมัติ ทำให้คุณครูเปิดใช้งานบน GitHub Pages ข้ามเครื่อง (คอม, iPad, มือถือ) แล้วได้ข้อมูลตรงกันตลอดเวลา
+          </div>
+          <div class="field-wrap" style="margin-bottom: 0.6rem;">
+            <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">Google Apps Script Web App Endpoint URL:</label>
+            <input type="text" class="penpot-input" id="inputGasApiUrl" style="font-size: 0.78rem; font-family: var(--font-mono); color: #6ee7b7;" placeholder="https://script.google.com/macros/s/.../exec">
+          </div>
+          <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;">
+            <button type="button" class="btn-action" style="background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4); color: #34d399; font-size: 0.78rem; padding: 0.45rem 0.8rem;" onclick="syncSettingsToGoogleSheet(true)">
+              <span>⬆️ ซิงค์ขึ้น Sheets ทันที</span>
+            </button>
+            <button type="button" class="btn-action" style="background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa; font-size: 0.78rem; padding: 0.45rem 0.8rem;" onclick="fetchSettingsFromGoogleSheet(true)">
+              <span>⬇️ ดึงข้อมูลล่าสุดจาก Sheets</span>
+            </button>
+            <a id="linkOpenGoogleSheetDb" href="https://drive.google.com" target="_blank" rel="noopener noreferrer" class="btn-action" style="text-decoration: none; background: rgba(255, 255, 255, 0.06); border-color: rgba(255, 255, 255, 0.15); color: #f1f5f9; font-size: 0.78rem; padding: 0.45rem 0.8rem; display: inline-flex; align-items: center; gap: 0.35rem;">
+              <span>📊 เปิดตาราง Google Sheets</span>
+            </a>
+          </div>
+        </div>
+
+        <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 8px; padding: 0.75rem 0.9rem; font-size: 0.82rem; color: #93c5fd; display: flex; align-items: center; gap: 0.5rem;">
+          <span>💡</span>
+          <span>ข้อมูลที่บันทึกจะถูกเก็บในเครื่องของท่านอัตโนมัติ (LocalStorage) และซิงค์ขึ้น Google Sheets ส่วนกลางทันที</span>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.6rem; padding: 1rem 1.25rem;">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);" onclick="closeSystemSettingsModal()">
+          ยกเลิก
+        </button>
+        <button type="button" class="btn-action btn-save-glow" onclick="saveSystemSettings()">
+          <span>💾 บันทึกการตั้งค่าระบบ</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHAPTER-LEVEL SETTINGS MODAL (CASCADE TO 4 SUB-WORKSHEETS) -->
+  <div class="modal-backdrop no-print" id="chapterSettingsModal" onclick="if(event.target.id==='chapterSettingsModal') closeChapterSettingsModal()">
+    <div class="modal-window" style="max-width: 600px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.3rem;">📚</span>
+          <div>
+            <h3 style="color: #ffffff; margin: 0; font-size: 1.1rem;" id="chapterModalTitle">ตั้งค่าข้อมูลหลักประจำบทเรียน</h3>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">กำหนดรหัสวิชาและข้อมูลหลักของบทนี้ ระบบจะส่งต่อ (Cascade) ไปยังทุกคาบย่อยในบททันที</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeChapterSettingsModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1.1rem; padding: 1.25rem;">
+        <input type="hidden" id="inputTargetChapterId">
+
+        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 0.75rem 1rem;">
+          <div style="font-size: 0.82rem; color: #94a3b8;">บทเรียนที่กำลังแก้ไข:</div>
+          <div id="chapterModalTargetText" style="font-weight: 600; color: var(--neon-cyan); font-size: 1rem; margin-top: 2px;">บทที่ 1: เลขยกกำลังและกรณฑ์ในระบบจำนวนจริง</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
+          <div class="field-wrap">
+            <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+              🏷️ รหัสวิชา
+            </label>
+            <input type="text" class="penpot-input" id="inputChapterCode" placeholder="เช่น ค31202">
+          </div>
+
+          <div class="field-wrap">
+            <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+              📖 ชื่อวิชา
+            </label>
+            <input type="text" class="penpot-input" id="inputChapterSubject" placeholder="เช่น คณิตศาสตร์เพิ่มเติม 2">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem;">
+          <div class="field-wrap">
+            <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+              🎓 ระดับชั้น
+            </label>
+            <input type="text" class="penpot-input" id="inputChapterGrade" placeholder="เช่น มัธยมศึกษาปีที่ 4">
+          </div>
+
+          <div class="field-wrap">
+            <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+              🗓️ ภาคเรียน
+            </label>
+            <input type="text" class="penpot-input" id="inputChapterSemester" placeholder="เช่น ภาคเรียนที่ 2">
+          </div>
+        </div>
+
+        <!-- CASCADING SUB-WORKSHEETS PREVIEW -->
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.85rem; color: #94a3b8;">
+            📋 ใบงานย่อยที่จะได้รับผลกระทบ (Cascade 4 คาบเรียน):
+          </label>
+          <div id="chapterModalAffectedTopics" style="display: flex; flex-direction: column; gap: 0.4rem; max-height: 140px; overflow-y: auto; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 0.6rem;">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: flex-end; gap: 0.6rem; padding: 1rem 1.25rem;">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);" onclick="closeChapterSettingsModal()">
+          ยกเลิก
+        </button>
+        <button type="button" class="btn-action btn-save-glow" onclick="saveChapterSettings()">
+          <span>🚀 บันทึกและปรับใช้กับทุกคาบในบทนี้</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOOGLE DRIVE SAVE SUCCESS MODAL -->
+  <div class="modal-backdrop no-print" id="saveSuccessModal" onclick="if(event.target.id==='saveSuccessModal') closeSaveSuccessModal()">
+    <div class="modal-window" style="max-width: 540px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.3rem;">🎉</span>
+          <h3 style="color: var(--neon-cyan);">บันทึกชีทลง Google Drive สำเร็จ!</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeSaveSuccessModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1rem;">
+        <div style="text-align: center; padding: 0.75rem 0;">
+          <div style="font-size: 2.8rem; margin-bottom: 0.25rem;">📄</div>
+          <div id="saveModalFileName" style="font-weight: 600; font-size: 1.05rem; color: #ffffff; word-break: break-word;">
+            [ม.4] ใบงานที่ 1: เซตและการดำเนินการ
+          </div>
+          <div id="saveModalFolderInfo" style="font-size: 0.85rem; color: #94a3b8; margin-top: 0.35rem;">
+            บันทึกไว้ใน Google Drive โฟลเดอร์: <span style="color: var(--neon-cyan); font-weight: 500;" id="saveModalFolderName">เอกสารการสอนคณิตศาสตร์ สสวท. (MathSheet AI) / ม.4</span>
+          </div>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 8px; padding: 0.85rem 1rem; font-size: 0.85rem; color: #cbd5e1;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+            <span style="color: #94a3b8;">📅 วัน-เวลาที่บันทึก:</span>
+            <span id="saveModalTimestamp" style="font-weight: 500;">-</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+            <span style="color: #94a3b8;">📝 จำนวนข้อสอบในชุด:</span>
+            <span id="saveModalExerciseCount" style="font-weight: 500;">-</span>
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <span style="color: #94a3b8;">⚙️ สถานะการเชื่อมต่อ:</span>
+            <span id="saveModalStatusBadge" style="color: #10b981; font-weight: 600;">Google Apps Script Active</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-top: 0.25rem;">
+          <a href="#" target="_blank" id="btnOpenGoogleDoc" class="btn-action primary" style="justify-content: center; text-decoration: none; padding: 0.75rem 1rem; font-size: 0.95rem;">
+            <span>🔗 เปิดดูเอกสารใน Google Docs</span>
+          </a>
+          <div style="display: flex; gap: 0.5rem;">
+            <a href="#" target="_blank" id="btnOpenDriveFolder" class="btn-action" style="flex: 1; justify-content: center; text-decoration: none; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); font-size: 0.85rem;">
+              <span>📁 เปิดโฟลเดอร์ Drive</span>
+            </a>
+            <a href="#" target="_blank" id="btnOpenIndexSheet" class="btn-action" style="flex: 1; justify-content: center; text-decoration: none; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); font-size: 0.85rem;">
+              <span>📊 สารบัญประวัติ (Log)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: center;">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); min-width: 120px;" onclick="closeSaveSuccessModal()">
+          ปิดหน้าต่าง
+        </button>
+      </div>
+    </div>
+  </div>
+

@@ -55,13 +55,21 @@ git push -u origin main
 
 ---
 
-## 📁 โครงสร้างไฟล์ในโปรเจกต์
-- `index.html`: หน้าเว็บหลัก (Single Page Application) รวมระบบ KaTeX Math Engine, UI สไตล์ Penpot AI Workflows (Dark Cyber Canvas), A4 Live Sheet, ระบบตั้งค่าส่วนกลาง และ Interactive Block Editor
-- `curriculum_24_lessons.json`: ฐานข้อมูลหลักสูตรคณิตศาสตร์ สสวท. 24 คาบเรียน (192 ข้อสอบพร้อม LaTeX สมบูรณ์)
-- `CONTEXT.md`: สารบัญสถาปัตยกรรมระบบ Domain Model และ Architecture Decision Records (ADRs 001 - 019)
-- `Code.gs`: สคริปต์ Google Apps Script (สำหรับกรณีต้องการเชื่อมต่อ Google Docs / Google Drive Backend)
-- `appsscript.json`: ค่าคอนฟิกสิทธิ์ Google Apps Script Manifest
-- `scripts/`: สคริปต์ยูทิลิตี้สำหรับจัดรูปแบบและสร้างฐานข้อมูล
+## 📁 โครงสร้างไฟล์ในโปรเจกต์ (Modular Architecture)
+- `src/`: โฟลเดอร์ซอร์สโค้ดแยกตามหน้าที่ (Modular Sources):
+  - `src/styles/main.css`: CSS Design System สไตล์ Penpot AI Workflows และ Print Media (2,800+ บรรทัด)
+  - `src/data/curriculum.json`: ฐานข้อมูลหลักสูตร สสวท. 24 คาบเรียน (Single Source of Truth)
+  - `src/markup/`: ส่วนหัว (`head.html`) และโครงร่างเว็บแอป (`body.html`)
+  - `src/modules/`: โมดูลเชิงลึก (Deep Modules):
+    - `curriculum-store.js`: โมดูลคลังหลักสูตร จัดการ Overlay Layer และป้องกันการสูญหายของข้อมูล
+    - `storage-gateway.js`: โมดูลจัดเก็บข้อมูล เชื่อมต่อทั้ง Google Apps Script และ GitHub Pages REST API
+    - `sheet-render-engine.js`: โมดูลเรนเดอร์กระดาษ A4 ควบคุม KaTeX Typesetting และจัดการพิมพ์/ส่งออก PDF
+    - `app.js`: ตัวประสานงานหลัก (UI Controller & Event Orchestrator)
+- `build.js`: ระบบคอมไพล์ Zero-Dependency สำหรับรวม `src/` เป็น `index.html` (สั่งงานผ่าน `npm run build` หรือ `node build.js`)
+- `index.html`: ผลลัพธ์พร้อมใช้งาน (Single Page Application) สำหรับทั้ง GitHub Pages และ Google Apps Script
+- `CONTEXT.md`: สารบัญสถาปัตยกรรมระบบ Domain Model และ Architecture Decision Records (ADRs 001 - 020)
+- `Code.gs`: สคริปต์ Google Apps Script (สำหรับเชื่อมต่อ Google Docs / Google Drive Backend)
+- `package.json`: นิยามสคริปต์ build และ check ประจำโปรเจกต์
 
 ---
 
