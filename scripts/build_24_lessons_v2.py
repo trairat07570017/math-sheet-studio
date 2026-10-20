@@ -48,16 +48,18 @@ def make_lesson(
         },
         {
             "title": f"ข้อที่ 1. {q1[0]}",
-            "points": q1[1] if len(q1) > 1 and q1[1] else "",
+            "answer": q1[1] if len(q1) > 1 and q1[1] else "",
+            "points": q1[2] if len(q1) > 2 and q1[2] else "",
             "latex": "",
-            "answerType": q1[2] if len(q1) > 2 and q1[2] else "handwriting-normal",
+            "answerType": q1[3] if len(q1) > 3 and q1[3] else "handwriting-normal",
             "placeholder": ""
         },
         {
             "title": f"ข้อที่ 2. {q2[0]}",
-            "points": q2[1] if len(q2) > 1 and q2[1] else "",
+            "answer": q2[1] if len(q2) > 1 and q2[1] else "",
+            "points": q2[2] if len(q2) > 2 and q2[2] else "",
             "latex": "",
-            "answerType": q2[2] if len(q2) > 2 and q2[2] else "handwriting-normal",
+            "answerType": q2[3] if len(q2) > 3 and q2[3] else "handwriting-normal",
             "placeholder": ""
         },
 
@@ -70,16 +72,18 @@ def make_lesson(
         },
         {
             "title": f"ข้อที่ 3. {q3[0]}",
-            "points": q3[1] if len(q3) > 1 and q3[1] else "",
+            "answer": q3[1] if len(q3) > 1 and q3[1] else "",
+            "points": q3[2] if len(q3) > 2 and q3[2] else "",
             "latex": "",
-            "answerType": q3[2] if len(q3) > 2 and q3[2] else "handwriting-normal",
+            "answerType": q3[3] if len(q3) > 3 and q3[3] else "handwriting-normal",
             "placeholder": ""
         },
         {
             "title": f"ข้อที่ 4. {q4[0]}",
-            "points": q4[1] if len(q4) > 1 and q4[1] else "",
+            "answer": q4[1] if len(q4) > 1 and q4[1] else "",
+            "points": q4[2] if len(q4) > 2 and q4[2] else "",
             "latex": "",
-            "answerType": q4[2] if len(q4) > 2 and q4[2] else "handwriting-normal",
+            "answerType": q4[3] if len(q4) > 3 and q4[3] else "handwriting-normal",
             "placeholder": ""
         },
 
@@ -92,16 +96,18 @@ def make_lesson(
         },
         {
             "title": f"ข้อที่ 5. {q5[0]}",
-            "points": q5[1] if len(q5) > 1 and q5[1] else "",
+            "answer": q5[1] if len(q5) > 1 and q5[1] else "",
+            "points": q5[2] if len(q5) > 2 and q5[2] else "",
             "latex": "",
-            "answerType": q5[2] if len(q5) > 2 and q5[2] else "handwriting-normal",
+            "answerType": q5[3] if len(q5) > 3 and q5[3] else "handwriting-normal",
             "placeholder": ""
         },
         {
             "title": f"ข้อที่ 6. {q6[0]}",
-            "points": q6[1] if len(q6) > 1 and q6[1] else "",
+            "answer": q6[1] if len(q6) > 1 and q6[1] else "",
+            "points": q6[2] if len(q6) > 2 and q6[2] else "",
             "latex": "",
-            "answerType": q6[2] if len(q6) > 2 and q6[2] else "handwriting-large",
+            "answerType": q6[3] if len(q6) > 3 and q6[3] else "handwriting-large",
             "placeholder": ""
         }
     ]
@@ -177,9 +183,11 @@ def main():
         assert exs[0]["latex"], f"Lesson {lid} Ex 0 missing latex"
         assert exs[3]["latex"], f"Lesson {lid} Ex 3 missing latex"
         assert exs[6]["latex"], f"Lesson {lid} Ex 6 missing latex"
-        assert not exs[1]["latex"], f"Lesson {lid} Q1 has unexpected latex"
-        assert not exs[4]["latex"], f"Lesson {lid} Q3 has unexpected latex"
-        assert not exs[7]["latex"], f"Lesson {lid} Q5 has unexpected latex"
+        # verify student questions have NO latex and DO have answers and handwriting-normal/large
+        for q_idx in [1, 2, 4, 5, 7, 8]:
+            assert not exs[q_idx]["latex"], f"Lesson {lid} Q[{q_idx}] has unexpected latex"
+            assert exs[q_idx]["answer"], f"Lesson {lid} Q[{q_idx}] missing answer key"
+            assert exs[q_idx]["answerType"], f"Lesson {lid} Q[{q_idx}] missing answerType"
 
     # Write curriculum_24_lessons.json
     json_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "curriculum_24_lessons.json")
@@ -223,7 +231,14 @@ def main():
         </div>"""
         else:
             grid_min_height = "165px" if ex.get("answerType") == "handwriting-large" else "145px"
-            answer_area = f"""
+            ans_badge = ""
+            if ex.get("answer"):
+                ans_badge = f"""
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">{ex['answer']}</span>
+        </div>"""
+            answer_area = f"""{ans_badge}
       <div class="handwriting-grid" style="min-height: {grid_min_height};"></div>"""
 
         initial_exercises_html += f"""

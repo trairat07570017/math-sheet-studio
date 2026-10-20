@@ -1014,6 +1014,28 @@
       transform: translateY(-1px);
     }
 
+    .btn-answer-key {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.4);
+      color: #a7f3d0;
+      font-weight: 600;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+      transition: all 0.2s ease;
+    }
+    .btn-answer-key:hover {
+      background: rgba(16, 185, 129, 0.28);
+      border-color: rgba(16, 185, 129, 0.7);
+      color: #ffffff;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.45);
+      transform: translateY(-1px);
+    }
+    .btn-answer-key.active {
+      background: #059669 !important;
+      border-color: #10b981 !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.6) !important;
+    }
+
     .btn-system-settings-icon {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -1478,6 +1500,28 @@
       background: rgba(255, 255, 255, 0.1);
     }
 
+    .btn-zoom-key {
+      font-size: 0.78rem;
+      color: #6ee7b7;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .btn-zoom-key:hover {
+      color: #ffffff;
+      background: rgba(16, 185, 129, 0.3);
+      border-color: rgba(16, 185, 129, 0.6);
+    }
+    .btn-zoom-key.active {
+      color: #ffffff !important;
+      background: #059669 !important;
+      border-color: #10b981 !important;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    }
+
     .zoom-text {
       font-size: 0.75rem;
       font-family: var(--font-mono);
@@ -1627,6 +1671,46 @@
 
     .handwriting-grid.grid-large {
       min-height: 195px;
+    }
+
+    /* Teacher Answer Key Badge & Styling */
+    .sheet-teacher-answer {
+      display: none;
+      align-items: baseline;
+      gap: 0.5rem;
+      background: #ecfdf5;
+      border: 1.5px solid #10b981;
+      border-radius: 6px;
+      padding: 0.45rem 0.75rem;
+      margin: 0.4rem 0 0.5rem 0;
+      color: #065f46;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .show-teacher-key .sheet-teacher-answer {
+      display: flex !important;
+    }
+
+    .sheet-teacher-answer .answer-badge {
+      font-weight: 700;
+      color: #047857;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      white-space: nowrap;
+    }
+
+    .sheet-teacher-answer .answer-text {
+      color: #064e3b;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .sheet-teacher-answer .answer-text .katex {
+      font-size: 1.15em;
+      color: #064e3b;
     }
 
     .sheet-footer-line {
@@ -2109,6 +2193,7 @@
 
       /* Hide bulky action buttons & view switcher in topbar on mobile (relocated to bottom dock) */
       .topbar-right .btn-system-settings,
+      .topbar-right .btn-answer-key,
       .topbar-right .btn-print,
       .topbar-right .btn-save-glow,
       .topbar-right .view-switcher {
@@ -2356,7 +2441,7 @@
       /* 8. Mobile Bottom Action Dock */
       .mobile-bottom-dock {
         display: grid !important;
-        grid-template-columns: repeat(5, 1fr) !important;
+        grid-template-columns: repeat(6, 1fr) !important;
         position: fixed !important;
         bottom: 0 !important;
         left: 0 !important;
@@ -2411,6 +2496,20 @@
       .dock-btn.active .dock-icon {
         transform: scale(1.12) !important;
         filter: drop-shadow(0 0 6px rgba(0, 245, 212, 0.6)) !important;
+      }
+
+      .dock-btn.dock-btn-key.active {
+        color: #34d399 !important;
+      }
+
+      .dock-btn.dock-btn-key.active .dock-icon {
+        transform: scale(1.15) !important;
+        filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.8)) !important;
+      }
+
+      .dock-btn.dock-btn-key.active .dock-label {
+        color: #34d399 !important;
+        font-weight: 700 !important;
       }
 
       .dock-btn.dock-btn-save {
@@ -2643,6 +2742,35 @@
 
       .sheet-exercise .katex {
         font-size: 1.18em !important;
+      }
+
+      /* Teacher Answer Key Print Rules */
+      .sheet-teacher-answer {
+        display: none !important;
+      }
+
+      .show-teacher-key .sheet-teacher-answer {
+        display: flex !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        background: #f0fdf4 !important;
+        border: 1.5px solid #059669 !important;
+        border-radius: 4px !important;
+        padding: 0.35rem 0.65rem !important;
+        margin: 0.3rem 0 0.45rem 0 !important;
+        color: #064e3b !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .show-teacher-key .sheet-teacher-answer .answer-badge {
+        font-weight: 700 !important;
+        color: #047857 !important;
+      }
+
+      .show-teacher-key .sheet-teacher-answer .answer-text {
+        font-weight: 600 !important;
+        color: #064e3b !important;
       }
 
       /* 10. Student Handwriting Response Grids (5+ Lines of Ruled Workspace) */
@@ -3308,6 +3436,11 @@
             <span>ตั้งค่าระบบ</span>
           </button>
 
+          <button type="button" class="btn-action btn-answer-key" id="btnToggleAnswerKey" onclick="toggleAnswerKey()" title="เปิด/ปิดโหมดเฉลยสำหรับคุณครู (แสดงคำตอบในใบงานและ PDF)">
+            <span>🔑</span>
+            <span class="btn-text">โหมดเฉลย</span>
+          </button>
+
           <button class="btn-action btn-print" onclick="prepareAndPrint()">
             <span>🖨️</span>
             <span>พิมพ์ / PDF</span>
@@ -3422,6 +3555,8 @@
             <span class="zoom-text" id="zoomLevel">100%</span>
             <button class="btn-zoom" onclick="adjustCanvasZoom(0.1)">+</button>
             <button class="btn-zoom" onclick="resetCanvasZoom()" style="font-size: 0.75rem;">Fit</button>
+            <span class="zoom-divider" style="display:inline-block; width:1px; height:16px; background:rgba(255,255,255,0.2); margin:0 4px; vertical-align:middle;"></span>
+            <button class="btn-zoom btn-zoom-key" id="btnZoomToggleKey" onclick="toggleAnswerKey()" title="เปิด/ปิดโหมดเฉลยสำหรับคุณครู">🔑 เฉลย</button>
           </div>
 
           <!-- THE REAL A4 WHITE PAPER SHEET -->
@@ -3520,6 +3655,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <span>ข้อที่ 1. จงหาค่าของ $\frac{3^4 \cdot 9^{-1} \cdot 27^2}{81^2}$</span>
       </div>
       
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$1$</span>
+        </div>
       <div class="handwriting-grid" style="min-height: 145px;"></div>
     </div>
     <div class="sheet-exercise interactive-block" data-index="2">
@@ -3542,6 +3681,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <span>ข้อที่ 2. จงหาค่าของนิพจน์ $\frac{(-3)^3 \cdot 6^4}{2^3 \cdot 3^5}$</span>
       </div>
       
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$-18$</span>
+        </div>
       <div class="handwriting-grid" style="min-height: 145px;"></div>
     </div>
     <div class="sheet-exercise interactive-block" data-index="3">
@@ -3594,6 +3737,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <span>ข้อที่ 3. จงเขียน $\frac{(x^2 y^{-3})^2 (x^{-1} y^4)}{x^3 y^{-2}}$ ให้อยู่ในรูปอย่างง่ายและเลขชี้กำลังเป็นบวก</span>
       </div>
       
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$1$</span>
+        </div>
       <div class="handwriting-grid" style="min-height: 145px;"></div>
     </div>
     <div class="sheet-exercise interactive-block" data-index="5">
@@ -3616,6 +3763,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <span>ข้อที่ 4. กำหนดให้ $2^x = a$ และ $2^y = b$ จงเขียน $2^{3x - 2y + 1}$ ในรูปของ $a$ และ $b$</span>
       </div>
       
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$\frac{2a^3}{b^2}$</span>
+        </div>
       <div class="handwriting-grid" style="min-height: 145px;"></div>
     </div>
     <div class="sheet-exercise interactive-block" data-index="6">
@@ -3668,6 +3819,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <span>ข้อที่ 5. จงหาค่าของ $\frac{2^{n+4} - 2(2^n)}{2(2^{n+3})}$ เมื่อ $n$ เป็นจำนวนเต็มใดๆ</span>
       </div>
       
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">$\frac{7}{8}$</span>
+        </div>
       <div class="handwriting-grid" style="min-height: 145px;"></div>
     </div>
     <div class="sheet-exercise interactive-block" data-index="8">
@@ -3690,6 +3845,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <span>ข้อที่ 6. จงหาค่าของ $x$ ที่สอดคล้องกับสมการ $\frac{5^{x+1} + 5^x}{5^{x-1}} = 30$</span>
       </div>
       
+        <div class="sheet-teacher-answer">
+          <span class="answer-badge">🔑 เฉลย:</span>
+          <span class="answer-text">เป็นจริงทุก $x \in \mathbb{R}$</span>
+        </div>
       <div class="handwriting-grid" style="min-height: 165px;"></div>
     </div>
 
@@ -3726,6 +3885,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <button type="button" class="dock-btn" id="dockBtnPaper" onclick="switchMainView('paper')" title="สลับไปดูกระดาษ A4">
           <span class="dock-icon">📄</span>
           <span class="dock-label">ดูชีท A4</span>
+        </button>
+        <button type="button" class="dock-btn dock-btn-key" id="dockBtnAnswerKey" onclick="toggleAnswerKey()" title="เปิด/ปิดโหมดเฉลยสำหรับคุณครู">
+          <span class="dock-icon">🔑</span>
+          <span class="dock-label">เฉลย</span>
         </button>
         <button type="button" class="dock-btn dock-btn-save" id="dockBtnSave" onclick="saveWorkflow()" title="บันทึกชีทลง Google Docs & Drive">
           <span class="dock-icon">💾</span>
@@ -3833,6 +3996,15 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <div id="modalPlaceholderWrap">
           <label class="field-label">ข้อความแนะนำ / คำชี้แจงในกรอบ (Placeholder)</label>
           <input type="text" class="penpot-input" id="modalInputPlaceholder" placeholder="เช่น (แสดงวิธีทำอย่างละเอียด)" oninput="updateModalPreview()">
+        </div>
+
+        <!-- Teacher Answer Key Field -->
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <label class="field-label">🔑 เฉลยคำตอบสำหรับคุณครู (Teacher's Answer Key)</label>
+            <span style="font-size: 0.72rem; color: #10b981;">รองรับสมการ LaTeX เช่น $x = 2$ หรือ $\frac{a}{b}$</span>
+          </div>
+          <input type="text" class="penpot-input" id="modalInputAnswer" placeholder="เช่น $1$ หรือ $\frac{2a^3}{b^2}$ (แสดงเฉพาะเมื่อเปิดโหมดเฉลย)" oninput="updateModalPreview()">
         </div>
 
         <!-- LIVE KATEX PREVIEW ON A4 WHITE PAPER STYLE -->
@@ -4153,6 +4325,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาค่าของ $\\frac{3^4 \\cdot 9^{-1} \\cdot 27^2}{81^2}$",
+          "answer": "$1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4160,6 +4333,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของนิพจน์ $\\frac{(-3)^3 \\cdot 6^4}{2^3 \\cdot 3^5}$",
+          "answer": "$-18$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4173,6 +4347,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงเขียน $\\frac{(x^2 y^{-3})^2 (x^{-1} y^4)}{x^3 y^{-2}}$ ให้อยู่ในรูปอย่างง่ายและเลขชี้กำลังเป็นบวก",
+          "answer": "$1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4180,6 +4355,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. กำหนดให้ $2^x = a$ และ $2^y = b$ จงเขียน $2^{3x - 2y + 1}$ ในรูปของ $a$ และ $b$",
+          "answer": "$\\frac{2a^3}{b^2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4193,6 +4369,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $\\frac{2^{n+4} - 2(2^n)}{2(2^{n+3})}$ เมื่อ $n$ เป็นจำนวนเต็มใดๆ",
+          "answer": "$\\frac{7}{8}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4200,6 +4377,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาค่าของ $x$ ที่สอดคล้องกับสมการ $\\frac{5^{x+1} + 5^x}{5^{x-1}} = 30$",
+          "answer": "เป็นจริงทุก $x \\in \\mathbb{R}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -4283,6 +4461,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาค่าของ $(32)^{2/5} - (64)^{-1/3} + (125)^{1/3}$",
+          "answer": "$\\frac{35}{4}$ (หรือ $8.75$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4290,6 +4469,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ $\\left(\\frac{25}{49}\\right)^{-1/2} \\times \\left(\\frac{8}{27}\\right)^{2/3}$",
+          "answer": "$\\frac{28}{45}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4303,6 +4483,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงเขียน $\\sqrt[3]{x^2 \\sqrt{x}}$ ให้อยู่ในรูปเลขยกกำลังฐาน $x$",
+          "answer": "$x^{5/6}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4310,6 +4491,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาค่าของ $\\sqrt[4]{(-3)^4} + \\sqrt[3]{(-2)^3} - \\sqrt{25}$",
+          "answer": "$-4$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4323,6 +4505,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $x$ จากสมการ $x^{2/3} = 9$ (เมื่อ $x > 0$)",
+          "answer": "$x = 27$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4330,6 +4513,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาค่าของ $\\sqrt{2 \\sqrt{2 \\sqrt{2 \\dots}}}$",
+          "answer": "$2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -4413,6 +4597,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงทำตัวส่วนของ $\\frac{6}{\\sqrt{7} - \\sqrt{3}}$ ให้อยู่ในรูปไม่ติดกรณฑ์",
+          "answer": "$\\frac{3(\\sqrt{7} + \\sqrt{3})}{2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4420,6 +4605,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ $\\frac{\\sqrt{50} + \\sqrt{18} - \\sqrt{8}}{\\sqrt{32}}$",
+          "answer": "$\\frac{3}{2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4433,6 +4619,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. ถ้า $x = \\frac{1}{2 - \\sqrt{3}}$ จงหาค่าของ $x^2 - 4x + 1$",
+          "answer": "$0$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4440,6 +4627,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาค่าของ $\\frac{\\sqrt{3} + \\sqrt{2}}{\\sqrt{3} - \\sqrt{2}} - \\frac{\\sqrt{3} - \\sqrt{2}}{\\sqrt{3} + \\sqrt{2}}$",
+          "answer": "$4\\sqrt{6}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4453,6 +4641,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $\\frac{1}{\\sqrt{2}+1} + \\frac{1}{\\sqrt{3}+\\sqrt{2}} + \\dots + \\frac{1}{\\sqrt{100}+\\sqrt{99}}$",
+          "answer": "$9$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4460,6 +4649,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. ถ้า $a = \\frac{\\sqrt{5}+1}{2}$ จงหาค่าของ $a^2 - a - 1$",
+          "answer": "$0$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -4543,6 +4733,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงถอดรากของ $\\sqrt{10 - 2\\sqrt{21}}$",
+          "answer": "$\\sqrt{7} - \\sqrt{3}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4550,6 +4741,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ $\\sqrt{7 + 2\\sqrt{10}}$",
+          "answer": "$\\sqrt{5} + \\sqrt{2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4563,6 +4755,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาค่าของ $\\sqrt{9 - \\sqrt{80}}$ (คำแนะนำ: จัดรูป $\\sqrt{80} = 2\\sqrt{20}$)",
+          "answer": "$\\sqrt{5} - 2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4570,6 +4763,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาค่าของ $\\sqrt{4 + \\sqrt{12}}$",
+          "answer": "$\\sqrt{3} + 1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4583,6 +4777,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $\\frac{1}{\\sqrt{5 - 2\\sqrt{6}}} - \\frac{1}{\\sqrt{5 + 2\\sqrt{6}}}$",
+          "answer": "$2\\sqrt{2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4590,6 +4785,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. กำหนดให้ $x = \\sqrt{3 + \\sqrt{8}}$ จงหาค่าของ $x^4 + \\frac{1}{x^4}$",
+          "answer": "$34$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -4673,6 +4869,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาจุดตัดแกน Y ของฟังก์ชัน $f(x) = 5^{x+2}$",
+          "answer": "$(0, 25)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4680,6 +4877,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. ฟังก์ชันต่อไปนี้ ฟังก์ชันใดเป็นฟังก์ชันเอกซ์โพเนนเชียล: 1) $y = 1^x$  2) $y = (-3)^x$  3) $y = (\\sqrt{2})^x$",
+          "answer": "ฟังก์ชันที่ 3) $y = (\\sqrt{2})^x$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4693,6 +4891,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. ถ้ากราฟของ $y = a^x$ ผ่านจุด $(3, 64)$ จงหาค่าของ $a$ และหาค่าของ $f(-2)$",
+          "answer": "$a = 4$ และ $f(-2) = \\frac{1}{16}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4700,6 +4899,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาโดเมนและเรนจ์ของฟังก์ชัน $g(x) = -2^x$",
+          "answer": "$D_g = \\mathbb{R}, \\, R_g = (-\\infty, 0)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4713,6 +4913,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. กราฟของ $y = b \\cdot 2^x$ ผ่านจุด $(2, 12)$ จงหาค่าของ $b$ และจุดตัดแกน Y",
+          "answer": "$b = 3$, จุดตัดแกน Y คือ $(0, 3)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4720,6 +4921,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. ถ้า $f(x) = 2^x$ จงแสดงว่า $f(x_1 + x_2) = f(x_1) \\cdot f(x_2)$ และ $f(kx) = [f(x)]^k$",
+          "answer": "$f(x_1+x_2) = 2^{x_1+x_2} = 2^{x_1} \\cdot 2^{x_2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -4803,6 +5005,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงระบุว่าฟังก์ชันต่อไปนี้เป็นฟังก์ชันเพิ่มหรือลด: 1) $y = (\\sqrt{3} - 1)^x$  2) $y = (\\sqrt{5} - 1)^x$",
+          "answer": "1) ฟังก์ชันลด, 2) ฟังก์ชันเพิ่ม",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4810,6 +5013,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงเรียงลำดับจากน้อยไปมาก: $0.3^5, \\quad 0.3^2, \\quad 0.3^8, \\quad 0.3^0$",
+          "answer": "$0.3^8 < 0.3^5 < 0.3^2 < 0.3^0$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4823,6 +5027,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. ถ้า $a^5 > a^8$ และ $a > 0$ จงหาช่วงค่าที่เป็นไปได้ของฐาน $a$",
+          "answer": "$(0, 1)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4830,6 +5035,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. กำหนดให้ $0 < x < y$ จงพิจารณาว่าข้อใดถูกต้อง: 1) $\\left(\\frac{1}{2}\\right)^x < \\left(\\frac{1}{2}\\right)^y$ หรือ 2) $3^{-x} > 3^{-y}$",
+          "answer": "ข้อ 2) ถูกต้อง ($3^{-x} > 3^{-y}$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4843,6 +5049,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงเปรียบเทียบค่าของ $(\\pi)^e$ กับ $(\\pi)^\\pi$ และ $(0.5)^{\\sqrt{2}}$ กับ $(0.5)^{\\sqrt{3}}$",
+          "answer": "$\\pi^e < \\pi^\\pi$ และ $(0.5)^{\\sqrt{2}} > (0.5)^{\\sqrt{3}}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4850,6 +5057,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาเซตของค่า $m$ ที่ทำให้ $f(x) = (m^2 - 3m + 3)^x$ เป็นฟังก์ชันเพิ่มสำหรับทุก $x \\in \\mathbb{R}$",
+          "answer": "$(-\\infty, 1) \\cup (2, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -4933,6 +5141,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาเรนจ์ของฟังก์ชัน $f(x) = 4 \\cdot 3^{x} - 5$",
+          "answer": "$(-5, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4940,6 +5149,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาสมการเส้นกำกับแนวนอนของกราฟ $y = 5^{x-3} + 2$",
+          "answer": "$y = 2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4953,6 +5163,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. กำหนดให้ $f(x) = 2^{x-h} + k$ มีเรนจ์เป็น $(-3, \\infty)$ และกราฟตัดแกน Y ที่ $(0, -1)$ จงหาค่าของ $h$ และ $k$",
+          "answer": "$h = -1, \\, k = -3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4960,6 +5171,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงวาดรูปคร่าวๆ ของกราฟ $y = -2^{x} + 3$ พร้อมระบุจุดตัดแกนและเรนจ์",
+          "answer": "จุดตัดแกน Y $(0, 2)$, เรนจ์ $(-\\infty, 3)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4973,6 +5185,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. กราฟของ $y = 3^{x-1} + C$ ตัดแกน X ที่จุด $(2, 0)$ จงหาค่าของ $C$ และจุดตัดแกน Y",
+          "answer": "$C = -3$, จุดตัดแกน Y คือ $(0, -8/3)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -4980,6 +5193,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาพื้นที่ของรูปสามเหลี่ยมที่เกิดจากจุดตัดแกน X, จุดตัดแกน Y ของกราฟ $y = 2^x - 8$ และจุดกำเนิด $(0,0)$",
+          "answer": "$10.5$ ตารางหน่วย (ฐาน $3$ สูง $7$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5063,6 +5277,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงเปรียบเทียบว่าจำนวนใดมีค่ามากกว่ากันระหว่าง $5^{30}$ กับ $2^{70}$",
+          "answer": "$2^{70} > 5^{30}$ (เทียบ $128^{10} > 125^{10}$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5070,6 +5285,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงเรียงลำดับจากน้อยไปมาก: $A = 2^{60}, \\quad B = 3^{40}, \\quad C = 6^{20}$",
+          "answer": "$6^{20} < 2^{60} < 3^{40}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5083,6 +5299,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาจำนวนที่มีค่ามากที่สุดในกลุ่ม: $4^{30}, \\quad 5^{20}, \\quad 2^{50}$",
+          "answer": "$4^{30}$ (มีค่าเท่ากับ $2^{60}$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5090,6 +5307,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. กำหนดให้ $A = 11^{20}$ และ $B = 5^{30}$ จงเปรียบเทียบค่าของ $A$ และ $B$",
+          "answer": "$B > A$ (เนื่องจาก $125^{10} > 121^{10}$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5103,6 +5321,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงเรียงลำดับค่าจากมากไปน้อย: $\\sqrt[3]{3}, \\quad \\sqrt{2}, \\quad \\sqrt[6]{6}$",
+          "answer": "$\\sqrt[3]{3} > \\sqrt{2} > \\sqrt[6]{6}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5110,6 +5329,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงเปรียบเทียบค่าระหว่าง $2^{100} + 3^{100}$ กับ $4^{100}$",
+          "answer": "$4^{100} > 2^{100} + 3^{100}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5193,6 +5413,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้สมการ $27^{2x+1} = 9^{x+4}$",
+          "answer": "$x = \\frac{5}{4}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5200,6 +5421,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงแก้สมการ $4^{3x-1} = 32$",
+          "answer": "$x = \\frac{7}{6}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5213,6 +5435,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงแก้สมการ $\\left(\\frac{1}{2}\\right)^{x^2 - 3} = 4^x$",
+          "answer": "$x = 1, \\, -3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5220,6 +5443,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาค่า $x$ จากสมการ $(\\sqrt{3})^{x+4} = 9^{x-1}$",
+          "answer": "$x = \\frac{8}{3}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5233,6 +5457,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงแก้สมการ $\\left(\\frac{2}{3}\\right)^{2x+1} = \\left(\\frac{27}{8}\\right)^{x-2}$",
+          "answer": "$x = 1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5240,6 +5465,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาค่าของ $x$ ที่สอดคล้องกับ $2^{x+1} + 2^{x+2} + 2^{x+3} = 112$",
+          "answer": "$x = 3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5323,6 +5549,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้สมการ $9^x - 10(3^x) + 9 = 0$",
+          "answer": "$x = 0, \\, 2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5330,6 +5557,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงแก้สมการ $2^{2x+1} - 17(2^x) + 8 = 0$",
+          "answer": "$x = -1, \\, 3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5343,6 +5571,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาผลบวกของคำตอบทั้งหมดของสมการ $4^{x+1} - 9(2^x) + 2 = 0$",
+          "answer": "$-1$ (คำตอบคือ $x = -2, 1$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5350,6 +5579,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงแก้สมการ $25^x - 6(5^x) + 5 = 0$",
+          "answer": "$x = 0, \\, 1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5363,6 +5593,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงแก้สมการ $9^x - 4(3^{x+1}) + 27 = 0$",
+          "answer": "$x = 1, \\, 2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5370,6 +5601,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาผลบวกของกำลังสองของคำตอบจากสมการ $2^{2x} - 2^{x+3} + 12 = 0$",
+          "answer": "$1 + (\\log_2 6)^2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5453,6 +5685,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้สมการ $2^x + 2^{-x} = \\frac{5}{2}$",
+          "answer": "$x = \\pm 1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5460,6 +5693,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาเซตคำตอบของสมการ $3^x + 3^{-x} = \\frac{10}{3}$",
+          "answer": "$\\{-1, 1\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5473,6 +5707,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงแก้สมการ $(\\sqrt{2}+1)^x + (\\sqrt{2}-1)^x = 2\\sqrt{2}$",
+          "answer": "$x = \\pm 1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5480,6 +5715,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. ถ้า $a^x + a^{-x} = 3$ จงหาค่าของ $a^{2x} + a^{-2x}$",
+          "answer": "$7$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5493,6 +5729,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. ถ้า $2^x + 2^{-x} = 4$ จงหาค่าของ $8^x + 8^{-x}$",
+          "answer": "$52$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5500,6 +5737,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาจำนวนคำตอบจริงทั้งหมดของสมการ $(\\sqrt{5}+2)^x + (\\sqrt{5}-2)^x = 2\\sqrt{5}$",
+          "answer": "มี 2 คำตอบ (คือ $x = \\pm 1$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5583,6 +5821,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้อสมการ $3^{2x-1} < 27$",
+          "answer": "$(-\\infty, 2)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5590,6 +5829,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาเซตคำตอบของอสมการ $\\left(\\frac{1}{3}\\right)^{2x-5} > 9$",
+          "answer": "$\\left(-\\infty, \\frac{3}{2}\\right)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5603,6 +5843,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาเซตคำตอบของอสมการ $\\left(\\frac{2}{5}\\right)^{x^2 - 4} \\leq \\left(\\frac{5}{2}\\right)^{3x}$",
+          "answer": "$(-\\infty, -4] \\cup [1, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5610,6 +5851,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงแก้อสมการ $4^x - 5(2^x) + 4 < 0$",
+          "answer": "$(0, 2)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5623,6 +5865,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาเซตคำตอบของอสมการ $9^x - 10(3^x) + 9 \\geq 0$",
+          "answer": "$(-\\infty, 0] \\cup [2, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5630,6 +5873,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาจำนวนเต็มทั้งหมดที่เป็นคำตอบของอสมการ $\\left(\\frac{1}{4}\\right)^{x-1} \\leq 2^{x^2 - 3x} < 16$",
+          "answer": "$\\{2, 3\\}$ (มี 2 จำนวน)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5713,6 +5957,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาค่าของ $\\log_3 81$ และ $\\log_5 \\left(\\frac{1}{125}\\right)$",
+          "answer": "$\\log_3 81 = 4$ และ $\\log_5\\left(\\frac{1}{125}\\right) = -3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5720,6 +5965,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ: 1) $\\log_2 64$  2) $\\log_7 1$  3) $\\log_4 2$",
+          "answer": "1) $6$, \\, 2) $0$, \\, 3) $\\frac{1}{2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5733,6 +5979,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาค่าของ $x$ ถ้ากำหนดให้ $\\log_3 x = 4$",
+          "answer": "$x = 81$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5740,6 +5987,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาโดเมนของฟังก์ชัน $g(x) = \\log_5 (x^2 - 4x - 5)$",
+          "answer": "$(-\\infty, -1) \\cup (5, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5753,6 +6001,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $\\log_{\\sqrt{2}} 8 + \\log_{1/3} 27$",
+          "answer": "$3$ (เนื่องจาก $6 + (-3) = 3$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5760,6 +6009,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาโดเมนของฟังก์ชัน $h(x) = \\log_{(x-1)} (9 - x^2)$",
+          "answer": "$(1, 2) \\cup (2, 3)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5843,6 +6093,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาจุดตัดแกน X และเส้นกำกับแนวตั้งของกราฟ $y = \\log_3 (x + 2) - 1$",
+          "answer": "จุดตัดแกน X $(1, 0)$, เส้นกำกับแนวตั้ง $x = -2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5850,6 +6101,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงพิจารณาว่าฟังก์ชันต่อไปนี้เป็นฟังก์ชันเพิ่มหรือฟังก์ชันลด: 1) $y = \\log_{1/3} x$  2) $y = \\log_{\\sqrt{2}} x$",
+          "answer": "1) ฟังก์ชันลด, 2) ฟังก์ชันเพิ่ม",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5863,6 +6115,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาโดเมนและเรนจ์ของฟังก์ชัน $f(x) = \\log_4 (2x - 8) + 5$",
+          "answer": "โดเมน $(4, \\infty)$, เรนจ์ $\\mathbb{R}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5870,6 +6123,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงวาดรูปกราฟคร่าวๆ ของ $y = \\log_2 x$ และ $y = \\log_{1/2} x$ บนระบบพิกัดฉากเดียวกัน",
+          "answer": "สะท้อนข้ามแกน X ซึ่งกันและกัน ผ่านจุด $(1, 0)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5883,6 +6137,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. กราฟของ $y = \\log_2 (x+a) + b$ ตัดแกน X ที่จุด $(3, 0)$ และตัดแกน Y ที่จุด $(0, 2)$ จงหาค่าของ $a$ และ $b$",
+          "answer": "$a = 1, \\, b = -2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5890,6 +6145,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. ถ้า $f(x) = \\log_2 x$ จงหาสมการอินเวอร์ส $f^{-1}(x)$ และหาจุดตัดของกราฟทั้งสองบนเส้นตรง $y = x$",
+          "answer": "$f^{-1}(x) = 2^x$ (ไม่มีจุดตัดบนจำนวนจริง)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -5973,6 +6229,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาค่าของ $\\log_3 18 - 2\\log_3 2 + \\log_3 6$",
+          "answer": "$3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5980,6 +6237,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ $\\log_{10} 25 + 2\\log_{10} 2$",
+          "answer": "$2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -5993,6 +6251,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาค่าของ $\\log_6 2 + \\log_6 3 + \\log_6 6$",
+          "answer": "$2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6000,6 +6259,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงจัดรูป $\\frac{1}{2}\\log x - 3\\log y + 2\\log z$ ให้เป็นลอการิทึมพจน์เดียว",
+          "answer": "$\\log\\left(\\frac{z^2 \\sqrt{x}}{y^3}\\right)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6013,6 +6273,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $\\log_2 \\left(\\frac{2}{3}\\right) + \\log_2 \\left(\\frac{3}{4}\\right) + \\dots + \\log_2 \\left(\\frac{31}{32}\\right)$",
+          "answer": "$-4$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6020,6 +6281,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. ถ้า $\\log 2 = a$ และ $\\log 3 = b$ จงเขียน $\\log 72$ และ $\\log 15$ ในรูปของ $a$ และ $b$",
+          "answer": "$\\log 72 = 3a + 2b$ และ $\\log 15 = 1 + b - a$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6103,6 +6365,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาค่าของ $(\\log_3 5)(\\log_5 9)$",
+          "answer": "$2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6110,6 +6373,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ $\\log_8 16$",
+          "answer": "$\\frac{4}{3}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6123,6 +6387,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. ถ้า $\\log_2 3 = a$ จงหาค่าของ $\\log_8 9$ ในรูปของ $a$",
+          "answer": "$\\frac{2}{3}a$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6130,6 +6395,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาค่าของ $\\frac{1}{\\log_2 100} + \\frac{1}{\\log_5 100}$",
+          "answer": "$\\frac{1}{2}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6143,6 +6409,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $(\\log_3 2)(\\log_4 3)(\\log_5 4) \\dots (\\log_{32} 31)$",
+          "answer": "$\\frac{1}{5}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6150,6 +6417,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. ถ้า $\\log_a b = 2$ จงหาค่าของ $\\log_b a + \\log_{\\sqrt{a}} b^3$",
+          "answer": "$\\frac{25}{2}$ (หรือ $12.5$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6233,6 +6501,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาค่าของ $5^{\\log_5 12} - 4^{\\log_2 3}$",
+          "answer": "$3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6240,6 +6509,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาค่าของ $8^{\\log_2 5}$",
+          "answer": "$125$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6253,6 +6523,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาค่าของ $10^{\\log 6} + e^{\\ln 4}$",
+          "answer": "$10$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6260,6 +6531,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาค่าของ $3^{\\log_2 5} - 5^{\\log_2 3}$",
+          "answer": "$0$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6273,6 +6545,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $x$ จากสมการ $x^{\\log x} = 100x$",
+          "answer": "$x = 100, \\, 0.1$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6280,6 +6553,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาเซตคำตอบของสมการ $x^{\\log_2 x} = 64x$",
+          "answer": "$\\left\\{\\frac{1}{4}, 8\\right\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6363,6 +6637,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. กำหนดให้ $\\log 5 \\approx 0.6990$ จงหาค่าของ $\\log 5000$ และ $\\log 0.05$",
+          "answer": "$\\log 5000 \\approx 3.6990$ และ $\\log 0.05 \\approx -1.3010$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6370,6 +6645,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. กำหนด $\\log 2 \\approx 0.3010$ จงหาค่าของ $\\log 5$ (คำแนะนำ: $\\log 5 = \\log(10/2)$)",
+          "answer": "$0.6990$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6383,6 +6659,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาค่าของ $\\ln e^3 + \\ln \\sqrt{e} - \\ln 1$",
+          "answer": "$3.5$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6390,6 +6667,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาว่า $2^{100}$ มีทั้งหมดกี่หลัก (กำหนด $\\log 2 \\approx 0.3010$)",
+          "answer": "$31$ หลัก",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6403,6 +6681,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $\\ln(e^5 \\cdot \\sqrt[3]{e})$",
+          "answer": "$\\frac{16}{3}$ (หรือ $5\\frac{1}{3}$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6410,6 +6689,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. กำหนดให้ $\\log 2 \\approx 0.3010$ และ $\\log 3 \\approx 0.4771$ จงหาจำนวนหลักของ $6^{25}$",
+          "answer": "$20$ หลัก",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6493,6 +6773,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้สมการ $\\log_3 (2x - 1) = 2$",
+          "answer": "$x = 5$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6500,6 +6781,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงแก้สมการ $\\log (x+2) + \\log (x-1) = 1$",
+          "answer": "$x = 3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6513,6 +6795,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงแก้สมการ $\\log_4 (x+1) - \\log_4 (x-2) = 1$",
+          "answer": "$x = 3$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6520,6 +6803,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาเซตคำตอบของสมการ $\\log_2 (x^2 - 3x) = 2$",
+          "answer": "$\\{-1, 4\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6533,6 +6817,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงแก้สมการ $\\log_2 (x+3) = 3 - \\log_2 (x-1)$",
+          "answer": "$x = -1 + 2\\sqrt{3}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6540,6 +6825,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาผลบวกของคำตอบทั้งหมดของสมการ $\\log_3 (x^2 - 3x + 9) = 2$",
+          "answer": "$3$ (คำตอบคือ $x = 0, 3$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6623,6 +6909,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้สมการ $(\\log_3 x)^2 - 4\\log_3 x + 3 = 0$",
+          "answer": "$x = 3, \\, 27$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6630,6 +6917,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาเซตคำตอบของสมการ $(\\log x)^2 - \\log x^2 - 3 = 0$",
+          "answer": "$\\{0.1, 1000\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6643,6 +6931,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงหาผลคูณของคำตอบทั้งหมดของสมการ $x^{\\log x} = 10000$",
+          "answer": "$1$ (คำตอบคือ $100$ และ $0.01$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6650,6 +6939,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงแก้สมการ $\\log_3 x - \\log_x 27 = 2$",
+          "answer": "$x = 27, \\, \\frac{1}{3}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6663,6 +6953,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาผลบวกคำตอบของสมการ $(\\log_2 x)^2 - 5\\log_2 x + 6 = 0$",
+          "answer": "$12$ (คำตอบคือ $x = 4, 8$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6670,6 +6961,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาเซตคำตอบของสมการ $x^{\\log_3 x - 1} = 9$",
+          "answer": "$\\left\\{\\frac{1}{3}, 9\\right\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6753,6 +7045,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงแก้อสมการ $\\log_2 (x - 1) < 3$",
+          "answer": "$(1, 9)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6760,6 +7053,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาเซตคำตอบของอสมการ $\\log_{1/3} (2x - 1) > -2$",
+          "answer": "$\\left(\\frac{1}{2}, 5\\right)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6773,6 +7067,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. จงแก้อสมการ $\\log_3 (x + 4) \\leq \\log_3 (2x - 1)$",
+          "answer": "$[5, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6780,6 +7075,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงหาเซตคำตอบของอสมการ $\\log_{0.2} (x^2 - 5x + 6) \\geq -1$",
+          "answer": "$\\left[\\frac{5-\\sqrt{21}}{2}, 2\\right) \\cup \\left(3, \\frac{5+\\sqrt{21}}{2}\\right]$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6793,6 +7089,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาเซตคำตอบของอสมการ $\\log_2 (3x - 1) - \\log_2 (x + 1) > 1$",
+          "answer": "$(3, \\infty)$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6800,6 +7097,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาจำนวนเต็มทั้งหมดที่สอดคล้องกับอสมการ $\\log_{0.5} (x^2 - 5x + 7) \\geq 0$",
+          "answer": "$\\{2, 3\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -6883,6 +7181,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. ประชากรของเมืองหนึ่งมี 100,000 คน และเพิ่มขึ้นปีละ 5% จงเขียนสมการแสดงจำนวนประชากรเมื่อเวลาผ่านไป $t$ ปี",
+          "answer": "$P(t) = 100,000(1.05)^t$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6890,6 +7189,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. แบคทีเรียเพิ่มจำนวนตามสูตร $P(t) = 1000 e^{0.04 t}$ จงหาจำนวนแบคทีเรียเมื่อ $t = 50$ ชั่วโมง ($e^2 \\approx 7.389$)",
+          "answer": "ประมาณ $7,389$ ตัว",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6903,6 +7203,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. ถ้าประชากรเริ่มต้น 20,000 คน เพิ่มปีละ 4% อีกกี่ปีจึงจะมีประชากร 40,000 คน",
+          "answer": "ประมาณ $17.7$ ปี (หรือ $\\approx 18$ ปี)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6910,6 +7211,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จำนวนประชากรของสัตว์ป่าลดลงตามสมการ $P(t) = P_0 e^{-0.05 t}$ จงหาเวลา $t$ ที่ทำให้ประชากรลดลงเหลือครึ่งหนึ่ง (กำหนด $\\ln 2 \\approx 0.693$)",
+          "answer": "$13.86$ หน่วยเวลา",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6923,6 +7225,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. วัฒนธรรมเซลล์เริ่มต้นมี 2,000 เซลล์ ผ่านไป 4 ชั่วโมง มี 6,000 เซลล์ จงหาจำนวนเซลล์เมื่อผ่านไป 12 ชั่วโมง",
+          "answer": "$54,000$ เซลล์",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -6930,6 +7233,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. สารเพาะเชื้อชนิดหนึ่งขยายพันธุ์เป็น $k$ เท่าทุกชั่วโมง ถ้าเริ่มต้นมี 1,000 ตัว เมื่อผ่านไป 3 ชั่วโมง มี 8,000 ตัว จงหาว่าต้องใช้เวลากี่ชั่วโมงจึงจะมีเซลล์ถึง 64,000 ตัว",
+          "answer": "$6$ ชั่วโมง",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -7013,6 +7317,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. น้ำผลไม้ชนิดหนึ่งมีค่า $[H^+] = 2 \\times 10^{-4}$ โมล/ลิตร จงหาค่า pH (กำหนด $\\log 2 \\approx 0.3010$)",
+          "answer": "$\\text{pH} \\approx 3.70$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7020,6 +7325,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. ฝากเงิน 50,000 บาท ดอกเบี้ยทบต้น 6% ต่อปี คิดดอกเบี้ยทุก 6 เดือน จงหาเงินรวมเมื่อสิ้นปีที่ 2",
+          "answer": "ประมาณ $56,275$ บาท",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7033,6 +7339,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. สารกัมมันตรังสีสลายตัวจาก 100 กรัม เหลือ 25 กรัม ในเวลา 14 วัน จงหาคาบครึ่งชีวิตของสารนี้",
+          "answer": "$7$ วัน",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7040,6 +7347,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. เสียงกระซิบมีความเข้ม $I = 10^{-10} \\text{ W/m}^2$ จงหาระดับความเข้มเสียงในหน่วยเดซิเบล กำหนด $I_0 = 10^{-12} \\text{ W/m}^2$",
+          "answer": "$20$ เดซิเบล (dB)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7053,6 +7361,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. สารละลาย A มี pH = 3 และสารละลาย B มี pH = 6 จงหาว่าความเข้มข้นของไอออนไฮโดรเจนใน A เป็นกี่เท่าของ B",
+          "answer": "$1,000$ เท่า",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7060,6 +7369,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. ธาตุไอโอดีน-131 มีครึ่งชีวิต 8 วัน หากต้องการให้สารนี้สลายตัวไป 87.5% ของปริมาณเดิม จะต้องใช้เวลากี่วัน",
+          "answer": "$24$ วัน",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -7143,6 +7453,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 1. จงหาผลบวกของคำตอบทั้งหมดของสมการ $9^x - 12(3^x) + 27 = 0$",
+          "answer": "$3$ (คำตอบคือ $x = 1, 2$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7150,6 +7461,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 2. จงหาเซตคำตอบของอสมการ $\\log_3 (x+1) + \\log_3 (x-1) \\leq 1$",
+          "answer": "$(1, 2]$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7163,6 +7475,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 3. กำหนดให้ $2^a = 3^b = 6^c$ จงพิสูจน์ว่า $\\frac{1}{c} = \\frac{1}{a} + \\frac{1}{b}$",
+          "answer": "พิสูจน์ตามเอกลักษณ์ $2 \\times 3 = 6$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7170,6 +7483,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 4. จงแก้ระบบสมการ $2^x \\cdot 3^y = 18$ และ $2^y \\cdot 3^x = 12$",
+          "answer": "$x = 1, \\, y = 2$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7183,6 +7497,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาเซตคำตอบของสมการ $\\log_2 (4^x + 4) = x + \\log_2 (2^{x+1} - 3)$",
+          "answer": "$\\{2\\}$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -7190,6 +7505,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. กำหนดให้ $x, y > 0$ โดย $\\log_2 x + \\log_4 y = 4$ และ $\\log_4 x + \\log_2 y = 5$ จงหาค่าของ $xy$",
+          "answer": "$xy = 64$",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -7258,6 +7574,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     let currentSheetMode = "worksheet"; // "worksheet" | "summary" | "quiz"
     let currentZoom = 1.0;
     let editingExerciseIndex = -1; // -1 means adding new exercise, >=0 means editing existing
+    let isTeacherKeyMode = false;
 
     // -------------------------------------------------------------
     // BULLETPROOF KATEX RENDERING FUNCTION
@@ -7842,7 +8159,15 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                 <div class="equation-stage" style="overflow-x: auto; color: #0f172a;">$$${ex.latex}$$</div>
                 ${ex.placeholder ? `<div style="font-size: 0.82rem; color: #64748b; font-style: italic; margin-top: 0.2rem;">${ex.placeholder}</div>` : ''}
               </div>
-            ` : answerAreaHtml}
+            ` : `
+              ${ex.answer ? `
+                <div class="sheet-teacher-answer">
+                  <span class="answer-badge">🔑 เฉลย:</span>
+                  <span class="answer-text">${ex.answer}</span>
+                </div>
+              ` : ''}
+              ${answerAreaHtml}
+            `}
           </div>
         `;
       });
@@ -7873,9 +8198,49 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       // Trigger KaTeX rendering on A4 paper & controls
       const paperEl = document.getElementById('a4Paper');
-      if (paperEl) renderAllMath(paperEl);
+      if (paperEl) {
+        paperEl.classList.toggle('show-teacher-key', isTeacherKeyMode);
+        renderAllMath(paperEl);
+      }
       const toolbarEl = document.getElementById('formulaToolbar');
       if (toolbarEl) renderAllMath(toolbarEl);
+    }
+
+    // Toggle Teacher Answer Key Mode
+    function toggleAnswerKey(forceState) {
+      if (typeof forceState === 'boolean') {
+        isTeacherKeyMode = forceState;
+      } else {
+        isTeacherKeyMode = !isTeacherKeyMode;
+      }
+
+      const paper = document.getElementById('a4Paper');
+      if (paper) {
+        paper.classList.toggle('show-teacher-key', isTeacherKeyMode);
+        renderAllMath(paper);
+      }
+
+      // Update Topbar button
+      const btnTop = document.getElementById('btnToggleAnswerKey');
+      if (btnTop) {
+        btnTop.classList.toggle('active', isTeacherKeyMode);
+        const textSpan = btnTop.querySelector('.btn-text');
+        if (textSpan) {
+          textSpan.textContent = isTeacherKeyMode ? 'โหมดเฉลย (เปิด)' : 'โหมดเฉลย';
+        }
+      }
+
+      // Update Canvas Zoom toolbar button
+      const btnZoom = document.getElementById('btnZoomToggleKey');
+      if (btnZoom) {
+        btnZoom.classList.toggle('active', isTeacherKeyMode);
+      }
+
+      // Update Mobile dock button
+      const dockBtn = document.getElementById('dockBtnAnswerKey');
+      if (dockBtn) {
+        dockBtn.classList.toggle('active', isTeacherKeyMode);
+      }
     }
 
     // -------------------------------------------------------------
@@ -7893,6 +8258,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       document.getElementById('modalInputLatex').value = '';
       document.getElementById('modalSelectAnswerType').value = 'handwriting-normal';
       document.getElementById('modalInputPlaceholder').value = '';
+      const ansInput = document.getElementById('modalInputAnswer');
+      if (ansInput) ansInput.value = '';
       document.getElementById('mcOptionA').value = '';
       document.getElementById('mcOptionB').value = '';
       document.getElementById('mcOptionC').value = '';
@@ -7920,6 +8287,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       document.getElementById('modalInputLatex').value = ex.latex || '';
       document.getElementById('modalSelectAnswerType').value = ex.answerType || 'handwriting-normal';
       document.getElementById('modalInputPlaceholder').value = ex.placeholder || '';
+      const ansInput = document.getElementById('modalInputAnswer');
+      if (ansInput) ansInput.value = ex.answer || '';
       document.getElementById('mcOptionA').value = ex.choiceA || '';
       document.getElementById('mcOptionB').value = ex.choiceB || '';
       document.getElementById('mcOptionC').value = ex.choiceC || '';
@@ -8013,6 +8382,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       const latex = document.getElementById('modalInputLatex').value.trim();
       const answerType = document.getElementById('modalSelectAnswerType').value;
       const placeholder = document.getElementById('modalInputPlaceholder').value;
+      const ansInput = document.getElementById('modalInputAnswer');
+      const answer = ansInput ? ansInput.value.trim() : '';
 
       let answerHtml = '';
       if (answerType === 'multiple-choice') {
@@ -8052,6 +8423,12 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           ${points ? `<span class="score-badge">${points}</span>` : ''}
         </div>
         ${latex ? `<div style="margin: 0.4rem 0; font-size: 1.05rem; padding-left: 0.5rem;">$$${latex}$$</div>` : ''}
+        ${answer ? `
+          <div class="sheet-teacher-answer" style="display: flex; margin-bottom: 0.5rem;">
+            <span class="answer-badge">🔑 เฉลย:</span>
+            <span class="answer-text">${answer}</span>
+          </div>
+        ` : ''}
         ${answerHtml}
       `;
 
@@ -8070,9 +8447,12 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       const latex = document.getElementById('modalInputLatex').value.trim();
       const answerType = document.getElementById('modalSelectAnswerType').value;
       const placeholder = document.getElementById('modalInputPlaceholder').value.trim();
+      const ansInput = document.getElementById('modalInputAnswer');
+      const answer = ansInput ? ansInput.value.trim() : '';
 
       const exerciseObj = {
         title: title,
+        answer: answer,
         points: points,
         latex: latex,
         answerType: answerType,
@@ -9053,11 +9433,12 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       
       // Clean invalid filename characters: / \ : * ? " < > |
       const cleanSheetName = sheetName.replace(/[/\\?%*:|"<>]/g, '-').replace(/\s+/g, ' ').trim();
+      const prefix = isTeacherKeyMode ? '[เฉลย] ' : '';
       
       if (subCode) {
-        return `[${grade}-${subCode}] ${cleanSheetName}`;
+        return `${prefix}[${grade}-${subCode}] ${cleanSheetName}`;
       } else {
-        return `[${grade}] ${cleanSheetName}`;
+        return `${prefix}[${grade}] ${cleanSheetName}`;
       }
     }
 
