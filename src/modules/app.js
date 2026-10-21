@@ -63,7 +63,7 @@
             <!-- ละแยกออกมา: 6 บทเรียนหลัก -->
             <div class="unit-chapters-body">
               <div class="chapters-banner-bar">
-                <span class="chapters-banner-title">📚 เลือกบทเรียนหลัก (6 บท)</span>
+                <span class="chapters-banner-title">📚 เลือกบทเรียนหลัก (${unit.chapters ? unit.chapters.length : 0} บท)</span>
                 <span class="chapters-banner-hint">คลิกบทเพื่อดูคาบย่อย</span>
               </div>
               <div class="chapters-tree-list">
