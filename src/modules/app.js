@@ -1047,23 +1047,17 @@
     }
   }
 
-  function closePdfExportModal() {
-    if (window.SheetRenderEngine && window.SheetRenderEngine.closeExportModal) {
-      window.SheetRenderEngine.closeExportModal();
-    }
-  }
-
-  function downloadCurrentWorksheetPdf() {
-    if (window.SheetRenderEngine && window.SheetRenderEngine.downloadPdf) {
-      window.SheetRenderEngine.downloadPdf();
+  function prepareAndPrint() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.EnvironmentSniffer && window.SheetRenderEngine.EnvironmentSniffer.isIOS()) {
+      window.SheetRenderEngine.openIosPdfGuideModal();
     } else {
-      triggerAirPrint();
+      executeNativePrint();
     }
   }
 
-  function triggerAirPrint() {
-    if (window.SheetRenderEngine && window.SheetRenderEngine.closeExportModal) {
-      window.SheetRenderEngine.closeExportModal();
+  function executeNativePrint() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeIosPdfGuideModal) {
+      window.SheetRenderEngine.closeIosPdfGuideModal();
     }
     if (window.SheetRenderEngine) {
       window.SheetRenderEngine.print();
@@ -1072,8 +1066,21 @@
     }
   }
 
-  function prepareAndPrint() {
-    triggerAirPrint();
+  function openCleanPrintTab() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeIosPdfGuideModal) {
+      window.SheetRenderEngine.closeIosPdfGuideModal();
+    }
+    if (window.SheetRenderEngine && window.SheetRenderEngine.openCleanPrintTab) {
+      window.SheetRenderEngine.openCleanPrintTab();
+    } else {
+      executeNativePrint();
+    }
+  }
+
+  function closeIosPdfGuideModal() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeIosPdfGuideModal) {
+      window.SheetRenderEngine.closeIosPdfGuideModal();
+    }
   }
 
   function getWorksheetPrintFileName() {
@@ -1153,11 +1160,10 @@
   window.syncSettingsToGoogleSheet = syncSettingsToGoogleSheet;
   window.fetchSettingsFromGoogleSheet = fetchSettingsFromGoogleSheet;
   window.showSystemToast = showSystemToast;
-  window.openPdfExportModal = openPdfExportModal;
-  window.closePdfExportModal = closePdfExportModal;
-  window.downloadCurrentWorksheetPdf = downloadCurrentWorksheetPdf;
-  window.triggerAirPrint = triggerAirPrint;
   window.prepareAndPrint = prepareAndPrint;
+  window.executeNativePrint = executeNativePrint;
+  window.openCleanPrintTab = openCleanPrintTab;
+  window.closeIosPdfGuideModal = closeIosPdfGuideModal;
   window.getWorksheetPrintFileName = getWorksheetPrintFileName;
   window.initApp = initApp;
 

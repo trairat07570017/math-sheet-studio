@@ -2925,268 +2925,56 @@
   border-radius: 4px;
 }
 
-/* PDF Export File Preview */
-.pdf-export-file-preview {
+/* iOS AirPrint Guide Modal & Clean Card UI */
+.ios-guide-modal-window {
+  border: 1px solid rgba(0, 245, 212, 0.4) !important;
+  background: #0f1420 !important;
+}
+
+.ios-guide-steps-list {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.ios-guide-card {
+  display: flex;
+  align-items: flex-start;
   gap: 0.75rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 0.95rem;
 }
 
-.pdf-export-file-preview .file-icon {
-  font-size: 1.8rem;
+.ios-guide-card.highlight-card {
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.08) 0%, rgba(59, 130, 246, 0.08) 100%);
+  border-color: rgba(0, 245, 212, 0.4);
 }
 
-.pdf-export-file-preview .file-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  overflow: hidden;
-}
-
-.pdf-export-file-preview .file-label {
-  font-size: 0.75rem;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.pdf-export-file-preview .file-name {
-  font-size: 0.95rem;
-  font-weight: 600;
+.step-badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
   color: #ffffff;
-  word-break: break-all;
-}
-
-/* Options Grid & Cards */
-.pdf-export-options-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.pdf-option-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
-  padding: 1rem 1.1rem;
-  text-align: left;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  color: inherit;
-  font-family: inherit;
-}
-
-.pdf-option-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.25);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.pdf-option-card.recommended {
-  border-color: rgba(0, 245, 212, 0.5);
-  background: linear-gradient(135deg, rgba(0, 245, 212, 0.06) 0%, rgba(168, 85, 247, 0.06) 100%);
-}
-
-.pdf-option-card.recommended:hover {
-  border-color: var(--neon-cyan, #00f5d4);
-  box-shadow: 0 8px 24px rgba(0, 245, 212, 0.2);
-}
-
-.option-badge {
-  display: inline-block;
-  align-self: flex-start;
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: #080b11;
-  background: var(--neon-cyan, #00f5d4);
-  padding: 0.15rem 0.55rem;
-  border-radius: 9999px;
-  margin-bottom: 0.2rem;
-}
-
-.pdf-option-card .option-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.pdf-option-card .option-icon {
-  font-size: 1.6rem;
-  flex-shrink: 0;
-}
-
-.pdf-option-card .option-titles {
-  display: flex;
-  flex-direction: column;
-}
-
-.pdf-option-card .option-title {
-  font-size: 1.02rem;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.pdf-option-card .option-sub {
-  font-size: 0.8rem;
-  color: #94a3b8;
-}
-
-.pdf-option-card .option-desc {
-  margin: 0;
-  font-size: 0.82rem;
-  color: #cbd5e1;
-  line-height: 1.45;
-  padding-left: 2.35rem;
-}
-
-/* iOS AirPrint Guide */
-.ios-airprint-guide {
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 8px;
-  padding: 0.85rem 1rem;
-  font-size: 0.82rem;
-  color: #cbd5e1;
-}
-
-.ios-airprint-guide .guide-title {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #93c5fd;
-  margin-bottom: 0.4rem;
-}
-
-.ios-airprint-guide .guide-steps {
-  margin: 0;
-  padding-left: 1.3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  line-height: 1.45;
-}
-
-/* PDF Rendering Loading Overlay */
-.pdf-loading-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(8, 11, 17, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100000;
+  font-size: 0.82rem;
+  font-weight: 700;
+  flex-shrink: 0;
 }
 
-.pdf-loading-box {
-  background: #0f1420;
-  border: 1px solid rgba(0, 245, 212, 0.4);
-  border-radius: 14px;
-  padding: 1.75rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 245, 212, 0.15);
-  max-width: 90vw;
-  width: 360px;
+.step-badge.highlight-badge {
+  background: var(--neon-cyan, #00f5d4);
+  color: #080b11;
 }
 
-.pdf-spinner {
-  width: 44px;
-  height: 44px;
-  border: 3.5px solid rgba(255, 255, 255, 0.1);
-  border-top-color: var(--neon-cyan, #00f5d4);
-  border-radius: 50%;
-  animation: pdfSpin 0.8s linear infinite;
-}
-
-@keyframes pdfSpin {
-  to { transform: rotate(360deg); }
-}
-
-.pdf-loading-text {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #ffffff;
+.step-desc {
+  font-size: 0.9rem;
+  color: #e2e8f0;
   line-height: 1.45;
-}
-
-/* While generating PDF: ensure white background and clean paper */
-body.pdf-rendering-active #a4Paper {
-  background: #ffffff !important;
-  color: #0f172a !important;
-  box-shadow: none !important;
-}
-
-body.pdf-rendering-active .no-print,
-body.pdf-rendering-active .exercise-actions-bar,
-body.pdf-rendering-active .add-exercise-container {
-  display: none !important;
-}
-
-/* Isolated A4 Desktop Clone for PDF Export (Eliminates Mobile Squeeze) */
-.pdf-clone-mode {
-  width: 794px !important;
-  max-width: 794px !important;
-  min-width: 794px !important;
-  padding: 38px 45px !important;
-  font-size: 14px !important;
-  line-height: 1.5 !important;
-  background: #ffffff !important;
-  color: #0f172a !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
-  box-sizing: border-box !important;
-  display: block !important;
-}
-
-.pdf-clone-mode .sheet-block {
-  display: block !important;
-  width: 100% !important;
-  box-sizing: border-box !important;
-  padding: 0.65rem 0.95rem !important;
-  margin-bottom: 0.75rem !important;
-  border: 1px solid #cbd5e1 !important;
-  border-radius: 4px !important;
-  background: #ffffff !important;
-}
-
-.pdf-clone-mode .sheet-formula-box {
-  background: #f8fafc !important;
-  border-left: 3.5px solid #2563eb !important;
-  padding: 0.55rem 0.85rem !important;
-  margin-bottom: 0.45rem !important;
-}
-
-.pdf-clone-mode .sheet-solution-box {
-  background: #f8fafc !important;
-  border-left: 3px solid #2563eb !important;
-  padding: 0.35rem 0.65rem !important;
-  margin: 0.25rem 0 !important;
-}
-
-.pdf-clone-mode .handwriting-grid {
-  min-height: 145px !important;
-  background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px) !important;
-}
-
-.pdf-clone-mode .handwriting-grid.grid-large {
-  min-height: 195px !important;
 }
 
 .pdf-clone-mode .katex-display {
