@@ -227,6 +227,11 @@
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
 
+      // On iOS, show brief tip on how to save 100% vector PDF via AirPrint
+      if (EnvironmentSniffer.isIOS() && typeof window.showSystemToast === 'function') {
+        window.showSystemToast('💡 เซฟ PDF คมชัด: ในหน้าพิมพ์ ให้ใช้ 2 นิ้วถ่างขยายภาพพรีวิว แล้วแตะปุ่มแชร์ ➔ บันทึกไปยังไฟล์');
+      }
+
       // Execute window.print() synchronously to preserve user activation gesture on iOS Safari & Chrome
       try {
         window.print();
@@ -237,7 +242,8 @@
 
     /**
      * Client-side direct PDF generation using html2pdf.js
-     * Works on Mobile (iPhone/iPad/Android) and Desktop without AirPrint dialog
+     * Clones the paper into an isolated desktop A4 container (794px)
+     * to eliminate mobile responsive squeeze and preserve true A4 typography.
      */
     downloadPdf: function(topicData, options) {
       const self = this;
@@ -253,21 +259,55 @@
       const fileName = self.getPrintFileName(topicData, options);
 
       function executePdfGeneration() {
-        self.showLoadingOverlay('กำลังประมวลผลสมการและสร้างไฟล์ PDF...<br><span style="font-size:0.8rem;opacity:0.8;font-weight:400;margin-top:6px;display:inline-block;">กำลังแปลงเอกสาร A4 ความละเอียดสูง กรุณารอสักครู่</span>');
+        self.showLoadingOverlay('กำลังสร้างไฟล์ PDF ขนาด A4 มาตรฐาน...<br><span style="font-size:0.8rem;opacity:0.8;font-weight:400;margin-top:6px;display:inline-block;">จัดหน้ากระดาษสัดส่วนมาตรฐาน A4 กรุณารอสักครู่</span>');
 
-        const oldTransform = paper.style.transform;
-        paper.style.transform = 'none';
-        document.body.classList.add('pdf-rendering-active');
+        // Create an off-screen container with exact A4 desktop dimensions (794px @ 96DPI)
+        const exportHost = document.createElement('div');
+        exportHost.id = 'pdfExportHost';
+        exportHost.style.position = 'fixed';
+        exportHost.style.left = '-9999px';
+        exportHost.style.top = '0';
+        exportHost.style.width = '794px';
+        exportHost.style.background = '#ffffff';
+        exportHost.style.color = '#000000';
+        exportHost.style.zIndex = '-9999';
+        exportHost.style.overflow = 'visible';
+
+        // Deep clone paper to bypass mobile screen responsive styling
+        const paperClone = paper.cloneNode(true);
+        paperClone.id = 'a4PaperPdfClone';
+        paperClone.className = 'a4-paper-sheet pdf-clone-mode';
+        paperClone.style.transform = 'none';
+        paperClone.style.width = '794px';
+        paperClone.style.maxWidth = '794px';
+        paperClone.style.minWidth = '794px';
+        paperClone.style.margin = '0 auto';
+        paperClone.style.padding = '38px 45px';
+        paperClone.style.background = '#ffffff';
+        paperClone.style.color = '#0f172a';
+        paperClone.style.borderRadius = '0';
+        paperClone.style.boxShadow = 'none';
+        paperClone.style.boxSizing = 'border-box';
+        paperClone.style.fontSize = '14.5px';
+
+        // Remove non-print elements from clone
+        const unwanted = paperClone.querySelectorAll('.no-print, .exercise-actions-bar, .add-exercise-container');
+        unwanted.forEach(function(el) { el.remove(); });
+
+        exportHost.appendChild(paperClone);
+        document.body.appendChild(exportHost);
 
         // Configure html2pdf for high quality A4 math worksheets
         const opt = {
-          margin: [8, 10, 8, 10], // mm
+          margin: [8, 8, 8, 8], // mm
           filename: fileName + '.pdf',
           image: { type: 'jpeg', quality: 0.98 },
           html2canvas: {
             scale: 2,
             useCORS: true,
             letterRendering: true,
+            width: 794,
+            windowWidth: 794,
             scrollY: 0,
             scrollX: 0
           },
@@ -276,24 +316,21 @@
         };
 
         if (typeof html2pdf !== 'function') {
+          if (exportHost.parentNode) exportHost.parentNode.removeChild(exportHost);
           self.hideLoadingOverlay();
-          paper.style.transform = oldTransform;
-          document.body.classList.remove('pdf-rendering-active');
           alert('โมดูล PDF กำลังโหลด กรุณาลองกดใหม่อีกครั้ง');
           return;
         }
 
-        html2pdf().set(opt).from(paper).save().then(function() {
-          paper.style.transform = oldTransform;
-          document.body.classList.remove('pdf-rendering-active');
+        html2pdf().set(opt).from(paperClone).save().then(function() {
+          if (exportHost.parentNode) exportHost.parentNode.removeChild(exportHost);
           self.hideLoadingOverlay();
           self.closeExportModal();
           if (typeof window.showToastNotification === 'function') {
             window.showToastNotification('ดาวน์โหลดไฟล์ PDF เรียบร้อยแล้ว');
           }
         }).catch(function(err) {
-          paper.style.transform = oldTransform;
-          document.body.classList.remove('pdf-rendering-active');
+          if (exportHost.parentNode) exportHost.parentNode.removeChild(exportHost);
           self.hideLoadingOverlay();
           console.error('PDF generation error:', err);
           alert('เกิดข้อผิดพลาดในการสร้าง PDF ระบบจะสลับไปยังโหมดพิมพ์ / AirPrint ให้แทนครับ');
