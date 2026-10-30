@@ -1023,12 +1023,41 @@
     }, 3200);
   }
 
-  function prepareAndPrint() {
+  function openPdfExportModal() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.openExportModal) {
+      window.SheetRenderEngine.openExportModal();
+    } else {
+      prepareAndPrint();
+    }
+  }
+
+  function closePdfExportModal() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeExportModal) {
+      window.SheetRenderEngine.closeExportModal();
+    }
+  }
+
+  function downloadCurrentWorksheetPdf() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.downloadPdf) {
+      window.SheetRenderEngine.downloadPdf();
+    } else {
+      prepareAndPrint();
+    }
+  }
+
+  function triggerAirPrint() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeExportModal) {
+      window.SheetRenderEngine.closeExportModal();
+    }
     if (window.SheetRenderEngine) {
       window.SheetRenderEngine.print();
     } else {
       window.print();
     }
+  }
+
+  function prepareAndPrint() {
+    openPdfExportModal();
   }
 
   function getWorksheetPrintFileName() {
@@ -1108,6 +1137,10 @@
   window.syncSettingsToGoogleSheet = syncSettingsToGoogleSheet;
   window.fetchSettingsFromGoogleSheet = fetchSettingsFromGoogleSheet;
   window.showSystemToast = showSystemToast;
+  window.openPdfExportModal = openPdfExportModal;
+  window.closePdfExportModal = closePdfExportModal;
+  window.downloadCurrentWorksheetPdf = downloadCurrentWorksheetPdf;
+  window.triggerAirPrint = triggerAirPrint;
   window.prepareAndPrint = prepareAndPrint;
   window.getWorksheetPrintFileName = getWorksheetPrintFileName;
   window.initApp = initApp;

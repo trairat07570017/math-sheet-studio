@@ -20,6 +20,41 @@
   let _originalDocTitle = document.title;
   let _katexPollingInterval = null;
 
+  // Environment Sniffer for Mobile, iOS/iPadOS, and In-App WebViews
+  const EnvironmentSniffer = {
+    isIOS: function() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+      const isApple = /iPad|iPhone|iPod/.test(ua);
+      const isIPadOS = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      return isApple || isIPadOS;
+    },
+    isAndroid: function() {
+      return /Android/i.test(navigator.userAgent || '');
+    },
+    isMobile: function() {
+      return this.isIOS() || this.isAndroid() || (window.innerWidth <= 840);
+    },
+    isInAppBrowser: function() {
+      const ua = (navigator.userAgent || '').toLowerCase();
+      return (
+        ua.includes('line') ||
+        ua.includes('fbav') ||
+        ua.includes('fban') ||
+        ua.includes('instagram') ||
+        ua.includes('twitter') ||
+        ua.includes('messenger') ||
+        ua.includes('micromessenger')
+      );
+    },
+    isInIframe: function() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+  };
+
   // Typeset math on any element using KaTeX
   function typesetMath(rootElement) {
     const el = rootElement || document.body;
@@ -78,12 +113,16 @@
   }
 
   const SheetRenderEngine = {
+    EnvironmentSniffer: EnvironmentSniffer,
+
     init: function() {
       const self = this;
       initKaTeXPolling(function() {
         const paper = document.getElementById('a4Paper');
         if (paper) typesetMath(paper);
       });
+
+      this.initInAppBanner();
 
       // Window print listeners for automatic PDF filename & zoom neutralization
       window.addEventListener('beforeprint', function() {
@@ -176,6 +215,7 @@
 
     /**
      * Trigger browser print with title swap and zoom preservation
+     * Handles iOS Safari direct activation requirement synchronously
      */
     print: function(topicData, options) {
       const paper = document.getElementById('a4Paper');
@@ -184,9 +224,166 @@
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
 
-      setTimeout(function() {
+      // On iOS Safari, setTimeout decouples execution from the user tap gesture,
+      // causing Safari WebKit to drop the window.print() call. We execute immediately on iOS.
+      if (EnvironmentSniffer.isIOS()) {
         window.print();
-      }, 50);
+      } else {
+        setTimeout(function() {
+          window.print();
+        }, 50);
+      }
+    },
+
+    /**
+     * Client-side direct PDF generation using html2pdf.js
+     * Works on Mobile (iPhone/iPad/Android) and Desktop without AirPrint dialog
+     */
+    downloadPdf: function(topicData, options) {
+      const self = this;
+      const paper = document.getElementById('a4Paper');
+      if (!paper) {
+        alert('ไม่พบหน้ากระดาษใบงานสำหรับสร้าง PDF');
+        return;
+      }
+
+      const fileName = self.getPrintFileName(topicData, options);
+
+      function executePdfGeneration() {
+        self.showLoadingOverlay('กำลังประมวลผลสมการและสร้างไฟล์ PDF...<br><span style="font-size:0.8rem;opacity:0.8;font-weight:400;margin-top:6px;display:inline-block;">กำลังแปลงเอกสาร A4 ความละเอียดสูง กรุณารอสักครู่</span>');
+
+        const oldTransform = paper.style.transform;
+        paper.style.transform = 'none';
+        document.body.classList.add('pdf-rendering-active');
+
+        // Configure html2pdf for high quality A4 math worksheets
+        const opt = {
+          margin: [8, 10, 8, 10], // mm
+          filename: fileName + '.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            letterRendering: true,
+            scrollY: 0,
+            scrollX: 0
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['css', 'legacy'] }
+        };
+
+        if (typeof html2pdf !== 'function') {
+          self.hideLoadingOverlay();
+          paper.style.transform = oldTransform;
+          document.body.classList.remove('pdf-rendering-active');
+          alert('โมดูล PDF กำลังโหลด กรุณาลองกดใหม่อีกครั้ง');
+          return;
+        }
+
+        html2pdf().set(opt).from(paper).save().then(function() {
+          paper.style.transform = oldTransform;
+          document.body.classList.remove('pdf-rendering-active');
+          self.hideLoadingOverlay();
+          self.closeExportModal();
+          if (typeof window.showToastNotification === 'function') {
+            window.showToastNotification('ดาวน์โหลดไฟล์ PDF เรียบร้อยแล้ว');
+          }
+        }).catch(function(err) {
+          paper.style.transform = oldTransform;
+          document.body.classList.remove('pdf-rendering-active');
+          self.hideLoadingOverlay();
+          console.error('PDF generation error:', err);
+          alert('เกิดข้อผิดพลาดในการสร้าง PDF ระบบจะสลับไปยังโหมดพิมพ์ / AirPrint ให้แทนครับ');
+          self.print(topicData, options);
+        });
+      }
+
+      // Check if html2pdf is ready; if not, dynamically load it with timeout fallback
+      if (typeof html2pdf === 'undefined') {
+        self.showLoadingOverlay('กำลังดาวน์โหลดโมดูลสร้าง PDF...');
+        const s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        s.onload = function() {
+          setTimeout(executePdfGeneration, 100);
+        };
+        s.onerror = function() {
+          self.hideLoadingOverlay();
+          alert('ไม่สามารถดาวน์โหลดไลบรารีสร้าง PDF ได้ในขณะนี้ กรุณาใช้ตัวเลือก พิมพ์ / AirPrint');
+        };
+        document.head.appendChild(s);
+      } else {
+        executePdfGeneration();
+      }
+    },
+
+    /**
+     * Open Mobile / Desktop PDF Export Action Sheet Modal
+     */
+    openExportModal: function(topicData, options) {
+      const modal = document.getElementById('pdfExportModal');
+      const filenameLabel = document.getElementById('pdfExportFileName');
+      const iosGuide = document.getElementById('iosAirPrintGuide');
+      const fileName = this.getPrintFileName(topicData, options);
+
+      if (filenameLabel) {
+        filenameLabel.textContent = fileName + '.pdf';
+      }
+
+      if (iosGuide) {
+        iosGuide.style.display = EnvironmentSniffer.isIOS() ? 'block' : 'none';
+      }
+
+      if (modal) {
+        modal.classList.add('active');
+      }
+    },
+
+    /**
+     * Close PDF Export Modal
+     */
+    closeExportModal: function() {
+      const modal = document.getElementById('pdfExportModal');
+      if (modal) modal.classList.remove('active');
+    },
+
+    /**
+     * Show Loading Feedback Overlay
+     */
+    showLoadingOverlay: function(msg) {
+      let overlay = document.getElementById('pdfLoadingOverlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'pdfLoadingOverlay';
+        overlay.className = 'pdf-loading-overlay';
+        overlay.innerHTML = `
+          <div class="pdf-loading-box">
+            <div class="pdf-spinner"></div>
+            <div id="pdfLoadingText" class="pdf-loading-text">กำลังประมวลผล...</div>
+          </div>
+        `;
+        document.body.appendChild(overlay);
+      }
+      const textEl = document.getElementById('pdfLoadingText');
+      if (textEl && msg) textEl.innerHTML = msg;
+      overlay.style.display = 'flex';
+    },
+
+    /**
+     * Hide Loading Feedback Overlay
+     */
+    hideLoadingOverlay: function() {
+      const overlay = document.getElementById('pdfLoadingOverlay');
+      if (overlay) overlay.style.display = 'none';
+    },
+
+    /**
+     * Show top banner when running in restricted In-App Browsers or IFrames
+     */
+    initInAppBanner: function() {
+      if (EnvironmentSniffer.isInAppBrowser() || (EnvironmentSniffer.isInIframe() && EnvironmentSniffer.isMobile())) {
+        const banner = document.getElementById('inAppBrowserBanner');
+        if (banner) banner.style.display = 'flex';
+      }
     },
 
     /**

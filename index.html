@@ -21,6 +21,9 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="handleKaTeXLoaded()"></script>
+  
+  <!-- html2pdf.js for direct client-side PDF downloads on Mobile (iOS / iPadOS / Android) -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
 /* -------------------------------------------------------------
        PENPOT AI WORKFLOWS DESIGN TOKENS
@@ -2862,9 +2865,308 @@
         font-size: 1.04em !important;
       }
     }
+
+/* ==========================================================================
+   MOBILE PDF EXPORT GATEWAY, ACTION SHEET & IN-APP BANNER STYLES
+   ========================================================================== */
+
+/* In-App Browser Warning Banner */
+.in-app-banner {
+  background: linear-gradient(90deg, #1e1b4b 0%, #312e81 100%);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.4);
+  color: #ffffff;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  position: relative;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.in-app-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.in-app-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.in-app-text {
+  line-height: 1.4;
+  color: #e0e7ff;
+}
+
+.in-app-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-in-app-action {
+  background: var(--neon-cyan, #00f5d4);
+  color: #080b11;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-in-app-action:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-in-app-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* PDF Export File Preview */
+.pdf-export-file-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.pdf-export-file-preview .file-icon {
+  font-size: 1.8rem;
+}
+
+.pdf-export-file-preview .file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  overflow: hidden;
+}
+
+.pdf-export-file-preview .file-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pdf-export-file-preview .file-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  word-break: break-all;
+}
+
+/* Options Grid & Cards */
+.pdf-export-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pdf-option-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: inherit;
+  font-family: inherit;
+}
+
+.pdf-option-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-option-card.recommended {
+  border-color: rgba(0, 245, 212, 0.5);
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.06) 0%, rgba(168, 85, 247, 0.06) 100%);
+}
+
+.pdf-option-card.recommended:hover {
+  border-color: var(--neon-cyan, #00f5d4);
+  box-shadow: 0 8px 24px rgba(0, 245, 212, 0.2);
+}
+
+.option-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #080b11;
+  background: var(--neon-cyan, #00f5d4);
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.2rem;
+}
+
+.pdf-option-card .option-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pdf-option-card .option-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.pdf-option-card .option-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-option-card .option-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pdf-option-card .option-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.pdf-option-card .option-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  padding-left: 2.35rem;
+}
+
+/* iOS AirPrint Guide */
+.ios-airprint-guide {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+
+.ios-airprint-guide .guide-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #93c5fd;
+  margin-bottom: 0.4rem;
+}
+
+.ios-airprint-guide .guide-steps {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  line-height: 1.45;
+}
+
+/* PDF Rendering Loading Overlay */
+.pdf-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 11, 17, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+}
+
+.pdf-loading-box {
+  background: #0f1420;
+  border: 1px solid rgba(0, 245, 212, 0.4);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 245, 212, 0.15);
+  max-width: 90vw;
+  width: 360px;
+}
+
+.pdf-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3.5px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--neon-cyan, #00f5d4);
+  border-radius: 50%;
+  animation: pdfSpin 0.8s linear infinite;
+}
+
+@keyframes pdfSpin {
+  to { transform: rotate(360deg); }
+}
+
+.pdf-loading-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.45;
+}
+
+/* While generating PDF: ensure white background and clean paper */
+body.pdf-rendering-active #a4Paper {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+
+body.pdf-rendering-active .no-print,
+body.pdf-rendering-active .exercise-actions-bar,
+body.pdf-rendering-active .add-exercise-container {
+  display: none !important;
+}
   </style>
 </head>
 <body>
+
+  <!-- IN-APP BROWSER / IFRAME WARNING BANNER (FOR IPHONE / IPAD) -->
+  <div class="in-app-banner no-print" id="inAppBrowserBanner" style="display: none;">
+    <div class="in-app-banner-content">
+      <span class="in-app-icon">💡</span>
+      <div class="in-app-text">
+        <strong>คำแนะนำสำหรับ iPhone / iPad:</strong> เพื่อให้ดาวน์โหลดไฟล์ PDF และสั่งพิมพ์ได้อย่างสมบูรณ์ แนะนำให้เปิดผ่าน Safari
+      </div>
+    </div>
+    <div class="in-app-actions">
+      <button type="button" class="btn-in-app-action" onclick="copyCurrentWebUrl()">📋 คัดลอกลิงก์ไปเปิด Safari</button>
+      <button type="button" class="btn-in-app-close" onclick="document.getElementById('inAppBrowserBanner').style.display='none'" aria-label="ปิด">✕</button>
+    </div>
+  </div>
 
   <div class="app-layout">
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleSidebarDrawer(false)"></div>
@@ -4298,6 +4600,102 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       </div>
     </div>
   </div>
+
+  <!-- MOBILE & DESKTOP PDF EXPORT ACTION SHEET MODAL -->
+  <div class="modal-backdrop no-print" id="pdfExportModal" onclick="if(event.target.id==='pdfExportModal') closePdfExportModal()">
+    <div class="modal-window pdf-export-modal-window" style="max-width: 560px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.3rem;">📄</span>
+          <h3 style="color: var(--neon-cyan);">พิมพ์ & บันทึกเอกสาร (PDF)</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closePdfExportModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1.1rem;">
+        <div class="pdf-export-file-preview">
+          <span class="file-icon">📑</span>
+          <div class="file-info">
+            <span class="file-label">ชื่อไฟล์เอกสารที่จะส่งออก:</span>
+            <span class="file-name" id="pdfExportFileName">[ม.4] ใบงานคณิตศาสตร์.pdf</span>
+          </div>
+        </div>
+
+        <div class="pdf-export-options-grid">
+          <!-- Option 1: Direct PDF Download -->
+          <button type="button" class="pdf-option-card recommended" onclick="downloadCurrentWorksheetPdf()">
+            <div class="option-badge">🌟 แนะนำสำหรับ iPhone / iPad</div>
+            <div class="option-header">
+              <span class="option-icon">📥</span>
+              <div class="option-titles">
+                <span class="option-title">ดาวน์โหลดเป็นไฟล์ PDF (.pdf)</span>
+                <span class="option-sub">บันทึกลงแอป Files หรือเครื่องทันทีในคลิกเดียว</span>
+              </div>
+            </div>
+            <p class="option-desc">เรนเดอร์ใบงาน A4 พร้อมสมการ KaTeX ทั้งหมดเป็นไฟล์ PDF คุณภาพสูง 300 DPI ไม่ต้องผ่านหน้าต่างพิมพ์</p>
+          </button>
+
+          <!-- Option 2: Native AirPrint / High-Res Vector -->
+          <button type="button" class="pdf-option-card" onclick="triggerAirPrint()">
+            <div class="option-header">
+              <span class="option-icon">🖨️</span>
+              <div class="option-titles">
+                <span class="option-title">สั่งพิมพ์ / AirPrint (เวกเตอร์คมชัด 100%)</span>
+                <span class="option-sub">เหมาะสำหรับต่อเครื่องพิมพ์ หรือบันทึก PDF ผ่านระบบเครื่อง</span>
+              </div>
+            </div>
+            <p class="option-desc">ส่งคำสั่งพิมพ์ไปยังเบราว์เซอร์ ได้สมการเวกเตอร์คมชัด 100% ระดับโรงพิมพ์</p>
+          </button>
+        </div>
+
+        <!-- iOS Pinch-to-PDF Guide -->
+        <div class="ios-airprint-guide" id="iosAirPrintGuide" style="display: none;">
+          <div class="guide-title">
+            <span>💡</span> <strong>วิธีเซฟ PDF ผ่าน AirPrint บน iPhone / iPad:</strong>
+          </div>
+          <ol class="guide-steps">
+            <li>แตะที่ปุ่ม <strong>"สั่งพิมพ์ / AirPrint"</strong> ด้านบน</li>
+            <li>ในหน้าตัวเลือกเครื่องพิมพ์ ให้ <strong>ใช้ 2 นิ้วถ่างขยาย (Pinch-out Zoom)</strong> บนรูปหน้ากระดาษพรีวิว</li>
+            <li>หน้าจอจะแปลงเป็นเอกสาร PDF ทันที ให้แตะไอคอน <strong>แชร์ (Share)</strong> แล้วเลือก <strong>"บันทึกไปยังไฟล์ (Save to Files)"</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: flex-end;">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);" onclick="closePdfExportModal()">
+          ยกเลิก
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF RENDERING PROGRESS OVERLAY -->
+  <div class="pdf-loading-overlay no-print" id="pdfLoadingOverlay" style="display: none;">
+    <div class="pdf-loading-box">
+      <div class="pdf-spinner"></div>
+      <div id="pdfLoadingText" class="pdf-loading-text">
+        กำลังประมวลผลสมการและสร้างไฟล์ PDF...<br>
+        <span style="font-size:0.8rem;opacity:0.8;font-weight:400;margin-top:6px;display:inline-block;">กำลังแปลงเอกสาร A4 ความละเอียดสูง กรุณารอสักครู่</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyCurrentWebUrl() {
+      var url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          if (typeof window.showSystemToast === 'function') {
+            window.showSystemToast('คัดลอกลิงก์เรียบร้อยแล้ว นำไปวางเปิดใน Safari ได้เลยครับ');
+          } else {
+            alert('คัดลอกลิงก์เรียบร้อยแล้ว นำไปวางเปิดใน Safari ได้เลยครับ');
+          }
+        });
+      } else {
+        prompt('คัดลอกลิงก์นี้ไปวางใน Safari:', url);
+      }
+    }
+  </script>
 
   <script>
     // --- BOOTSTRAP CURRICULUM BASELINE DATA ---
@@ -20746,6 +21144,41 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   let _originalDocTitle = document.title;
   let _katexPollingInterval = null;
 
+  // Environment Sniffer for Mobile, iOS/iPadOS, and In-App WebViews
+  const EnvironmentSniffer = {
+    isIOS: function() {
+      const ua = navigator.userAgent || navigator.vendor || window.opera || '';
+      const isApple = /iPad|iPhone|iPod/.test(ua);
+      const isIPadOS = (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+      return isApple || isIPadOS;
+    },
+    isAndroid: function() {
+      return /Android/i.test(navigator.userAgent || '');
+    },
+    isMobile: function() {
+      return this.isIOS() || this.isAndroid() || (window.innerWidth <= 840);
+    },
+    isInAppBrowser: function() {
+      const ua = (navigator.userAgent || '').toLowerCase();
+      return (
+        ua.includes('line') ||
+        ua.includes('fbav') ||
+        ua.includes('fban') ||
+        ua.includes('instagram') ||
+        ua.includes('twitter') ||
+        ua.includes('messenger') ||
+        ua.includes('micromessenger')
+      );
+    },
+    isInIframe: function() {
+      try {
+        return window.self !== window.top;
+      } catch (e) {
+        return true;
+      }
+    }
+  };
+
   // Typeset math on any element using KaTeX
   function typesetMath(rootElement) {
     const el = rootElement || document.body;
@@ -20804,12 +21237,16 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   }
 
   const SheetRenderEngine = {
+    EnvironmentSniffer: EnvironmentSniffer,
+
     init: function() {
       const self = this;
       initKaTeXPolling(function() {
         const paper = document.getElementById('a4Paper');
         if (paper) typesetMath(paper);
       });
+
+      this.initInAppBanner();
 
       // Window print listeners for automatic PDF filename & zoom neutralization
       window.addEventListener('beforeprint', function() {
@@ -20902,6 +21339,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
     /**
      * Trigger browser print with title swap and zoom preservation
+     * Handles iOS Safari direct activation requirement synchronously
      */
     print: function(topicData, options) {
       const paper = document.getElementById('a4Paper');
@@ -20910,9 +21348,166 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
 
-      setTimeout(function() {
+      // On iOS Safari, setTimeout decouples execution from the user tap gesture,
+      // causing Safari WebKit to drop the window.print() call. We execute immediately on iOS.
+      if (EnvironmentSniffer.isIOS()) {
         window.print();
-      }, 50);
+      } else {
+        setTimeout(function() {
+          window.print();
+        }, 50);
+      }
+    },
+
+    /**
+     * Client-side direct PDF generation using html2pdf.js
+     * Works on Mobile (iPhone/iPad/Android) and Desktop without AirPrint dialog
+     */
+    downloadPdf: function(topicData, options) {
+      const self = this;
+      const paper = document.getElementById('a4Paper');
+      if (!paper) {
+        alert('ไม่พบหน้ากระดาษใบงานสำหรับสร้าง PDF');
+        return;
+      }
+
+      const fileName = self.getPrintFileName(topicData, options);
+
+      function executePdfGeneration() {
+        self.showLoadingOverlay('กำลังประมวลผลสมการและสร้างไฟล์ PDF...<br><span style="font-size:0.8rem;opacity:0.8;font-weight:400;margin-top:6px;display:inline-block;">กำลังแปลงเอกสาร A4 ความละเอียดสูง กรุณารอสักครู่</span>');
+
+        const oldTransform = paper.style.transform;
+        paper.style.transform = 'none';
+        document.body.classList.add('pdf-rendering-active');
+
+        // Configure html2pdf for high quality A4 math worksheets
+        const opt = {
+          margin: [8, 10, 8, 10], // mm
+          filename: fileName + '.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: {
+            scale: 2,
+            useCORS: true,
+            letterRendering: true,
+            scrollY: 0,
+            scrollX: 0
+          },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['css', 'legacy'] }
+        };
+
+        if (typeof html2pdf !== 'function') {
+          self.hideLoadingOverlay();
+          paper.style.transform = oldTransform;
+          document.body.classList.remove('pdf-rendering-active');
+          alert('โมดูล PDF กำลังโหลด กรุณาลองกดใหม่อีกครั้ง');
+          return;
+        }
+
+        html2pdf().set(opt).from(paper).save().then(function() {
+          paper.style.transform = oldTransform;
+          document.body.classList.remove('pdf-rendering-active');
+          self.hideLoadingOverlay();
+          self.closeExportModal();
+          if (typeof window.showToastNotification === 'function') {
+            window.showToastNotification('ดาวน์โหลดไฟล์ PDF เรียบร้อยแล้ว');
+          }
+        }).catch(function(err) {
+          paper.style.transform = oldTransform;
+          document.body.classList.remove('pdf-rendering-active');
+          self.hideLoadingOverlay();
+          console.error('PDF generation error:', err);
+          alert('เกิดข้อผิดพลาดในการสร้าง PDF ระบบจะสลับไปยังโหมดพิมพ์ / AirPrint ให้แทนครับ');
+          self.print(topicData, options);
+        });
+      }
+
+      // Check if html2pdf is ready; if not, dynamically load it with timeout fallback
+      if (typeof html2pdf === 'undefined') {
+        self.showLoadingOverlay('กำลังดาวน์โหลดโมดูลสร้าง PDF...');
+        const s = document.createElement('script');
+        s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js';
+        s.onload = function() {
+          setTimeout(executePdfGeneration, 100);
+        };
+        s.onerror = function() {
+          self.hideLoadingOverlay();
+          alert('ไม่สามารถดาวน์โหลดไลบรารีสร้าง PDF ได้ในขณะนี้ กรุณาใช้ตัวเลือก พิมพ์ / AirPrint');
+        };
+        document.head.appendChild(s);
+      } else {
+        executePdfGeneration();
+      }
+    },
+
+    /**
+     * Open Mobile / Desktop PDF Export Action Sheet Modal
+     */
+    openExportModal: function(topicData, options) {
+      const modal = document.getElementById('pdfExportModal');
+      const filenameLabel = document.getElementById('pdfExportFileName');
+      const iosGuide = document.getElementById('iosAirPrintGuide');
+      const fileName = this.getPrintFileName(topicData, options);
+
+      if (filenameLabel) {
+        filenameLabel.textContent = fileName + '.pdf';
+      }
+
+      if (iosGuide) {
+        iosGuide.style.display = EnvironmentSniffer.isIOS() ? 'block' : 'none';
+      }
+
+      if (modal) {
+        modal.classList.add('active');
+      }
+    },
+
+    /**
+     * Close PDF Export Modal
+     */
+    closeExportModal: function() {
+      const modal = document.getElementById('pdfExportModal');
+      if (modal) modal.classList.remove('active');
+    },
+
+    /**
+     * Show Loading Feedback Overlay
+     */
+    showLoadingOverlay: function(msg) {
+      let overlay = document.getElementById('pdfLoadingOverlay');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'pdfLoadingOverlay';
+        overlay.className = 'pdf-loading-overlay';
+        overlay.innerHTML = `
+          <div class="pdf-loading-box">
+            <div class="pdf-spinner"></div>
+            <div id="pdfLoadingText" class="pdf-loading-text">กำลังประมวลผล...</div>
+          </div>
+        `;
+        document.body.appendChild(overlay);
+      }
+      const textEl = document.getElementById('pdfLoadingText');
+      if (textEl && msg) textEl.innerHTML = msg;
+      overlay.style.display = 'flex';
+    },
+
+    /**
+     * Hide Loading Feedback Overlay
+     */
+    hideLoadingOverlay: function() {
+      const overlay = document.getElementById('pdfLoadingOverlay');
+      if (overlay) overlay.style.display = 'none';
+    },
+
+    /**
+     * Show top banner when running in restricted In-App Browsers or IFrames
+     */
+    initInAppBanner: function() {
+      if (EnvironmentSniffer.isInAppBrowser() || (EnvironmentSniffer.isInIframe() && EnvironmentSniffer.isMobile())) {
+        const banner = document.getElementById('inAppBrowserBanner');
+        if (banner) banner.style.display = 'flex';
+      }
     },
 
     /**
@@ -22125,12 +22720,41 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }, 3200);
   }
 
-  function prepareAndPrint() {
+  function openPdfExportModal() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.openExportModal) {
+      window.SheetRenderEngine.openExportModal();
+    } else {
+      prepareAndPrint();
+    }
+  }
+
+  function closePdfExportModal() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeExportModal) {
+      window.SheetRenderEngine.closeExportModal();
+    }
+  }
+
+  function downloadCurrentWorksheetPdf() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.downloadPdf) {
+      window.SheetRenderEngine.downloadPdf();
+    } else {
+      prepareAndPrint();
+    }
+  }
+
+  function triggerAirPrint() {
+    if (window.SheetRenderEngine && window.SheetRenderEngine.closeExportModal) {
+      window.SheetRenderEngine.closeExportModal();
+    }
     if (window.SheetRenderEngine) {
       window.SheetRenderEngine.print();
     } else {
       window.print();
     }
+  }
+
+  function prepareAndPrint() {
+    openPdfExportModal();
   }
 
   function getWorksheetPrintFileName() {
@@ -22210,6 +22834,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   window.syncSettingsToGoogleSheet = syncSettingsToGoogleSheet;
   window.fetchSettingsFromGoogleSheet = fetchSettingsFromGoogleSheet;
   window.showSystemToast = showSystemToast;
+  window.openPdfExportModal = openPdfExportModal;
+  window.closePdfExportModal = closePdfExportModal;
+  window.downloadCurrentWorksheetPdf = downloadCurrentWorksheetPdf;
+  window.triggerAirPrint = triggerAirPrint;
   window.prepareAndPrint = prepareAndPrint;
   window.getWorksheetPrintFileName = getWorksheetPrintFileName;
   window.initApp = initApp;

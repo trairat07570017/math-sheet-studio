@@ -19,6 +19,9 @@
 | **Storage Gateway** | โมดูลลึกด้านการจัดเก็บข้อมูล ทำหน้าที่เป็น Seam พร้อม 2 Adapters (`GasNativeAdapter` และ `HttpRestAdapter`) รองรับทั้ง Google Apps Script และ GitHub Pages พร้อมคิวออฟไลน์ |
 | **Sheet Render Engine** | โมดูลลึกสำหรับรวบรวม DOM เอกสาร A4 ควบคุมการเรนเดอร์ KaTeX ภายในตัว และจัดการระบบตัดหน้ากระดาษพิมพ์แบบไร้รอยต่อ |
 | **Asset Pipeline** | ระบบรวมโมดูลต้นทาง (`src/`) สู่ไฟล์ผลลัพธ์แบบ Zero-Dependency (`build.js`) สำหรับ Deploy บน GitHub Pages และ GAS |
+| **Mobile PDF Export Gateway** | ระบบจัดการส่งออก PDF ข้ามแพลตฟอร์ม รองรับทั้ง Direct PDF Download (.pdf ลงเครื่องทันที) และ Native AirPrint Vector Engine พร้อมระบบตรวจจับสภาพแวดล้อม |
+| **Environment Sniffer** | กลไกตรวจสอบอุปกรณ์ (iOS/iPadOS/Desktop) และคอนเทนเนอร์ (Top-level Browser, GAS Iframe, In-App Webview) เพื่อเลือกเส้นทางการส่งออก PDF ที่เสถียรที่สุด |
+| **iOS AirPrint Pinch-to-PDF** | เวิร์กโฟลว์เฉพาะของระบบปฏิบัติการ iOS/iPadOS สำหรับบันทึกเอกสารพิมพ์เป็นไฟล์ PDF ผ่านการถ่างขยายหน้าพรีวิว (Pinch Gesture) และแชร์เข้าแอป Files |
 
 ---
 
@@ -327,6 +330,24 @@
   - เมนูด้านซ้ายและระบบค้นหาแบบอัจฉริยะ (⌘K) สามารถค้นหาและสลับบทเรียนข้ามหน่วยได้อย่างราบรื่น
   - **KaTeX Delimiters & Double-Backslash Normalization:** แก้ไขการตกหล่นของตัวคั่น `$$` ในกล่องสูตรตอนที่ 1 ทั้ง 24 คาบ และทำความสะอาดคำสั่ง LaTeX ที่ติด backslash ซ้อน (`\\frac`, `\\cos`, `\\text`) พร้อมเพิ่มระบบตรวจจับและ Wrap `$$` อัตโนมัติ (Defensive Pre-sanitization) ใน `SheetRenderEngine.typesetMath` ทำให้สมการทุกจุดเรนเดอร์คมชัด 100% ปราศจากโค้ดดิบหลุดรอด
 
+### ADR-022: สถาปัตยกรรม Mobile PDF Export Gateway, Environment Sniffer และการแก้ไขการส่งออก PDF บน iPhone / iPad (iOS / iPadOS)
+- **บริบทและปัญหา**:
+  - เมื่อเปิดใช้งานบน iPhone หรือ iPad ผู้ใช้ไม่สามารถดาวน์โหลดหรือพิมพ์งานออกมาเป็นไฟล์ PDF ได้ ขณะที่บนคอมพิวเตอร์สามารถใช้เมนูพิมพ์ Save as PDF ได้ตามปกติ
+  - สาเหตุเชิงลึก:
+    1. เดิม `SheetRenderEngine.print()` ใช้คำสั่ง `setTimeout(function() { window.print(); }, 50)` ซึ่งบน WebKit (iOS Safari) คำสั่งพิมพ์ที่อยู่ในฟังก์ชันอะซิงโครนัสจะถูกตัดสิทธิ์ User Activation Gesture ส่งผลให้ Safari ปิดกั้นคำสั่งพิมพ์เงียบๆ
+    2. หน้าต่างพิมพ์เนทีฟของระบบ iOS (AirPrint) ไม่มีปุ่ม "Save as PDF" เหมือนเบราว์เซอร์บนเดสก์ท็อป โดยผู้ใช้ต้องใช้ท่าทาง 2 นิ้วถ่างขยายภาพพรีวิว (Pinch-to-Zoom) เพื่อแปลงเป็น PDF แล้วจึงกด Share ไปยังแอป Files ซึ่งเป็นฟังก์ชันที่ผู้ใช้ส่วนใหญ่ไม่ทราบ
+    3. กรณีเปิดเว็บแอปผ่าน In-App Browser (เช่น LINE, Facebook, Messenger) หรือผ่าน iframe ของ Google Apps Script (`script.google.com`) คำสั่ง `window.print()` จะถูก WebKit ปิดกั้นโดยสมบูรณ์
+- **การตัดสินใจและสถาปัตยกรรม**:
+  1. **Mobile PDF Export Gateway (ระบบ Hybrid 2 โหมด):**
+     - **โหมด 1 (Direct Client-Side PDF Download):** เพิ่มปุ่มดาวน์โหลดไฟล์ `.pdf` คุณภาพสูง (300 DPI) ผ่าน `html2pdf.js` บันทึกลงเครื่อง iPhone/iPad/Android ในคลิกเดียว ไม่ต้องผ่านหน้าตั้งค่าเครื่องพิมพ์
+     - **โหมด 2 (Native AirPrint Vector Print):** ปรับปรุงคำสั่ง `window.print()` ให้ทำงานแบบ Synchronous ทันทีบน iOS Safari ปลดล็อกปัญหาคำสั่งพิมพ์ไม่ทำงาน พร้อมทั้งมีกล่องแนะนำขั้นตอนการใช้ 2 นิ้วถ่างขยาย (Pinch Gesture) เพื่อเซฟเป็น PDF
+  2. **Environment Sniffer:**
+     - ตรวจจับระบบปฏิบัติการ iOS, iPadOS (รวมถึง Safari บน Mac with TouchPoints), Android และขนาดหน้าจอ
+     - ตรวจสอบสถานะการรันใน In-App Webview และ iframe หากพบจะแสดงแถบแบนเนอร์คำแนะนำด้านบน (`#inAppBrowserBanner`) พร้อมปุ่มคัดลอกลิงก์เพื่อไปเปิดใน Safari ได้อย่างราบรื่น
+  3. **Visual Feedback & Safe Multi-Page Export:**
+     - เพิ่มหน้าต่าง Loading Overlay (`#pdfLoadingOverlay`) ระหว่างการเรนเดอร์สมการ KaTeX แปลงสู่ PDF เพื่อป้องกันการกดซ้ำซ้อน
+     - เพิ่ม Action Sheet Modal (`#pdfExportModal`) แสดงชื่อไฟล์มาตรฐาน `[ระดับชั้น-รหัสวิชา] ชื่อใบงาน.pdf` ให้ผู้ใช้เลือกโหมดที่เหมาะสมกับอุปกรณ์
+
 ---
 
 ## 4. สถานะปัจจุบัน (Current State)
@@ -348,4 +369,5 @@
 - [x] **Zero-Overflow KaTeX Formulas**: สูตรทุกสมการจัดเรียงหลายบรรทัดด้วย `\begin{aligned}` ไม่ล้นกรอบและไม่ตกขอบขวา
 - [x] **Balanced Problem & Solution Typography**: ปรับสมดุลขนาดสมการในโจทย์ให้อ่านง่าย ชัดเจน ไม่จม (`1.20em - 1.22em`) และจัดวิธีทำตัวอย่างขนาดกระชับ สวยงาม
 - [x] **Global System Settings Modal & Chapter Cascading**: ตั้งค่าชื่อโรงเรียน ครู รหัสวิชาประจำบท และขนาดฟอนต์ พร้อมส่งต่อไปยังทุกคาบย่อยทันที
+- [x] **Mobile PDF Export Gateway & Environment Sniffer (ADR-022)**: ดาวน์โหลดไฟล์ `.pdf` ในคลิกเดียวบน iPhone / iPad พร้อมคำแนะนำ iOS AirPrint และแถบแจ้งเตือน In-App Browser
 - [x] **Clasp Push & Deploy Active**: อัปโหลดโค้ดสู่ Google Apps Script (`1FFUD_DKap_fy3izxBLmX7IQA6yVrFgY8dD3SwSbz9M5BQjUotK46EYCq`) และ GitHub Pages พร้อมใช้งาน 100%

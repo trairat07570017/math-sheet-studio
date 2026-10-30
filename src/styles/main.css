@@ -2838,3 +2838,288 @@
         font-size: 1.04em !important;
       }
     }
+
+/* ==========================================================================
+   MOBILE PDF EXPORT GATEWAY, ACTION SHEET & IN-APP BANNER STYLES
+   ========================================================================== */
+
+/* In-App Browser Warning Banner */
+.in-app-banner {
+  background: linear-gradient(90deg, #1e1b4b 0%, #312e81 100%);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.4);
+  color: #ffffff;
+  padding: 0.65rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  position: relative;
+  z-index: 9999;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.in-app-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.in-app-icon {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.in-app-text {
+  line-height: 1.4;
+  color: #e0e7ff;
+}
+
+.in-app-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-in-app-action {
+  background: var(--neon-cyan, #00f5d4);
+  color: #080b11;
+  border: none;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.btn-in-app-action:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.btn-in-app-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* PDF Export File Preview */
+.pdf-export-file-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+}
+
+.pdf-export-file-preview .file-icon {
+  font-size: 1.8rem;
+}
+
+.pdf-export-file-preview .file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  overflow: hidden;
+}
+
+.pdf-export-file-preview .file-label {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pdf-export-file-preview .file-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  word-break: break-all;
+}
+
+/* Options Grid & Cards */
+.pdf-export-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pdf-option-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  color: inherit;
+  font-family: inherit;
+}
+
+.pdf-option-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-option-card.recommended {
+  border-color: rgba(0, 245, 212, 0.5);
+  background: linear-gradient(135deg, rgba(0, 245, 212, 0.06) 0%, rgba(168, 85, 247, 0.06) 100%);
+}
+
+.pdf-option-card.recommended:hover {
+  border-color: var(--neon-cyan, #00f5d4);
+  box-shadow: 0 8px 24px rgba(0, 245, 212, 0.2);
+}
+
+.option-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #080b11;
+  background: var(--neon-cyan, #00f5d4);
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.2rem;
+}
+
+.pdf-option-card .option-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pdf-option-card .option-icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.pdf-option-card .option-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.pdf-option-card .option-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pdf-option-card .option-sub {
+  font-size: 0.8rem;
+  color: #94a3b8;
+}
+
+.pdf-option-card .option-desc {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+  line-height: 1.45;
+  padding-left: 2.35rem;
+}
+
+/* iOS AirPrint Guide */
+.ios-airprint-guide {
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-size: 0.82rem;
+  color: #cbd5e1;
+}
+
+.ios-airprint-guide .guide-title {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #93c5fd;
+  margin-bottom: 0.4rem;
+}
+
+.ios-airprint-guide .guide-steps {
+  margin: 0;
+  padding-left: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  line-height: 1.45;
+}
+
+/* PDF Rendering Loading Overlay */
+.pdf-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(8, 11, 17, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100000;
+}
+
+.pdf-loading-box {
+  background: #0f1420;
+  border: 1px solid rgba(0, 245, 212, 0.4);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 245, 212, 0.15);
+  max-width: 90vw;
+  width: 360px;
+}
+
+.pdf-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3.5px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--neon-cyan, #00f5d4);
+  border-radius: 50%;
+  animation: pdfSpin 0.8s linear infinite;
+}
+
+@keyframes pdfSpin {
+  to { transform: rotate(360deg); }
+}
+
+.pdf-loading-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.45;
+}
+
+/* While generating PDF: ensure white background and clean paper */
+body.pdf-rendering-active #a4Paper {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  box-shadow: none !important;
+}
+
+body.pdf-rendering-active .no-print,
+body.pdf-rendering-active .exercise-actions-bar,
+body.pdf-rendering-active .add-exercise-container {
+  display: none !important;
+}

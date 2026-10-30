@@ -1,5 +1,19 @@
 <body>
 
+  <!-- IN-APP BROWSER / IFRAME WARNING BANNER (FOR IPHONE / IPAD) -->
+  <div class="in-app-banner no-print" id="inAppBrowserBanner" style="display: none;">
+    <div class="in-app-banner-content">
+      <span class="in-app-icon">💡</span>
+      <div class="in-app-text">
+        <strong>คำแนะนำสำหรับ iPhone / iPad:</strong> เพื่อให้ดาวน์โหลดไฟล์ PDF และสั่งพิมพ์ได้อย่างสมบูรณ์ แนะนำให้เปิดผ่าน Safari
+      </div>
+    </div>
+    <div class="in-app-actions">
+      <button type="button" class="btn-in-app-action" onclick="copyCurrentWebUrl()">📋 คัดลอกลิงก์ไปเปิด Safari</button>
+      <button type="button" class="btn-in-app-close" onclick="document.getElementById('inAppBrowserBanner').style.display='none'" aria-label="ปิด">✕</button>
+    </div>
+  </div>
+
   <div class="app-layout">
     <div class="mobile-overlay" id="mobileOverlay" onclick="toggleSidebarDrawer(false)"></div>
 
@@ -1432,4 +1446,101 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       </div>
     </div>
   </div>
+
+  <!-- MOBILE & DESKTOP PDF EXPORT ACTION SHEET MODAL -->
+  <div class="modal-backdrop no-print" id="pdfExportModal" onclick="if(event.target.id==='pdfExportModal') closePdfExportModal()">
+    <div class="modal-window pdf-export-modal-window" style="max-width: 560px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.3rem;">📄</span>
+          <h3 style="color: var(--neon-cyan);">พิมพ์ & บันทึกเอกสาร (PDF)</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closePdfExportModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1.1rem;">
+        <div class="pdf-export-file-preview">
+          <span class="file-icon">📑</span>
+          <div class="file-info">
+            <span class="file-label">ชื่อไฟล์เอกสารที่จะส่งออก:</span>
+            <span class="file-name" id="pdfExportFileName">[ม.4] ใบงานคณิตศาสตร์.pdf</span>
+          </div>
+        </div>
+
+        <div class="pdf-export-options-grid">
+          <!-- Option 1: Direct PDF Download -->
+          <button type="button" class="pdf-option-card recommended" onclick="downloadCurrentWorksheetPdf()">
+            <div class="option-badge">🌟 แนะนำสำหรับ iPhone / iPad</div>
+            <div class="option-header">
+              <span class="option-icon">📥</span>
+              <div class="option-titles">
+                <span class="option-title">ดาวน์โหลดเป็นไฟล์ PDF (.pdf)</span>
+                <span class="option-sub">บันทึกลงแอป Files หรือเครื่องทันทีในคลิกเดียว</span>
+              </div>
+            </div>
+            <p class="option-desc">เรนเดอร์ใบงาน A4 พร้อมสมการ KaTeX ทั้งหมดเป็นไฟล์ PDF คุณภาพสูง 300 DPI ไม่ต้องผ่านหน้าต่างพิมพ์</p>
+          </button>
+
+          <!-- Option 2: Native AirPrint / High-Res Vector -->
+          <button type="button" class="pdf-option-card" onclick="triggerAirPrint()">
+            <div class="option-header">
+              <span class="option-icon">🖨️</span>
+              <div class="option-titles">
+                <span class="option-title">สั่งพิมพ์ / AirPrint (เวกเตอร์คมชัด 100%)</span>
+                <span class="option-sub">เหมาะสำหรับต่อเครื่องพิมพ์ หรือบันทึก PDF ผ่านระบบเครื่อง</span>
+              </div>
+            </div>
+            <p class="option-desc">ส่งคำสั่งพิมพ์ไปยังเบราว์เซอร์ ได้สมการเวกเตอร์คมชัด 100% ระดับโรงพิมพ์</p>
+          </button>
+        </div>
+
+        <!-- iOS Pinch-to-PDF Guide -->
+        <div class="ios-airprint-guide" id="iosAirPrintGuide" style="display: none;">
+          <div class="guide-title">
+            <span>💡</span> <strong>วิธีเซฟ PDF ผ่าน AirPrint บน iPhone / iPad:</strong>
+          </div>
+          <ol class="guide-steps">
+            <li>แตะที่ปุ่ม <strong>"สั่งพิมพ์ / AirPrint"</strong> ด้านบน</li>
+            <li>ในหน้าตัวเลือกเครื่องพิมพ์ ให้ <strong>ใช้ 2 นิ้วถ่างขยาย (Pinch-out Zoom)</strong> บนรูปหน้ากระดาษพรีวิว</li>
+            <li>หน้าจอจะแปลงเป็นเอกสาร PDF ทันที ให้แตะไอคอน <strong>แชร์ (Share)</strong> แล้วเลือก <strong>"บันทึกไปยังไฟล์ (Save to Files)"</strong></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="modal-footer" style="justify-content: flex-end;">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15);" onclick="closePdfExportModal()">
+          ยกเลิก
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF RENDERING PROGRESS OVERLAY -->
+  <div class="pdf-loading-overlay no-print" id="pdfLoadingOverlay" style="display: none;">
+    <div class="pdf-loading-box">
+      <div class="pdf-spinner"></div>
+      <div id="pdfLoadingText" class="pdf-loading-text">
+        กำลังประมวลผลสมการและสร้างไฟล์ PDF...<br>
+        <span style="font-size:0.8rem;opacity:0.8;font-weight:400;margin-top:6px;display:inline-block;">กำลังแปลงเอกสาร A4 ความละเอียดสูง กรุณารอสักครู่</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyCurrentWebUrl() {
+      var url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function() {
+          if (typeof window.showSystemToast === 'function') {
+            window.showSystemToast('คัดลอกลิงก์เรียบร้อยแล้ว นำไปวางเปิดใน Safari ได้เลยครับ');
+          } else {
+            alert('คัดลอกลิงก์เรียบร้อยแล้ว นำไปวางเปิดใน Safari ได้เลยครับ');
+          }
+        });
+      } else {
+        prompt('คัดลอกลิงก์นี้ไปวางใน Safari:', url);
+      }
+    }
+  </script>
+
 
