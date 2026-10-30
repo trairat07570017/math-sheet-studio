@@ -592,9 +592,14 @@
             <span class="btn-text">โหมดเฉลย</span>
           </button>
 
-          <button class="btn-action btn-print" onclick="prepareAndPrint()">
+          <button type="button" class="btn-action btn-download-pdf" id="btnDownloadPdf" onclick="downloadCurrentWorksheetPdf()" title="ดาวน์โหลดไฟล์ PDF (.pdf) ลงเครื่องทันทีในคลิกเดียว">
+            <span>📥</span>
+            <span>โหลด PDF</span>
+          </button>
+
+          <button type="button" class="btn-action btn-print" id="btnPrintSheet" onclick="triggerAirPrint()" title="สั่งพิมพ์เอกสาร หรือบันทึก PDF ผ่านระบบพิมพ์">
             <span>🖨️</span>
-            <span>พิมพ์ / PDF</span>
+            <span>พิมพ์</span>
           </button>
 
           <button class="btn-action btn-save-glow" id="btnSaveSheet" onclick="saveWorkflow()">
@@ -1045,9 +1050,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           <span class="dock-icon">💾</span>
           <span class="dock-label">บันทึกชีท</span>
         </button>
-        <button type="button" class="dock-btn" onclick="prepareAndPrint()" title="พิมพ์หรือบันทึก PDF">
+        <button type="button" class="dock-btn dock-btn-pdf" id="dockBtnPdf" onclick="downloadCurrentWorksheetPdf()" title="ดาวน์โหลดไฟล์ PDF (.pdf) ลงเครื่องทันที">
+          <span class="dock-icon">📥</span>
+          <span class="dock-label">โหลด PDF</span>
+        </button>
+        <button type="button" class="dock-btn dock-btn-print" id="dockBtnPrint" onclick="triggerAirPrint()" title="พิมพ์หรือบันทึกผ่าน AirPrint">
           <span class="dock-icon">🖨️</span>
-          <span class="dock-label">พิมพ์/PDF</span>
+          <span class="dock-label">พิมพ์</span>
         </button>
         <button type="button" class="dock-btn" onclick="openSystemSettingsModal()" title="ตั้งค่าระบบส่วนกลาง">
           <span class="dock-icon">⚙️</span>

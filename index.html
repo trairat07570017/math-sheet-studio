@@ -23,7 +23,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="handleKaTeXLoaded()"></script>
   
   <!-- html2pdf.js for direct client-side PDF downloads on Mobile (iOS / iPadOS / Android) -->
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
 /* -------------------------------------------------------------
        PENPOT AI WORKFLOWS DESIGN TOKENS
@@ -983,6 +983,19 @@
       border: 1px solid transparent;
     }
 
+    .btn-download-pdf {
+      background: linear-gradient(135deg, rgba(0, 245, 212, 0.12) 0%, rgba(168, 85, 247, 0.12) 100%);
+      border: 1px solid rgba(0, 245, 212, 0.45);
+      color: #00f5d4;
+      font-weight: 600;
+    }
+    .btn-download-pdf:hover {
+      background: linear-gradient(135deg, rgba(0, 245, 212, 0.25) 0%, rgba(168, 85, 247, 0.25) 100%);
+      border-color: #00f5d4;
+      box-shadow: 0 0 14px rgba(0, 245, 212, 0.35);
+      transform: translateY(-1px);
+    }
+
     .btn-print {
       background: rgba(255, 255, 255, 0.05);
       border-color: var(--border-subtle);
@@ -1874,8 +1887,9 @@
       padding: 1rem;
     }
 
-    .modal-backdrop.open {
-      display: flex;
+    .modal-backdrop.open,
+    .modal-backdrop.active {
+      display: flex !important;
       animation: modalFadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
@@ -2200,6 +2214,7 @@
       /* Hide bulky action buttons & view switcher in topbar on mobile (relocated to bottom dock) */
       .topbar-right .btn-system-settings,
       .topbar-right .btn-answer-key,
+      .topbar-right .btn-download-pdf,
       .topbar-right .btn-print,
       .topbar-right .btn-save-glow,
       .topbar-right .view-switcher {
@@ -3746,9 +3761,14 @@ body.pdf-rendering-active .add-exercise-container {
             <span class="btn-text">โหมดเฉลย</span>
           </button>
 
-          <button class="btn-action btn-print" onclick="prepareAndPrint()">
+          <button type="button" class="btn-action btn-download-pdf" id="btnDownloadPdf" onclick="downloadCurrentWorksheetPdf()" title="ดาวน์โหลดไฟล์ PDF (.pdf) ลงเครื่องทันทีในคลิกเดียว">
+            <span>📥</span>
+            <span>โหลด PDF</span>
+          </button>
+
+          <button type="button" class="btn-action btn-print" id="btnPrintSheet" onclick="triggerAirPrint()" title="สั่งพิมพ์เอกสาร หรือบันทึก PDF ผ่านระบบพิมพ์">
             <span>🖨️</span>
-            <span>พิมพ์ / PDF</span>
+            <span>พิมพ์</span>
           </button>
 
           <button class="btn-action btn-save-glow" id="btnSaveSheet" onclick="saveWorkflow()">
@@ -4199,9 +4219,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           <span class="dock-icon">💾</span>
           <span class="dock-label">บันทึกชีท</span>
         </button>
-        <button type="button" class="dock-btn" onclick="prepareAndPrint()" title="พิมพ์หรือบันทึก PDF">
+        <button type="button" class="dock-btn dock-btn-pdf" id="dockBtnPdf" onclick="downloadCurrentWorksheetPdf()" title="ดาวน์โหลดไฟล์ PDF (.pdf) ลงเครื่องทันที">
+          <span class="dock-icon">📥</span>
+          <span class="dock-label">โหลด PDF</span>
+        </button>
+        <button type="button" class="dock-btn dock-btn-print" id="dockBtnPrint" onclick="triggerAirPrint()" title="พิมพ์หรือบันทึกผ่าน AirPrint">
           <span class="dock-icon">🖨️</span>
-          <span class="dock-label">พิมพ์/PDF</span>
+          <span class="dock-label">พิมพ์</span>
         </button>
         <button type="button" class="dock-btn" onclick="openSystemSettingsModal()" title="ตั้งค่าระบบส่วนกลาง">
           <span class="dock-icon">⚙️</span>
@@ -21342,20 +21366,20 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
      * Handles iOS Safari direct activation requirement synchronously
      */
     print: function(topicData, options) {
+      const canvasArea = document.getElementById('canvasViewport') || document.querySelector('.canvas-viewport');
+      if (canvasArea) canvasArea.style.display = 'flex';
+
       const paper = document.getElementById('a4Paper');
       if (paper) paper.style.transform = 'none';
 
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
 
-      // On iOS Safari, setTimeout decouples execution from the user tap gesture,
-      // causing Safari WebKit to drop the window.print() call. We execute immediately on iOS.
-      if (EnvironmentSniffer.isIOS()) {
+      // Execute window.print() synchronously to preserve user activation gesture on iOS Safari & Chrome
+      try {
         window.print();
-      } else {
-        setTimeout(function() {
-          window.print();
-        }, 50);
+      } catch (err) {
+        console.warn('Window print execution error:', err);
       }
     },
 
@@ -21365,6 +21389,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
      */
     downloadPdf: function(topicData, options) {
       const self = this;
+      const canvasArea = document.getElementById('canvasViewport') || document.querySelector('.canvas-viewport');
+      if (canvasArea) canvasArea.style.display = 'flex';
+
       const paper = document.getElementById('a4Paper');
       if (!paper) {
         alert('ไม่พบหน้ากระดาษใบงานสำหรับสร้าง PDF');
@@ -21431,8 +21458,17 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           setTimeout(executePdfGeneration, 100);
         };
         s.onerror = function() {
-          self.hideLoadingOverlay();
-          alert('ไม่สามารถดาวน์โหลดไลบรารีสร้าง PDF ได้ในขณะนี้ กรุณาใช้ตัวเลือก พิมพ์ / AirPrint');
+          // Fallback to jsdelivr CDN if cloudflare fails
+          const s2 = document.createElement('script');
+          s2.src = 'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js';
+          s2.onload = function() {
+            setTimeout(executePdfGeneration, 100);
+          };
+          s2.onerror = function() {
+            self.hideLoadingOverlay();
+            alert('ไม่สามารถดาวน์โหลดไลบรารีสร้าง PDF ได้ในขณะนี้ กรุณาใช้ตัวเลือก พิมพ์ / AirPrint');
+          };
+          document.head.appendChild(s2);
         };
         document.head.appendChild(s);
       } else {
@@ -21458,6 +21494,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       }
 
       if (modal) {
+        modal.classList.add('open');
         modal.classList.add('active');
       }
     },
@@ -21467,7 +21504,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
      */
     closeExportModal: function() {
       const modal = document.getElementById('pdfExportModal');
-      if (modal) modal.classList.remove('active');
+      if (modal) {
+        modal.classList.remove('open');
+        modal.classList.remove('active');
+      }
     },
 
     /**
@@ -22294,18 +22334,34 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
   function switchMainView(mode) {
     currentMainViewMode = mode;
-    document.querySelectorAll('.btn-view-toggle').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-view') === mode);
-    });
 
-    const canvasArea = document.querySelector('.canvas-viewport');
-    const catalogArea = document.getElementById('catalogViewContainer');
-    if (mode === 'studio') {
-      if (canvasArea) canvasArea.style.display = 'flex';
-      if (catalogArea) catalogArea.style.display = 'none';
+    const btnStudio = document.getElementById('btnModeStudio');
+    const btnPaper = document.getElementById('btnModePaper');
+    const dockStudio = document.getElementById('dockBtnStudio');
+    const dockPaper = document.getElementById('dockBtnPaper');
+
+    if (btnStudio) btnStudio.classList.toggle('active', mode === 'studio');
+    if (btnPaper) btnPaper.classList.toggle('active', mode === 'paper');
+    if (dockStudio) dockStudio.classList.toggle('active', mode === 'studio');
+    if (dockPaper) dockPaper.classList.toggle('active', mode === 'paper');
+
+    const hero = document.querySelector('.workflow-hero');
+    const configCard = document.getElementById('studioConfigCard');
+    const canvasArea = document.getElementById('canvasViewport') || document.querySelector('.canvas-viewport');
+
+    if (canvasArea) {
+      canvasArea.style.display = 'flex';
+    }
+
+    if (mode === 'paper') {
+      if (hero) hero.style.display = 'none';
+      if (configCard) configCard.style.display = 'none';
+      if (canvasArea) {
+        canvasArea.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
-      if (canvasArea) canvasArea.style.display = 'none';
-      if (catalogArea) catalogArea.style.display = 'block';
+      if (hero) hero.style.display = 'block';
+      if (configCard) configCard.style.display = 'block';
     }
   }
 
@@ -22724,7 +22780,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     if (window.SheetRenderEngine && window.SheetRenderEngine.openExportModal) {
       window.SheetRenderEngine.openExportModal();
     } else {
-      prepareAndPrint();
+      triggerAirPrint();
     }
   }
 
@@ -22738,7 +22794,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     if (window.SheetRenderEngine && window.SheetRenderEngine.downloadPdf) {
       window.SheetRenderEngine.downloadPdf();
     } else {
-      prepareAndPrint();
+      triggerAirPrint();
     }
   }
 
@@ -22754,7 +22810,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   }
 
   function prepareAndPrint() {
-    openPdfExportModal();
+    triggerAirPrint();
   }
 
   function getWorksheetPrintFileName() {

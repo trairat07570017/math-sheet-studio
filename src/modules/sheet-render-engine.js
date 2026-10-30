@@ -218,20 +218,20 @@
      * Handles iOS Safari direct activation requirement synchronously
      */
     print: function(topicData, options) {
+      const canvasArea = document.getElementById('canvasViewport') || document.querySelector('.canvas-viewport');
+      if (canvasArea) canvasArea.style.display = 'flex';
+
       const paper = document.getElementById('a4Paper');
       if (paper) paper.style.transform = 'none';
 
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
 
-      // On iOS Safari, setTimeout decouples execution from the user tap gesture,
-      // causing Safari WebKit to drop the window.print() call. We execute immediately on iOS.
-      if (EnvironmentSniffer.isIOS()) {
+      // Execute window.print() synchronously to preserve user activation gesture on iOS Safari & Chrome
+      try {
         window.print();
-      } else {
-        setTimeout(function() {
-          window.print();
-        }, 50);
+      } catch (err) {
+        console.warn('Window print execution error:', err);
       }
     },
 
@@ -241,6 +241,9 @@
      */
     downloadPdf: function(topicData, options) {
       const self = this;
+      const canvasArea = document.getElementById('canvasViewport') || document.querySelector('.canvas-viewport');
+      if (canvasArea) canvasArea.style.display = 'flex';
+
       const paper = document.getElementById('a4Paper');
       if (!paper) {
         alert('ไม่พบหน้ากระดาษใบงานสำหรับสร้าง PDF');
@@ -307,8 +310,17 @@
           setTimeout(executePdfGeneration, 100);
         };
         s.onerror = function() {
-          self.hideLoadingOverlay();
-          alert('ไม่สามารถดาวน์โหลดไลบรารีสร้าง PDF ได้ในขณะนี้ กรุณาใช้ตัวเลือก พิมพ์ / AirPrint');
+          // Fallback to jsdelivr CDN if cloudflare fails
+          const s2 = document.createElement('script');
+          s2.src = 'https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js';
+          s2.onload = function() {
+            setTimeout(executePdfGeneration, 100);
+          };
+          s2.onerror = function() {
+            self.hideLoadingOverlay();
+            alert('ไม่สามารถดาวน์โหลดไลบรารีสร้าง PDF ได้ในขณะนี้ กรุณาใช้ตัวเลือก พิมพ์ / AirPrint');
+          };
+          document.head.appendChild(s2);
         };
         document.head.appendChild(s);
       } else {
@@ -334,6 +346,7 @@
       }
 
       if (modal) {
+        modal.classList.add('open');
         modal.classList.add('active');
       }
     },
@@ -343,7 +356,10 @@
      */
     closeExportModal: function() {
       const modal = document.getElementById('pdfExportModal');
-      if (modal) modal.classList.remove('active');
+      if (modal) {
+        modal.classList.remove('open');
+        modal.classList.remove('active');
+      }
     },
 
     /**

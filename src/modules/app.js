@@ -597,18 +597,34 @@
 
   function switchMainView(mode) {
     currentMainViewMode = mode;
-    document.querySelectorAll('.btn-view-toggle').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-view') === mode);
-    });
 
-    const canvasArea = document.querySelector('.canvas-viewport');
-    const catalogArea = document.getElementById('catalogViewContainer');
-    if (mode === 'studio') {
-      if (canvasArea) canvasArea.style.display = 'flex';
-      if (catalogArea) catalogArea.style.display = 'none';
+    const btnStudio = document.getElementById('btnModeStudio');
+    const btnPaper = document.getElementById('btnModePaper');
+    const dockStudio = document.getElementById('dockBtnStudio');
+    const dockPaper = document.getElementById('dockBtnPaper');
+
+    if (btnStudio) btnStudio.classList.toggle('active', mode === 'studio');
+    if (btnPaper) btnPaper.classList.toggle('active', mode === 'paper');
+    if (dockStudio) dockStudio.classList.toggle('active', mode === 'studio');
+    if (dockPaper) dockPaper.classList.toggle('active', mode === 'paper');
+
+    const hero = document.querySelector('.workflow-hero');
+    const configCard = document.getElementById('studioConfigCard');
+    const canvasArea = document.getElementById('canvasViewport') || document.querySelector('.canvas-viewport');
+
+    if (canvasArea) {
+      canvasArea.style.display = 'flex';
+    }
+
+    if (mode === 'paper') {
+      if (hero) hero.style.display = 'none';
+      if (configCard) configCard.style.display = 'none';
+      if (canvasArea) {
+        canvasArea.scrollIntoView({ behavior: 'smooth' });
+      }
     } else {
-      if (canvasArea) canvasArea.style.display = 'none';
-      if (catalogArea) catalogArea.style.display = 'block';
+      if (hero) hero.style.display = 'block';
+      if (configCard) configCard.style.display = 'block';
     }
   }
 
@@ -1027,7 +1043,7 @@
     if (window.SheetRenderEngine && window.SheetRenderEngine.openExportModal) {
       window.SheetRenderEngine.openExportModal();
     } else {
-      prepareAndPrint();
+      triggerAirPrint();
     }
   }
 
@@ -1041,7 +1057,7 @@
     if (window.SheetRenderEngine && window.SheetRenderEngine.downloadPdf) {
       window.SheetRenderEngine.downloadPdf();
     } else {
-      prepareAndPrint();
+      triggerAirPrint();
     }
   }
 
@@ -1057,7 +1073,7 @@
   }
 
   function prepareAndPrint() {
-    openPdfExportModal();
+    triggerAirPrint();
   }
 
   function getWorksheetPrintFileName() {
