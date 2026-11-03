@@ -19871,6 +19871,1194 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         }
       ]
     }
+  },
+  "art-exp-l01": {
+    "id": "art-exp-l01",
+    "chapter": "บทที่ 1",
+    "week": "บทที่ 1",
+    "period": "คาบที่ 1",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 1: นิยามและสมบัติพื้นฐานของเลขยกกำลัง",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจความหมายและใช้สมบัติของเลขยกกำลังในการแก้ปัญหา",
+    "desc": "นิยามเลขยกกำลัง ฐานและเลขชี้กำลัง สมบัติการคูณ การหาร และการยกกำลังซ้อน",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 1: นิยามและสมบัติพื้นฐานของเลขยกกำลัง",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติพื้นฐานของเลขยกกำลังเมื่อ $m, n \\in \\mathbb{Z}^+$ และ $a, b \\neq 0$:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} a^m \\cdot a^n &= a^{m+n}, & \\frac{a^m}{a^n} &= a^{m-n} \\quad (m > n) \\\\[4pt] (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n, \\quad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n} \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ฐานเหมือนกันคูณกันให้นำเลขชี้กำลังมาบวกกัน! และระวัง $(-3)^2 = 9$ แต่ $-3^2 = -9$\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\frac{2^3 \\cdot 2^4}{2^5}$",
+          "points": "",
+          "latex": "\\begin{aligned} \\frac{2^3 \\cdot 2^4}{2^5} &= \\frac{2^{3+4}}{2^5} = \\frac{2^7}{2^5} \\\\[4pt] &= 2^{7-5} = 2^2 = 4 \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: รวมเลขชี้กำลังตัวเศษด้วยการบวก แล้วลบด้วยเลขชี้กำลังตัวส่วน)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $\\frac{(3^2)^3 \\cdot 3}{3^5}$",
+          "answer": "$9$ (วิธีคิด: $(3^2)^3 = 3^6$, เศษเป็น $3^6 \\cdot 3^1 = 3^7$, หารด้วย $3^5$ ได้ $3^{7-5} = 3^2 = 9$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงทำ $\\frac{x^3 \\cdot x^5}{x^4}$ ให้อยู่ในรูปอย่างง่าย",
+          "answer": "$x^4$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงหาค่าของ $\\frac{2^4 \\cdot 5^4}{10^2}$",
+          "answer": "$100$ (วิธีคิด: $2^4 \\cdot 5^4 = (2 \\cdot 5)^4 = 10^4$, ดังนั้น $\\frac{10^4}{10^2} = 10^2 = 100$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงทำ $(2a^2 b^3)^2$ ให้อยู่ในรูปอย่างง่าย",
+          "answer": "$4a^4 b^6$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 1: นิยามและสมบัติพื้นฐานของเลขยกกำลัง",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 1</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>เลขยกกำลัง $a^n$ ประกอบด้วย $a$ เป็นฐาน และ $n$ เป็นเลขชี้กำลัง</li><li style='margin-bottom:0.35rem;'>สมบัติผลคูณ: $a^m \\cdot a^n = a^{m+n}$ (ฐานเหมือนกันคูณกัน นำเลขชี้กำลังบวกกัน)</li><li style='margin-bottom:0.35rem;'>สมบัติกำลังซ้อน: $(a^m)^n = a^{mn}$ และ $(ab)^n = a^n b^n$</li><li style='margin-bottom:0.35rem;'>ข้อควรระวังเรื่องเครื่องหมายลบ: $(-a)^n$ ต่างจาก $-a^n$ เสมอเมื่อ $n$ เป็นเลขคู่</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 1)",
+          "points": "",
+          "latex": "\\begin{aligned} a^m \\cdot a^n &= a^{m+n}, & \\frac{a^m}{a^n} &= a^{m-n} \\quad (m > n) \\\\[4pt] (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n, \\quad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n} \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 1: นิยามและสมบัติพื้นฐานของเลขยกกำลัง",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $\\frac{3^5 \\cdot 3^2}{3^4}$ มีค่าเท่ากับเท่าใด",
+          "answer": "$3^3 = 27$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. ข้อใดมีค่าเท่ากับ $(2x^3)^3$",
+          "answer": "$8x^9$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ค่าของ $(-4)^2 - 4^2$ เท่ากับเท่าใด",
+          "answer": "$16 - 16 = 0$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l02": {
+    "id": "art-exp-l02",
+    "chapter": "บทที่ 1",
+    "week": "บทที่ 1",
+    "period": "คาบที่ 2",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 2: เลขชี้กำลังเป็นศูนย์และจำนวนเต็มลบ",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจความหมายและใช้สมบัติของเลขยกกำลังในการแก้ปัญหา",
+    "desc": "นิยาม a^0 = 1 และ a^(-n) = 1/a^n การจัดรูปนิพจน์ให้มีเลขชี้กำลังเป็นบวก",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 2: เลขชี้กำลังเป็นศูนย์และจำนวนเต็มลบ",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามเลขชี้กำลังเป็นศูนย์และลบเมื่อ $a \\neq 0$ และ $n \\in \\mathbb{Z}^+$:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} a^0 &= 1 \\quad (a \\neq 0), & a^{-n} &= \\frac{1}{a^n}, & \\frac{1}{a^{-n}} &= a^n \\\\[4pt] \\left(\\frac{a}{b}\\right)^{-n} &= \\left(\\frac{b}{a}\\right)^n, & \\frac{a^{-m}}{b^{-n}} &= \\frac{b^n}{a^m} \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำนวนจริงใดๆ ที่ไม่เท่ากับศูนย์ยกกำลัง 0 จะได้ 1 เสมอ และการย้ายตัวแปรข้ามเศษส่วนจะสลับเครื่องหมายของเลขชี้กำลัง\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียน $\\frac{x^{-3} y^4}{x^2 y^{-1}}$ ในรูปที่มีเลขชี้กำลังเป็นจำนวนเต็มบวก",
+          "points": "",
+          "latex": "\\begin{aligned} \\frac{x^{-3} y^4}{x^2 y^{-1}} &= \\frac{y^4 \\cdot y^1}{x^2 \\cdot x^3} \\\\[4pt] &= \\frac{y^{4+1}}{x^{2+3}} = \\frac{y^5}{x^5} = \\left(\\frac{y}{x}\\right)^5 \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: ย้าย $x^{-3}$ ลงมาเป็น $x^3$ ข้างล่าง และย้าย $y^{-1}$ ขึ้นไปเป็น $y^1$ ข้างบน)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $5^0 + 2^{-3} \\cdot 16$",
+          "answer": "$3$ (วิธีคิด: $5^0 = 1$ และ $2^{-3} = \\frac{1}{2^3} = \\frac{1}{8}$, ดังนั้น $1 + \\frac{1}{8} \\times 16 = 1 + 2 = 3$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $(7^0 - 4^{-1}) \\cdot 4$",
+          "answer": "$3$ (วิธีคิด: $(1 - \\frac{1}{4}) \\times 4 = \\frac{3}{4} \\times 4 = 3$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงเขียน $\\frac{2^{-2} \\cdot 3^{-1}}{6^{-2}}$ ให้อยู่ในรูปจำนวนเต็ม",
+          "answer": "$3$ (วิธีคิด: ย้ายข้ามเศษส่วนได้ $\\frac{6^2}{2^2 \\cdot 3^1} = \\frac{36}{4 \\cdot 3} = \\frac{36}{12} = 3$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงทำ $\\frac{a^{-4} b^2}{c^{-3}}$ ให้อยู่ในรูปเลขชี้กำลังเป็นบวก",
+          "answer": "$\\frac{b^2 c^3}{a^4}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 2: เลขชี้กำลังเป็นศูนย์และจำนวนเต็มลบ",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 2</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>เมื่อ $a \\neq 0$ จะได้ $a^0 = 1$ เสมอ (เช่น $100^0 = 1, (-5)^0 = 1$)</li><li style='margin-bottom:0.35rem;'>เลขชี้กำลังติดลบคือส่วนกลับ: $a^{-n} = \\frac{1}{a^n}$</li><li style='margin-bottom:0.35rem;'>เทคนิคย้ายข้ามแดน: ย้ายจากล่างขึ้นบนหรือบนลงล่าง เครื่องหมายเลขชี้กำลังจะเปลี่ยนเป็นตรงกันข้าม</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 2)",
+          "points": "",
+          "latex": "\\begin{aligned} a^0 &= 1 \\quad (a \\neq 0), & a^{-n} &= \\frac{1}{a^n}, & \\frac{1}{a^{-n}} &= a^n \\\\[4pt] \\left(\\frac{a}{b}\\right)^{-n} &= \\left(\\frac{b}{a}\\right)^n, & \\frac{a^{-m}}{b^{-n}} &= \\frac{b^n}{a^m} \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 2: เลขชี้กำลังเป็นศูนย์และจำนวนเต็มลบ",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $3^0 + 3^{-1}$ เท่ากับเท่าใด",
+          "answer": "$1 + \\frac{1}{3} = \\frac{4}{3}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. เขียน $\\left(\\frac{2}{3}\\right)^{-2}$ ในรูปเศษส่วนอย่างต่ำ",
+          "answer": "$\\left(\\frac{3}{2}\\right)^2 = \\frac{9}{4}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. รูปอย่างง่ายของ $\\frac{x^{-2}}{x^{-5}}$ คือข้อใด",
+          "answer": "$x^{-2 - (-5)} = x^3$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l03": {
+    "id": "art-exp-l03",
+    "chapter": "บทที่ 1",
+    "week": "บทที่ 1",
+    "period": "คาบที่ 3",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 3: สัญกรณ์วิทยาศาสตร์และการคำนวณเบื้องต้น",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจความหมายและใช้สมบัติของเลขยกกำลังในการแก้ปัญหา",
+    "desc": "การเขียนจำนวนในรูปสัญกรณ์วิทยาศาสตร์ A x 10^n และการคูณหารสัญกรณ์วิทยาศาสตร์",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 3: สัญกรณ์วิทยาศาสตร์และการคำนวณเบื้องต้น",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปมาตรฐานสัญกรณ์วิทยาศาสตร์ (Scientific Notation):</div>\n  <div class=\"equation-stage\">\n    $$A \\times 10^n \\quad \\text{โดยที่ } 1 \\le A < 10 \\text{ และ } n \\in \\mathbb{Z}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> เลื่อนจุดทศนิยมไปทางซ้าย เลขชี้กำลังของ 10 จะเป็นบวก ($+$) เลื่อนจุดไปทางขวา เลขชี้กำลังจะเป็นลบ ($-$)\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงเขียน $520,000$ และ $0.00048$ ในรูปสัญกรณ์วิทยาศาสตร์",
+          "points": "",
+          "latex": "\\begin{aligned} 520,000 &= 5.2 \\times 10^5 \\quad (\\text{เลื่อนจุดไปทางซ้าย 5 ตำแหน่ง}) \\\\[4pt] 0.00048 &= 4.8 \\times 10^{-4} \\quad (\\text{เลื่อนจุดไปทางขวา 4 ตำแหน่ง}) \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: จัดตัวเลข $A$ ให้อยู่ระหว่าง 1 ถึง 10 (ไม่รวม 10))"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $(3 \\times 10^4) \\times (2 \\times 10^5)$ ในรูปสัญกรณ์วิทยาศาสตร์",
+          "answer": "$6 \\times 10^9$ (วิธีคิด: $(3 \\times 2) \\times (10^4 \\times 10^5) = 6 \\times 10^{4+5} = 6 \\times 10^9$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงเขียนจำนวน $8,400,000$ ในรูปสัญกรณ์วิทยาศาสตร์",
+          "answer": "$8.4 \\times 10^6$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงเขียนจำนวน $0.000075$ ในรูปสัญกรณ์วิทยาศาสตร์",
+          "answer": "$7.5 \\times 10^{-5}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงหาค่าของ $\\frac{8 \\times 10^7}{2 \\times 10^3}$ ในรูปสัญกรณ์วิทยาศาสตร์",
+          "answer": "$4 \\times 10^4$ (วิธีคิด: $\\frac{8}{2} \\times 10^{7-3} = 4 \\times 10^4$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 3: สัญกรณ์วิทยาศาสตร์และการคำนวณเบื้องต้น",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 3</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>สัญกรณ์วิทยาศาสตร์ใช้เขียนตัวเลขที่มีค่ามากๆ หรือน้อยมากๆ ให้กะทัดรัด</li><li style='margin-bottom:0.35rem;'>เงื่อนไขสำคัญ: $A$ ต้องมากกว่าหรือเท่ากับ 1 แต่น้อยกว่า 10 เสมอ</li><li style='margin-bottom:0.35rem;'>การคูณสัญกรณ์: นำตัวเลขคูณตัวเลข และนำฐาน 10 รวมเลขชี้กำลังด้วยการบวก</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 3)",
+          "points": "",
+          "latex": "A \\times 10^n \\quad \\text{โดยที่ } 1 \\le A < 10 \\text{ และ } n \\in \\mathbb{Z}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 3: สัญกรณ์วิทยาศาสตร์และการคำนวณเบื้องต้น",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. จำนวน $45,000,000$ เขียนในรูปสัญกรณ์วิทยาศาสตร์ได้ตรงกับข้อใด",
+          "answer": "$4.5 \\times 10^7$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. ค่าของ $(4 \\times 10^3) \\times (2 \\times 10^{-1})$ เท่ากับเท่าใด",
+          "answer": "$8 \\times 10^2 = 800$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จำนวน $0.003$ มีค่าเท่ากับ $3 \\times 10^n$ แล้ว $n$ มีค่าเท่าใด",
+          "answer": "$n = -3$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l04": {
+    "id": "art-exp-l04",
+    "chapter": "บทที่ 1",
+    "week": "บทที่ 1",
+    "period": "คาบที่ 4",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 4: รากที่ n ในระบบจำนวนจริงและกรณฑ์",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจความหมายและใช้สมบัติของเลขยกกำลังในการแก้ปัญหา",
+    "desc": "นิยามรากที่ n เครื่องหมายกรณฑ์ และการหาค่าหลักของราก",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 4: รากที่ n ในระบบจำนวนจริงและกรณฑ์",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามรากที่ $n$ และเครื่องหมายกรณฑ์:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} x^n &= a \\iff x \\text{ เป็นรากที่ } n \\text{ ของ } a \\\\[4pt] \\sqrt[n]{a^n} &= |a| \\quad (n \\text{ เป็นจำนวนคู่}), & \\sqrt[n]{a^n} &= a \\quad (n \\text{ เป็นจำนวนคี่}) \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> กรณฑ์อันดับคู่ ($\\\\sqrt{a}, \\\\sqrt[4]{a}$) ไส้ในต้อง $\\\\ge 0$ และค่าที่ได้เป็นบวกเสมอ ส่วนกรณฑ์อันดับคี่ ($\\\\sqrt[3]{a}$) ไส้ในติดลบได้\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\sqrt{81} - \\sqrt[3]{-27} + \\sqrt[4]{16}$",
+          "points": "",
+          "latex": "\\begin{aligned} \\sqrt{81} &= 9 \\\\[4pt] \\sqrt[3]{-27} &= -3 \\quad (\\text{เนื่องจาก } (-3)^3 = -27) \\\\[4pt] \\sqrt[4]{16} &= 2 \\quad (\\text{เนื่องจาก } 2^4 = 16) \\\\[4pt] \\text{ดังนั้น } 9 - (-3) + 2 &= 9 + 3 + 2 = 14 \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: ถอดค่ารากแต่ละพจน์แล้วระวังเครื่องหมายลบซ้อนลบ)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $\\sqrt{49} + \\sqrt[3]{64} - \\sqrt{100}$",
+          "answer": "$1$ (วิธีคิด: $7 + 4 - 10 = 1$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $\\sqrt{144}$ และ $\\sqrt[3]{-125}$",
+          "answer": "$12$ และ $-5$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงหาค่าของ $\\sqrt{(-5)^2} + \\sqrt{5^2}$",
+          "answer": "$10$ (วิธีคิด: $|-5| + |5| = 5 + 5 = 10$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงหาค่าของ $x$ เมื่อกำหนด $\\sqrt{x} = 9$ และเมื่อกำหนด $\\sqrt[3]{x} = 3$",
+          "answer": "$x = 81$ และ $x = 27$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 4: รากที่ n ในระบบจำนวนจริงและกรณฑ์",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 4</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>เครื่องหมาย $\\sqrt{a}$ หมายถึงค่าหลักของรากที่สอง ซึ่งต้องมีค่าเป็นบวกหรือศูนย์เสมอ</li><li style='margin-bottom:0.35rem;'>สำหรับรากที่สาม $\\sqrt[3]{a}$ ถ้า $a$ ติดลบ คำตอบจะติดลบด้วย เช่น $\\sqrt[3]{-8} = -2$</li><li style='margin-bottom:0.35rem;'>สมบัติสำคัญ: $\\sqrt{x^2} = |x|$ เมื่อ $x$ เป็นจำนวนจริงใดๆ</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 4)",
+          "points": "",
+          "latex": "\\begin{aligned} x^n &= a \\iff x \\text{ เป็นรากที่ } n \\text{ ของ } a \\\\[4pt] \\sqrt[n]{a^n} &= |a| \\quad (n \\text{ เป็นจำนวนคู่}), & \\sqrt[n]{a^n} &= a \\quad (n \\text{ เป็นจำนวนคี่}) \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 4: รากที่ n ในระบบจำนวนจริงและกรณฑ์",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $\\sqrt{64} + \\sqrt[3]{-8}$ มีค่าเท่ากับเท่าใด",
+          "answer": "$8 + (-2) = 6$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. ถ้า $\\sqrt{x} = 11$ แล้ว $x$ มีค่าเท่ากับเท่าใด",
+          "answer": "$121$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ข้อใดต่อไปนี้หาค่าในระบบจำนวนจริงไม่ได้ (ก) $\\sqrt{-16}$ (ข) $\\sqrt[3]{-16}$",
+          "answer": "(ก) $\\sqrt{-16}$ (เพราะรากอันดับคู่ใต้กรณฑ์ต้องไม่ติดลบ)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l05": {
+    "id": "art-exp-l05",
+    "chapter": "บทที่ 1",
+    "week": "บทที่ 1",
+    "period": "คาบที่ 5",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 5: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนตรรกยะ",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจความหมายและใช้สมบัติของเลขยกกำลังในการแก้ปัญหา",
+    "desc": "ความสัมพันธ์ระหว่างเลขยกกำลังชี้กำลังเศษส่วนกับเครื่องหมายกรณฑ์ a^(m/n) = root_n(a^m)",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 5: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนตรรกยะ",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามเลขยกกำลังชี้กำลังตรรกยะเมื่อ $a > 0$ และ $m, n \\in \\mathbb{Z}, n \\ge 2$:</div>\n  <div class=\"equation-stage\">\n    $$a^{\\frac{1}{n}} = \\sqrt[n]{a}, \\qquad a^{\\frac{m}{n}} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m, \\qquad a^{-\\frac{m}{n}} = \\frac{1}{a^{\\frac{m}{n}}}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ตัวส่วนของเลขชี้กำลังคืออันดับของราก! แนะนำให้ 'ถอดรากก่อน แล้วค่อยยกกำลัง' จะคิดเลขง่ายและเร็วกว่า\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $27^{\\frac{2}{3}}$ และ $16^{-\\frac{3}{4}}$",
+          "points": "",
+          "latex": "\\begin{aligned} 27^{\\frac{2}{3}} &= (\\sqrt[3]{27})^2 = 3^2 = 9 \\\\[4pt] 16^{-\\frac{3}{4}} &= \\frac{1}{16^{\\frac{3}{4}}} = \\frac{1}{(\\sqrt[4]{16})^3} = \\frac{1}{2^3} = \\frac{1}{8} \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: แปลง $27 = 3^3$ และ $16 = 2^4$ เพื่อตัดทอนเศษส่วนที่เลขชี้กำลัง)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $64^{\\frac{1}{3}} + 25^{\\frac{1}{2}}$",
+          "answer": "$9$ (วิธีคิด: $64^{\\frac{1}{3}} = \\sqrt[3]{64} = 4$, $25^{\\frac{1}{2}} = \\sqrt{25} = 5$, รวมกันได้ $4 + 5 = 9$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $32^{\\frac{3}{5}}$",
+          "answer": "$8$ (วิธีคิด: $(\\sqrt[5]{32})^3 = 2^3 = 8$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงหาค่าของ $81^{\\frac{3}{4}}$",
+          "answer": "$27$ (วิธีคิด: $(\\sqrt[4]{81})^3 = 3^3 = 27$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงหาค่าของ $(100^{\\frac{1}{2}} - 8^{\\frac{1}{3}})^2$",
+          "answer": "$64$ (วิธีคิด: $(10 - 2)^2 = 8^2 = 64$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 5: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนตรรกยะ",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 5</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>เลขชี้กำลังเป็นเศษส่วนเชื่อมโยงกับกรณฑ์: ส่วนคืออันดับราก เศษคือเลขชี้กำลัง</li><li style='margin-bottom:0.35rem;'>สูตรลัดคิดเลขเร็ว: แปลงฐานเป็นเลขยกกำลังฐานจำนวนเฉพาะ เช่น $8 = 2^3, 27 = 3^3$</li><li style='margin-bottom:0.35rem;'>สมบัติเลขยกกำลังเดิมทั้งหมด (คูณกันเลขชี้กำลังบวกกัน) ยังคงใช้ได้กับเลขชี้กำลังตรรกยะ</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 5)",
+          "points": "",
+          "latex": "a^{\\frac{1}{n}} = \\sqrt[n]{a}, \\qquad a^{\\frac{m}{n}} = \\sqrt[n]{a^m} = (\\sqrt[n]{a})^m, \\qquad a^{-\\frac{m}{n}} = \\frac{1}{a^{\\frac{m}{n}}}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 5: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนตรรกยะ",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $4^{\\frac{3}{2}}$ มีค่าเท่ากับเท่าใด",
+          "answer": "$(\\sqrt{4})^3 = 2^3 = 8$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. เขียน $\\sqrt[3]{x^2}$ ในรูปเลขยกกำลัง",
+          "answer": "$x^{\\frac{2}{3}}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ค่าของ $9^{-\\frac{1}{2}}$ เท่ากับเท่าใด",
+          "answer": "$\\frac{1}{9^{\\frac{1}{2}}} = \\frac{1}{3}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l06": {
+    "id": "art-exp-l06",
+    "chapter": "บทที่ 1",
+    "week": "บทที่ 1",
+    "period": "คาบที่ 6",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 6: การบวก ลบ คูณ และจัดรูปกรณฑ์อย่างง่าย",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจความหมายและใช้สมบัติของเลขยกกำลังในการแก้ปัญหา",
+    "desc": "การจัดรูปกรณฑ์ให้อยู่ในรูปอย่างง่าย การรวมพจน์กรณฑ์ที่คล้ายกัน และการคูณกรณฑ์",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 6: การบวก ลบ คูณ และจัดรูปกรณฑ์อย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 สมบัติการดำเนินการของกรณฑ์เมื่อ $a, b > 0$:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} \\sqrt{a \\cdot b} &= \\sqrt{a} \\cdot \\sqrt{b}, & \\sqrt{\\frac{a}{b}} &= \\frac{\\sqrt{a}}{\\sqrt{b}} \\\\[4pt] c\\sqrt{k} \\pm d\\sqrt{k} &= (c \\pm d)\\sqrt{k} \\quad (\\text{กรณฑ์อันดับและไส้ในเดียวกัน}) \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ดึงตัวประกอบกำลังสองสมบูรณ์ออกจากกรณฑ์ก่อน เช่น $\\\\sqrt{12} = \\\\sqrt{4 \\\\times 3} = 2\\\\sqrt{3}$ แล้วจึงนำตัวเลขข้างหน้ามารวมกัน\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงทำให้อยู่ในรูปอย่างง่าย $\\sqrt{12} + \\sqrt{27} - \\sqrt{48}$",
+          "points": "",
+          "latex": "\\begin{aligned} \\sqrt{12} &= \\sqrt{4 \\times 3} = 2\\sqrt{3} \\\\[4pt] \\sqrt{27} &= \\sqrt{9 \\times 3} = 3\\sqrt{3} \\\\[4pt] \\sqrt{48} &= \\sqrt{16 \\times 3} = 4\\sqrt{3} \\\\[4pt] \\text{ดังนั้น } 2\\sqrt{3} + 3\\sqrt{3} - 4\\sqrt{3} &= (2 + 3 - 4)\\sqrt{3} = 1\\sqrt{3} = \\sqrt{3} \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: แยกตัวประกอบให้มี 3 อยู่ข้างในเพื่อรวมพจน์เหมือนกันได้)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $\\sqrt{50} - \\sqrt{18} + \\sqrt{8}$",
+          "answer": "$4\\sqrt{2}$ (วิธีคิด: $5\\sqrt{2} - 3\\sqrt{2} + 2\\sqrt{2} = 4\\sqrt{2}$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $3\\sqrt{5} + 7\\sqrt{5} - 4\\sqrt{5}$",
+          "answer": "$6\\sqrt{5}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงทำให้อยู่ในรูปอย่างง่าย $\\sqrt{20} + \\sqrt{45}$",
+          "answer": "$5\\sqrt{5}$ (วิธีคิด: $2\\sqrt{5} + 3\\sqrt{5} = 5\\sqrt{5}$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงหาค่าของ $\\sqrt{2}(\\sqrt{8} + \\sqrt{18})$",
+          "answer": "$10$ (วิธีคิด: กระจายเข้าไปได้ $\\sqrt{16} + \\sqrt{36} = 4 + 6 = 10$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 6: การบวก ลบ คูณ และจัดรูปกรณฑ์อย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 6</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>กรณฑ์จะบวกหรือลบกันได้ ก็ต่อเมื่อมีอันดับเดียวกันและจำนวนใต้กรณฑ์เท่ากัน (เหมือนการบวกเอกนาม)</li><li style='margin-bottom:0.35rem;'>การคูณกรณฑ์: $\\sqrt{a} \\times \\sqrt{b} = \\sqrt{ab}$ นำไส้ในมาคูณกันได้ทันที</li><li style='margin-bottom:0.35rem;'>เทคนิคถอดกรณฑ์: หาตัวประกอบกำลังสอง ($4, 9, 16, 25, 36, 49$) เพื่อดึงออกมาเป็นจำนวนเต็ม</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 6)",
+          "points": "",
+          "latex": "\\begin{aligned} \\sqrt{a \\cdot b} &= \\sqrt{a} \\cdot \\sqrt{b}, & \\sqrt{\\frac{a}{b}} &= \\frac{\\sqrt{a}}{\\sqrt{b}} \\\\[4pt] c\\sqrt{k} \\pm d\\sqrt{k} &= (c \\pm d)\\sqrt{k} \\quad (\\text{กรณฑ์อันดับและไส้ในเดียวกัน}) \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 6: การบวก ลบ คูณ และจัดรูปกรณฑ์อย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. รูปอย่างง่ายของ $\\sqrt{8} + \\sqrt{32}$ คือข้อใด",
+          "answer": "$2\\sqrt{2} + 4\\sqrt{2} = 6\\sqrt{2}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. ค่าของ $\\sqrt{3} \\times \\sqrt{12}$ มีค่าเท่ากับเท่าใด",
+          "answer": "$\\sqrt{36} = 6$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ผลลัพธ์ของ $5\\sqrt{7} - \\sqrt{28}$ เท่ากับเท่าใด",
+          "answer": "$5\\sqrt{7} - 2\\sqrt{7} = 3\\sqrt{7}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l07": {
+    "id": "art-exp-l07",
+    "chapter": "บทที่ 2",
+    "week": "บทที่ 2",
+    "period": "คาบที่ 7",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 7: กราฟและลักษณะของฟังก์ชันเอกซ์โพเนนเชียล",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจฟังก์ชันเอกซ์โพเนนเชียลและนำไปใช้ในการแก้ปัญหา",
+    "desc": "นิยามฟังก์ชันเอกซ์โพเนนเชียล y = a^x จุดตัดแกน Y และความแตกต่างระหว่างฟังก์ชันเพิ่ม vs ลด",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 7: กราฟและลักษณะของฟังก์ชันเอกซ์โพเนนเชียล",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 รูปแบบและลักษณะสำคัญของฟังก์ชันเอกซ์โพเนนเชียล:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} y &= a^x \\quad (a > 0, a \\neq 1) \\\\[4pt] a > 1 &\\implies \\text{ฟังก์ชันเพิ่ม (Increasing: } x \\uparrow \\implies y \\uparrow) \\\\[4pt] 0 < a < 1 &\\implies \\text{ฟังก์ชันลด (Decreasing: } x \\uparrow \\implies y \\downarrow) \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> กราฟ $y = a^x$ จะตัดแกน Y ที่จุด $(0, 1)$ เสมอ และเส้นกราฟจะอยู่เหนือแกน X เสมอ ($y > 0$)\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) กำหนดฟังก์ชัน $f(x) = 2^x$ จงหาค่าของ $f(-1), f(0), f(2)$ พร้อมระบุว่าเป็นฟังก์ชันเพิ่มหรือลด",
+          "points": "",
+          "latex": "\\begin{aligned} f(-1) &= 2^{-1} = \\frac{1}{2} \\\\[4pt] f(0) &= 2^0 = 1 \\\\[4pt] f(2) &= 2^2 = 4 \\\\[4pt] &\\text{เนื่องจากฐาน } a = 2 > 1 \\text{ ดังนั้นเป็น \"ฟังก์ชันเพิ่ม\"} \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: แทนค่า $x$ ลงในเลขชี้กำลัง แล้วดูว่าฐานมากกว่า 1 หรือไม่)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) กำหนด $g(x) = \\left(\\frac{1}{3}\\right)^x$ จงหาค่า $g(0), g(2)$ พร้อมบอกว่าเป็นฟังก์ชันเพิ่มหรือฟังก์ชันลด",
+          "answer": "$g(0) = 1, g(2) = \\frac{1}{9}$ และเป็นฟังก์ชันลด เพราะฐาน $0 < \\frac{1}{3} < 1$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. ฟังก์ชัน $y = 5^x$ และ $y = (0.4)^x$ ฟังก์ชันใดเป็นฟังก์ชันเพิ่ม และฟังก์ชันใดเป็นฟังก์ชันลด",
+          "answer": "$y = 5^x$ เป็นฟังก์ชันเพิ่ม (เพราะ $5 > 1$) และ $y = (0.4)^x$ เป็นฟังก์ชันลด (เพราะ $0 < 0.4 < 1$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. กราฟของ $y = 3^x$ ตัดแกน Y ที่จุดพิกัดใด และมีค่า $y$ เป็นลบได้หรือไม่",
+          "answer": "ตัดแกน Y ที่จุด $(0, 1)$ และค่า $y$ ไม่มีทางติดลบ ($y > 0$ เสมอ)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ถ้า $f(x) = 4^x$ จงหาค่าของ $\\frac{f(3)}{f(1)}$",
+          "answer": "$16$ (วิธีคิด: $\\frac{4^3}{4^1} = 4^2 = 16$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 7: กราฟและลักษณะของฟังก์ชันเอกซ์โพเนนเชียล",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 7</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>ฟังก์ชันเอกซ์โพเนนเชียลมีตัวแปร $x$ อยู่ที่เลขชี้กำลัง: $y = a^x$</li><li style='margin-bottom:0.35rem;'>ฐาน $a > 1$ กราฟพุ่งขึ้นทางขวา (ฟังก์ชันเพิ่ม), ฐาน $0 < a < 1$ กราฟลาดลงทางขวา (ฟังก์ชันลด)</li><li style='margin-bottom:0.35rem;'>จุดสำคัญบนกราฟ: ผ่านจุด $(0, 1)$ เสมอ และมีแกน X ($y=0$) เป็นเส้นกำกับแนวนอน</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 7)",
+          "points": "",
+          "latex": "\\begin{aligned} y &= a^x \\quad (a > 0, a \\neq 1) \\\\[4pt] a > 1 &\\implies \\text{ฟังก์ชันเพิ่ม (Increasing: } x \\uparrow \\implies y \\uparrow) \\\\[4pt] 0 < a < 1 &\\implies \\text{ฟังก์ชันลด (Decreasing: } x \\uparrow \\implies y \\downarrow) \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 7: กราฟและลักษณะของฟังก์ชันเอกซ์โพเนนเชียล",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ฟังก์ชัน $y = \\left(\\frac{3}{2}\\right)^x$ เป็นฟังก์ชันเพิ่มหรือลด",
+          "answer": "ฟังก์ชันเพิ่ม (เพราะ $\\frac{3}{2} = 1.5 > 1$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. ถ้า $f(x) = 10^x$ จงหาค่าของ $f(-2)$",
+          "answer": "$10^{-2} = \\frac{1}{100} = 0.01$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จุดใดต่อไปนี้อยู่บนกราฟของ $y = 2^x$: (ก) $(3, 8)$ (ข) $(3, 6)$",
+          "answer": "(ก) $(3, 8)$ เพราะ $2^3 = 8$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l08": {
+    "id": "art-exp-l08",
+    "chapter": "บทที่ 2",
+    "week": "บทที่ 2",
+    "period": "คาบที่ 8",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 8: การแก้สมการเอกซ์โพเนนเชียลอย่างง่าย",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจฟังก์ชันเอกซ์โพเนนเชียลและนำไปใช้ในการแก้ปัญหา",
+    "desc": "การแก้สมการเอกซ์โพเนนเชียลโดยการปรับฐานให้เท่ากัน a^f(x) = a^k",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 8: การแก้สมการเอกซ์โพเนนเชียลอย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 หลักการแก้สมการเอกซ์โพเนนเชียลรูปแบบฐานเท่ากัน:</div>\n  <div class=\"equation-stage\">\n    $$a^{f(x)} = a^k \\iff f(x) = k \\quad (a > 0, a \\neq 1)$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> แปลงตัวเลขทั้งสองข้างของสมการให้เป็น 'ฐานเดียวกัน' ที่เป็นจำนวนเฉพาะ (เช่น ฐาน 2, 3, 5) แล้วจับเลขชี้กำลังมาเท่ากันได้เลย!\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงแก้สมการ $2^{x+3} = 32$",
+          "points": "",
+          "latex": "\\begin{aligned} 2^{x+3} &= 32 \\\\[4pt] 2^{x+3} &= 2^5 \\quad (\\text{เนื่องจาก } 32 = 2^5) \\\\[4pt] x + 3 &= 5 \\\\[4pt] x &= 5 - 3 = 2 \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: แปลง 32 ให้อยู่ในรูปเลขยกกำลังฐาน 2)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงแก้สมการ $3^{2x-1} = 27$",
+          "answer": "$x = 2$ (วิธีคิด: $3^{2x-1} = 3^3 \\Rightarrow 2x - 1 = 3 \\Rightarrow 2x = 4 \\Rightarrow x = 2$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงแก้สมการ $5^{x-2} = 125$",
+          "answer": "$x = 5$ (วิธีคิด: $5^{x-2} = 5^3 \\Rightarrow x - 2 = 3 \\Rightarrow x = 5$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงแก้สมการ $2^{3x} = 64$",
+          "answer": "$x = 2$ (วิธีคิด: $2^{3x} = 2^6 \\Rightarrow 3x = 6 \\Rightarrow x = 2$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงแก้สมการ $4^x = 32$",
+          "answer": "$x = 2.5$ หรือ $\\frac{5}{2}$ (วิธีคิด: แปลงฐาน 2 ได้ $(2^2)^x = 2^5 \\Rightarrow 2x = 5 \\Rightarrow x = \\frac{5}{2}$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 8: การแก้สมการเอกซ์โพเนนเชียลอย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 8</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>หัวใจของการแก้สมการ Expo คือการทำให้ฐานเท่ากันทั้งสองข้าง</li><li style='margin-bottom:0.35rem;'>เมื่อฐานเท่ากันแล้ว สามารถปลดฐานออกแล้วนำเลขชี้กำลังมาเท่ากันเพื่อหาค่า $x$</li><li style='margin-bottom:0.35rem;'>ตัวเลขที่พบบ่อย: $4=2^2, 8=2^3, 16=2^4, 32=2^5, 64=2^6, 9=3^2, 27=3^3, 25=5^2, 125=5^3$</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 8)",
+          "points": "",
+          "latex": "a^{f(x)} = a^k \\iff f(x) = k \\quad (a > 0, a \\neq 1)",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 8: การแก้สมการเอกซ์โพเนนเชียลอย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. คำตอบของสมการ $2^x = 16$ คือเท่าใด",
+          "answer": "$x = 4$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. คำตอบของสมการ $3^{x+1} = 81$ คือเท่าใด",
+          "answer": "$x + 1 = 4 \\Rightarrow x = 3$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ถ้า $10^{2x} = 1,000$ แล้ว $x$ มีค่าเท่ากับเท่าใด",
+          "answer": "$2x = 3 \\Rightarrow x = 1.5$ หรือ $\\frac{3}{2}$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l09": {
+    "id": "art-exp-l09",
+    "chapter": "บทที่ 2",
+    "week": "บทที่ 2",
+    "period": "คาบที่ 9",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 9: โจทย์สมการเลขยกกำลังและการประยุกต์การเติบโต",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจฟังก์ชันเอกซ์โพเนนเชียลและนำไปใช้ในการแก้ปัญหา",
+    "desc": "การประยุกต์เลขยกกำลังกับปัญหาในชีวิตจริง: การเพิ่มของประชากร แบคทีเรีย และการสลายตัว",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 9: โจทย์สมการเลขยกกำลังและการประยุกต์การเติบโต",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 แบบจำลองการเติบโตและการลดลงแบบเอกซ์โพเนนเชียล:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} N(t) &= N_0 \\cdot 2^t \\quad (\\text{ทวีคูณเป็น } 2 \\text{ เท่าทุกหน่วยเวลา } t) \\\\[4pt] N(t) &= N_0 \\cdot \\left(\\frac{1}{2}\\right)^t \\quad (\\text{ลดลงเหลือครึ่งหนึ่งทุกหน่วยเวลา } t) \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ระบุ $N_0$ (จำนวนเริ่มต้น) และหน่วยเวลา $t$ ให้ชัดเจน จากนั้นแทนค่าคิดเลขตามลำดับ\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) เพาะเลี้ยงแบคทีเรียชนิดหนึ่ง พบว่าจะเพิ่มจำนวนเป็น 2 เท่าทุกๆ 1 ชั่วโมง ถ้าเริ่มต้นมีแบคทีเรีย 500 ตัว จงหาว่าเมื่อเวลาผ่านไป 4 ชั่วโมง จะมีแบคทีเรียทั้งหมดกี่ตัว",
+          "points": "",
+          "latex": "\\begin{aligned} N_0 &= 500 \\text{ ตัว}, \\quad t = 4 \\text{ ชั่วโมง} \\\\[4pt] N(4) &= 500 \\times 2^4 \\\\[4pt] &= 500 \\times 16 \\\\[4pt] &= 8,000 \\text{ ตัว} \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: ใช้สูตร $N = N_0 \\cdot 2^t$ แทนค่า $t=4$)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) เริ่มต้นมีสารกัมมันตรังสี 80 กรัม สารนี้จะสลายตัวลดลงเหลือครึ่งหนึ่งทุกๆ 1 วัน จงหาว่าเมื่อผ่านไป 3 วัน จะเหลือสารนี้กี่กรัม",
+          "answer": "$10$ กรัม (วิธีคิด: $N = 80 \\times (\\frac{1}{2})^3 = 80 \\times \\frac{1}{8} = 10$ กรัม)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จุลินทรีย์เริ่มต้นมี 200 เซลล์ เพิ่มเป็น 2 เท่าทุกๆ 1 วัน เมื่อเวลาผ่านไป 5 วัน จะมีจุลินทรีย์กี่เซลล์",
+          "answer": "$6,400$ เซลล์ (วิธีคิด: $200 \\times 2^5 = 200 \\times 32 = 6,400$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงแก้สมการ $9^{x+1} = 81$",
+          "answer": "$x = 1$ (วิธีคิด: $9^{x+1} = 9^2 \\Rightarrow x + 1 = 2 \\Rightarrow x = 1$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. เงินฝากเริ่มต้น 10,000 บาท ได้รับผลตอบแทนทบต้นจนมีเงินรวมตามสมการ $M = 10,000(1.1)^t$ เมื่อฝากครบ 2 ปี จะมีเงินรวมเท่าใด",
+          "answer": "$12,100$ บาท (วิธีคิด: $10,000 \\times (1.1)^2 = 10,000 \\times 1.21 = 12,100$ บาท)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 9: โจทย์สมการเลขยกกำลังและการประยุกต์การเติบโต",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 9</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>การเพิ่มขึ้นแบบทวีคูณ (เช่น การแพร่ระบาด การเพิ่มของแบคทีเรีย) มีพฤติกรรมแบบฟังก์ชันเอกซ์โพเนนเชียล</li><li style='margin-bottom:0.35rem;'>การสลายตัวของสาร (Half-life / ครึ่งชีวิต) ปริมาณสารจะลดลงเป็นลำดับเรขาคณิตโดยคูณด้วย $1/2$</li><li style='margin-bottom:0.35rem;'>การนำไปใช้: รู้ค่าเริ่มต้น $N_0$ แล้วคูณด้วยอัตราการเติบโตยกกำลังเวลา</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 9)",
+          "points": "",
+          "latex": "\\begin{aligned} N(t) &= N_0 \\cdot 2^t \\quad (\\text{ทวีคูณเป็น } 2 \\text{ เท่าทุกหน่วยเวลา } t) \\\\[4pt] N(t) &= N_0 \\cdot \\left(\\frac{1}{2}\\right)^t \\quad (\\text{ลดลงเหลือครึ่งหนึ่งทุกหน่วยเวลา } t) \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 9: โจทย์สมการเลขยกกำลังและการประยุกต์การเติบโต",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. เริ่มต้นมีเซลล์ 100 เซลล์ ทวีคูณเป็น 2 เท่าทุกชั่วโมง ผ่านไป 3 ชั่วโมง มีกี่เซลล์",
+          "answer": "$100 \\times 2^3 = 800$ เซลล์",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. สาร 40 กรัม ลดลงครึ่งหนึ่งทุกวัน ผ่านไป 2 วัน เหลือสารกี่กรัม",
+          "answer": "$40 \\times (\\frac{1}{2})^2 = 10$ กรัม",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ถ้า $2^{x-1} = 8$ แล้ว $x$ มีค่าเท่ากับเท่าใด",
+          "answer": "$x - 1 = 3 \\Rightarrow x = 4$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l11": {
+    "id": "art-exp-l11",
+    "chapter": "บทที่ 3",
+    "week": "บทที่ 3",
+    "period": "คาบที่ 11",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 11: สมบัติพื้นฐานของลอการิทึม",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจฟังก์ชันลอการิทึมและนำไปใช้ในการแก้ปัญหา",
+    "desc": "สมบัติสำคัญ 4 ข้อของลอการิทึม: ผลคูณ ผลหาร ปลดเลขชี้กำลัง และ log_a 1, log_a a",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 11: สมบัติพื้นฐานของลอการิทึม",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 4 สมบัติหัวใจของลอการิทึม:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} \\log_a 1 &= 0, & \\log_a a &= 1 \\\\[4pt] \\log_a (M \\cdot N) &= \\log_a M + \\log_a N, & \\log_a \\left(\\frac{M}{N}\\right) &= \\log_a M - \\log_a N \\\\[4pt] \\log_a (M^k) &= k \\log_a M \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำง่ายๆ: ล็อกของ 1 ได้ 0, ฐานเหมือนตัวในได้ 1, 'ล็อกผลคูณกลายเป็นบวก ล็อกผลหารกลายเป็นลบ' และเลขชี้กำลังตบมาคูณข้างหน้าได้\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\log_6 2 + \\log_6 3$ และ $\\log_2 40 - \\log_2 5$",
+          "points": "",
+          "latex": "\\begin{aligned} \\log_6 2 + \\log_6 3 &= \\log_6 (2 \\times 3) = \\log_6 6 = 1 \\\\[4pt] \\log_2 40 - \\log_2 5 &= \\log_2 \\left(\\frac{40}{5}\\right) = \\log_2 8 = 3 \\quad (\\text{เพราะ } 2^3 = 8) \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: ยุบรวมล็อกฐานเดียวกันด้วยการคูณ (ถ้าบวกกัน) หรือหาร (ถ้าลบกัน))"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงหาค่าของ $\\log_3 3^5$ และ $\\log_2 (2^4 \\cdot 2^3)$",
+          "answer": "$5$ และ $7$ (วิธีคิด: $\\log_3 3^5 = 5\\log_3 3 = 5(1) = 5$, $\\log_2(2^7) = 7$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $\\log_7 1 + \\log_7 7$",
+          "answer": "$1$ (วิธีคิด: $0 + 1 = 1$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงหาค่าของ $\\log_{10} 25 + \\log_{10} 4$",
+          "answer": "$2$ (วิธีคิด: $\\log_{10}(25 \\times 4) = \\log_{10}(100) = 2$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงหาค่าของ $\\log_3 54 - \\log_3 2$",
+          "answer": "$3$ (วิธีคิด: $\\log_3(\\frac{54}{2}) = \\log_3 27 = 3$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 11: สมบัติพื้นฐานของลอการิทึม",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 11</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>สมบัติผลคูณ: $\\log_a(MN) = \\log_a M + \\log_a N$ (ต้องฐานเดียวกันเท่านั้น)</li><li style='margin-bottom:0.35rem;'>สมบัติผลหาร: $\\log_a(M/N) = \\log_a M - \\log_a N$</li><li style='margin-bottom:0.35rem;'>สมบัติเลขชี้กำลัง: $\\log_a M^k = k \\log_a M$ ช่วยปลดเลขชี้กำลังลงมาข้างล่างได้อย่างยอดเยี่ยม</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 11)",
+          "points": "",
+          "latex": "\\begin{aligned} \\log_a 1 &= 0, & \\log_a a &= 1 \\\\[4pt] \\log_a (M \\cdot N) &= \\log_a M + \\log_a N, & \\log_a \\left(\\frac{M}{N}\\right) &= \\log_a M - \\log_a N \\\\[4pt] \\log_a (M^k) &= k \\log_a M \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 11: สมบัติพื้นฐานของลอการิทึม",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $\\log_5 1$ มีค่าเท่ากับเท่าใด",
+          "answer": "$0$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. ค่าของ $\\log_4 2 + \\log_4 8$ มีค่าเท่ากับเท่าใด",
+          "answer": "$\\log_4(16) = 2$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ค่าของ $\\log_2 20 - \\log_2 5$ เท่ากับข้อใด",
+          "answer": "$\\log_2(4) = 2$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l12": {
+    "id": "art-exp-l12",
+    "chapter": "บทที่ 3",
+    "week": "บทที่ 3",
+    "period": "คาบที่ 12",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 12: ลอการิทึมสามัญและการแก้สมการ Log อย่างง่าย",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจฟังก์ชันลอการิทึมและนำไปใช้ในการแก้ปัญหา",
+    "desc": "ลอการิทึมสามัญ (ฐาน 10) การแก้สมการ log_b(f(x)) = c และการตรวจคำตอบโดเมน",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 12: ลอการิทึมสามัญและการแก้สมการ Log อย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 ลอการิทึมสามัญ (Common Log) และสมการอย่างง่าย:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned} \\log x &= \\log_{10} x \\quad (\\text{ไม่นิยมเขียนเลขฐาน 10}) \\\\[4pt] \\log_b [f(x)] &= c \\iff f(x) = b^c \\quad (\\text{ตรวจเงื่อนไข } f(x) > 0 \\text{ เสมอ}) \\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าเขียน $\\\\log x$ เฉยๆ ให้รู้ทันทีว่าคือฐาน 10! เช่น $\\\\log 10 = 1, \\\\log 100 = 2, \\\\log 1,000 = 3$ (นับจำนวนเลขศูนย์ได้เลย)\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\log 10,000$ และแก้สมการ $\\log_2 (x - 1) = 3$",
+          "points": "",
+          "latex": "\\begin{aligned} \\log 10,000 &= \\log_{10} 10^4 = 4 \\\\[4pt] \\log_2 (x - 1) &= 3 \\\\[4pt] x - 1 &= 2^3 = 8 \\\\[4pt] x &= 8 + 1 = 9 \\quad (\\text{ตรวจคำตอบ: } 9 - 1 = 8 > 0 \\text{ จริง}) \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: แปลงสมการล็อกกลับไปเป็นเลขยกกำลัง $x - 1 = 2^3$)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงแก้สมการ $\\log (2x) = 2$",
+          "answer": "$x = 50$ (วิธีคิด: ฐาน 10 จะได้ $2x = 10^2 = 100 \\Rightarrow x = 50$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $\\log 100,000$ และ $\\log 0.01$",
+          "answer": "$5$ และ $-2$ (เพราะ $10^5 = 100,000$ และ $10^{-2} = 0.01$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงแก้สมการ $\\log_5 (x + 4) = 2$",
+          "answer": "$x = 21$ (วิธีคิด: $x + 4 = 5^2 = 25 \\Rightarrow x = 21$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงแก้สมการ $\\log_3 (2x - 1) = 3$",
+          "answer": "$x = 14$ (วิธีคิด: $2x - 1 = 3^3 = 27 \\Rightarrow 2x = 28 \\Rightarrow x = 14$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 12: ลอการิทึมสามัญและการแก้สมการ Log อย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 12</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>ลอการิทึมสามัญคือลอการิทึมฐาน 10 นิยมละเลขฐานไว้ เช่น $\\log 100 = 2$</li><li style='margin-bottom:0.35rem;'>การแก้สมการลอการิทึม: แปลงรูปเป็นเลขยกกำลัง $f(x) = b^c$ แล้วแก้สมการเชิงเส้น</li><li style='margin-bottom:0.35rem;'>ข้อควรระวังสำคัญ: ค่าที่อยู่หลังล็อกต้องเป็นจำนวนบวก ($> 0$) เสมอ อย่าลืมตรวจคำตอบ!</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 12)",
+          "points": "",
+          "latex": "\\begin{aligned} \\log x &= \\log_{10} x \\quad (\\text{ไม่นิยมเขียนเลขฐาน 10}) \\\\[4pt] \\log_b [f(x)] &= c \\iff f(x) = b^c \\quad (\\text{ตรวจเงื่อนไข } f(x) > 0 \\text{ เสมอ}) \\end{aligned}",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 12: ลอการิทึมสามัญและการแก้สมการ Log อย่างง่าย",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $\\log 1,000$ เท่ากับเท่าใด",
+          "answer": "$3$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. คำตอบของสมการ $\\log_2 x = 5$ คือข้อใด",
+          "answer": "$x = 2^5 = 32$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. คำตอบของสมการ $\\log (x - 2) = 1$ คือข้อใด",
+          "answer": "$x - 2 = 10^1 = 10 \\Rightarrow x = 12$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
+  },
+  "art-exp-l10": {
+    "id": "art-exp-l10",
+    "chapter": "บทที่ 3",
+    "week": "บทที่ 3",
+    "period": "คาบที่ 10",
+    "grade": "มัธยมศึกษาปีที่ 4",
+    "gradeShort": "ม.4 (ศิลป์-คำนวณ)",
+    "semester": "ภาคเรียนที่ 2",
+    "subjectCode": "คณิตศาสตร์เพิ่มเติม (ค30202)",
+    "title": "คาบที่ 10: ความหมายและนิยามของลอการิทึม",
+    "standard": "มาตรฐาน ค 1.2 ม.4/1 เข้าใจฟังก์ชันลอการิทึมและนำไปใช้ในการแก้ปัญหา",
+    "desc": "ความหมายของลอการิทึมในฐานะอินเวอร์สของเลขยกกำลัง b^y = x <=> log_b x = y",
+    "worksheet": {
+      "sheetName": "ใบงานคาบที่ 10: ความหมายและนิยามของลอการิทึม",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 นิยามลอการิทึม (Logarithm):</div>\n  <div class=\"equation-stage\">\n    $$b^y = x \\iff y = \\log_b x \\quad (x > 0, b > 0, b \\neq 1)$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จำประโยคคำถามง่ายๆ: 'ฐาน $b$ ยกกำลังอะไรถึงจะได้ $x$?' คำตอบนั้นคือค่าของ $\\log_b x$ เช่น $\\log_2 8 = 3$ เพราะ $2^3 = 8$\n  </div>\n</div>",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงหาค่าของ $\\log_2 16$ และ $\\log_3 81$",
+          "points": "",
+          "latex": "\\begin{aligned} \\log_2 16 &= 4 \\quad (\\text{เพราะว่า } 2^4 = 16) \\\\[4pt] \\log_3 81 &= 4 \\quad (\\text{เพราะว่า } 3^4 = 81) \\end{aligned}",
+          "placeholder": "(วิธีทำตามตัวอย่าง: แปลงคำถามให้เป็นเลขยกกำลังว่าฐานยกกำลังอะไรได้ค่านั้น)"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ฝึกทำร่วมกันในห้อง) จงเขียน $5^3 = 125$ ในรูปลอการิทึม และเขียน $\\log_4 64 = 3$ ในรูปเลขยกกำลัง",
+          "answer": "$\\log_5 125 = 3$ และ $4^3 = 64$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 1. จงหาค่าของ $\\log_5 25$ และ $\\log_{10} 1,000$",
+          "answer": "$2$ และ $3$ (เพราะ $5^2 = 25$ และ $10^3 = 1,000$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. จงหาค่าของ $\\log_2 32$",
+          "answer": "$5$ (เพราะ $2^5 = 32$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. จงหาค่าของ $x$ ถ้ากำหนดให้ $\\log_3 x = 2$",
+          "answer": "$x = 9$ (วิธีคิด: เปลี่ยนกลับเป็นเลขยกกำลังได้ $x = 3^2 = 9$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตรคาบที่ 10: ความหมายและนิยามของลอการิทึม",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #047857; margin-bottom: 0.4rem;\">📝 สรุปสาระสำคัญประจำคาบที่ 10</div>\n  <ul style=\"padding-left: 1.2rem; color: #334155; font-size: 0.92rem; line-height: 1.55;\">\n    <li style='margin-bottom:0.35rem;'>ลอการิทึมคือการหาตัวเลขชี้กำลังย้อนกลับ: $b^y = x \\iff y = \\log_b x$</li><li style='margin-bottom:0.35rem;'>เงื่อนไขบังคับ: ตัวหลังล็อก ($x$) ต้องมากกว่าศูนย์เสมอ ($x > 0$) และฐาน $b > 0, b \\neq 1$</li><li style='margin-bottom:0.35rem;'>การสลับรูป: ฐานของเลขยกกำลังจะกลายมาเป็นฐานของล็อก (ตัวห้อยล่าง)</li>\n  </ul>\n</div>",
+      "exercises": [
+        {
+          "title": "สรุปประเด็นหลักและสูตรที่ต้องจำ (คาบที่ 10)",
+          "points": "",
+          "latex": "b^y = x \\iff y = \\log_b x \\quad (x > 0, b > 0, b \\neq 1)",
+          "placeholder": "ทบทวนสูตรและตัวอย่างให้คล่องก่อนทำแบบฝึกหัด"
+        }
+      ]
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบย่อยคาบที่ 10: ความหมายและนิยามของลอการิทึม",
+      "conceptHtml": "<div class=\"sheet-formula-box\" style=\"border-left-color: #6366f1;\">\n  <div style=\"font-weight: 600; color: #4338ca; margin-bottom: 0.25rem;\">⏱️ แบบทดสอบท้ายคาบ (Exit Ticket / Quiz)</div>\n  <div style=\"font-size: 0.88rem; color: #475569;\">ให้นักเรียนแสดงวิธีทำสั้นๆ หรือเลือกคำตอบที่ถูกต้องที่สุดเพื่อประเมินความเข้าใจประจำคาบ</div>\n</div>",
+      "exercises": [
+        {
+          "title": "ข้อที่ 1. ค่าของ $\\log_2 4$ เท่ากับเท่าใด",
+          "answer": "$2$ (เพราะ $2^2 = 4$)",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 2. รูปเลขยกกำลังของ $\\log_2 8 = 3$ ตรงกับข้อใด",
+          "answer": "$2^3 = 8$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        },
+        {
+          "title": "ข้อที่ 3. ถ้า $\\log_5 x = 3$ แล้ว $x$ มีค่าเท่ากับเท่าใด",
+          "answer": "$x = 5^3 = 125$",
+          "points": "",
+          "latex": "",
+          "answerType": "handwriting-normal",
+          "placeholder": ""
+        }
+      ]
+    }
   }
 };
 
@@ -20352,8 +21540,86 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
   ];
 
+  // Art-Math Exponents & Logarithms Chapters Data (Tier 2: 12 Periods, 3 Chapters, 1.0 Credit)
+  const ART_MATH_CHAPTERS_DATA = [
+    {
+      id: "art-exp-chap-1",
+      number: 1,
+      title: "เลขยกกำลังและรากในระบบจำนวนจริง",
+      chapterTitle: "บทที่ 1: เลขยกกำลังและรากในระบบจำนวนจริง",
+      badgeClass: "badge-w1",
+      periodRange: "6 คาบเรียน",
+      periodRangeText: "คาบที่ 1 - 6",
+      desc: "สมบัติเลขยกกำลังชี้กำลังเต็ม เลขชี้กำลังศูนย์และลบ สัญกรณ์วิทยาศาสตร์ รากที่ n และเลขชี้กำลังตรรกยะ",
+      subjectCode: "ค30202",
+      subjectName: "คณิตศาสตร์เพิ่มเติม",
+      grade: "มัธยมศึกษาปีที่ 4",
+      semester: "ภาคเรียนที่ 2",
+      topics: [
+        { id: "art-exp-l01", title: "คาบที่ 1: นิยามและสมบัติพื้นฐานของเลขยกกำลัง", desc: "เลขชี้กำลังเป็นจำนวนเต็มบวก การคูณหาร และยกกำลังซ้อน" },
+        { id: "art-exp-l02", title: "คาบที่ 2: เลขชี้กำลังเป็นศูนย์และจำนวนเต็มลบ", desc: "นิยาม $a^0=1$ และ $a^{-n}=\\frac{1}{a^n}$ จัดรูปชี้กำลังบวก" },
+        { id: "art-exp-l03", title: "คาบที่ 3: สัญกรณ์วิทยาศาสตร์และการคำนวณเบื้องต้น", desc: "รูป $A \\times 10^n$ เมื่อ $1 \\le A < 10$ และการคูณหารสัญกรณ์" },
+        { id: "art-exp-l04", title: "คาบที่ 4: รากที่ n ในระบบจำนวนจริงและกรณฑ์", desc: "ความหมายของรากที่ $n$ เครื่องหมาย $\\sqrt[n]{a}$ และการถอดกรณฑ์" },
+        { id: "art-exp-l05", title: "คาบที่ 5: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนตรรกยะ", desc: "ความสัมพันธ์ $a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$ และการจัดรูปเศษส่วน" },
+        { id: "art-exp-l06", title: "คาบที่ 6: การบวก ลบ คูณ และจัดรูปกรณฑ์อย่างง่าย", desc: "การรวมพจน์กรณฑ์คล้าย $\\sqrt{a}$ และการคูณกระจายอย่างง่าย" }
+      ]
+    },
+    {
+      id: "art-exp-chap-2",
+      number: 2,
+      title: "ฟังก์ชันและสมการเอกซ์โพเนนเชียล",
+      chapterTitle: "บทที่ 2: ฟังก์ชันและสมการเอกซ์โพเนนเชียล",
+      badgeClass: "badge-w2",
+      periodRange: "3 คาบเรียน",
+      periodRangeText: "คาบที่ 7 - 9",
+      desc: "กราฟเอกซ์โพเนนเชียล ฟังก์ชันเพิ่ม/ลด การแก้สมการฐานเท่ากัน และโจทย์ปัญหาการเติบโต",
+      subjectCode: "ค30202",
+      subjectName: "คณิตศาสตร์เพิ่มเติม",
+      grade: "มัธยมศึกษาปีที่ 4",
+      semester: "ภาคเรียนที่ 2",
+      topics: [
+        { id: "art-exp-l07", title: "คาบที่ 7: กราฟและลักษณะของฟังก์ชันเอกซ์โพเนนเชียล", desc: "รูปแบบ $y=a^x$ จุดตัด $(0,1)$ ฟังก์ชันเพิ่ม ($a>1$) และลด ($0<a<1$)" },
+        { id: "art-exp-l08", title: "คาบที่ 8: การแก้สมการเอกซ์โพเนนเชียลอย่างง่าย", desc: "การทำฐานให้เท่ากัน $a^{f(x)} = a^k$ เพื่อจับเลขชี้กำลังเท่ากัน" },
+        { id: "art-exp-l09", title: "คาบที่ 9: โจทย์สมการเลขยกกำลังและการประยุกต์การเติบโต", desc: "โจทย์ปัญหาแบคทีเรีย ประชากร และการทวีคูณอย่างง่าย" }
+      ]
+    },
+    {
+      id: "art-exp-chap-3",
+      number: 3,
+      title: "ปูพื้นฐานลอการิทึมเบื้องต้น",
+      chapterTitle: "บทที่ 3: ปูพื้นฐานลอการิทึมเบื้องต้น",
+      badgeClass: "badge-w3",
+      periodRange: "3 คาบเรียน",
+      periodRangeText: "คาบที่ 10 - 12",
+      desc: "ความหมายและการแปลง Logarithm สมบัติพื้นฐาน 4 ข้อ และลอการิทึมสามัญฐาน 10",
+      subjectCode: "ค30202",
+      subjectName: "คณิตศาสตร์เพิ่มเติม",
+      grade: "มัธยมศึกษาปีที่ 4",
+      semester: "ภาคเรียนที่ 2",
+      topics: [
+        { id: "art-exp-l10", title: "คาบที่ 10: ความหมายและนิยามของลอการิทึม", desc: "ความสัมพันธ์ $b^y = x \\iff \\log_b x = y$ และการสลับรูปไปมา" },
+        { id: "art-exp-l11", title: "คาบที่ 11: สมบัติพื้นฐานของลอการิทึม", desc: "$\\log_a 1 = 0, \\log_a a = 1, \\log_a(MN) = \\log_a M + \\log_a N$ และการปลดกำลัง" },
+        { id: "art-exp-l12", title: "คาบที่ 12: ลอการิทึมสามัญและการแก้สมการ Log อย่างง่าย", desc: "ลอการิทึมฐาน 10 ($\\log x$) และการแก้สมการ $\\log_b x = c$" }
+      ]
+    }
+  ];
+
   // Master Units Database (Tier 1: Multi-Unit Hierarchy)
   const UNITS_DATABASE = [
+    {
+      id: "unit-art-math-expo",
+      title: "เลขยกกำลังและฟังก์ชันเอกซ์โพเนนเชียล (ศิลป์คำนวณ)",
+      shortTitle: "เลขยกกำลัง (ศิลป์คำนวณ)",
+      grade: "มัธยมศึกษาปีที่ 4",
+      gradeShort: "ม.4 ศิลป์",
+      subjectCode: "คณิตศาสตร์เพิ่มเติม (ค30202)",
+      totalPeriods: "12 คาบเรียน (3 บท)",
+      status: "ready",
+      statusBadge: "พร้อมสอน • 12 คาบ",
+      icon: "✨",
+      desc: "เลขยกกำลังและรากในระบบจำนวนจริง กราฟเอกซ์โพเนนเชียล สมการเลขยกกำลัง และปูพื้นฐานลอการิทึมเบื้องต้น สำหรับห้องศิลป์คำนวณ 1.0 หน่วยกิต",
+      chapters: ART_MATH_CHAPTERS_DATA
+    },
     {
       id: "unit-expo-log",
       title: "ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม",
@@ -20469,7 +21735,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   // Internal state
   let _baselineData = {};
   let _userOverlays = {};
-  let _currentTopicId = 'expo-l01';
+  let _currentTopicId = 'art-exp-l01';
   let _currentSheetMode = 'worksheet'; // 'worksheet' | 'summary' | 'quiz'
   let _isTeacherKeyMode = false;
   let _listeners = [];
@@ -20535,11 +21801,12 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       if (unitId === 'unit-expo-log') return CHAPTERS_DATA;
       if (unitId === 'unit-complex') return COMPLEX_CHAPTERS_DATA;
       if (unitId === 'unit-stat-prob') return STAT_CHAPTERS_DATA;
-      return CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA);
+      if (unitId === 'unit-art-math-expo') return ART_MATH_CHAPTERS_DATA;
+      return CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
     },
 
     getChapter: function(chapId) {
-      const all = CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA);
+      const all = CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
       return all.find(function(c) { return c.id === chapId; }) || null;
     },
 
@@ -21569,8 +22836,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   'use strict';
 
   // Navigation & UI State
-  let expandedUnitId = 'unit-expo-log';
-  let expandedChapterId = 'chapter-1';
+  let expandedUnitId = 'unit-art-math-expo';
+  let expandedChapterId = 'art-exp-chap-1';
   let editingExerciseIndex = -1;
   let activeEditingChapterId = null;
   let currentMainViewMode = 'studio';

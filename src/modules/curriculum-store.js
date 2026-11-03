@@ -475,8 +475,86 @@
     }
   ];
 
+  // Art-Math Exponents & Logarithms Chapters Data (Tier 2: 12 Periods, 3 Chapters, 1.0 Credit)
+  const ART_MATH_CHAPTERS_DATA = [
+    {
+      id: "art-exp-chap-1",
+      number: 1,
+      title: "เลขยกกำลังและรากในระบบจำนวนจริง",
+      chapterTitle: "บทที่ 1: เลขยกกำลังและรากในระบบจำนวนจริง",
+      badgeClass: "badge-w1",
+      periodRange: "6 คาบเรียน",
+      periodRangeText: "คาบที่ 1 - 6",
+      desc: "สมบัติเลขยกกำลังชี้กำลังเต็ม เลขชี้กำลังศูนย์และลบ สัญกรณ์วิทยาศาสตร์ รากที่ n และเลขชี้กำลังตรรกยะ",
+      subjectCode: "ค30202",
+      subjectName: "คณิตศาสตร์เพิ่มเติม",
+      grade: "มัธยมศึกษาปีที่ 4",
+      semester: "ภาคเรียนที่ 2",
+      topics: [
+        { id: "art-exp-l01", title: "คาบที่ 1: นิยามและสมบัติพื้นฐานของเลขยกกำลัง", desc: "เลขชี้กำลังเป็นจำนวนเต็มบวก การคูณหาร และยกกำลังซ้อน" },
+        { id: "art-exp-l02", title: "คาบที่ 2: เลขชี้กำลังเป็นศูนย์และจำนวนเต็มลบ", desc: "นิยาม $a^0=1$ และ $a^{-n}=\\frac{1}{a^n}$ จัดรูปชี้กำลังบวก" },
+        { id: "art-exp-l03", title: "คาบที่ 3: สัญกรณ์วิทยาศาสตร์และการคำนวณเบื้องต้น", desc: "รูป $A \\times 10^n$ เมื่อ $1 \\le A < 10$ และการคูณหารสัญกรณ์" },
+        { id: "art-exp-l04", title: "คาบที่ 4: รากที่ n ในระบบจำนวนจริงและกรณฑ์", desc: "ความหมายของรากที่ $n$ เครื่องหมาย $\\sqrt[n]{a}$ และการถอดกรณฑ์" },
+        { id: "art-exp-l05", title: "คาบที่ 5: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนตรรกยะ", desc: "ความสัมพันธ์ $a^{\\frac{m}{n}} = \\sqrt[n]{a^m}$ และการจัดรูปเศษส่วน" },
+        { id: "art-exp-l06", title: "คาบที่ 6: การบวก ลบ คูณ และจัดรูปกรณฑ์อย่างง่าย", desc: "การรวมพจน์กรณฑ์คล้าย $\\sqrt{a}$ และการคูณกระจายอย่างง่าย" }
+      ]
+    },
+    {
+      id: "art-exp-chap-2",
+      number: 2,
+      title: "ฟังก์ชันและสมการเอกซ์โพเนนเชียล",
+      chapterTitle: "บทที่ 2: ฟังก์ชันและสมการเอกซ์โพเนนเชียล",
+      badgeClass: "badge-w2",
+      periodRange: "3 คาบเรียน",
+      periodRangeText: "คาบที่ 7 - 9",
+      desc: "กราฟเอกซ์โพเนนเชียล ฟังก์ชันเพิ่ม/ลด การแก้สมการฐานเท่ากัน และโจทย์ปัญหาการเติบโต",
+      subjectCode: "ค30202",
+      subjectName: "คณิตศาสตร์เพิ่มเติม",
+      grade: "มัธยมศึกษาปีที่ 4",
+      semester: "ภาคเรียนที่ 2",
+      topics: [
+        { id: "art-exp-l07", title: "คาบที่ 7: กราฟและลักษณะของฟังก์ชันเอกซ์โพเนนเชียล", desc: "รูปแบบ $y=a^x$ จุดตัด $(0,1)$ ฟังก์ชันเพิ่ม ($a>1$) และลด ($0<a<1$)" },
+        { id: "art-exp-l08", title: "คาบที่ 8: การแก้สมการเอกซ์โพเนนเชียลอย่างง่าย", desc: "การทำฐานให้เท่ากัน $a^{f(x)} = a^k$ เพื่อจับเลขชี้กำลังเท่ากัน" },
+        { id: "art-exp-l09", title: "คาบที่ 9: โจทย์สมการเลขยกกำลังและการประยุกต์การเติบโต", desc: "โจทย์ปัญหาแบคทีเรีย ประชากร และการทวีคูณอย่างง่าย" }
+      ]
+    },
+    {
+      id: "art-exp-chap-3",
+      number: 3,
+      title: "ปูพื้นฐานลอการิทึมเบื้องต้น",
+      chapterTitle: "บทที่ 3: ปูพื้นฐานลอการิทึมเบื้องต้น",
+      badgeClass: "badge-w3",
+      periodRange: "3 คาบเรียน",
+      periodRangeText: "คาบที่ 10 - 12",
+      desc: "ความหมายและการแปลง Logarithm สมบัติพื้นฐาน 4 ข้อ และลอการิทึมสามัญฐาน 10",
+      subjectCode: "ค30202",
+      subjectName: "คณิตศาสตร์เพิ่มเติม",
+      grade: "มัธยมศึกษาปีที่ 4",
+      semester: "ภาคเรียนที่ 2",
+      topics: [
+        { id: "art-exp-l10", title: "คาบที่ 10: ความหมายและนิยามของลอการิทึม", desc: "ความสัมพันธ์ $b^y = x \\iff \\log_b x = y$ และการสลับรูปไปมา" },
+        { id: "art-exp-l11", title: "คาบที่ 11: สมบัติพื้นฐานของลอการิทึม", desc: "$\\log_a 1 = 0, \\log_a a = 1, \\log_a(MN) = \\log_a M + \\log_a N$ และการปลดกำลัง" },
+        { id: "art-exp-l12", title: "คาบที่ 12: ลอการิทึมสามัญและการแก้สมการ Log อย่างง่าย", desc: "ลอการิทึมฐาน 10 ($\\log x$) และการแก้สมการ $\\log_b x = c$" }
+      ]
+    }
+  ];
+
   // Master Units Database (Tier 1: Multi-Unit Hierarchy)
   const UNITS_DATABASE = [
+    {
+      id: "unit-art-math-expo",
+      title: "เลขยกกำลังและฟังก์ชันเอกซ์โพเนนเชียล (ศิลป์คำนวณ)",
+      shortTitle: "เลขยกกำลัง (ศิลป์คำนวณ)",
+      grade: "มัธยมศึกษาปีที่ 4",
+      gradeShort: "ม.4 ศิลป์",
+      subjectCode: "คณิตศาสตร์เพิ่มเติม (ค30202)",
+      totalPeriods: "12 คาบเรียน (3 บท)",
+      status: "ready",
+      statusBadge: "พร้อมสอน • 12 คาบ",
+      icon: "✨",
+      desc: "เลขยกกำลังและรากในระบบจำนวนจริง กราฟเอกซ์โพเนนเชียล สมการเลขยกกำลัง และปูพื้นฐานลอการิทึมเบื้องต้น สำหรับห้องศิลป์คำนวณ 1.0 หน่วยกิต",
+      chapters: ART_MATH_CHAPTERS_DATA
+    },
     {
       id: "unit-expo-log",
       title: "ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม",
@@ -592,7 +670,7 @@
   // Internal state
   let _baselineData = {};
   let _userOverlays = {};
-  let _currentTopicId = 'expo-l01';
+  let _currentTopicId = 'art-exp-l01';
   let _currentSheetMode = 'worksheet'; // 'worksheet' | 'summary' | 'quiz'
   let _isTeacherKeyMode = false;
   let _listeners = [];
@@ -658,11 +736,12 @@
       if (unitId === 'unit-expo-log') return CHAPTERS_DATA;
       if (unitId === 'unit-complex') return COMPLEX_CHAPTERS_DATA;
       if (unitId === 'unit-stat-prob') return STAT_CHAPTERS_DATA;
-      return CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA);
+      if (unitId === 'unit-art-math-expo') return ART_MATH_CHAPTERS_DATA;
+      return CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
     },
 
     getChapter: function(chapId) {
-      const all = CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA);
+      const all = CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
       return all.find(function(c) { return c.id === chapId; }) || null;
     },
 

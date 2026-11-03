@@ -9,8 +9,8 @@
   'use strict';
 
   // Navigation & UI State
-  let expandedUnitId = 'unit-expo-log';
-  let expandedChapterId = 'chapter-1';
+  let expandedUnitId = 'unit-art-math-expo';
+  let expandedChapterId = 'art-exp-chap-1';
   let editingExerciseIndex = -1;
   let activeEditingChapterId = null;
   let currentMainViewMode = 'studio';
