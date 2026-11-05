@@ -1147,6 +1147,13 @@
       inputSchool.value = savedSchool || (fSchool && fSchool.value ? fSchool.value.trim() : 'โรงเรียนมัธยมวิทยาคม (สสวท.)');
     }
 
+    const savedYear = localStorage.getItem('math_system_academic_year');
+    const fYear = document.getElementById('inputSystemAcademicYear');
+    const inputYear = document.getElementById('inputBookAcademicYear');
+    if (inputYear) {
+      inputYear.value = savedYear || (fYear && fYear.value ? fYear.value.trim() : (currentSystemSettings && currentSystemSettings.academicYear ? currentSystemSettings.academicYear : 'ภาคเรียนที่ 2 ปีการศึกษา 2568'));
+    }
+
     const inputCopyright = document.getElementById('inputBookCopyright');
     if (inputCopyright && !inputCopyright.value) {
       inputCopyright.value = '© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต';
@@ -1314,7 +1321,8 @@
     }
   }
 
-  function executeBookExport() {
+  function executeBookExport(action) {
+    const isDirectDownload = (action === 'download');
     const checkedBoxes = document.querySelectorAll('.book-topic-cb:checked');
     const topicIds = Array.from(checkedBoxes).map(function(cb) { return cb.value; });
 
@@ -1343,6 +1351,9 @@
     const inputSchool = document.getElementById('inputBookSchool');
     const schoolName = (inputSchool && inputSchool.value.trim()) ? inputSchool.value.trim() : '';
 
+    const inputYear = document.getElementById('inputBookAcademicYear');
+    const academicYear = (inputYear && inputYear.value.trim()) ? inputYear.value.trim() : 'ภาคเรียนที่ 2 ปีการศึกษา 2568';
+
     const inputCopyright = document.getElementById('inputBookCopyright');
     const copyrightText = (inputCopyright && inputCopyright.value.trim()) ? inputCopyright.value.trim() : '';
 
@@ -1365,9 +1376,11 @@
         coverTitle: coverTitle,
         authorName: authorName,
         schoolName: schoolName,
+        academicYear: academicYear,
         copyrightText: copyrightText,
         showPageNumbers: showPageNumbers,
-        hideStudentHeader: hideStudentHeader
+        hideStudentHeader: hideStudentHeader,
+        autoDownload: isDirectDownload
       });
     } else {
       alert('ไม่พบโมดูล SheetRenderEngine.openBookPrintTab');

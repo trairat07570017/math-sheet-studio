@@ -1512,6 +1512,11 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             </div>
 
             <div class="field-wrap">
+              <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">📅 ภาคเรียน / ปีการศึกษา (Semester & Academic Year):</label>
+              <input type="text" class="penpot-input" id="inputBookAcademicYear" placeholder="เช่น ภาคเรียนที่ 2 ปีการศึกษา 2568">
+            </div>
+
+            <div class="field-wrap">
               <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">ข้อความสงวนลิขสิทธิ์ / ติดต่อ (Copyright Notice):</label>
               <input type="text" class="penpot-input" id="inputBookCopyright" value="© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต">
             </div>
@@ -1532,14 +1537,20 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       </div>
 
-      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem;">
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
         <button type="button" class="btn-action" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);" onclick="closeBookExportModal()">
           ยกเลิก
         </button>
 
-        <button type="button" class="btn-action btn-save-glow" id="btnLaunchBookPreview" onclick="executeBookExport()" style="background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%); color: #021a1f; font-weight: 700; padding: 0.55rem 1.25rem; font-size: 0.95rem;">
-          <span>🚀 สร้างเล่มและเปิดพรีวิว A4</span>
-        </button>
+        <div style="display: flex; gap: 0.65rem; align-items: center;">
+          <button type="button" class="btn-action" id="btnLaunchBookPreview" onclick="executeBookExport('preview')" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #ffffff; padding: 0.55rem 1rem; font-size: 0.92rem; font-weight: 600;">
+            <span>👁️ เปิดตรวจพรีวิว A4</span>
+          </button>
+
+          <button type="button" class="btn-action btn-save-glow" id="btnLaunchBookDownload" onclick="executeBookExport('download')" style="background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%); color: #021a1f; font-weight: 700; padding: 0.55rem 1.25rem; font-size: 0.95rem; box-shadow: 0 0 15px rgba(0, 245, 212, 0.45);">
+            <span>📥 ดาวน์โหลด PDF ทันที</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>

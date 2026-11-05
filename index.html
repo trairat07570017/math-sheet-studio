@@ -4552,6 +4552,11 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             </div>
 
             <div class="field-wrap">
+              <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">📅 ภาคเรียน / ปีการศึกษา (Semester & Academic Year):</label>
+              <input type="text" class="penpot-input" id="inputBookAcademicYear" placeholder="เช่น ภาคเรียนที่ 2 ปีการศึกษา 2568">
+            </div>
+
+            <div class="field-wrap">
               <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">ข้อความสงวนลิขสิทธิ์ / ติดต่อ (Copyright Notice):</label>
               <input type="text" class="penpot-input" id="inputBookCopyright" value="© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต">
             </div>
@@ -4572,14 +4577,20 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       </div>
 
-      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem;">
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
         <button type="button" class="btn-action" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);" onclick="closeBookExportModal()">
           ยกเลิก
         </button>
 
-        <button type="button" class="btn-action btn-save-glow" id="btnLaunchBookPreview" onclick="executeBookExport()" style="background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%); color: #021a1f; font-weight: 700; padding: 0.55rem 1.25rem; font-size: 0.95rem;">
-          <span>🚀 สร้างเล่มและเปิดพรีวิว A4</span>
-        </button>
+        <div style="display: flex; gap: 0.65rem; align-items: center;">
+          <button type="button" class="btn-action" id="btnLaunchBookPreview" onclick="executeBookExport('preview')" style="background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); color: #ffffff; padding: 0.55rem 1rem; font-size: 0.92rem; font-weight: 600;">
+            <span>👁️ เปิดตรวจพรีวิว A4</span>
+          </button>
+
+          <button type="button" class="btn-action btn-save-glow" id="btnLaunchBookDownload" onclick="executeBookExport('download')" style="background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%); color: #021a1f; font-weight: 700; padding: 0.55rem 1.25rem; font-size: 0.95rem; box-shadow: 0 0 15px rgba(0, 245, 212, 0.45);">
+            <span>📥 ดาวน์โหลด PDF ทันที</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -22921,7 +22932,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       const coverSubtitle = opts.coverSubtitle || (opts.scope === 'unit' ? 'หลักสูตรแกนกลาง สสวท. ฉบับสมบูรณ์' : 'เอกสารประกอบการเรียนรู้และฝึกทักษะ');
       const subjectCode = opts.subjectCode || defaultSubjectCode;
       const grade = opts.grade || defaultGrade;
-      const academicYear = opts.academicYear || 'ปีการศึกษา 2567';
+      const academicYear = opts.academicYear || 'ภาคเรียนที่ 2 ปีการศึกษา 2568';
       const copyrightText = opts.copyrightText || '© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำหรือดัดแปลงเพื่อการจำหน่ายโดยไม่ได้รับอนุญาต';
       const copyrightShort = copyrightText.split(' ')[0] + ' ' + (authorName || 'MathSheet AI');
       const showPageNums = opts.showPageNumbers !== false;
@@ -23104,7 +23115,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                 <div class="cover-author-col">
                   <div class="author-label">จัดทำและเรียบเรียงโดย:</div>
                   <div class="author-val">${authorName}</div>
-                  <div class="school-val">${schoolName} • ${defaultSemester} ${academicYear}</div>
+                  <div class="school-val">${schoolName} • ${(function() {
+                    let txt = academicYear || '';
+                    if (txt.indexOf('ภาคเรียน') === -1 && defaultSemester) {
+                      return defaultSemester + ' ' + txt;
+                    }
+                    return txt;
+                  })()}</div>
                 </div>
                 <div class="cover-copyright-col">
                   <div class="copyright-text">${copyrightText}</div>
@@ -23490,12 +23507,37 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     .katex { font-size: 1.06em; }
     .no-print { display: none !important; }
 
+    .book-floating-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999999;
+      background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%);
+      color: #021a1f;
+      font-family: 'Prompt', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 22px rgba(0, 245, 212, 0.55), 0 2px 8px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .book-floating-fab:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 28px rgba(0, 245, 212, 0.75);
+    }
+
     @media print {
       body {
         margin: 0 !important;
         background: #ffffff !important;
       }
-      .book-floating-toolbar {
+      .book-floating-toolbar, .book-floating-fab, .no-print {
         display: none !important;
       }
       .book-container {
@@ -23537,22 +23579,27 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       </div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.65rem;">
-      <button type="button" class="btn-toolbar-print" onclick="window.print()" style="display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #00f5d4, #0284c7); color: #021a1f; border: none; padding: 0.5rem 1.15rem; border-radius: 6px; font-weight: 700; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.92rem; box-shadow: 0 0 12px rgba(0, 245, 212, 0.4);">
-        <span>🖨️</span>
-        <span>บันทึกเป็น PDF / พิมพ์</span>
+      <button type="button" class="btn-toolbar-print" onclick="window.print()" style="display: inline-flex; align-items: center; gap: 0.45rem; background: linear-gradient(135deg, #00f5d4, #0284c7); color: #021a1f; border: none; padding: 0.55rem 1.25rem; border-radius: 6px; font-weight: 700; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.95rem; box-shadow: 0 0 14px rgba(0, 245, 212, 0.5);">
+        <span>📥</span>
+        <span>ดาวน์โหลดเป็น PDF (บันทึกเล่ม)</span>
       </button>
-      <button type="button" class="btn-toolbar-close" onclick="window.close()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; padding: 0.5rem 0.85rem; border-radius: 6px; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.88rem;">
+      <button type="button" class="btn-toolbar-close" onclick="window.close()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; padding: 0.55rem 0.85rem; border-radius: 6px; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.88rem;">
         ✕ ปิดแท็บ
       </button>
     </div>
   </div>
+
+  <button type="button" class="book-floating-fab no-print" onclick="window.print()" title="คลิกเพื่อบันทึกเป็นไฟล์ PDF คมชัด 100%">
+    <span style="font-size: 1.25rem;">📥</span>
+    <span>ดาวน์โหลดเป็น PDF</span>
+  </button>
 
   <div class="book-container">
     ${renderedPages.join('\n')}
   </div>
 
   <script>
-    window.onload = function() {
+    function typesetAndAutoDownload() {
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {
           delimiters: [
@@ -23565,7 +23612,17 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           errorColor: '#ef4444'
         });
       }
-    };
+      ${opts.autoDownload ? `
+        setTimeout(function() {
+          window.print();
+        }, 400);
+      ` : ''}
+    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(typesetAndAutoDownload, 50);
+    } else {
+      window.onload = typesetAndAutoDownload;
+    }
   <\/script>
 </body>
 </html>`);
@@ -24932,6 +24989,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       inputSchool.value = savedSchool || (fSchool && fSchool.value ? fSchool.value.trim() : 'โรงเรียนมัธยมวิทยาคม (สสวท.)');
     }
 
+    const savedYear = localStorage.getItem('math_system_academic_year');
+    const fYear = document.getElementById('inputSystemAcademicYear');
+    const inputYear = document.getElementById('inputBookAcademicYear');
+    if (inputYear) {
+      inputYear.value = savedYear || (fYear && fYear.value ? fYear.value.trim() : (currentSystemSettings && currentSystemSettings.academicYear ? currentSystemSettings.academicYear : 'ภาคเรียนที่ 2 ปีการศึกษา 2568'));
+    }
+
     const inputCopyright = document.getElementById('inputBookCopyright');
     if (inputCopyright && !inputCopyright.value) {
       inputCopyright.value = '© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต';
@@ -25099,7 +25163,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
   }
 
-  function executeBookExport() {
+  function executeBookExport(action) {
+    const isDirectDownload = (action === 'download');
     const checkedBoxes = document.querySelectorAll('.book-topic-cb:checked');
     const topicIds = Array.from(checkedBoxes).map(function(cb) { return cb.value; });
 
@@ -25128,6 +25193,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     const inputSchool = document.getElementById('inputBookSchool');
     const schoolName = (inputSchool && inputSchool.value.trim()) ? inputSchool.value.trim() : '';
 
+    const inputYear = document.getElementById('inputBookAcademicYear');
+    const academicYear = (inputYear && inputYear.value.trim()) ? inputYear.value.trim() : 'ภาคเรียนที่ 2 ปีการศึกษา 2568';
+
     const inputCopyright = document.getElementById('inputBookCopyright');
     const copyrightText = (inputCopyright && inputCopyright.value.trim()) ? inputCopyright.value.trim() : '';
 
@@ -25150,9 +25218,11 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         coverTitle: coverTitle,
         authorName: authorName,
         schoolName: schoolName,
+        academicYear: academicYear,
         copyrightText: copyrightText,
         showPageNumbers: showPageNumbers,
-        hideStudentHeader: hideStudentHeader
+        hideStudentHeader: hideStudentHeader,
+        autoDownload: isDirectDownload
       });
     } else {
       alert('ไม่พบโมดูล SheetRenderEngine.openBookPrintTab');

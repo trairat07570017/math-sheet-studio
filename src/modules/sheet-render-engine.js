@@ -454,7 +454,7 @@
       const coverSubtitle = opts.coverSubtitle || (opts.scope === 'unit' ? 'หลักสูตรแกนกลาง สสวท. ฉบับสมบูรณ์' : 'เอกสารประกอบการเรียนรู้และฝึกทักษะ');
       const subjectCode = opts.subjectCode || defaultSubjectCode;
       const grade = opts.grade || defaultGrade;
-      const academicYear = opts.academicYear || 'ปีการศึกษา 2567';
+      const academicYear = opts.academicYear || 'ภาคเรียนที่ 2 ปีการศึกษา 2568';
       const copyrightText = opts.copyrightText || '© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำหรือดัดแปลงเพื่อการจำหน่ายโดยไม่ได้รับอนุญาต';
       const copyrightShort = copyrightText.split(' ')[0] + ' ' + (authorName || 'MathSheet AI');
       const showPageNums = opts.showPageNumbers !== false;
@@ -637,7 +637,13 @@
                 <div class="cover-author-col">
                   <div class="author-label">จัดทำและเรียบเรียงโดย:</div>
                   <div class="author-val">${authorName}</div>
-                  <div class="school-val">${schoolName} • ${defaultSemester} ${academicYear}</div>
+                  <div class="school-val">${schoolName} • ${(function() {
+                    let txt = academicYear || '';
+                    if (txt.indexOf('ภาคเรียน') === -1 && defaultSemester) {
+                      return defaultSemester + ' ' + txt;
+                    }
+                    return txt;
+                  })()}</div>
                 </div>
                 <div class="cover-copyright-col">
                   <div class="copyright-text">${copyrightText}</div>
@@ -1023,12 +1029,37 @@
     .katex { font-size: 1.06em; }
     .no-print { display: none !important; }
 
+    .book-floating-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999999;
+      background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%);
+      color: #021a1f;
+      font-family: 'Prompt', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.4rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 22px rgba(0, 245, 212, 0.55), 0 2px 8px rgba(0, 0, 0, 0.35);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .book-floating-fab:hover {
+      transform: translateY(-2px) scale(1.03);
+      box-shadow: 0 6px 28px rgba(0, 245, 212, 0.75);
+    }
+
     @media print {
       body {
         margin: 0 !important;
         background: #ffffff !important;
       }
-      .book-floating-toolbar {
+      .book-floating-toolbar, .book-floating-fab, .no-print {
         display: none !important;
       }
       .book-container {
@@ -1070,22 +1101,27 @@
       </div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.65rem;">
-      <button type="button" class="btn-toolbar-print" onclick="window.print()" style="display: inline-flex; align-items: center; gap: 0.4rem; background: linear-gradient(135deg, #00f5d4, #0284c7); color: #021a1f; border: none; padding: 0.5rem 1.15rem; border-radius: 6px; font-weight: 700; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.92rem; box-shadow: 0 0 12px rgba(0, 245, 212, 0.4);">
-        <span>🖨️</span>
-        <span>บันทึกเป็น PDF / พิมพ์</span>
+      <button type="button" class="btn-toolbar-print" onclick="window.print()" style="display: inline-flex; align-items: center; gap: 0.45rem; background: linear-gradient(135deg, #00f5d4, #0284c7); color: #021a1f; border: none; padding: 0.55rem 1.25rem; border-radius: 6px; font-weight: 700; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.95rem; box-shadow: 0 0 14px rgba(0, 245, 212, 0.5);">
+        <span>📥</span>
+        <span>ดาวน์โหลดเป็น PDF (บันทึกเล่ม)</span>
       </button>
-      <button type="button" class="btn-toolbar-close" onclick="window.close()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; padding: 0.5rem 0.85rem; border-radius: 6px; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.88rem;">
+      <button type="button" class="btn-toolbar-close" onclick="window.close()" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: #cbd5e1; padding: 0.55rem 0.85rem; border-radius: 6px; font-family: 'Prompt', sans-serif; cursor: pointer; font-size: 0.88rem;">
         ✕ ปิดแท็บ
       </button>
     </div>
   </div>
+
+  <button type="button" class="book-floating-fab no-print" onclick="window.print()" title="คลิกเพื่อบันทึกเป็นไฟล์ PDF คมชัด 100%">
+    <span style="font-size: 1.25rem;">📥</span>
+    <span>ดาวน์โหลดเป็น PDF</span>
+  </button>
 
   <div class="book-container">
     ${renderedPages.join('\n')}
   </div>
 
   <script>
-    window.onload = function() {
+    function typesetAndAutoDownload() {
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {
           delimiters: [
@@ -1098,7 +1134,17 @@
           errorColor: '#ef4444'
         });
       }
-    };
+      ${opts.autoDownload ? `
+        setTimeout(function() {
+          window.print();
+        }, 400);
+      ` : ''}
+    }
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(typesetAndAutoDownload, 50);
+    } else {
+      window.onload = typesetAndAutoDownload;
+    }
   <\/script>
 </body>
 </html>`);
