@@ -745,6 +745,57 @@
       return all.find(function(c) { return c.id === chapId; }) || null;
     },
 
+    getChapterByTopicId: function(topicId) {
+      const id = topicId || _currentTopicId;
+      const allChapters = this.getChapters();
+      return allChapters.find(function(c) {
+        return c.topics && c.topics.some(function(t) { return t.id === id; });
+      }) || null;
+    },
+
+    getCurrentUnit: function(topicId) {
+      const id = topicId || _currentTopicId;
+      const allUnits = this.getUnits();
+      for (let i = 0; i < allUnits.length; i++) {
+        const u = allUnits[i];
+        if (u.chapters) {
+          for (let j = 0; j < u.chapters.length; j++) {
+            const c = u.chapters[j];
+            if (c.topics && c.topics.some(function(t) { return t.id === id; })) {
+              return u;
+            }
+          }
+        }
+      }
+      return allUnits.find(function(u) { return u.status === 'ready'; }) || allUnits[0];
+    },
+
+    getChapterTopics: function(chapId) {
+      const chapter = this.getChapter(chapId);
+      if (!chapter || !chapter.topics) return [];
+      const self = this;
+      return chapter.topics.map(function(t) {
+        return self.getTopic(t.id);
+      }).filter(Boolean);
+    },
+
+    getUnitTopics: function(unitId) {
+      const units = this.getUnits();
+      const unit = (unitId ? units.find(function(u) { return u.id === unitId; }) : null) || this.getCurrentUnit();
+      if (!unit || !unit.chapters) return [];
+      const self = this;
+      let allTopics = [];
+      unit.chapters.forEach(function(c) {
+        if (c.topics) {
+          c.topics.forEach(function(t) {
+            const topicData = self.getTopic(t.id);
+            if (topicData) allTopics.push(topicData);
+          });
+        }
+      });
+      return allTopics;
+    },
+
     getCurrentTopicId: function() {
       return _currentTopicId;
     },

@@ -97,6 +97,9 @@
             <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-1')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-1')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+              <span>📖 รวมเล่มบทนี้</span>
+            </button>
           </div>
           <ul class="chapter-lessons-list">
       
@@ -158,6 +161,9 @@
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
             <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-2')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
               <span>⚙️ ตั้งค่าบท</span>
+            </button>
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-2')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+              <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
           <ul class="chapter-lessons-list">
@@ -221,6 +227,9 @@
             <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-3')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-3')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+              <span>📖 รวมเล่มบทนี้</span>
+            </button>
           </div>
           <ul class="chapter-lessons-list">
       
@@ -282,6 +291,9 @@
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
             <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-4')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
               <span>⚙️ ตั้งค่าบท</span>
+            </button>
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-4')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+              <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
           <ul class="chapter-lessons-list">
@@ -345,6 +357,9 @@
             <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-5')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-5')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+              <span>📖 รวมเล่มบทนี้</span>
+            </button>
           </div>
           <ul class="chapter-lessons-list">
       
@@ -406,6 +421,9 @@
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
             <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-6')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
               <span>⚙️ ตั้งค่าบท</span>
+            </button>
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-6')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+              <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
           <ul class="chapter-lessons-list">
@@ -595,6 +613,11 @@
           <button type="button" class="btn-action btn-print btn-save-glow" id="btnPrintSheet" onclick="prepareAndPrint()" title="พิมพ์หรือบันทึกเป็นไฟล์ PDF คมชัด 100%">
             <span>🖨️</span>
             <span>พิมพ์ / PDF</span>
+          </button>
+
+          <button type="button" class="btn-action btn-book-export btn-save-glow" id="btnOpenBookExport" onclick="openBookExportModal()" title="รวมเล่มเอกสารหลายคาบเป็นไฟล์ PDF สมบูรณ์ พร้อมหน้าปก A4 และเลขหน้า สำหรับพิมพ์หรือจำหน่าย">
+            <span>📚</span>
+            <span>รวมเล่ม PDF</span>
           </button>
 
           <button type="button" class="btn-action" onclick="openCleanPrintTab()" title="เปิดหน้ากระดาษ A4 สวยงามในแท็บใหม่ สำหรับเซฟ PDF หรือแชร์">
@@ -1387,6 +1410,122 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         </button>
         <button type="button" class="btn-action btn-save-glow" onclick="saveChapterSettings()">
           <span>🚀 บันทึกและปรับใช้กับทุกคาบในบทนี้</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMERCIAL WORKBOOK & BOOK EXPORT MODAL -->
+  <div class="modal-backdrop no-print" id="bookExportModal" onclick="if(event.target.id==='bookExportModal') closeBookExportModal()">
+    <div class="modal-window" style="max-width: 660px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span style="font-size: 1.35rem;">📚</span>
+          <div>
+            <h3 style="color: #ffffff; margin: 0; font-size: 1.15rem;">สร้างเอกสารรวมเล่ม PDF (Commercial Workbook)</h3>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">รวมเอกสารหลายคาบเป็นเล่มเดียว พร้อมหน้าปก A4 และเลขหน้าต่อเนื่อง สำหรับพิมพ์หรือจำหน่าย</p>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="closeBookExportModal()">&times;</button>
+      </div>
+
+      <div class="modal-body" style="gap: 1.1rem; padding: 1.25rem; max-height: calc(85vh - 120px); overflow-y: auto;">
+        <input type="hidden" id="inputBookTargetChapterId">
+
+        <!-- SCOPE SELECTION -->
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+            🎯 ขอบเขตเนื้อหาที่ต้องการรวมเล่ม (Book Scope)
+          </label>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+            <label class="book-scope-card active" id="bookScopeChapterCard" onclick="selectBookScope('chapter')" style="display: flex; flex-direction: column; padding: 0.85rem; border: 1.5px solid var(--neon-cyan); background: rgba(0, 245, 212, 0.08); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                <input type="radio" name="bookScope" id="bookScopeChapter" value="chapter" checked onchange="selectBookScope('chapter')">
+                <strong style="color: #ffffff; font-size: 0.95rem;">เล่มรายบท (Mini-Book)</strong>
+              </div>
+              <span id="bookScopeChapterDesc" style="font-size: 0.8rem; color: #a7f3d0; line-height: 1.4;">รวม 4 คาบของบทนี้ (ประมาณ 8–10 หน้า)</span>
+            </label>
+
+            <label class="book-scope-card" id="bookScopeUnitCard" onclick="selectBookScope('unit')" style="display: flex; flex-direction: column; padding: 0.85rem; border: 1.5px solid rgba(255, 255, 255, 0.15); background: rgba(255, 255, 255, 0.03); border-radius: 8px; cursor: pointer; transition: all 0.2s ease;">
+              <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem;">
+                <input type="radio" name="bookScope" id="bookScopeUnit" value="unit" onchange="selectBookScope('unit')">
+                <strong style="color: #ffffff; font-size: 0.95rem;">เล่มใหญ่ทั้งหน่วย (Master)</strong>
+              </div>
+              <span id="bookScopeUnitDesc" style="font-size: 0.8rem; color: #94a3b8; line-height: 1.4;">รวมครบทุกบท ทุกคาบในเรื่องนี้ (12–24 คาบ)</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- EXPORT TYPE SELECTION -->
+        <div class="field-wrap">
+          <label class="field-label" style="font-size: 0.9rem; color: #e2e8f0; font-weight: 500;">
+            📖 รูปแบบเล่มเอกสาร (Book Edition)
+          </label>
+          <select class="penpot-input" id="selectBookEdition" style="cursor: pointer;" onchange="updateBookEditionNotice()">
+            <option value="student" selected>📘 ฉบับแบบฝึกหัดนักเรียน (Student Workbook) — สรุปสูตร + ตัวอย่าง + เว้นบรรทัดเขียนตอบ ซ่อนเฉลย 100%</option>
+            <option value="teacher">🔑 ฉบับเฉลยละเอียดสำหรับครู (Teacher Solution Key) — เฉลยคำตอบและวิธีทำละเอียดทุกข้อ 100%</option>
+            <option value="complete">📦 ฉบับรวมสมบูรณ์ (Complete Pack) — แบบฝึกหัดทุกคาบในส่วนแรก + ภาคผนวกเฉลยรวมท้ายเล่ม</option>
+          </select>
+          <span id="bookEditionNotice" style="font-size: 0.78rem; color: #38bdf8;">โหมดแนะนำสำหรับการจำหน่าย: ให้นักเรียนฝึกทำโจทย์อย่างเป็นระเบียบ</span>
+        </div>
+
+        <!-- COVER PAGE & BRANDING ACCORDION / TOGGLE -->
+        <div style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 0.85rem 1rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.65rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <input type="checkbox" id="checkIncludeCover" checked style="width: 1.1rem; height: 1.1rem; accent-color: var(--neon-cyan); cursor: pointer;" onchange="document.getElementById('bookCoverSettingsGroup').style.display = this.checked ? 'flex' : 'none'">
+              <label for="checkIncludeCover" style="color: #ffffff; font-weight: 600; font-size: 0.92rem; cursor: pointer;">
+                🎨 สร้างหน้าปก A4 ระดับ Commercial (Cover Page)
+              </label>
+            </div>
+            <span style="font-size: 0.75rem; color: #34d399; background: rgba(16, 185, 129, 0.15); padding: 2px 8px; border-radius: 10px;">ดีไซน์ สสวท. ทันสมัย</span>
+          </div>
+
+          <div id="bookCoverSettingsGroup" style="display: flex; flex-direction: column; gap: 0.65rem; margin-top: 0.65rem; border-top: 1px dashed rgba(255, 255, 255, 0.1); padding-top: 0.75rem;">
+            <div class="field-wrap">
+              <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">ชื่อเรื่องบนหน้าปก (Main Title):</label>
+              <input type="text" class="penpot-input" id="inputBookCoverTitle" placeholder="เช่น ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม">
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem;">
+              <div class="field-wrap">
+                <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">ชื่อผู้จัดทำ / ติวเตอร์ / เพจ (Author / Brand):</label>
+                <input type="text" class="penpot-input" id="inputBookAuthor" placeholder="เช่น ครูสมเกียรติ / MathMaster Academy">
+              </div>
+              <div class="field-wrap">
+                <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">สังกัด / สถาบัน / โรงเรียน (Publisher):</label>
+                <input type="text" class="penpot-input" id="inputBookSchool" placeholder="เช่น โรงเรียนมัธยมวิทยาคม (สสวท.)">
+              </div>
+            </div>
+
+            <div class="field-wrap">
+              <label class="field-label" style="font-size: 0.8rem; color: #cbd5e1;">ข้อความสงวนลิขสิทธิ์ / ติดต่อ (Copyright Notice):</label>
+              <input type="text" class="penpot-input" id="inputBookCopyright" value="© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต">
+            </div>
+          </div>
+        </div>
+
+        <!-- ADDITIONAL TOGGLES -->
+        <div style="display: flex; gap: 1.25rem; flex-wrap: wrap;">
+          <label style="display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
+            <input type="checkbox" id="checkContinuousPageNums" checked style="accent-color: var(--neon-cyan);">
+            <span>รันเลขหน้าต่อเนื่องอัตโนมัติ (หน้า X จาก Y)</span>
+          </label>
+          <label style="display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
+            <input type="checkbox" id="checkHideStudentHeader" checked style="accent-color: var(--neon-cyan);">
+            <span>ซ่อนช่องกรอกชื่อ-สกุลนักเรียนซ้ำๆ ทุกคาบ</span>
+          </label>
+        </div>
+
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem;">
+        <button type="button" class="btn-action" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15);" onclick="closeBookExportModal()">
+          ยกเลิก
+        </button>
+
+        <button type="button" class="btn-action btn-save-glow" id="btnLaunchBookPreview" onclick="executeBookExport()" style="background: linear-gradient(135deg, #00f5d4 0%, #0284c7 100%); color: #021a1f; font-weight: 700; padding: 0.55rem 1.25rem; font-size: 0.95rem;">
+          <span>🚀 สร้างเล่มและเปิดพรีวิว A4</span>
         </button>
       </div>
     </div>

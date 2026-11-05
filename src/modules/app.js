@@ -89,6 +89,9 @@
                 <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('${chap.id}')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
                   <span>⚙️ ตั้งค่าบท</span>
                 </button>
+                <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('${chap.id}')" title="รวมเล่มเฉพาะบทนี้ (${chap.topics ? chap.topics.length : 4} คาบ) เป็นไฟล์ PDF เดียว">
+                  <span>📖 รวมเล่มบทนี้</span>
+                </button>
               </div>
               <ul class="chapter-lessons-list">
           `;
@@ -1088,6 +1091,197 @@
   }
 
   // -------------------------------------------------------------
+  // COMMERCIAL WORKBOOK & BOOK EXPORT CONTROLLERS
+  // -------------------------------------------------------------
+  function openBookExportModal(chapterId) {
+    const modal = document.getElementById('bookExportModal');
+    if (!modal) return;
+
+    const inputTargetChap = document.getElementById('inputBookTargetChapterId');
+    const inputTitle = document.getElementById('inputBookCoverTitle');
+    const inputAuthor = document.getElementById('inputBookAuthor');
+    const inputSchool = document.getElementById('inputBookSchool');
+    const inputCopyright = document.getElementById('inputBookCopyright');
+
+    // Resolve active chapter and unit
+    const curTopicId = window.CurriculumStore ? window.CurriculumStore.getCurrentTopicId() : null;
+    let targetChap = null;
+    if (chapterId && window.CurriculumStore) {
+      targetChap = window.CurriculumStore.getChapter(chapterId);
+    } else if (window.CurriculumStore) {
+      targetChap = window.CurriculumStore.getChapterByTopicId(curTopicId);
+    }
+
+    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : null;
+
+    if (inputTargetChap) {
+      inputTargetChap.value = targetChap ? targetChap.id : (chapterId || '');
+    }
+
+    // Set descriptions
+    const descChap = document.getElementById('bookScopeChapterDesc');
+    if (descChap) {
+      const cName = targetChap ? (targetChap.chapterTitle || targetChap.title) : 'บทปัจจุบัน';
+      const cCount = targetChap && targetChap.topics ? targetChap.topics.length : 4;
+      descChap.textContent = `${cName} (${cCount} คาบ • ประมาณ 8–10 หน้า)`;
+    }
+
+    const descUnit = document.getElementById('bookScopeUnitDesc');
+    if (descUnit) {
+      const uName = curUnit ? curUnit.title : 'หน่วยการเรียนรู้ปัจจุบัน';
+      const uPeriods = curUnit ? (curUnit.totalPeriods || 'ครบทุกคาบ') : '24 คาบ';
+      descUnit.textContent = `${uName} (${uPeriods} • เล่มสมบูรณ์)`;
+    }
+
+    // Select initial scope
+    if (chapterId) {
+      selectBookScope('chapter');
+    } else {
+      selectBookScope('chapter');
+    }
+
+    // Pre-fill author & school from system settings or localStorage
+    const savedTeacher = localStorage.getItem('math_system_teacher');
+    const fTeacher = document.getElementById('fieldTeacher');
+    if (inputAuthor) {
+      inputAuthor.value = savedTeacher || (fTeacher && fTeacher.value ? fTeacher.value.trim() : 'กลุ่มสาระการเรียนรู้คณิตศาสตร์');
+    }
+
+    const savedSchool = localStorage.getItem('math_system_school');
+    const fSchool = document.getElementById('fieldSchool');
+    if (inputSchool) {
+      inputSchool.value = savedSchool || (fSchool && fSchool.value ? fSchool.value.trim() : 'โรงเรียนมัธยมวิทยาคม (สสวท.)');
+    }
+
+    if (inputCopyright && !inputCopyright.value) {
+      inputCopyright.value = '© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต';
+    }
+
+    updateBookEditionNotice();
+    modal.classList.add('open');
+  }
+
+  function closeBookExportModal() {
+    const modal = document.getElementById('bookExportModal');
+    if (modal) modal.classList.remove('open');
+  }
+
+  function selectBookScope(scope) {
+    const rChap = document.getElementById('bookScopeChapter');
+    const rUnit = document.getElementById('bookScopeUnit');
+    const cCard = document.getElementById('bookScopeChapterCard');
+    const uCard = document.getElementById('bookScopeUnitCard');
+    const inputTitle = document.getElementById('inputBookCoverTitle');
+
+    const inputTargetChap = document.getElementById('inputBookTargetChapterId');
+    const chapId = inputTargetChap ? inputTargetChap.value : null;
+    const curTopicId = window.CurriculumStore ? window.CurriculumStore.getCurrentTopicId() : null;
+    const targetChap = (chapId && window.CurriculumStore) ? window.CurriculumStore.getChapter(chapId) : (window.CurriculumStore ? window.CurriculumStore.getChapterByTopicId(curTopicId) : null);
+    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : null;
+
+    if (scope === 'chapter') {
+      if (rChap) rChap.checked = true;
+      if (cCard) {
+        cCard.style.borderColor = 'var(--neon-cyan)';
+        cCard.style.background = 'rgba(0, 245, 212, 0.08)';
+      }
+      if (uCard) {
+        uCard.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+        uCard.style.background = 'rgba(255, 255, 255, 0.03)';
+      }
+      if (inputTitle && targetChap) {
+        inputTitle.value = targetChap.chapterTitle || targetChap.title;
+      }
+    } else {
+      if (rUnit) rUnit.checked = true;
+      if (uCard) {
+        uCard.style.borderColor = 'var(--neon-cyan)';
+        uCard.style.background = 'rgba(0, 245, 212, 0.08)';
+      }
+      if (cCard) {
+        cCard.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+        cCard.style.background = 'rgba(255, 255, 255, 0.03)';
+      }
+      if (inputTitle && curUnit) {
+        inputTitle.value = curUnit.title;
+      }
+    }
+  }
+
+  function updateBookEditionNotice() {
+    const sel = document.getElementById('selectBookEdition');
+    const notice = document.getElementById('bookEditionNotice');
+    if (!sel || !notice) return;
+
+    if (sel.value === 'student') {
+      notice.textContent = 'โหมดแนะนำสำหรับการจำหน่าย: ให้นักเรียนฝึกทำโจทย์อย่างเป็นระเบียบ (ซ่อนเฉลย 100%)';
+      notice.style.color = '#38bdf8';
+    } else if (sel.value === 'teacher') {
+      notice.textContent = 'โหมดคู่มือผู้สอน: แสดงวิธีทำละเอียดทุกขั้นตอนและคำตอบตัวโต ชัดเจน 100%';
+      notice.style.color = '#34d399';
+    } else {
+      notice.textContent = 'โหมดครบเครื่อง: รวมทั้งเล่มโจทย์ในครึ่งแรก + ภาคผนวกเฉลยรวมท้ายเล่ม คุ้มค่าที่สุดสำหรับการพิมพ์จำหน่าย';
+      notice.style.color = '#f472b6';
+    }
+  }
+
+  function executeBookExport() {
+    const rChap = document.getElementById('bookScopeChapter');
+    const scope = (rChap && rChap.checked) ? 'chapter' : 'unit';
+
+    const inputTargetChap = document.getElementById('inputBookTargetChapterId');
+    const chapterId = inputTargetChap ? inputTargetChap.value : null;
+
+    const curTopicId = window.CurriculumStore ? window.CurriculumStore.getCurrentTopicId() : null;
+    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : null;
+    const unitId = curUnit ? curUnit.id : null;
+
+    const selectEdition = document.getElementById('selectBookEdition');
+    const bookType = selectEdition ? selectEdition.value : 'student';
+
+    const checkCover = document.getElementById('checkIncludeCover');
+    const includeCover = checkCover ? checkCover.checked : true;
+
+    const inputTitle = document.getElementById('inputBookCoverTitle');
+    const coverTitle = (inputTitle && inputTitle.value.trim()) ? inputTitle.value.trim() : '';
+
+    const inputAuthor = document.getElementById('inputBookAuthor');
+    const authorName = (inputAuthor && inputAuthor.value.trim()) ? inputAuthor.value.trim() : '';
+
+    const inputSchool = document.getElementById('inputBookSchool');
+    const schoolName = (inputSchool && inputSchool.value.trim()) ? inputSchool.value.trim() : '';
+
+    const inputCopyright = document.getElementById('inputBookCopyright');
+    const copyrightText = (inputCopyright && inputCopyright.value.trim()) ? inputCopyright.value.trim() : '';
+
+    const checkPages = document.getElementById('checkContinuousPageNums');
+    const showPageNumbers = checkPages ? checkPages.checked : true;
+
+    const checkHideHeader = document.getElementById('checkHideStudentHeader');
+    const hideStudentHeader = checkHideHeader ? checkHideHeader.checked : true;
+
+    closeBookExportModal();
+
+    if (window.SheetRenderEngine && window.SheetRenderEngine.openBookPrintTab) {
+      window.SheetRenderEngine.openBookPrintTab({
+        scope: scope,
+        chapterId: chapterId,
+        unitId: unitId,
+        bookType: bookType,
+        includeCover: includeCover,
+        coverTitle: coverTitle,
+        authorName: authorName,
+        schoolName: schoolName,
+        copyrightText: copyrightText,
+        showPageNumbers: showPageNumbers,
+        hideStudentHeader: hideStudentHeader
+      });
+    } else {
+      alert('ไม่พบโมดูล SheetRenderEngine.openBookPrintTab');
+    }
+  }
+
+  // -------------------------------------------------------------
   // BOOTSTRAP INITIALIZATION
   // -------------------------------------------------------------
   function initApp() {
@@ -1165,6 +1359,11 @@
   window.openCleanPrintTab = openCleanPrintTab;
   window.closeIosPdfGuideModal = closeIosPdfGuideModal;
   window.getWorksheetPrintFileName = getWorksheetPrintFileName;
+  window.openBookExportModal = openBookExportModal;
+  window.closeBookExportModal = closeBookExportModal;
+  window.selectBookScope = selectBookScope;
+  window.updateBookEditionNotice = updateBookEditionNotice;
+  window.executeBookExport = executeBookExport;
   window.initApp = initApp;
 
   // Provide window.CURRICULUM_DATABASE backwards compatibility

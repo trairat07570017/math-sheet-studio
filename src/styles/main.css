@@ -980,6 +980,20 @@
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
     }
 
+    .btn-book-export {
+      background: linear-gradient(135deg, rgba(0, 245, 212, 0.14), rgba(168, 85, 247, 0.18)) !important;
+      border: 1px solid rgba(0, 245, 212, 0.45) !important;
+      color: #6ee7b7 !important;
+      font-weight: 600;
+    }
+    .btn-book-export:hover {
+      background: linear-gradient(135deg, rgba(0, 245, 212, 0.28), rgba(168, 85, 247, 0.35)) !important;
+      border-color: var(--neon-cyan) !important;
+      color: #ffffff !important;
+      box-shadow: 0 0 14px rgba(0, 245, 212, 0.4);
+      transform: translateY(-1px);
+    }
+
     .btn-save-glow {
       background: linear-gradient(135deg, #00f5d4 0%, #3b82f6 100%);
       color: #080b11;
@@ -1091,6 +1105,18 @@
       border-color: rgba(0, 245, 212, 0.6);
       color: #ffffff;
       box-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+    }
+
+    .btn-chapter-book-chip {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: #e9d5ff;
+    }
+    .btn-chapter-book-chip:hover {
+      background: rgba(168, 85, 247, 0.3);
+      border-color: rgba(168, 85, 247, 0.75);
+      color: #ffffff;
+      box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
     }
 
     .btn-chapter-tree-gear {
@@ -2189,6 +2215,7 @@
       .topbar-right .btn-answer-key,
       .topbar-right .btn-download-pdf,
       .topbar-right .btn-print,
+      .topbar-right .btn-book-export,
       .topbar-right .btn-save-glow,
       .topbar-right .view-switcher {
         display: none !important;
