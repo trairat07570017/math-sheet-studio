@@ -2052,7 +2052,7 @@
 
     @page {
       size: A4 portrait;
-      margin: 12mm 14mm 12mm 14mm;
+      margin: 10mm 12mm 10mm 12mm;
     }
 
     /* Equation & Box Overflow Containment */
@@ -2574,7 +2574,12 @@
     }
 
     @media print {
-      /* 1. Global Reset to Pure White */
+      /* 1. Global Reset to Pure White & Exact Colors */
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
       html, body {
         background: #ffffff !important;
         background-color: #ffffff !important;
@@ -22744,6 +22749,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       const fontsCss = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Prompt:wght@400;500;600&family=Sarabun:wght@400;500;600&display=swap';
       const katexCss = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css';
+      const katexJs = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js';
+      const katexAutoRenderJs = 'https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js';
 
       printWindow.document.write(`<!DOCTYPE html>
 <html lang="th">
@@ -22754,8 +22761,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   <link rel="stylesheet" href="${fontsCss}">
   <link rel="stylesheet" href="${katexCss}">
   <style>
-    @page { size: A4 portrait; margin: 12mm 14mm 12mm 14mm; }
-    * { box-sizing: border-box; }
+    @page { size: A4 portrait; margin: 10mm 12mm 10mm 12mm; }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -22764,18 +22776,25 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-family: 'Sarabun', 'Prompt', sans-serif;
       font-size: 11pt;
       line-height: 1.5;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
     .a4-paper-sheet {
       width: 100%;
-      max-width: 820px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 20px 25px;
+      padding: 20px 24px;
       background: #ffffff;
+      box-sizing: border-box;
     }
     .sheet-main-header {
       border-bottom: 2px solid #0f172a;
       padding-bottom: 0.65rem;
       margin-bottom: 0.85rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      break-after: avoid;
+      page-break-after: avoid;
     }
     .sheet-school-name { font-size: 1.25rem; font-weight: 700; margin: 0 0 0.2rem 0; color: #0f172a; }
     .sheet-subject-title { font-size: 0.95rem; font-weight: 600; margin: 0 0 0.15rem 0; color: #334155; }
@@ -22804,26 +22823,36 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-size: 0.95rem;
       margin-bottom: 0.4rem;
       break-after: avoid;
+      page-break-after: avoid;
     }
     .sheet-exercise {
       margin-bottom: 0.75rem;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
-    .exercise-header { font-weight: 600; line-height: 1.5; margin-bottom: 0.35rem; }
+    .exercise-header {
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 0.35rem;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
     .sheet-formula-box, .sheet-solution-box {
-      background: #f8fafc;
+      background: #f8fafc !important;
       border-left: 3.5px solid #2563eb;
       padding: 0.55rem 0.85rem;
       margin-bottom: 0.45rem;
-      break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
     .handwriting-grid {
       min-height: 145px;
       border: 1px solid #e2e8f0;
       border-radius: 4px;
-      background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px);
+      background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px) !important;
       margin-top: 0.4rem;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
     .handwriting-grid.grid-large { min-height: 195px; }
     .sheet-footer-line {
@@ -22832,23 +22861,82 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-size: 8pt;
       margin-top: 0.85rem;
       padding-top: 0.4rem;
-      break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
     .katex-display { margin: 0.2rem 0; font-size: 1.08em; line-height: 1.5; }
     .katex { font-size: 1.06em; }
     .no-print, .exercise-actions-bar, .add-exercise-container { display: none !important; }
     @media print {
-      body { margin: 0; }
-      .a4-paper-sheet { max-width: 100%; padding: 0; }
+      body {
+        margin: 0 !important;
+        background: #ffffff !important;
+      }
+      .a4-paper-sheet {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .sheet-exercise {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .sheet-main-header {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .sheet-block-badge {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .exercise-header {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .sheet-formula-box, .sheet-solution-box, .handwriting-grid {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
     }
   </style>
+  <script src="${katexJs}"><\/script>
+  <script src="${katexAutoRenderJs}"><\/script>
 </head>
 <body>
   ${paperClone.outerHTML}
   <script>
-    window.onload = function() {
-      setTimeout(function() { window.print(); }, 300);
-    };
+    async function initAndPrint() {
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+      } catch (err) {}
+      if (typeof renderMathInElement === 'function') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\\\[', right: '\\\\]', display: true },
+            { left: '\\\\(', right: '\\\\)', display: false }
+          ],
+          throwOnError: false,
+          errorColor: '#ef4444'
+        });
+      }
+      setTimeout(function() {
+        window.print();
+      }, 150);
+    }
+    if (document.readyState === 'complete') {
+      initAndPrint();
+    } else {
+      window.addEventListener('load', initAndPrint);
+    }
   <\/script>
 </body>
 </html>`);
@@ -23206,8 +23294,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   <link rel="stylesheet" href="${fontsCss}">
   <link rel="stylesheet" href="${katexCss}">
   <style>
-    @page { size: A4 portrait; margin: 12mm 14mm 12mm 14mm; }
-    * { box-sizing: border-box; }
+    @page { size: A4 portrait; margin: 10mm 12mm 10mm 12mm; }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -23216,6 +23309,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-family: 'Sarabun', 'Prompt', sans-serif;
       font-size: 11pt;
       line-height: 1.5;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
     .book-floating-toolbar {
       position: sticky;
@@ -23242,9 +23337,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
     .a4-paper-sheet {
       width: 100%;
-      max-width: 820px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 22px 26px;
+      padding: 20px 24px;
       background: #ffffff;
       box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
       box-sizing: border-box;
@@ -23253,17 +23348,23 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     .book-lesson-sheet {
       page-break-before: always;
       break-before: page;
+      break-inside: auto;
+      page-break-inside: auto;
     }
     .book-cover-page {
+      width: 100%;
+      max-width: 800px;
       min-height: 1120px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 30px 30px;
+      padding: 24px 24px;
       background: linear-gradient(180deg, #f8fafc 0%, #ffffff 40%, #f1f5f9 100%);
       border: 2px solid #cbd5e1;
-      page-break-after: always;
-      break-after: page;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      break-after: avoid;
+      page-break-after: avoid;
     }
     .cover-card-container {
       height: 100%;
@@ -23396,6 +23497,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     .tech-note { font-size: 0.72rem; color: #94a3b8; margin-top: 2px; }
 
     .book-appendix-divider {
+      width: 100%;
+      max-width: 800px;
       min-height: 1100px;
       display: flex;
       align-items: center;
@@ -23403,8 +23506,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       text-align: center;
       page-break-before: always;
       break-before: page;
-      page-break-after: always;
-      break-after: page;
+      break-after: avoid;
+      page-break-after: avoid;
+      break-inside: avoid;
+      page-break-inside: avoid;
       background: #f8fafc;
     }
     .appendix-inner-card {
@@ -23424,6 +23529,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       border-bottom: 2px solid #0f172a;
       padding-bottom: 0.55rem;
       margin-bottom: 0.75rem;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      break-after: avoid;
+      page-break-after: avoid;
     }
     .sheet-school-name { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.15rem 0; color: #0f172a; }
     .sheet-subject-title { font-size: 0.92rem; font-weight: 600; margin: 0 0 0.15rem 0; color: #334155; }
@@ -23452,31 +23561,42 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-size: 0.92rem;
       margin-bottom: 0.35rem;
       break-after: avoid;
+      page-break-after: avoid;
     }
     .sheet-exercise {
       margin-bottom: 0.7rem;
-      break-inside: avoid;
-      page-break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
-    .exercise-header { font-weight: 600; line-height: 1.5; margin-bottom: 0.3rem; }
+    .exercise-header {
+      font-weight: 600;
+      line-height: 1.5;
+      margin-bottom: 0.3rem;
+      break-after: avoid;
+      page-break-after: avoid;
+    }
     .sheet-formula-box, .sheet-solution-box {
-      background: #f8fafc;
+      background: #f8fafc !important;
       border-left: 3.5px solid #2563eb;
       padding: 0.5rem 0.8rem;
       margin-bottom: 0.4rem;
-      break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
     .sheet-teacher-answer {
       display: flex;
       align-items: baseline;
       gap: 0.5rem;
-      background: #f0fdf4;
-      border: 1.5px solid #059669;
+      background: #f0fdf4 !important;
+      border: 1.5px solid #059669 !important;
       border-radius: 4px;
       padding: 0.35rem 0.65rem;
       margin: 0.3rem 0 0.45rem 0;
       color: #064e3b;
-      break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
     .sheet-teacher-answer .answer-badge {
       font-weight: 700;
@@ -23491,8 +23611,12 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       min-height: 145px;
       border: 1px solid #e2e8f0;
       border-radius: 4px;
-      background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px);
+      background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px) !important;
       margin-top: 0.35rem;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
     }
     .handwriting-grid.grid-large { min-height: 195px; }
     .sheet-footer-line {
@@ -23501,7 +23625,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-size: 8pt;
       margin-top: 0.85rem;
       padding-top: 0.4rem;
-      break-inside: avoid;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
     }
     .katex-display { margin: 0.2rem 0; font-size: 1.08em; line-height: 1.5; }
     .katex { font-size: 1.06em; }
@@ -23536,6 +23661,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       body {
         margin: 0 !important;
         background: #ffffff !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
       }
       .book-floating-toolbar, .book-floating-fab, .no-print {
         display: none !important;
@@ -23547,22 +23674,87 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       }
       .a4-paper-sheet {
         max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
         padding: 0 !important;
         box-shadow: none !important;
         border: none !important;
         border-radius: 0 !important;
+        background: #ffffff !important;
       }
       .book-cover-page {
         border: none !important;
-        min-height: 100vh !important;
+        height: 275mm !important;
+        max-height: 275mm !important;
+        min-height: 275mm !important;
         padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-before: avoid !important;
+        page-break-before: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
       }
       .cover-card-container {
         border: 2px solid #0f172a !important;
-        min-height: 96vh !important;
+        height: 275mm !important;
+        max-height: 275mm !important;
+        min-height: 275mm !important;
+        padding: 24px 22px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
       }
       .book-appendix-divider {
-        min-height: 96vh !important;
+        border: none !important;
+        height: 275mm !important;
+        max-height: 275mm !important;
+        min-height: 275mm !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      .sheet-main-header {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .sheet-block {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+      .sheet-block-badge {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .sheet-exercise {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .exercise-header {
+        break-after: avoid !important;
+        page-break-after: avoid !important;
+      }
+      .sheet-formula-box, .sheet-solution-box, .sheet-teacher-answer, .handwriting-grid {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .sheet-footer-line {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
       }
     }
   </style>
@@ -23576,6 +23768,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       <div>
         <div style="font-weight: 700; font-size: 1rem; color: #ffffff;">${coverTitle}</div>
         <div style="font-size: 0.8rem; color: #94a3b8;">${totalLessons} คาบเรียนสมบูรณ์ • ${editionBadge}</div>
+        <div style="font-size: 0.74rem; color: #67e8f9; margin-top: 3px;">
+          💡 แนะนำการพิมพ์: ตรวจดูว่าเลือก <strong>&quot;บันทึกเป็น PDF&quot;</strong>, ติ๊กถูกที่ <strong>&quot;กราฟิกพื้นหลัง (Background graphics)&quot;</strong> และเอาติ๊กถูกออกจาก <strong>&quot;หัวกระดาษและท้ายกระดาษ&quot;</strong>
+        </div>
       </div>
     </div>
     <div style="display: flex; align-items: center; gap: 0.65rem;">
@@ -23599,7 +23794,14 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   </div>
 
   <script>
-    function typesetAndAutoDownload() {
+    async function typesetAndAutoDownload() {
+      try {
+        if (document.fonts && document.fonts.ready) {
+          await document.fonts.ready;
+        }
+      } catch (err) {
+        console.warn('Font loading check:', err);
+      }
       if (typeof renderMathInElement === 'function') {
         renderMathInElement(document.body, {
           delimiters: [
@@ -23612,16 +23814,15 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           errorColor: '#ef4444'
         });
       }
+      await new Promise(function(r) { setTimeout(r, 200); });
       ${opts.autoDownload ? `
-        setTimeout(function() {
-          window.print();
-        }, 400);
+        window.print();
       ` : ''}
     }
-    if (document.readyState === 'complete' || document.readyState === 'interactive') {
-      setTimeout(typesetAndAutoDownload, 50);
+    if (document.readyState === 'complete') {
+      typesetAndAutoDownload();
     } else {
-      window.onload = typesetAndAutoDownload;
+      window.addEventListener('load', typesetAndAutoDownload);
     }
   <\/script>
 </body>
