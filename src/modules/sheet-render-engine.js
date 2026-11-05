@@ -400,7 +400,16 @@
       let defaultGrade = 'มัธยมศึกษาปีที่ 4';
       let defaultSemester = 'ภาคเรียนที่ 2';
 
-      if (opts.scope === 'chapter' && opts.chapterId) {
+      if (opts.topicIds && opts.topicIds.length) {
+        topics = opts.topicIds.map(function(id) {
+          return window.CurriculumStore ? window.CurriculumStore.getTopic(id) : null;
+        }).filter(Boolean);
+        if (topics.length && topics[0]) {
+          defaultSubjectCode = topics[0].subjectCode || defaultSubjectCode;
+          defaultGrade = topics[0].grade || defaultGrade;
+          defaultSemester = topics[0].semester || defaultSemester;
+        }
+      } else if (opts.scope === 'chapter' && opts.chapterId) {
         const chapter = window.CurriculumStore ? window.CurriculumStore.getChapter(opts.chapterId) : null;
         if (chapter) {
           defaultTitle = chapter.chapterTitle || chapter.title;

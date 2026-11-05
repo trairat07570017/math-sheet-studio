@@ -1097,62 +1097,57 @@
     const modal = document.getElementById('bookExportModal');
     if (!modal) return;
 
-    const inputTargetChap = document.getElementById('inputBookTargetChapterId');
-    const inputTitle = document.getElementById('inputBookCoverTitle');
-    const inputAuthor = document.getElementById('inputBookAuthor');
-    const inputSchool = document.getElementById('inputBookSchool');
-    const inputCopyright = document.getElementById('inputBookCopyright');
+    const selectUnit = document.getElementById('selectBookUnit');
+    const selectChapter = document.getElementById('selectBookChapter');
 
-    // Resolve active chapter and unit
+    // 1. Populate Units Dropdown
+    const allUnits = window.CurriculumStore ? window.CurriculumStore.getUnits() : [];
     const curTopicId = window.CurriculumStore ? window.CurriculumStore.getCurrentTopicId() : null;
-    let targetChap = null;
+    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : (allUnits[0] || null);
+
+    // If chapterId passed, find its parent unit
+    let parentUnitId = curUnit ? curUnit.id : (allUnits[0] ? allUnits[0].id : null);
     if (chapterId && window.CurriculumStore) {
-      targetChap = window.CurriculumStore.getChapter(chapterId);
-    } else if (window.CurriculumStore) {
-      targetChap = window.CurriculumStore.getChapterByTopicId(curTopicId);
+      allUnits.forEach(function(u) {
+        if (u.chapters && u.chapters.some(function(c) { return c.id === chapterId; })) {
+          parentUnitId = u.id;
+        }
+      });
     }
 
-    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : null;
-
-    if (inputTargetChap) {
-      inputTargetChap.value = targetChap ? targetChap.id : (chapterId || '');
+    if (selectUnit) {
+      selectUnit.innerHTML = allUnits.map(function(u) {
+        const isSelected = (u.id === parentUnitId) ? 'selected' : '';
+        const badge = u.gradeShort ? `[${u.gradeShort}] ` : '';
+        return `<option value="${u.id}" ${isSelected}>${badge}${u.title} (${u.subjectCode})</option>`;
+      }).join('');
     }
 
-    // Set descriptions
-    const descChap = document.getElementById('bookScopeChapterDesc');
-    if (descChap) {
-      const cName = targetChap ? (targetChap.chapterTitle || targetChap.title) : 'บทปัจจุบัน';
-      const cCount = targetChap && targetChap.topics ? targetChap.topics.length : 4;
-      descChap.textContent = `${cName} (${cCount} คาบ • ประมาณ 8–10 หน้า)`;
-    }
+    // 2. Populate Chapters Dropdown for that Unit
+    populateBookChaptersDropdown(parentUnitId, chapterId);
 
-    const descUnit = document.getElementById('bookScopeUnitDesc');
-    if (descUnit) {
-      const uName = curUnit ? curUnit.title : 'หน่วยการเรียนรู้ปัจจุบัน';
-      const uPeriods = curUnit ? (curUnit.totalPeriods || 'ครบทุกคาบ') : '24 คาบ';
-      descUnit.textContent = `${uName} (${uPeriods} • เล่มสมบูรณ์)`;
-    }
+    // 3. Render Topics Checklist
+    renderBookTopicsChecklist();
 
-    // Select initial scope
-    if (chapterId) {
-      selectBookScope('chapter');
-    } else {
-      selectBookScope('chapter');
-    }
+    // 4. Set Initial Cover Title
+    syncBookCoverTitle();
 
-    // Pre-fill author & school from system settings or localStorage
+    // 5. Pre-fill Author, School, Copyright from localStorage or settings
     const savedTeacher = localStorage.getItem('math_system_teacher');
     const fTeacher = document.getElementById('fieldTeacher');
+    const inputAuthor = document.getElementById('inputBookAuthor');
     if (inputAuthor) {
       inputAuthor.value = savedTeacher || (fTeacher && fTeacher.value ? fTeacher.value.trim() : 'กลุ่มสาระการเรียนรู้คณิตศาสตร์');
     }
 
     const savedSchool = localStorage.getItem('math_system_school');
     const fSchool = document.getElementById('fieldSchool');
+    const inputSchool = document.getElementById('inputBookSchool');
     if (inputSchool) {
       inputSchool.value = savedSchool || (fSchool && fSchool.value ? fSchool.value.trim() : 'โรงเรียนมัธยมวิทยาคม (สสวท.)');
     }
 
+    const inputCopyright = document.getElementById('inputBookCopyright');
     if (inputCopyright && !inputCopyright.value) {
       inputCopyright.value = '© สงวนลิขสิทธิ์ตาม พ.ร.บ. ห้ามทำซ้ำ ดัดแปลง หรือแจกจ่ายต่อในเชิงพาณิชย์โดยไม่ได้รับอนุญาต';
     }
@@ -1161,51 +1156,145 @@
     modal.classList.add('open');
   }
 
+  function populateBookChaptersDropdown(unitId, selectedChapId) {
+    const selectChapter = document.getElementById('selectBookChapter');
+    if (!selectChapter) return;
+
+    const allUnits = window.CurriculumStore ? window.CurriculumStore.getUnits() : [];
+    const unit = allUnits.find(function(u) { return u.id === unitId; });
+    const chapters = (unit && unit.chapters) ? unit.chapters : [];
+
+    let html = `<option value="ALL">🌟 รวมทุกบทในเรื่องนี้ (${chapters.length} บท • เล่มสมบูรณ์)</option>`;
+    chapters.forEach(function(c) {
+      const isSelected = (c.id === selectedChapId) ? 'selected' : '';
+      const topicCount = c.topics ? c.topics.length : 4;
+      html += `<option value="${c.id}" ${isSelected}>${c.chapterTitle || c.title} (${topicCount} คาบ)</option>`;
+    });
+
+    selectChapter.innerHTML = html;
+  }
+
+  function onBookUnitChange() {
+    const selectUnit = document.getElementById('selectBookUnit');
+    const unitId = selectUnit ? selectUnit.value : null;
+    populateBookChaptersDropdown(unitId, null);
+    renderBookTopicsChecklist();
+    syncBookCoverTitle();
+  }
+
+  function onBookChapterChange() {
+    renderBookTopicsChecklist();
+    syncBookCoverTitle();
+  }
+
+  function renderBookTopicsChecklist() {
+    const selectUnit = document.getElementById('selectBookUnit');
+    const selectChapter = document.getElementById('selectBookChapter');
+    const container = document.getElementById('bookTopicsChecklist');
+    if (!container) return;
+
+    const unitId = selectUnit ? selectUnit.value : null;
+    const chapId = selectChapter ? selectChapter.value : 'ALL';
+
+    const allUnits = window.CurriculumStore ? window.CurriculumStore.getUnits() : [];
+    const unit = allUnits.find(function(u) { return u.id === unitId; });
+    const chapters = (unit && unit.chapters) ? unit.chapters : [];
+
+    let topicsToRender = [];
+    if (chapId === 'ALL') {
+      chapters.forEach(function(c) {
+        if (c.topics) {
+          c.topics.forEach(function(t) {
+            topicsToRender.push({
+              id: t.id,
+              title: t.title,
+              desc: t.desc || '',
+              chapterName: c.title
+            });
+          });
+        }
+      });
+    } else {
+      const c = chapters.find(function(item) { return item.id === chapId; });
+      if (c && c.topics) {
+        c.topics.forEach(function(t) {
+          topicsToRender.push({
+            id: t.id,
+            title: t.title,
+            desc: t.desc || '',
+            chapterName: c.title
+          });
+        });
+      }
+    }
+
+    if (!topicsToRender.length) {
+      container.innerHTML = '<div style="color: #94a3b8; font-size: 0.85rem; padding: 0.5rem; text-align: center;">ไม่มีรายการคาบเรียนในหัวข้อนี้</div>';
+      updateBookSelectedCount();
+      return;
+    }
+
+    let html = '';
+    let lastChap = '';
+    topicsToRender.forEach(function(t, idx) {
+      if (chapId === 'ALL' && t.chapterName !== lastChap) {
+        lastChap = t.chapterName;
+        html += `<div style="font-size: 0.75rem; font-weight: 700; color: #38bdf8; padding: 4px 6px; background: rgba(56, 189, 248, 0.1); border-radius: 4px; margin-top: ${idx > 0 ? '6px' : '0'};">📂 ${lastChap}</div>`;
+      }
+      html += `
+        <label style="display: flex; align-items: center; gap: 0.65rem; padding: 0.45rem 0.65rem; background: rgba(255, 255, 255, 0.04); border-radius: 6px; cursor: pointer; border: 1px solid rgba(255, 255, 255, 0.07); transition: all 0.15s ease;">
+          <input type="checkbox" class="book-topic-cb" value="${t.id}" checked onchange="updateBookSelectedCount()" style="width: 1.05rem; height: 1.05rem; accent-color: var(--neon-cyan); cursor: pointer;">
+          <div style="flex: 1; display: flex; flex-direction: column; min-width: 0;">
+            <span style="color: #ffffff; font-size: 0.85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${t.title}</span>
+            <span style="color: #94a3b8; font-size: 0.75rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${t.desc}</span>
+          </div>
+        </label>
+      `;
+    });
+
+    container.innerHTML = html;
+    updateBookSelectedCount();
+  }
+
+  function selectAllBookTopics(selectAll) {
+    const checkboxes = document.querySelectorAll('.book-topic-cb');
+    checkboxes.forEach(function(cb) {
+      cb.checked = !!selectAll;
+    });
+    updateBookSelectedCount();
+  }
+
+  function updateBookSelectedCount() {
+    const checked = document.querySelectorAll('.book-topic-cb:checked');
+    const badge = document.getElementById('bookSelectedCount');
+    if (badge) {
+      badge.textContent = checked.length;
+    }
+  }
+
+  function syncBookCoverTitle() {
+    const selectUnit = document.getElementById('selectBookUnit');
+    const selectChapter = document.getElementById('selectBookChapter');
+    const inputTitle = document.getElementById('inputBookCoverTitle');
+    if (!inputTitle) return;
+
+    const unitId = selectUnit ? selectUnit.value : null;
+    const chapId = selectChapter ? selectChapter.value : 'ALL';
+    const allUnits = window.CurriculumStore ? window.CurriculumStore.getUnits() : [];
+    const unit = allUnits.find(function(u) { return u.id === unitId; });
+
+    if (chapId === 'ALL') {
+      if (unit) inputTitle.value = unit.title;
+    } else {
+      const chapters = (unit && unit.chapters) ? unit.chapters : [];
+      const c = chapters.find(function(item) { return item.id === chapId; });
+      if (c) inputTitle.value = c.chapterTitle || c.title;
+    }
+  }
+
   function closeBookExportModal() {
     const modal = document.getElementById('bookExportModal');
     if (modal) modal.classList.remove('open');
-  }
-
-  function selectBookScope(scope) {
-    const rChap = document.getElementById('bookScopeChapter');
-    const rUnit = document.getElementById('bookScopeUnit');
-    const cCard = document.getElementById('bookScopeChapterCard');
-    const uCard = document.getElementById('bookScopeUnitCard');
-    const inputTitle = document.getElementById('inputBookCoverTitle');
-
-    const inputTargetChap = document.getElementById('inputBookTargetChapterId');
-    const chapId = inputTargetChap ? inputTargetChap.value : null;
-    const curTopicId = window.CurriculumStore ? window.CurriculumStore.getCurrentTopicId() : null;
-    const targetChap = (chapId && window.CurriculumStore) ? window.CurriculumStore.getChapter(chapId) : (window.CurriculumStore ? window.CurriculumStore.getChapterByTopicId(curTopicId) : null);
-    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : null;
-
-    if (scope === 'chapter') {
-      if (rChap) rChap.checked = true;
-      if (cCard) {
-        cCard.style.borderColor = 'var(--neon-cyan)';
-        cCard.style.background = 'rgba(0, 245, 212, 0.08)';
-      }
-      if (uCard) {
-        uCard.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-        uCard.style.background = 'rgba(255, 255, 255, 0.03)';
-      }
-      if (inputTitle && targetChap) {
-        inputTitle.value = targetChap.chapterTitle || targetChap.title;
-      }
-    } else {
-      if (rUnit) rUnit.checked = true;
-      if (uCard) {
-        uCard.style.borderColor = 'var(--neon-cyan)';
-        uCard.style.background = 'rgba(0, 245, 212, 0.08)';
-      }
-      if (cCard) {
-        cCard.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-        cCard.style.background = 'rgba(255, 255, 255, 0.03)';
-      }
-      if (inputTitle && curUnit) {
-        inputTitle.value = curUnit.title;
-      }
-    }
   }
 
   function updateBookEditionNotice() {
@@ -1226,15 +1315,18 @@
   }
 
   function executeBookExport() {
-    const rChap = document.getElementById('bookScopeChapter');
-    const scope = (rChap && rChap.checked) ? 'chapter' : 'unit';
+    const checkedBoxes = document.querySelectorAll('.book-topic-cb:checked');
+    const topicIds = Array.from(checkedBoxes).map(function(cb) { return cb.value; });
 
-    const inputTargetChap = document.getElementById('inputBookTargetChapterId');
-    const chapterId = inputTargetChap ? inputTargetChap.value : null;
+    if (!topicIds.length) {
+      alert('กรุณาติ๊กเลือกคาบเรียนที่ต้องการรวมเล่มอย่างน้อย 1 คาบ');
+      return;
+    }
 
-    const curTopicId = window.CurriculumStore ? window.CurriculumStore.getCurrentTopicId() : null;
-    const curUnit = window.CurriculumStore ? window.CurriculumStore.getCurrentUnit(curTopicId) : null;
-    const unitId = curUnit ? curUnit.id : null;
+    const selectUnit = document.getElementById('selectBookUnit');
+    const selectChapter = document.getElementById('selectBookChapter');
+    const unitId = selectUnit ? selectUnit.value : null;
+    const chapId = selectChapter ? selectChapter.value : 'ALL';
 
     const selectEdition = document.getElementById('selectBookEdition');
     const bookType = selectEdition ? selectEdition.value : 'student';
@@ -1264,8 +1356,9 @@
 
     if (window.SheetRenderEngine && window.SheetRenderEngine.openBookPrintTab) {
       window.SheetRenderEngine.openBookPrintTab({
-        scope: scope,
-        chapterId: chapterId,
+        topicIds: topicIds,
+        scope: (chapId === 'ALL' ? 'unit' : 'chapter'),
+        chapterId: (chapId === 'ALL' ? null : chapId),
         unitId: unitId,
         bookType: bookType,
         includeCover: includeCover,
@@ -1361,7 +1454,10 @@
   window.getWorksheetPrintFileName = getWorksheetPrintFileName;
   window.openBookExportModal = openBookExportModal;
   window.closeBookExportModal = closeBookExportModal;
-  window.selectBookScope = selectBookScope;
+  window.onBookUnitChange = onBookUnitChange;
+  window.onBookChapterChange = onBookChapterChange;
+  window.selectAllBookTopics = selectAllBookTopics;
+  window.updateBookSelectedCount = updateBookSelectedCount;
   window.updateBookEditionNotice = updateBookEditionNotice;
   window.executeBookExport = executeBookExport;
   window.initApp = initApp;
