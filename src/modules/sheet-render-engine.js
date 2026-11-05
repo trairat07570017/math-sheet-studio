@@ -601,10 +601,10 @@
             `;
           } else if (ex.answerType === 'blank') {
             answerAreaHtml = `
-              <div class="handwriting-grid" style="min-height: 145px; background: transparent; border: 1px dashed #cbd5e1;"></div>
+              <div class="handwriting-grid" style="min-height: 90px; background: transparent; border: 1px dashed #cbd5e1;"></div>
             `;
           } else {
-            const minH = ex.answerType === 'handwriting-large' ? '195px' : '145px';
+            const minH = ex.answerType === 'handwriting-large' ? '120px' : '90px';
             const isLarge = ex.answerType === 'handwriting-large' ? 'grid-large' : '';
             answerAreaHtml = `
               <div class="handwriting-grid ${isLarge}" style="min-height: ${minH};"></div>
@@ -976,14 +976,17 @@
     .cover-toc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 0.35rem 1rem;
+      gap: 0.25rem 0.75rem;
     }
     .cover-toc-item {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
-      font-size: 0.82rem;
+      gap: 0.35rem;
+      font-size: 0.74rem;
       color: #334155;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .cover-toc-item .toc-num {
       display: inline-flex;
@@ -1044,30 +1047,30 @@
 
     .sheet-main-header {
       border-bottom: 2px solid #0f172a;
-      padding-bottom: 0.55rem;
-      margin-bottom: 0.75rem;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.45rem;
       break-inside: avoid;
       page-break-inside: avoid;
       break-after: avoid;
       page-break-after: avoid;
     }
-    .sheet-school-name { font-size: 1.2rem; font-weight: 700; margin: 0 0 0.15rem 0; color: #0f172a; }
-    .sheet-subject-title { font-size: 0.92rem; font-weight: 600; margin: 0 0 0.15rem 0; color: #334155; }
-    .sheet-teacher-meta { font-size: 0.82rem; color: #475569; margin: 0.1rem 0 0.2rem 0; font-weight: 500; }
-    .sheet-curriculum-standard { color: #64748b; font-size: 0.78rem; margin: 0; }
+    .sheet-school-name { font-size: 1.15rem; font-weight: 700; margin: 0 0 0.1rem 0; color: #0f172a; }
+    .sheet-subject-title { font-size: 0.88rem; font-weight: 600; margin: 0 0 0.1rem 0; color: #334155; }
+    .sheet-teacher-meta { font-size: 0.8rem; color: #475569; margin: 0.05rem 0 0.15rem 0; font-weight: 500; }
+    .sheet-curriculum-standard { color: #64748b; font-size: 0.75rem; margin: 0; }
     .sheet-student-meta {
       display: flex;
       justify-content: space-between;
       border-top: 1px dashed #cbd5e1;
-      padding-top: 0.4rem;
-      margin-top: 0.4rem;
-      font-size: 0.82rem;
+      padding-top: 0.35rem;
+      margin-top: 0.35rem;
+      font-size: 0.8rem;
     }
     .sheet-block {
       border: 1px solid #cbd5e1;
       border-radius: 4px;
-      padding: 0.65rem 0.9rem;
-      margin-bottom: 0.75rem;
+      padding: 0.45rem 0.75rem;
+      margin-bottom: 0.5rem;
       background: #ffffff;
       break-inside: auto;
       page-break-inside: auto;
@@ -1075,28 +1078,29 @@
     .sheet-block-badge {
       color: #1e3a8a;
       font-weight: 700;
-      font-size: 0.92rem;
-      margin-bottom: 0.35rem;
+      font-size: 0.88rem;
+      margin-bottom: 0.25rem;
       break-after: avoid;
       page-break-after: avoid;
     }
     .sheet-exercise {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.45rem;
+      padding-top: 0.25rem;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
     }
     .exercise-header {
       font-weight: 600;
-      line-height: 1.5;
-      margin-bottom: 0.3rem;
+      line-height: 1.4;
+      margin-bottom: 0.2rem;
       break-after: avoid;
       page-break-after: avoid;
     }
     .sheet-formula-box, .sheet-solution-box {
       background: #f8fafc !important;
       border-left: 3.5px solid #2563eb;
-      padding: 0.5rem 0.8rem;
-      margin-bottom: 0.4rem;
+      padding: 0.35rem 0.65rem;
+      margin-bottom: 0.3rem;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
     }
@@ -1108,7 +1112,7 @@
       border: 1.5px solid #059669 !important;
       border-radius: 4px;
       padding: 0.35rem 0.65rem;
-      margin: 0.3rem 0 0.45rem 0;
+      margin: 0.25rem 0 0.35rem 0;
       color: #064e3b;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
@@ -1118,35 +1122,35 @@
     .sheet-teacher-answer .answer-badge {
       font-weight: 700;
       color: #047857;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
     .sheet-teacher-answer .answer-text {
       color: #064e3b;
       font-weight: 600;
     }
     .handwriting-grid {
-      min-height: 145px;
+      min-height: 90px;
       border: 1px solid #e2e8f0;
       border-radius: 4px;
-      background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px) !important;
-      margin-top: 0.35rem;
+      background: repeating-linear-gradient(0deg, transparent, transparent 22px, #e2e8f0 23px) !important;
+      margin-top: 0.25rem;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
       -webkit-print-color-adjust: exact !important;
       print-color-adjust: exact !important;
     }
-    .handwriting-grid.grid-large { min-height: 195px; }
+    .handwriting-grid.grid-large { min-height: 120px; }
     .sheet-footer-line {
       border-top: 1px solid #cbd5e1;
       color: #64748b;
       font-size: 8pt;
-      margin-top: 0.85rem;
-      padding-top: 0.4rem;
+      margin-top: 0.65rem;
+      padding-top: 0.35rem;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
     }
-    .katex-display { margin: 0.2rem 0; font-size: 1.08em; line-height: 1.5; }
-    .katex { font-size: 1.06em; }
+    .katex-display { margin: 0.12rem 0; font-size: 1.02em; line-height: 1.4; }
+    .katex { font-size: 1.04em; }
     .no-print { display: none !important; }
 
     .book-floating-fab {
