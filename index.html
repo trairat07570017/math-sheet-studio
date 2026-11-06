@@ -1696,23 +1696,50 @@
     }
 
     .handwriting-grid {
-      min-height: 145px;
+      min-height: 110px;
       border: 1px dashed #cbd5e1;
       border-radius: 4px;
-      margin-top: 0.5rem;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 25px,
-        #f1f5f9 26px
-      );
+      margin-top: 0.35rem;
+      background: #ffffff;
       padding: 0.5rem 0.75rem;
       font-size: 0.75rem;
       color: #94a3b8;
     }
 
     .handwriting-grid.grid-large {
-      min-height: 195px;
+      min-height: 145px;
+    }
+
+    /* Continuation Header & Page Break for 2-Page Leaf Worksheet */
+    .worksheet-page-break {
+      margin-top: 1.25rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .worksheet-continuation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.55rem;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .cont-badge {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #dbeafe;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .cont-meta {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
     }
 
     /* Teacher Answer Key Badge & Styling */
@@ -2823,25 +2850,54 @@
         color: #064e3b !important;
       }
 
-      /* 10. Student Handwriting Response Grids (5+ Lines of Ruled Workspace) */
+      /* 10. Student Handwriting Response Grids (Clean Blank Workspace) */
       .handwriting-grid {
         display: block !important;
-        background: repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 25px,
-          #e2e8f0 26px
-        ) !important;
-        border: 1px dashed #94a3b8 !important;
+        background: #ffffff !important;
+        border: 1px dashed #cbd5e1 !important;
         border-radius: 4px !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
-        min-height: 145px !important; /* 5+ full lines of student writing space */
-        margin-top: 0.45rem !important;
+        min-height: 110px !important;
+        margin-top: 0.35rem !important;
       }
 
       .handwriting-grid.grid-large {
-        min-height: 195px !important; /* 7+ lines for large problems */
+        min-height: 145px !important;
+      }
+
+      /* Continuation Header & Page Break for 2-Page Leaf Worksheet */
+      .worksheet-page-break {
+        break-before: page !important;
+        page-break-before: always !important;
+        margin-top: 0.5rem !important;
+        padding-top: 0.2rem !important;
+        border-top: none !important;
+      }
+
+      .worksheet-continuation-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-bottom: 1.5px solid #0f172a !important;
+        padding-bottom: 0.35rem !important;
+        margin-bottom: 0.55rem !important;
+        font-family: 'Prompt', sans-serif !important;
+      }
+
+      .cont-badge {
+        font-size: 0.86rem !important;
+        font-weight: 700 !important;
+        color: #1e3a8a !important;
+        background: #dbeafe !important;
+        padding: 2px 8px !important;
+        border-radius: 4px !important;
+      }
+
+      .cont-meta {
+        font-size: 0.8rem !important;
+        color: #475569 !important;
+        font-weight: 600 !important;
       }
 
       /* 11. Header and Footer (Clean Pagination) */
@@ -9866,7 +9922,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. กำหนด $|z - (4 + 3i)| = 2$ จงหาค่าสูงสุดของ $|z|$",
-          "answer": "$7$ (เนื่องจาก $|4+3i| = 5$ รวม $2$)",
+          "answer": "$ (เนื่องจาก $|4+3i| = 5$ รวมกับรัศมี $)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -10852,7 +10908,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 6. จงหาค่าของ $\\text{Im}((1-i)^{-4})$",
-          "answer": "$0$ (เพราะคำตอบคือ $-1/4$)",
+          "answer": "$ (เพราะคำตอบคือ $-\\\\frac{1}{4}$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-large",
@@ -11170,7 +11226,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         },
         {
           "title": "ข้อที่ 5. จงหาค่าของ $(1 + \\omega)^3$ เมื่อ $\\omega$ เป็นรากที่ 3 ของ 1 ที่ไม่ใช่ 1",
-          "answer": "$-1$ (เนื่องจาก $1+\\omega = -\\omega^2$)",
+          "answer": "$-1$ (เนื่องจาก +\\\\omega = -\\\\omega^2$)",
           "points": "",
           "latex": "",
           "answerType": "handwriting-normal",
@@ -22559,12 +22615,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         window.renderMathInElement(el, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-            { left: '\\[', right: '\\]', display: true },
-            { left: '\\(', right: '\\)', display: false }
+            { left: '$', right: '$', display: false }
           ],
           throwOnError: false,
-          errorColor: '#ef4444'
+          errorColor: 'inherit'
         });
       } catch (err) {
         console.warn('KaTeX rendering error:', err);
@@ -22846,15 +22900,43 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       page-break-inside: avoid !important;
     }
     .handwriting-grid {
-      min-height: 145px;
-      border: 1px solid #e2e8f0;
+      min-height: 110px;
+      border: 1px dashed #cbd5e1;
       border-radius: 4px;
-      background: repeating-linear-gradient(0deg, transparent, transparent 25px, #e2e8f0 26px) !important;
-      margin-top: 0.4rem;
+      background: #ffffff !important;
+      margin-top: 0.35rem;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
     }
-    .handwriting-grid.grid-large { min-height: 195px; }
+    .handwriting-grid.grid-large { min-height: 145px; }
+    .worksheet-page-break {
+      break-before: page !important;
+      page-break-before: always !important;
+      margin-top: 0.5rem !important;
+      padding-top: 0.2rem !important;
+    }
+    .worksheet-continuation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.55rem;
+      font-family: 'Prompt', sans-serif;
+    }
+    .cont-badge {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #dbeafe;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .cont-meta {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
+    }
     .sheet-footer-line {
       border-top: 1px solid #cbd5e1;
       color: #64748b;
@@ -22920,12 +23002,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         renderMathInElement(document.body, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-            { left: '\\\\[', right: '\\\\]', display: true },
-            { left: '\\\\(', right: '\\\\)', display: false }
+            { left: '$', right: '$', display: false }
           ],
           throwOnError: false,
-          errorColor: '#ef4444'
+          errorColor: 'inherit'
         });
       }
       setTimeout(function() {
@@ -23083,11 +23163,13 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               </div>
             `;
           } else if (ex.answerType === 'blank') {
+            const minH = idx < 3 ? '135px' : '110px';
             answerAreaHtml = `
-              <div class="handwriting-grid" style="min-height: 78px; background: transparent; border: 1px dashed #cbd5e1;"></div>
+              <div class="handwriting-grid" style="min-height: ${minH};"></div>
             `;
           } else {
-            const minH = ex.answerType === 'handwriting-large' ? '95px' : '68px';
+            const isPage1 = idx < 3;
+            const minH = isPage1 ? (ex.answerType === 'handwriting-large' ? '160px' : '135px') : (ex.answerType === 'handwriting-large' ? '135px' : '110px');
             const isLarge = ex.answerType === 'handwriting-large' ? 'grid-large' : '';
             answerAreaHtml = `
               <div class="handwriting-grid ${isLarge}" style="min-height: ${minH};"></div>
@@ -23119,8 +23201,21 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             `;
           }
 
+          let pageBreakHtml = '';
+          if (idx === 3 && exercises.length >= 6) {
+            pageBreakHtml = `
+              <div class="worksheet-page-break">
+                <div class="worksheet-continuation-header">
+                  <span class="cont-badge">✏️ ตอนที่ 2: ข้อสอบและแบบฝึกหัดทบทวน (ต่อ)</span>
+                  <span class="cont-meta">${subj} • ${sheetName}</span>
+                </div>
+              </div>
+            `;
+          }
+
           exHtml += `
-            <div class="sheet-exercise" data-index="${idx}" style="${idx === 0 ? 'border-top: none; padding-top: 0;' : ''}">
+            ${pageBreakHtml}
+            <div class="sheet-exercise" data-index="${idx}" style="${idx === 0 || idx === 3 ? 'border-top: none; padding-top: 0;' : ''}">
               <div class="exercise-header">
                 <span>${ex.title}</span>
               </div>
@@ -23280,7 +23375,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                     <div class="preface-feature-item">
                       <div class="feature-icon">✏️</div>
                       <div class="feature-title">ตอนที่ 3: แบบฝึกหัดทบทวน (6 ข้อ)</div>
-                      <div class="feature-desc">เว้นพื้นที่บรรทัดเขียนตอบอย่างเป็นระเบียบ ให้นักเรียนได้ฝึกคิดและแสดงวิธีทำจริงด้วยตนเอง</div>
+                      <div class="feature-desc">เว้นพื้นที่แสดงวิธีทำอย่างเป็นระเบียบ ให้นักเรียนได้ฝึกคิดและแสดงวิธีทำจริงด้วยตนเอง</div>
                     </div>
                   </div>
                 </div>
@@ -23562,7 +23657,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         `;
       }
 
-            // Helper for Summary Answer Key (2 Pages)
+            // Helper for Summary Answer Key (3 Pages: 8 Lessons/Page)
       function renderSummaryAnswerKeyHtml(chunk, pageIdx, totalPages, pNum) {
         return `
           <div class="a4-paper-sheet book-answerkey-page">
@@ -23576,7 +23671,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="answerkey-grid">
                 ${chunk.map(function(t) {
                   const lessonNum = (t.id || '').replace(/^[a-z]+-l0*/i, '') || '1';
-                  const cleanTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
+                  const rawTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
+                  // Clean attached English words e.g. ArgandPlane -> Argand Plane
+                  const cleanTitle = rawTitle.replace(/([a-z])([A-Z])/g, '$1 $2');
                   const exs = (t.worksheet && t.worksheet.exercises) || [];
                   const studentExs = exs.filter(function(e) { return !e.latex; });
 
@@ -23584,13 +23681,14 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                     <div class="answerkey-item-card">
                       <div class="answerkey-item-header">
                         <span class="ak-num">[${lessonNum}]</span>
-                        <span class="ak-title">${cleanTitle}</span>
+                        <span class="ak-title" title="${cleanTitle}">${cleanTitle}</span>
                       </div>
                       <div class="answerkey-answers-list">
                         ${studentExs.map(function(ex, eIdx) {
                           const ans = ex.answer || '-';
+                          const isLong = ans.length > 20 || ans.includes('\\frac') || ans.includes('ศูนย์กลาง') || ans.includes('บริเวณ');
                           return `
-                            <div class="ak-ans-row">
+                            <div class="ak-ans-row ${isLong ? 'full-span' : ''}">
                               <span class="ak-ans-label">ข้อ ${eIdx + 1}:</span>
                               <span class="ak-ans-val">${ans}</span>
                             </div>
@@ -23611,47 +23709,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         `;
       }
 
-      // Helper for Learning Log & Notes
-      function renderLearningNotesHtml(pNum) {
-        return `
-          <div class="a4-paper-sheet book-notes-page">
-            <div class="notes-card-container">
-              <div class="notes-header">
-                <div class="notes-badge">📝 บันทึกสรุปผลการเรียนรู้และโน้ตสำคัญ (Learning Log & Master Notes)</div>
-                <h2 class="notes-title">ตารางติดตามความก้าวหน้าและบันทึกช่วยจำส่วนบุคคล</h2>
-                <div class="notes-meta">${subjectCode} • ${coverTitle} • ทั้งหมด ${totalLessons} ใบงาน</div>
-              </div>
-
-              <div class="notes-checklist-section">
-                <div class="notes-sec-title">✓ บันทึกความก้าวหน้ารายใบงาน (Progress Tracker):</div>
-                <div class="notes-checklist-grid">
-                  ${topics.map(function(t, idx) {
-                    const cleanTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
-                    return `
-                      <div class="notes-check-item">
-                        <span class="check-box">[ &nbsp; ]</span>
-                        <span class="check-lesson-num">${idx + 1}</span>
-                        <span class="check-name">${cleanTitle}</span>
-                        <span class="check-score">....../10</span>
-                      </div>
-                    `;
-                  }).join('')}
-                </div>
-              </div>
-
-              <div class="notes-ruled-section">
-                <div class="notes-sec-title">📌 บันทึกเทคนิค สูตร และข้อควรระวังส่วนบุคคล (Personal Key Takeaways):</div>
-                <div class="notes-ruled-lines"></div>
-              </div>
-
-              <div class="notes-footer">
-                <span>หน้า ${pNum} • บันทึกผลการเรียนรู้</span>
-                <span>${authorName} • ${schoolName}</span>
-              </div>
-            </div>
-          </div>
-        `;
-      }
+      // Notes page removed per user request: "เอาตารางติดตามความก้าวหน้าและบันทึกช่วยจำ ส่วนบุคคล ออกเลยหน้านี้"
 
       // Helper for Premium Back Cover
       function renderBackCoverHtml(pNum) {
@@ -23683,7 +23741,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                     </div>
                     <div class="highlight-item">
                       <span class="hl-bullet">✓</span>
-                      <div><strong>${totalLessons * 6} ข้อแบบฝึกหัดพร้อมเส้นกริด:</strong> เว้นพื้นที่บรรทัดให้นักเรียนได้ลงมือคิดและแสดงวิธีทำจริง</div>
+                      <div><strong>${totalLessons * 6} ข้อแบบฝึกหัดพร้อมพื้นที่แสดงวิธีทำ:</strong> เว้นพื้นที่ให้นักเรียนได้ลงมือคิดและแสดงวิธีทำจริง</div>
                     </div>
                     <div class="highlight-item">
                       <span class="hl-bullet">✓</span>
@@ -23774,10 +23832,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         });
       }
 
-      // 3. Back Matter for Student Workbook: Summary Answer Key, Learning Notes & Back Cover
+      // 3. Back Matter for Student Workbook: Summary Answer Key & Back Cover
       if (isStudentEdition && opts.includeCover !== false) {
-        // Chunk topics by 12 for Answer Key (12 lessons per page)
-        const chunkSize = 12;
+        // Chunk topics by 8 for Answer Key (8 lessons per page -> 3 pages for 24 lessons: generous breathing room)
+        const chunkSize = 8;
         const answerChunks = [];
         for (let i = 0; i < topics.length; i += chunkSize) {
           answerChunks.push(topics.slice(i, i + chunkSize));
@@ -23788,10 +23846,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           renderedPages.push(renderSummaryAnswerKeyHtml(chunk, cIdx + 1, answerChunks.length, keyPNum));
         });
 
-        const notesPNum = 5 + totalLessons * 2 + answerChunks.length;
-        renderedPages.push(renderLearningNotesHtml(notesPNum));
-
-        const backPNum = notesPNum + 1;
+        // Notes page removed per user request: "เอาตารางติดตามความก้าวหน้าและบันทึกช่วยจำ ส่วนบุคคล ออกเลยหน้านี้"
+        const backPNum = 5 + totalLessons * 2 + answerChunks.length;
         renderedPages.push(renderBackCoverHtml(backPNum));
       }
 
@@ -24138,17 +24194,43 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       font-weight: 600;
     }
     .handwriting-grid {
-      min-height: 78px;
-      border: 1px solid #e2e8f0;
+      min-height: 110px;
+      border: 1px dashed #cbd5e1;
       border-radius: 4px;
-      background: repeating-linear-gradient(0deg, transparent, transparent 19px, #e2e8f0 20px) !important;
+      background: #ffffff !important;
       margin-top: 0.18rem;
       break-inside: avoid !important;
       page-break-inside: avoid !important;
-      -webkit-print-color-adjust: exact !important;
-      print-color-adjust: exact !important;
     }
-    .handwriting-grid.grid-large { min-height: 110px; }
+    .handwriting-grid.grid-large { min-height: 145px; }
+    .worksheet-page-break {
+      break-before: page !important;
+      page-break-before: always !important;
+      margin-top: 0.4rem !important;
+      padding-top: 0.15rem !important;
+    }
+    .worksheet-continuation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.45rem;
+      font-family: 'Prompt', sans-serif;
+    }
+    .cont-badge {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #dbeafe;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+    .cont-meta {
+      font-size: 0.78rem;
+      color: #475569;
+      font-weight: 600;
+    }
     .sheet-footer-line {
       border-top: 1px solid #cbd5e1;
       color: #64748b;
@@ -24308,7 +24390,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       }
 
       /* Commercial Publishing Pages */
-      .book-preface-page, .book-cheatsheet-page, .book-answerkey-page, .book-notes-page, .book-back-cover-page {
+      .book-preface-page, .book-cheatsheet-page, .book-answerkey-page, .book-back-cover-page {
         border: none !important;
         height: 275mm !important;
         max-height: 275mm !important;
@@ -24328,7 +24410,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         background: #ffffff !important;
         background-color: #ffffff !important;
       }
-      .preface-card-container, .cheatsheet-card-container, .answerkey-card-container, .notes-card-container, .back-cover-card-container {
+      .preface-card-container, .cheatsheet-card-container, .answerkey-card-container, .back-cover-card-container {
         min-height: 271mm !important;
         height: 271mm !important;
         max-height: 271mm !important;
@@ -24356,7 +24438,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         margin: 0.1em 0 !important;
       }
       .book-lesson-sheet .handwriting-grid {
-        min-height: 68px !important;
+        background: #ffffff !important;
+        border: 1px dashed #cbd5e1 !important;
+        border-radius: 4px !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
@@ -24369,7 +24453,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
 
     /* Screen Styles for Commercial Publishing Pages */
-    .book-preface-page, .book-cheatsheet-page, .book-answerkey-page, .book-notes-page, .book-back-cover-page {
+    .book-preface-page, .book-cheatsheet-page, .book-answerkey-page, .book-back-cover-page {
       width: 100%;
       max-width: 800px;
       min-height: 1120px;
@@ -24387,7 +24471,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       break-before: page;
     }
 
-    .preface-card-container, .cheatsheet-card-container, .answerkey-card-container, .notes-card-container, .back-cover-card-container {
+    .preface-card-container, .cheatsheet-card-container, .answerkey-card-container, .back-cover-card-container {
       height: 100%;
       min-height: 1060px;
       display: flex;
@@ -24400,12 +24484,12 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       box-sizing: border-box;
     }
 
-    .preface-header, .cheatsheet-header, .answerkey-header, .notes-header {
+    .preface-header, .cheatsheet-header, .answerkey-header {
       border-bottom: 2px solid #0f172a;
       padding-bottom: 0.5rem;
       margin-bottom: 0.6rem;
     }
-    .preface-badge, .cheatsheet-badge, .answerkey-badge, .notes-badge {
+    .preface-badge, .cheatsheet-badge, .answerkey-badge {
       display: inline-block;
       font-size: 0.78rem;
       font-weight: 700;
@@ -24416,14 +24500,14 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       margin-bottom: 0.25rem;
       font-family: 'Prompt', sans-serif;
     }
-    .preface-title, .cheatsheet-title, .answerkey-title, .notes-title {
+    .preface-title, .cheatsheet-title, .answerkey-title {
       font-size: 1.25rem;
       font-weight: 700;
       color: #0f172a;
       margin: 0.15rem 0;
       font-family: 'Prompt', sans-serif;
     }
-    .preface-meta, .cheatsheet-meta, .answerkey-meta, .notes-meta {
+    .preface-meta, .cheatsheet-meta, .answerkey-meta {
       font-size: 0.82rem;
       color: #475569;
       font-family: 'Prompt', sans-serif;
@@ -24443,7 +24527,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     .roadmap-step { display: flex; gap: 0.5rem; align-items: baseline; }
     .step-num { font-weight: 700; color: #1d4ed8; background: #dbeafe; padding: 1px 6px; border-radius: 3px; font-size: 0.75rem; white-space: nowrap; }
 
-    .preface-footer, .cheatsheet-footer, .answerkey-footer, .notes-footer {
+    .preface-footer, .cheatsheet-footer, .answerkey-footer {
       display: flex;
       justify-content: space-between;
       border-top: 1.5px solid #cbd5e1;
@@ -24459,30 +24543,75 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     .cs-card-body { color: #0f172a; line-height: 1.45; }
     .cs-card-body .katex-display { margin: 0.2em 0 !important; font-size: 0.88em !important; }
 
-    .answerkey-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.45rem 0.65rem; flex: 1; margin: 0.4rem 0; }
-    .answerkey-item-card { border: 1px solid #cbd5e1; border-radius: 6px; padding: 0.35rem 0.55rem; background: #f8fafc; font-size: 0.78rem; }
-    .answerkey-item-header { font-weight: 700; color: #1e3a8a; border-bottom: 1.5px solid #3b82f6; padding-bottom: 0.15rem; margin-bottom: 0.25rem; display: flex; gap: 0.35rem; align-items: baseline; font-size: 0.8rem; font-family: 'Prompt', sans-serif; }
-    .ak-num { color: #2563eb; font-weight: 700; }
-    .ak-title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .answerkey-answers-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.15rem 0.4rem; }
-    .ak-ans-row { display: flex; gap: 0.25rem; align-items: baseline; font-size: 0.76rem; }
-    .ak-ans-label { color: #64748b; font-weight: 600; }
-    .ak-ans-val { color: #0f172a; font-weight: 600; }
-    .ak-ans-val .katex { font-size: 0.95em !important; }
-
-    .notes-checklist-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.25rem 0.6rem; font-size: 0.74rem; margin-bottom: 0.6rem; }
-    .notes-check-item { display: flex; gap: 0.35rem; align-items: center; border-bottom: 1px dotted #e2e8f0; padding-bottom: 0.12rem; }
-    .check-box { color: #94a3b8; font-weight: 700; font-family: monospace; }
-    .check-lesson-num { font-weight: 700; color: #1e3a8a; min-width: 1.2rem; }
-    .check-name { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #334155; }
-    .check-score { color: #94a3b8; font-size: 0.7rem; }
-    .notes-sec-title { font-size: 0.84rem; font-weight: 700; color: #1e3a8a; margin-bottom: 0.3rem; font-family: 'Prompt', sans-serif; }
-    .notes-ruled-lines {
-      height: 240px;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 23px, #e2e8f0 24px);
-      border: 1px solid #cbd5e1;
-      border-radius: 4px;
+    .answerkey-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.55rem 0.75rem;
+      flex: 1;
+      margin: 0.4rem 0;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
     }
+    .answerkey-item-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.45rem 0.65rem;
+      background: #f8fafc;
+      font-size: 0.78rem;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .answerkey-item-header {
+      font-weight: 700;
+      color: #1e3a8a;
+      border-bottom: 1.5px solid #3b82f6;
+      padding-bottom: 0.15rem;
+      margin-bottom: 0.25rem;
+      display: flex;
+      gap: 0.35rem;
+      align-items: baseline;
+      font-size: 0.8rem;
+      font-family: 'Prompt', sans-serif;
+      min-width: 0;
+    }
+    .ak-num { color: #2563eb; font-weight: 700; flex-shrink: 0; }
+    .ak-title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+    .answerkey-answers-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.2rem 0.5rem;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .ak-ans-row {
+      display: flex;
+      gap: 0.25rem;
+      align-items: baseline;
+      font-size: 0.76rem;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    .ak-ans-row.full-span {
+      grid-column: 1 / -1;
+    }
+    .ak-ans-label { color: #64748b; font-weight: 600; flex-shrink: 0; }
+    .ak-ans-val {
+      color: #0f172a;
+      font-weight: 600;
+      min-width: 0;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    .ak-ans-val .katex { font-size: 0.88em !important; max-width: 100%; }
+
 
     .back-cover-card-container {
       height: 100%;
@@ -24590,12 +24719,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             renderMathInElement(document.body, {
               delimiters: [
                 { left: '$$', right: '$$', display: true },
-                { left: '$', right: '$', display: false },
-                { left: '\\[', right: '\\]', display: true },
-                { left: '\\(', right: '\\)', display: false }
+                { left: '$', right: '$', display: false }
               ],
               throwOnError: false,
-              errorColor: '#ef4444'
+              errorColor: 'inherit'
             });
           } catch (renderErr) {
             console.error('KaTeX rendering error:', renderErr);
@@ -24755,19 +24882,34 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             </div>
           `;
         } else if (ex.answerType === 'blank') {
+          const minH = idx < 3 ? '135px' : '110px';
           answerAreaHtml = `
-            <div class="handwriting-grid" style="min-height: 145px; background: transparent; border: 1px dashed #cbd5e1;"></div>
+            <div class="handwriting-grid" style="min-height: ${minH};"></div>
           `;
         } else {
-          const minH = ex.answerType === 'handwriting-large' ? '195px' : '145px';
+          const isPage1 = idx < 3;
+          const minH = isPage1 ? (ex.answerType === 'handwriting-large' ? '160px' : '135px') : (ex.answerType === 'handwriting-large' ? '135px' : '110px');
           const isLarge = ex.answerType === 'handwriting-large' ? 'grid-large' : '';
           answerAreaHtml = `
             <div class="handwriting-grid ${isLarge}" style="min-height: ${minH};"></div>
           `;
         }
 
+        let pageBreakHtml = '';
+        if (idx === 3 && exercises.length >= 6) {
+          pageBreakHtml = `
+            <div class="worksheet-page-break">
+              <div class="worksheet-continuation-header">
+                <span class="cont-badge">✏️ ตอนที่ 2: ข้อสอบและแบบฝึกหัดทบทวน (ต่อ)</span>
+                <span class="cont-meta">${subject} • ${sheetName}</span>
+              </div>
+            </div>
+          `;
+        }
+
         exHtml += `
-          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 ? 'border-top: none; padding-top: 0;' : ''}">
+          ${pageBreakHtml}
+          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 || idx === 3 ? 'border-top: none; padding-top: 0;' : ''}">
             <div class="exercise-actions-bar no-print">
               <button type="button" class="action-btn" onclick="openEditExerciseModal(${idx})" title="แก้ไขข้อสอบนี้">
                 ✏️ แก้ไข

@@ -1672,23 +1672,50 @@
     }
 
     .handwriting-grid {
-      min-height: 145px;
+      min-height: 110px;
       border: 1px dashed #cbd5e1;
       border-radius: 4px;
-      margin-top: 0.5rem;
-      background: repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 25px,
-        #f1f5f9 26px
-      );
+      margin-top: 0.35rem;
+      background: #ffffff;
       padding: 0.5rem 0.75rem;
       font-size: 0.75rem;
       color: #94a3b8;
     }
 
     .handwriting-grid.grid-large {
-      min-height: 195px;
+      min-height: 145px;
+    }
+
+    /* Continuation Header & Page Break for 2-Page Leaf Worksheet */
+    .worksheet-page-break {
+      margin-top: 1.25rem;
+      padding-top: 0.5rem;
+      border-top: 1px dashed #e2e8f0;
+    }
+
+    .worksheet-continuation-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #0f172a;
+      padding-bottom: 0.35rem;
+      margin-bottom: 0.55rem;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    .cont-badge {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      background: #dbeafe;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .cont-meta {
+      font-size: 0.8rem;
+      color: #475569;
+      font-weight: 600;
     }
 
     /* Teacher Answer Key Badge & Styling */
@@ -2799,25 +2826,54 @@
         color: #064e3b !important;
       }
 
-      /* 10. Student Handwriting Response Grids (5+ Lines of Ruled Workspace) */
+      /* 10. Student Handwriting Response Grids (Clean Blank Workspace) */
       .handwriting-grid {
         display: block !important;
-        background: repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 25px,
-          #e2e8f0 26px
-        ) !important;
-        border: 1px dashed #94a3b8 !important;
+        background: #ffffff !important;
+        border: 1px dashed #cbd5e1 !important;
         border-radius: 4px !important;
         break-inside: avoid !important;
         page-break-inside: avoid !important;
-        min-height: 145px !important; /* 5+ full lines of student writing space */
-        margin-top: 0.45rem !important;
+        min-height: 110px !important;
+        margin-top: 0.35rem !important;
       }
 
       .handwriting-grid.grid-large {
-        min-height: 195px !important; /* 7+ lines for large problems */
+        min-height: 145px !important;
+      }
+
+      /* Continuation Header & Page Break for 2-Page Leaf Worksheet */
+      .worksheet-page-break {
+        break-before: page !important;
+        page-break-before: always !important;
+        margin-top: 0.5rem !important;
+        padding-top: 0.2rem !important;
+        border-top: none !important;
+      }
+
+      .worksheet-continuation-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-bottom: 1.5px solid #0f172a !important;
+        padding-bottom: 0.35rem !important;
+        margin-bottom: 0.55rem !important;
+        font-family: 'Prompt', sans-serif !important;
+      }
+
+      .cont-badge {
+        font-size: 0.86rem !important;
+        font-weight: 700 !important;
+        color: #1e3a8a !important;
+        background: #dbeafe !important;
+        padding: 2px 8px !important;
+        border-radius: 4px !important;
+      }
+
+      .cont-meta {
+        font-size: 0.8rem !important;
+        color: #475569 !important;
+        font-weight: 600 !important;
       }
 
       /* 11. Header and Footer (Clean Pagination) */
