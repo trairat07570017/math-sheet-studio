@@ -642,6 +642,16 @@
 
       const cleanDocTitle = (filePrefix + coverTitle).replace(/[/\\?%*:|"<>]/g, '-');
 
+      function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
       // Helper function to render a single topic sheet as 2 explicit physical A4 pages
       function buildTopicSheetHtml(topicData, sheetOpts) {
         const sOpts = sheetOpts || {};
@@ -680,7 +690,7 @@
               <div class="sheet-solution-box">
                 <div class="sol-title">📘 แสดงวิธีทำ:</div>
                 <div class="equation-stage">$$${l}$$</div>
-                ${ex.placeholder ? `<div class="sol-placeholder">${ex.placeholder}</div>` : ''}
+                ${ex.placeholder ? `<div class="sol-placeholder">${escapeHtml(ex.placeholder)}</div>` : ''}
               </div>
             `;
           }
@@ -690,7 +700,7 @@
             teacherAnswerHtml = `
               <div class="sheet-teacher-answer">
                 <span class="answer-badge">🔑 เฉลย:</span>
-                <span class="answer-text">${ex.answer}</span>
+                <span class="answer-text">${escapeHtml(ex.answer)}</span>
               </div>
             `;
           }
@@ -700,10 +710,10 @@
             if (ex.answerType === 'multiple-choice') {
               answerAreaHtml = `
                 <div class="mc-choices-grid">
-                  <div><strong>ก.</strong> ${ex.choiceA || '................................'}</div>
-                  <div><strong>ข.</strong> ${ex.choiceB || '................................'}</div>
-                  <div><strong>ค.</strong> ${ex.choiceC || '................................'}</div>
-                  <div><strong>ง.</strong> ${ex.choiceD || '................................'}</div>
+                  <div><strong>ก.</strong> ${escapeHtml(ex.choiceA) || '................................'}</div>
+                  <div><strong>ข.</strong> ${escapeHtml(ex.choiceB) || '................................'}</div>
+                  <div><strong>ค.</strong> ${escapeHtml(ex.choiceC) || '................................'}</div>
+                  <div><strong>ง.</strong> ${escapeHtml(ex.choiceD) || '................................'}</div>
                 </div>
               `;
             } else if (ex.answerType === 'short-answer') {
@@ -727,7 +737,7 @@
           return `
             <div class="sheet-exercise" data-index="${idx}">
               <div class="exercise-header">
-                <span>${ex.title}</span>
+                <span>${escapeHtml(ex.title)}</span>
               </div>
               ${isWorkedExample ? workedExampleHtml : `
                 ${teacherAnswerHtml}
@@ -752,10 +762,10 @@
         const page1Html = `
           <div class="a4-paper-sheet book-lesson-sheet book-lesson-page-1 ${isTeacher ? 'show-teacher-key' : ''}">
             <div class="sheet-main-header">
-              <div class="sheet-school-name">${schoolName}</div>
-              <div class="sheet-subject-title">${subj} • ${sheetName}</div>
-              <div class="sheet-teacher-meta">ครูผู้สอน: ${cleanTeacherName} • ${cleanDeptName}</div>
-              <div class="sheet-curriculum-standard">${topicData.standard || ''}</div>
+              <div class="sheet-school-name">${escapeHtml(schoolName)}</div>
+              <div class="sheet-subject-title">${escapeHtml(subj)} • ${escapeHtml(sheetName)}</div>
+              <div class="sheet-teacher-meta">ครูผู้สอน: ${escapeHtml(cleanTeacherName)} • ${escapeHtml(cleanDeptName)}</div>
+              <div class="sheet-curriculum-standard">${escapeHtml(topicData.standard || '')}</div>
               ${!hideStudentHeader ? `
                 <div class="sheet-student-meta">
                   <span>ชื่อ-สกุล: ............................................................................................</span>
@@ -777,10 +787,10 @@
 
             <div class="sheet-footer-line book-footer-line">
               <div class="footer-left">
-                <span>${topicData.gradeShort || 'ม.ปลาย'} • ${subj} • ${cleanSheetName} • ใบงานที่ ${lessonIdx + 1} จาก ${totalLessons} (หน้า 1/2)</span>
+                <span>${escapeHtml(topicData.gradeShort || 'ม.ปลาย')} • ${escapeHtml(subj)} • ${escapeHtml(cleanSheetName)} • ใบงานที่ ${lessonIdx + 1} จาก ${totalLessons} (หน้า 1/2)</span>
               </div>
               <div class="footer-right">
-                <span>${showPageNums ? `หน้า ${pNum}` : ''} • © ${cleanTeacherName}</span>
+                <span>${showPageNums ? `หน้า ${pNum}` : ''} • © ${escapeHtml(cleanTeacherName)}</span>
               </div>
             </div>
           </div>
@@ -791,17 +801,17 @@
           <div class="a4-paper-sheet book-lesson-sheet book-lesson-page-2 ${isTeacher ? 'show-teacher-key' : ''}">
             <div class="worksheet-continuation-header">
               <span class="cont-badge">${isTeacher ? '🔑 ตอนที่ 2: ข้อสอบและเฉลยละเอียด (ต่อ)' : '✏️ ตอนที่ 2: ข้อสอบและแบบฝึกหัดทบทวน (ต่อ)'}</span>
-              <span class="cont-meta">${subj} • ${cleanSheetName}</span>
+              <span class="cont-meta">${escapeHtml(subj)} • ${escapeHtml(cleanSheetName)}</span>
             </div>
 
             <div class="sheet-exercise-body">${p2ExercisesHtml}</div>
 
             <div class="sheet-footer-line book-footer-line">
               <div class="footer-left">
-                <span>${topicData.gradeShort || 'ม.ปลาย'} • ${subj} • ${cleanSheetName} • ใบงานที่ ${lessonIdx + 1} จาก ${totalLessons} (หน้า 2/2)</span>
+                <span>${escapeHtml(topicData.gradeShort || 'ม.ปลาย')} • ${escapeHtml(subj)} • ${escapeHtml(cleanSheetName)} • ใบงานที่ ${lessonIdx + 1} จาก ${totalLessons} (หน้า 2/2)</span>
               </div>
               <div class="footer-right">
-                <span>${showPageNums ? `หน้า ${pNum + 1}` : ''} • © ${cleanTeacherName}</span>
+                <span>${showPageNums ? `หน้า ${pNum + 1}` : ''} • © ${escapeHtml(cleanTeacherName)}</span>
               </div>
             </div>
           </div>
@@ -810,52 +820,53 @@
         return [page1Html, page2Html];
       }
 
-      // Helper function to render Cover Page
+      // Helper function to render Cover Page (Majestic Hero Publisher Standard)
       function renderCoverHtml() {
         return `
           <div class="a4-paper-sheet book-cover-page">
             <div class="cover-card-container">
               <div class="cover-header-badges">
                 <span class="cover-pill-ipst">สสวท. มาตรฐานหลักสูตรแกนกลาง</span>
-                <span class="cover-pill-code">${subjectCode} • ${grade}</span>
+                <span class="cover-pill-code">${escapeHtml(subjectCode)} • ${escapeHtml(grade)}</span>
               </div>
 
               <div class="cover-center-box">
                 <div class="cover-math-icon">📐</div>
                 <div class="cover-edition-ribbon">${editionBadge}</div>
-                <h1 class="cover-title-text">${coverTitle}</h1>
-                ${coverSubtitle ? `<div class="cover-subtitle-text">${coverSubtitle}</div>` : ''}
-                <div class="cover-curriculum-standard-note">อิงมาตรฐานการเรียนรู้และตัวชี้วัด สาระคณิตศาสตร์เพิ่มเติม (ฉบับปรับปรุง 2560)</div>
+                <h1 class="cover-title-text">${escapeHtml(coverTitle)}</h1>
+                ${coverSubtitle ? `<div class="cover-subtitle-text">${escapeHtml(coverSubtitle)}</div>` : ''}
+                <div class="cover-curriculum-standard-note">อิงมาตรฐานการเรียนรู้และตัวชี้วัด สาระคณิตศาสตร์เพิ่มเติม (ฉบับปรับปรุง พ.ศ. 2560)</div>
 
-                <div class="cover-toc-container">
-                  <div class="cover-toc-title">📋 สารบัญเนื้อหาภายในเล่ม (${topics.length} ใบงานสมบูรณ์):</div>
-                  <div class="cover-toc-grid">
-                    ${topics.map(function(t, idx) {
-                      const cleanTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
-                      const pNum = 2 * idx + 5;
-                      return `
-                        <div class="cover-toc-item">
-                          <span class="toc-num">${idx + 1}</span>
-                          <span class="toc-name">${cleanTitle}</span>
-                          <span class="toc-pnum">น.${pNum}</span>
-                        </div>
-                      `;
-                    }).join('')}
+                <div class="cover-hero-stats-card">
+                  <div class="cover-stat-item">
+                    <span class="stat-number">${totalLessons}</span>
+                    <span class="stat-label">ใบงานสมบูรณ์</span>
                   </div>
-                  <div class="cover-toc-meta-note">
-                    <span>📘 คำนำ & Roadmap น.2</span>
-                    <span>📐 สรุปสูตร น.3-4</span>
-                    <span>🔑 ตารางเฉลยคำตอบ น.${5 + totalLessons * 2}–${4 + totalLessons * 2 + Math.ceil(totalLessons / 8)}</span>
+                  <div class="cover-stat-divider"></div>
+                  <div class="cover-stat-item">
+                    <span class="stat-number">${totalLessons * 3}</span>
+                    <span class="stat-label">ตัวอย่างสาธิต</span>
                   </div>
+                  <div class="cover-stat-divider"></div>
+                  <div class="cover-stat-item">
+                    <span class="stat-number">${totalLessons * 6}</span>
+                    <span class="stat-label">ข้อฝึกปฏิบัติ</span>
+                  </div>
+                </div>
+
+                <div class="cover-features-pill-row">
+                  <span class="cover-feature-pill">✨ นิยาม &amp; สรุปสาระสำคัญ สสวท.</span>
+                  <span class="cover-feature-pill">📐 สรุปสูตรเข้มข้นฉบับพกพา 2 หน้า</span>
+                  <span class="cover-feature-pill">🔑 เฉลยคำตอบสั้นท้ายเล่ม</span>
                 </div>
               </div>
 
               <div class="cover-footer-meta">
                 <div class="cover-author-col">
                   <div class="author-label">จัดทำและเรียบเรียงโดย:</div>
-                  <div class="author-val">${cleanTeacherName}</div>
-                  <div class="author-dept">${cleanDeptName}</div>
-                  <div class="school-val">${schoolName} • ${(function() {
+                  <div class="author-val">${escapeHtml(cleanTeacherName)}</div>
+                  <div class="author-dept">${escapeHtml(cleanDeptName)}</div>
+                  <div class="school-val">${escapeHtml(schoolName)} • ${(function() {
                     let txt = academicYear || '';
                     if (txt.indexOf('ภาคเรียน') === -1 && defaultSemester) {
                       return defaultSemester + ' ' + txt;
@@ -864,7 +875,7 @@
                   })()}</div>
                 </div>
                 <div class="cover-copyright-col">
-                  <div class="copyright-text">${copyrightText}</div>
+                  <div class="copyright-text">${escapeHtml(copyrightText)}</div>
                   <div class="tech-note">High-Fidelity KaTeX Vector Publishing • MathSheet AI Studio</div>
                 </div>
               </div>
@@ -888,72 +899,65 @@
         `;
       }
 
-      // Helper for Preface & Learning Roadmap
+      // Helper for Preface & Master Table of Contents (Page 2)
       function renderPrefaceHtml() {
         return `
           <div class="a4-paper-sheet book-preface-page">
             <div class="preface-card-container">
               <div class="preface-header">
-                <div class="preface-badge">📘 คำนำ & แผนที่การเรียนรู้ (Preface & Learning Roadmap)</div>
+                <div class="preface-badge">📘 คำนำ &amp; สารบัญเนื้อหา (Preface &amp; Table of Contents)</div>
                 <h2 class="preface-title">คู่มือแบบฝึกหัดคณิตศาสตร์ สสวท. ฉบับสมบูรณ์</h2>
-                <div class="preface-meta">${subjectCode} • ${grade} • ${coverTitle}</div>
+                <div class="preface-meta">${escapeHtml(subjectCode)} • ${escapeHtml(grade)} • ${escapeHtml(coverTitle)}</div>
               </div>
 
               <div class="preface-body">
-                <div class="preface-section">
-                  <h3 class="preface-sec-title">🎯 ความมุ่งหมายและปรัชญาของเอกสารชุดนี้</h3>
-                  <p class="preface-text">
-                    เอกสารรวมเล่มแบบฝึกหัดชุดนี้ จัดทำขึ้นเพื่อมุ่งเน้นการสร้างเสริมและพัฒนาทักษะกระบวนการคิดทางคณิตศาสตร์อย่างเป็นระบบ อิงตามมาตรฐานการเรียนรู้และผลการเรียนรู้ กลุ่มสาระการเรียนรู้คณิตศาสตร์ (ฉบับปรับปรุง พ.ศ. 2560) ตามหลักสูตรแกนกลางการศึกษาขั้นพื้นฐาน พ.ศ. 2551 ของ สสวท. โดยเรียบเรียงเนื้อหาจากมโนทัศน์พื้นฐาน สู่การคำนวณขั้นสูง และการประยุกต์ใช้ในข้อสอบเข้ามหาวิทยาลัย (A-Level / สสวท.)
-                  </p>
-                </div>
-
-                <div class="preface-section">
-                  <h3 class="preface-sec-title">📐 โครงสร้างใบงานแบบ 3 มิติ (Three-Dimensional Learning)</h3>
-                  <div class="preface-feature-grid">
-                    <div class="preface-feature-item">
-                      <div class="feature-icon">📘</div>
-                      <div class="feature-title">ตอนที่ 1: สรุปสาระสำคัญ</div>
-                      <div class="feature-desc">นิยาม ทฤษฎีบท และเทคนิคคิดเร็ว KaTeX คมชัดระดับเวกเตอร์ สรุปประเด็นสำคัญก่อนลงมือปฏิบัติ</div>
-                    </div>
-                    <div class="preface-feature-item">
-                      <div class="feature-icon">💡</div>
-                      <div class="feature-title">ตอนที่ 2: ครูสาธิตวิธีทำ (3 ตัวอย่าง)</div>
-                      <div class="feature-desc">แสดงวิธีทำอย่างละเอียดเป็นขั้นเป็นตอน อธิบายจุดสังเกต ข้อควรระวัง และเทคนิคการจัดรูป</div>
-                    </div>
-                    <div class="preface-feature-item">
-                      <div class="feature-icon">✏️</div>
-                      <div class="feature-title">ตอนที่ 3: แบบฝึกหัดทบทวน (6 ข้อ)</div>
-                      <div class="feature-desc">เว้นพื้นที่แสดงวิธีทำอย่างเป็นระเบียบ ให้นักเรียนได้ฝึกคิดและแสดงวิธีทำจริงด้วยตนเอง</div>
-                    </div>
+                <div class="preface-mini-philosophy">
+                  <div class="mini-philo-text">
+                    <strong>🎯 แนวทางการจัดการเรียนรู้:</strong> เอกสารรวมเล่มชุดนี้มุ่งเน้นการสร้างเสริมและพัฒนาทักษะกระบวนการคิดทางคณิตศาสตร์อย่างเป็นระบบ อิงตามมาตรฐานการเรียนรู้ สสวท. (ฉบับปรับปรุง พ.ศ. 2560) โดยทุกใบงานใช้โครงสร้าง 3 มิติ เพื่อส่งเสริมการเรียนรู้อย่างยั่งยืน:
+                  </div>
+                  <div class="preface-feature-mini-pills">
+                    <span class="mini-pill">📘 ตอนที่ 1: สรุปสาระสำคัญ</span>
+                    <span class="mini-pill">💡 ตอนที่ 2: ครูสาธิต (3 ตัวอย่าง)</span>
+                    <span class="mini-pill">✏️ ตอนที่ 3: ฝึกปฏิบัติ (6 ข้อ)</span>
                   </div>
                 </div>
 
-                <div class="preface-section">
-                  <h3 class="preface-sec-title">🗺️ แผนที่การเรียนรู้สู่ความสำเร็จ (Learning Roadmap)</h3>
-                  <div class="preface-roadmap-box">
-                    <div class="roadmap-step">
-                      <span class="step-num">Step 1</span>
-                      <strong>ทำความเข้าใจมโนทัศน์:</strong> ศึกษาและทบทวนกรอบสรุปสูตรในตอนที่ 1 ให้เข้าใจนิยามและที่มา
-                    </div>
-                    <div class="roadmap-step">
-                      <span class="step-num">Step 2</span>
-                      <strong>วิเคราะห์ตัวอย่างสาธิต:</strong> สังเกตขั้นตอนการแก้ปัญหาจากตัวอย่างของครูทั้ง 3 ข้ออย่างพินิจ
-                    </div>
-                    <div class="roadmap-step">
-                      <span class="step-num">Step 3</span>
-                      <strong>ฝึกปฏิบัติด้วยตนเอง:</strong> แสดงวิธีทำในแบบฝึกหัดทั้ง 6 ข้ออย่างเป็นระเบียบในพื้นที่เว้นไว้
-                    </div>
-                    <div class="roadmap-step">
-                      <span class="step-num">Step 4</span>
-                      <strong>ตรวจทานผลสัมฤทธิ์:</strong> ตรวจคำตอบสุดท้ายจาก "ตารางสรุปเฉลยคำตอบสั้นท้ายเล่ม" (หน้า ${5 + totalLessons * 2}–${4 + totalLessons * 2 + Math.ceil(totalLessons / 8)})
-                    </div>
+                <div class="preface-toc-container">
+                  <div class="preface-toc-title">📋 สารบัญเนื้อหาภายในเล่ม (${topics.length} ใบงานสมบูรณ์):</div>
+                  <div class="preface-toc-grid">
+                    ${topics.map(function(t, idx) {
+                      const cleanTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
+                      const pNum = 2 * idx + 5;
+                      return `
+                        <div class="preface-toc-item">
+                          <span class="toc-num">${idx + 1}</span>
+                          <span class="toc-name">${escapeHtml(cleanTitle)}</span>
+                          <span class="toc-pnum">น.${pNum}</span>
+                        </div>
+                      `;
+                    }).join('')}
+                  </div>
+                  <div class="preface-toc-meta-note">
+                    <span>📘 คำนำ &amp; Roadmap น.2</span>
+                    <span>📐 สรุปสูตร น.3-4</span>
+                    <span>🔑 ตารางเฉลยคำตอบ น.${5 + totalLessons * 2}–${4 + totalLessons * 2 + Math.ceil(totalLessons / 8)}</span>
+                  </div>
+                </div>
+
+                <div class="preface-roadmap-strip">
+                  <div class="roadmap-badge-title">🗺️ แผนที่การเรียนรู้สู่ความสำเร็จ (Learning Roadmap 4 ขั้นตอน):</div>
+                  <div class="roadmap-steps-inline">
+                    <span class="r-step"><strong>1. เข้าใจนิยาม:</strong> ศึกษาสรุปสูตร</span> ➔
+                    <span class="r-step"><strong>2. วิเคราะห์ตัวอย่าง:</strong> สังเกตวิธีคิด 3 ข้อ</span> ➔
+                    <span class="r-step"><strong>3. ฝึกปฏิบัติ:</strong> ลงมือทำ 6 ข้อ</span> ➔
+                    <span class="r-step"><strong>4. ตรวจทาน:</strong> เฉลยท้ายเล่ม</span>
                   </div>
                 </div>
               </div>
 
               <div class="preface-footer">
-                <div>${cleanDeptName} • ${schoolName}</div>
-                <div>เรียบเรียงโดย ${cleanTeacherName} • หน้า 2</div>
+                <div>${escapeHtml(cleanDeptName)} • ${escapeHtml(schoolName)}</div>
+                <div>เรียบเรียงโดย ${escapeHtml(cleanTeacherName)} • หน้า 2</div>
               </div>
             </div>
           </div>
@@ -1171,7 +1175,7 @@
             
             return `
               <div class="cs-card">
-                <div class="cs-card-title">${startIdx + idx + 1}. ${cleanTitle}</div>
+                <div class="cs-card-title">${startIdx + idx + 1}. ${escapeHtml(cleanTitle)}</div>
                 <div class="cs-card-body">
                   ${mathSnippet}
                 </div>
@@ -1189,7 +1193,7 @@
               <div class="cheatsheet-header">
                 <div class="cheatsheet-badge">📐 แผ่นสรุปสูตรฉบับพกพา (Master Formula Blueprint • ตอนที่ ${part})</div>
                 <h2 class="cheatsheet-title">${partTitle}</h2>
-                <div class="cheatsheet-meta">${subjectCode} • ${coverTitle} • ฉบับทบทวนก่อนสอบ</div>
+                <div class="cheatsheet-meta">${escapeHtml(subjectCode)} • ${escapeHtml(coverTitle)} • ฉบับทบทวนก่อนสอบ</div>
               </div>
 
               <div class="cheatsheet-grid">
@@ -1198,14 +1202,14 @@
 
               <div class="cheatsheet-footer">
                 <span>หน้า ${pageNum} • สรุปสูตรฉบับพกพา ตอนที่ ${part}</span>
-                <span>${coverTitle} • ${authorName}</span>
+                <span>${escapeHtml(coverTitle)} • ${escapeHtml(authorName)}</span>
               </div>
             </div>
           </div>
         `;
       }
 
-            // Helper for Summary Answer Key (3 Pages: 8 Lessons/Page)
+      // Helper for Summary Answer Key (3 Pages: 8 Lessons/Page)
       function renderSummaryAnswerKeyHtml(chunk, pageIdx, totalPages, pNum) {
         return `
           <div class="a4-paper-sheet book-answerkey-page">
@@ -1213,7 +1217,7 @@
               <div class="answerkey-header">
                 <div class="answerkey-badge">🔑 ตารางสรุปเฉลยคำตอบสั้นท้ายเล่ม (Summary Answer Key • หน้า ${pageIdx}/${totalPages})</div>
                 <h2 class="answerkey-title">เฉลยคำตอบสุดท้ายสำหรับตรวจทานด้วยตนเอง</h2>
-                <div class="answerkey-meta">${subjectCode} • ${coverTitle} • สำหรับนักเรียนตรวจผลสัมฤทธิ์</div>
+                <div class="answerkey-meta">${escapeHtml(subjectCode)} • ${escapeHtml(coverTitle)} • สำหรับนักเรียนตรวจผลสัมฤทธิ์</div>
               </div>
 
               <div class="answerkey-grid">
@@ -1229,7 +1233,7 @@
                     <div class="answerkey-item-card">
                       <div class="answerkey-item-header">
                         <span class="ak-num">[${lessonNum}]</span>
-                        <span class="ak-title" title="${cleanTitle}">${cleanTitle}</span>
+                        <span class="ak-title" title="${escapeHtml(cleanTitle)}">${escapeHtml(cleanTitle)}</span>
                       </div>
                       <div class="answerkey-answers-list">
                         ${studentExs.map(function(ex, eIdx) {
@@ -1270,8 +1274,8 @@
               </div>
 
               <div class="answerkey-footer">
-                <span>หน้า ${pNum} • ตารางเฉลยคำตอบสั้น ${coverTitle}</span>
-                <span>© ${cleanTeacherName} • ${schoolName}</span>
+                <span>หน้า ${pNum} • ตารางเฉลยคำตอบสั้น ${escapeHtml(coverTitle)}</span>
+                <span>© ${escapeHtml(cleanTeacherName)} • ${escapeHtml(schoolName)}</span>
               </div>
             </div>
           </div>
@@ -1287,14 +1291,14 @@
             <div class="back-cover-card-container">
               <div class="back-cover-header-badges">
                 <span class="back-cover-pill-ipst">สสวท. มาตรฐานหลักสูตรแกนกลาง</span>
-                <span class="back-cover-pill-code">${subjectCode} • ${grade}</span>
+                <span class="back-cover-pill-code">${escapeHtml(subjectCode)} • ${escapeHtml(grade)}</span>
               </div>
 
               <div class="back-cover-center-box">
                 <div class="back-cover-math-icon">📘</div>
                 <div class="back-cover-edition-ribbon">ฉบับแบบฝึกหัดนักเรียน (Student Workbook)</div>
-                <h1 class="back-cover-title-text">${coverTitle}</h1>
-                <div class="back-cover-subtitle-text">${coverSubtitle}</div>
+                <h1 class="back-cover-title-text">${escapeHtml(coverTitle)}</h1>
+                <div class="back-cover-subtitle-text">${escapeHtml(coverSubtitle)}</div>
                 <div class="back-cover-curriculum-standard-note">อิงมาตรฐานการเรียนรู้และผลการเรียนรู้ สาระคณิตศาสตร์เพิ่มเติม (ฉบับปรับปรุง 2560)</div>
 
                 <div class="back-cover-highlights-card">
@@ -1327,9 +1331,9 @@
               <div class="back-cover-footer-meta">
                 <div class="back-author-col">
                   <div class="author-label">จัดทำและเรียบเรียงโดย:</div>
-                  <div class="author-val">${cleanTeacherName}</div>
-                  <div class="author-dept">${cleanDeptName}</div>
-                  <div class="school-val">${schoolName} • ${(function() {
+                  <div class="author-val">${escapeHtml(cleanTeacherName)}</div>
+                  <div class="author-dept">${escapeHtml(cleanDeptName)}</div>
+                  <div class="school-val">${escapeHtml(schoolName)} • ${(function() {
                     let txt = academicYear || '';
                     if (txt.indexOf('ภาคเรียน') === -1 && defaultSemester) {
                       return defaultSemester + ' ' + txt;
@@ -1338,7 +1342,7 @@
                   })()}</div>
                 </div>
                 <div class="back-copyright-col">
-                  <div class="copyright-text">${copyrightText}</div>
+                  <div class="copyright-text">${escapeHtml(copyrightText)}</div>
                   <div class="tech-note">High-Fidelity KaTeX Vector Publishing • MathSheet AI Studio</div>
                 </div>
               </div>
@@ -1608,28 +1612,105 @@
       color: #64748b;
       margin-bottom: 1.25rem;
     }
-    .cover-toc-container {
-      text-align: left;
+    .cover-hero-stats-card {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      background: #eff6ff;
+      border: 1.5px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 0.85rem 1.5rem;
+      max-width: 480px;
+      margin: 1.25rem auto 1rem auto;
+    }
+    .cover-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .stat-number {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1e40af;
+      line-height: 1.2;
+      font-family: 'Prompt', sans-serif;
+    }
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #64748b;
+      margin-top: 2px;
+      font-family: 'Prompt', sans-serif;
+    }
+    .cover-stat-divider {
+      width: 1px;
+      height: 32px;
+      background: #93c5fd;
+    }
+    .cover-features-pill-row {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+    }
+    .cover-feature-pill {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #1e3a8a;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-family: 'Prompt', sans-serif;
+    }
+
+    /* Page 2 Preface & Master TOC Screen Styles */
+    .preface-mini-philosophy {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 0.55rem 0.85rem;
+      margin-bottom: 0.65rem;
+      font-size: 0.82rem;
+      color: #334155;
+      line-height: 1.5;
+    }
+    .preface-feature-mini-pills {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.35rem;
+    }
+    .mini-pill {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #1e40af;
+      background: #dbeafe;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Prompt', sans-serif;
+    }
+    .preface-toc-container {
       background: #f8fafc;
       border: 1px solid #cbd5e1;
       border-radius: 6px;
-      padding: 10px 14px;
-      margin: 10px auto 0 auto;
-      max-width: 98%;
+      padding: 0.65rem 0.95rem;
+      margin-bottom: 0.65rem;
     }
-    .cover-toc-title {
+    .preface-toc-title {
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       color: #1e293b;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.45rem;
       font-family: 'Prompt', sans-serif;
     }
-    .cover-toc-grid {
+    .preface-toc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.2rem 0.85rem;
     }
-    .cover-toc-item {
+    .preface-toc-item {
       display: flex;
       align-items: flex-start;
       gap: 0.35rem;
@@ -1638,7 +1719,7 @@
       line-height: 1.25;
       min-width: 0;
     }
-    .cover-toc-item .toc-num {
+    .preface-toc-item .toc-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -1652,12 +1733,53 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
-    .cover-toc-item .toc-name {
+    .preface-toc-item .toc-name {
       flex: 1;
       min-width: 0;
       white-space: normal;
       word-break: break-word;
       overflow-wrap: break-word;
+    }
+    .preface-toc-meta-note {
+      display: flex;
+      justify-content: space-around;
+      background: #eff6ff;
+      border-radius: 4px;
+      padding: 0.3rem 0.5rem;
+      margin-top: 0.45rem;
+      font-size: 0.72rem;
+      color: #1e40af;
+      font-weight: 600;
+      font-family: 'Prompt', sans-serif;
+    }
+    .preface-roadmap-strip {
+      background: #eff6ff;
+      border-left: 3px solid #2563eb;
+      border-radius: 4px;
+      padding: 0.45rem 0.75rem;
+      margin-bottom: 0.45rem;
+    }
+    .roadmap-badge-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      margin-bottom: 0.2rem;
+      font-family: 'Prompt', sans-serif;
+    }
+    .roadmap-steps-inline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.3rem;
+      font-size: 0.76rem;
+      color: #334155;
+      font-family: 'Prompt', sans-serif;
+    }
+    .r-step {
+      background: #ffffff;
+      border: 1px solid #bfdbfe;
+      padding: 2px 6px;
+      border-radius: 4px;
     }
     .cover-footer-meta {
       border-top: 2px solid #0f172a;
@@ -1994,90 +2116,7 @@
         background: #ffffff !important;
         background-color: #ffffff !important;
       }
-      .book-cover-page {
-        border: none !important;
-        height: 275mm !important;
-        max-height: 275mm !important;
-        min-height: 275mm !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        break-before: avoid !important;
-        page-break-before: avoid !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-      }
-      .cover-card-container {
-        border: 2px solid #0f172a !important;
-        height: 275mm !important;
-        max-height: 275mm !important;
-        min-height: 275mm !important;
-        padding: 24px 22px !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-      }
-      .book-appendix-divider {
-        border: none !important;
-        height: 275mm !important;
-        max-height: 275mm !important;
-        min-height: 275mm !important;
-        padding: 0 !important;
-        box-sizing: border-box !important;
-        overflow: hidden !important;
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        page-break-before: always !important;
-        break-before: page !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        background: #ffffff !important;
-        background-color: #ffffff !important;
-      }
-      .sheet-main-header {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-      .sheet-block {
-        break-inside: auto !important;
-        page-break-inside: auto !important;
-      }
-      .sheet-block-badge {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-      .sheet-exercise {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-      .exercise-header {
-        break-after: avoid !important;
-        page-break-after: avoid !important;
-      }
-      .sheet-formula-box, .sheet-solution-box, .sheet-teacher-answer, .handwriting-grid {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-      .sheet-footer-line {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-        break-before: avoid !important;
-        page-break-before: avoid !important;
-      }
-
-      /* Commercial Publishing Pages & 2-Page Leaf Containment */
+      /* Commercial Publishing Pages & 2-Page Leaf Containment (Strict 271mm Budget) */
       .book-cover-page, .book-preface-page, .book-cheatsheet-page, .book-answerkey-page, .book-back-cover-page, .book-lesson-sheet {
         border: none !important;
         height: 271mm !important;
@@ -2096,11 +2135,110 @@
         background: #ffffff !important;
         background-color: #ffffff !important;
       }
-      .preface-card-container, .cheatsheet-card-container, .answerkey-card-container, .back-cover-card-container {
-        min-height: 271mm !important;
+
+      /* Inner Card Containers Fill Parent Exactly (height: 100%) - No Double-Padding Cutoffs! */
+      .cover-card-container,
+      .preface-card-container,
+      .cheatsheet-card-container,
+      .answerkey-card-container,
+      .back-cover-card-container {
+        border: 2px solid #0f172a !important;
+        height: 100% !important;
+        max-height: 100% !important;
+        min-height: 0 !important;
+        padding: 16px 20px !important;
+        box-sizing: border-box !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+      }
+
+      .book-appendix-divider {
+        border: none !important;
         height: 271mm !important;
         max-height: 271mm !important;
+        min-height: 271mm !important;
         padding: 6mm 8mm !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        page-break-before: always !important;
+        break-before: page !important;
+        page-break-after: avoid !important;
+        break-after: page !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+      }
+
+      /* Cheatsheet Compact Print Tuning */
+      .cheatsheet-header {
+        margin-bottom: 0.25rem !important;
+        padding-bottom: 0.25rem !important;
+      }
+      .cheatsheet-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.35rem 0.55rem !important;
+        flex: 1 !important;
+        margin: 0.2rem 0 !important;
+      }
+      .cs-card {
+        padding: 0.28rem 0.48rem !important;
+        background: #f8fafc !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 5px !important;
+        font-size: 0.74rem !important;
+      }
+      .cs-card-title {
+        font-size: 0.78rem !important;
+        padding-bottom: 0.12rem !important;
+        margin-bottom: 0.15rem !important;
+      }
+      .cs-card-body {
+        font-size: 0.72rem !important;
+        line-height: 1.28 !important;
+      }
+      .cs-card-body .katex-display {
+        margin: 0.04em 0 !important;
+        font-size: 0.78em !important;
+        line-height: 1.2 !important;
+      }
+      .cs-card-body .katex {
+        font-size: 0.8em !important;
+      }
+      .cheatsheet-footer {
+        padding-top: 0.25rem !important;
+        font-size: 0.72rem !important;
+      }
+
+      /* Answer Key Compact Print Tuning */
+      .answerkey-grid {
+        gap: 0.3rem 0.5rem !important;
+      }
+      .answerkey-item-card {
+        padding: 0.22rem 0.42rem !important;
+        font-size: 0.72rem !important;
+      }
+      .answerkey-answers-list {
+        gap: 0.15rem 0.25rem !important;
+      }
+      .ak-ans-row {
+        font-size: 0.68rem !important;
+        padding: 1px 3px !important;
+      }
+      .answerkey-rubric-card {
+        padding: 0.22rem 0.45rem !important;
+        margin-top: 0.2rem !important;
+      }
+      .answerkey-footer {
+        padding-top: 0.25rem !important;
+        font-size: 0.72rem !important;
       }
 
       /* Strict 2-Page Leaf Containment */

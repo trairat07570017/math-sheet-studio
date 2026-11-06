@@ -688,12 +688,12 @@
     "gradeShort": "ม.4",
     "semester": "ภาคเรียนที่ 2",
     "subjectCode": "คณิตศาสตร์เพิ่มเติม 2 (ค31202)",
-    "title": "ใบงานที่ 6: พฤติกรรมฟังก์ชันเพิ่ม ($a>1$) และฟังก์ชันลด ($0<a<1$)",
+    "title": "ใบงานที่ 6: พฤติกรรมฟังก์ชันเพิ่ม ($a > 1$) และฟังก์ชันลด ($0 < a < 1$)",
     "standard": "ผลการเรียนรู้: เข้าใจฟังก์ชันเอกซ์โพเนนเชียลและฟังก์ชันลอการิทึม และนำไปใช้ในการแก้ปัญหา",
     "desc": "ทฤษฎีการเปรียบเทียบค่าฟังก์ชัน $a^{x_1}$ กับ $a^{x_2}$ เงื่อนไขฟังก์ชันเพิ่ม-ลด",
     "worksheet": {
-      "sheetName": "ใบงานที่ 6: พฤติกรรมฟังก์ชันเพิ่ม ($a>1$) และฟังก์ชันลด ($0<a<1$)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เกณฑ์การพิจารณาฟังก์ชันเพิ่มและฟังก์ชันลด:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na > 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันเพิ่ม: } x_1 < x_2 \\implies a^{x_1} < a^{x_2} \\\\[4pt]\n0 < a < 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันลด: } x_1 < x_2 \\implies a^{x_1} > a^{x_2}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าฐานเป็นเศษส่วนแท้ ($0<a<1$) เลขชี้กำลังยิ่งมาก ค่าของฟังก์ชันจะยิ่งน้อยลง (กลับทิศทางอสมการ)\n  </div>\n</div>",
+      "sheetName": "ใบงานที่ 6: พฤติกรรมฟังก์ชันเพิ่ม ($a > 1$) และฟังก์ชันลด ($0 < a < 1$)",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เกณฑ์การพิจารณาฟังก์ชันเพิ่มและฟังก์ชันลด:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na > 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันเพิ่ม: } x_1 < x_2 \\implies a^{x_1} < a^{x_2} \\\\[4pt]\n0 < a < 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันลด: } x_1 < x_2 \\implies a^{x_1} > a^{x_2}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าฐานเป็นเศษส่วนแท้ ($0 < a < 1$) เลขชี้กำลังยิ่งมาก ค่าของฟังก์ชันจะยิ่งน้อยลง (กลับทิศทางอสมการ)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงพิจารณาว่าฟังก์ชัน $f(x) = \\left(\\frac{3}{5}\\right)^x$ เป็นฟังก์ชันเพิ่มหรือลด พร้อมทั้งเปรียบเทียบ $\\left(\\frac{3}{5}\\right)^4$ กับ $\\left(\\frac{3}{5}\\right)^7$",
@@ -764,8 +764,8 @@
       ]
     },
     "summary": {
-      "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว ใบงานที่ 6: พฤติกรรมฟังก์ชันเพิ่ม ($a>1$) และฟังก์ชันลด ($0<a<1$)",
-      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เกณฑ์การพิจารณาฟังก์ชันเพิ่มและฟังก์ชันลด:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na > 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันเพิ่ม: } x_1 < x_2 \\implies a^{x_1} < a^{x_2} \\\\[4pt]\n0 < a < 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันลด: } x_1 < x_2 \\implies a^{x_1} > a^{x_2}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าฐานเป็นเศษส่วนแท้ ($0<a<1$) เลขชี้กำลังยิ่งมาก ค่าของฟังก์ชันจะยิ่งน้อยลง (กลับทิศทางอสมการ)\n  </div>\n</div>",
+      "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว ใบงานที่ 6: พฤติกรรมฟังก์ชันเพิ่ม ($a > 1$) และฟังก์ชันลด ($0 < a < 1$)",
+      "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เกณฑ์การพิจารณาฟังก์ชันเพิ่มและฟังก์ชันลด:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\na > 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันเพิ่ม: } x_1 < x_2 \\implies a^{x_1} < a^{x_2} \\\\[4pt]\n0 < a < 1 &\\iff f(x) = a^x \\text{ เป็นฟังก์ชันลด: } x_1 < x_2 \\implies a^{x_1} > a^{x_2}\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ถ้าฐานเป็นเศษส่วนแท้ ($0 < a < 1$) เลขชี้กำลังยิ่งมาก ค่าของฟังก์ชันจะยิ่งน้อยลง (กลับทิศทางอสมการ)\n  </div>\n</div>",
       "exercises": [
         {
           "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) จงพิจารณาว่าฟังก์ชัน $f(x) = \\left(\\frac{3}{5}\\right)^x$ เป็นฟังก์ชันเพิ่มหรือลด พร้อมทั้งเปรียบเทียบ $\\left(\\frac{3}{5}\\right)^4$ กับ $\\left(\\frac{3}{5}\\right)^7$",
@@ -1504,11 +1504,11 @@
     "gradeShort": "ม.4",
     "semester": "ภาคเรียนที่ 2",
     "subjectCode": "คณิตศาสตร์เพิ่มเติม 2 (ค31202)",
-    "title": "ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล (เน้นระวังฐาน $0<a<1$ กลับเครื่องหมาย)",
+    "title": "ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล (เน้นระวังฐาน $0 < a < 1$ กลับเครื่องหมาย)",
     "standard": "ผลการเรียนรู้: เข้าใจฟังก์ชันเอกซ์โพเนนเชียลและฟังก์ชันลอการิทึม และนำไปใช้ในการแก้ปัญหา",
-    "desc": "ทฤษฎีอสมการบนฟังก์ชันเพิ่ม ($a>1$) คงเครื่องหมาย และฟังก์ชันลด ($0<a<1$) กลับเครื่องหมาย",
+    "desc": "ทฤษฎีอสมการบนฟังก์ชันเพิ่ม ($a > 1$) คงเครื่องหมาย และฟังก์ชันลด ($0 < a < 1$) กลับเครื่องหมาย",
     "worksheet": {
-      "sheetName": "ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล (เน้นระวังฐาน $0<a<1$ กลับเครื่องหมาย)",
+      "sheetName": "ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล (เน้นระวังฐาน $0 < a < 1$ กลับเครื่องหมาย)",
       "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 กฎเหล็กอสมการเอกซ์โพเนนเชียล:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{เมื่อ } a > 1: &\\quad a^{f(x)} > a^{g(x)} \\iff f(x) > g(x) \\quad (\\text{คงเดิม}) \\\\[4pt]\n\\text{เมื่อ } 0 < a < 1: &\\quad a^{f(x)} > a^{g(x)} \\iff f(x) < g(x) \\quad (\\mathbf{\\text{กลับเครื่องหมาย!}})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดผิดบ่อยที่สุดในข้อสอบคือลืมกลับเครื่องหมายเมื่อฐานเป็นเศษส่วนแท้ เช่น $\\frac{1}{2}, \\frac{1}{3}, 0.2$\n  </div>\n</div>",
       "exercises": [
         {
@@ -1580,7 +1580,7 @@
       ]
     },
     "summary": {
-      "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล (เน้นระวังฐาน $0<a<1$ กลับเครื่องหมาย)",
+      "sheetName": "ใบสรุปสูตร & เทคนิคคิดเร็ว ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล (เน้นระวังฐาน $0 < a < 1$ กลับเครื่องหมาย)",
       "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 กฎเหล็กอสมการเอกซ์โพเนนเชียล:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{เมื่อ } a > 1: &\\quad a^{f(x)} > a^{g(x)} \\iff f(x) > g(x) \\quad (\\text{คงเดิม}) \\\\[4pt]\n\\text{เมื่อ } 0 < a < 1: &\\quad a^{f(x)} > a^{g(x)} \\iff f(x) < g(x) \\quad (\\mathbf{\\text{กลับเครื่องหมาย!}})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> จุดผิดบ่อยที่สุดในข้อสอบคือลืมกลับเครื่องหมายเมื่อฐานเป็นเศษส่วนแท้ เช่น $\\frac{1}{2}, \\frac{1}{3}, 0.2$\n  </div>\n</div>",
       "exercises": [
         {
@@ -2730,7 +2730,7 @@
     "subjectCode": "คณิตศาสตร์เพิ่มเติม 2 (ค31202)",
     "title": "ใบงานที่ 21: อสมการลอการิทึมและการตรวจสอบโดเมน",
     "standard": "ผลการเรียนรู้: เข้าใจฟังก์ชันเอกซ์โพเนนเชียลและฟังก์ชันลอการิทึม และนำไปใช้ในการแก้ปัญหา",
-    "desc": "กฎอสมการลอก ฐาน $0<a<1$ กลับเครื่องหมาย และต้องอินเตอร์เซกต์กับโดเมน (หลังลอก $> 0$) เสมอ",
+    "desc": "กฎอสมการลอก ฐาน $0 < a < 1$ กลับเครื่องหมาย และต้องอินเตอร์เซกต์กับโดเมน (หลังลอก $> 0$) เสมอ",
     "worksheet": {
       "sheetName": "ใบงานที่ 21: อสมการลอการิทึมและการตรวจสอบโดเมน",
       "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 กฎเหล็กอสมการลอการิทึม:</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{เมื่อ } a > 1: &\\quad \\log_a f(x) > \\log_a g(x) \\iff f(x) > g(x) > 0 \\\\[4pt]\n\\text{เมื่อ } 0 < a < 1: &\\quad \\log_a f(x) > \\log_a g(x) \\iff 0 < f(x) < g(x) \\quad (\\mathbf{\\text{กลับเครื่องหมาย!}})\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> ข้อผิดพลาดอันดับ 1 ในข้อสอบ: ปลดฐานลอกแล้วลืมนำคำตอบไปอินเตอร์เซกต์กับเงื่อนไขหลังลอก ($> 0$)\n  </div>\n</div>",
