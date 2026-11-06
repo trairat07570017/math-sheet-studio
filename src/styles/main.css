@@ -1671,6 +1671,34 @@
       border: 1px solid #e2e8f0;
     }
 
+    .student-workspace-canvas {
+      background: #ffffff;
+      border: 1px dashed #cbd5e1;
+      border-radius: 6px;
+      position: relative;
+      box-sizing: border-box;
+      margin-top: 0.35rem;
+      margin-bottom: 0.25rem;
+      width: 100%;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    .student-workspace-canvas .canvas-watermark {
+      position: absolute;
+      bottom: 4px;
+      right: 8px;
+      font-size: 0.68rem;
+      color: #94a3b8;
+      font-family: 'Prompt', sans-serif;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .student-workspace-canvas.canvas-p1 { min-height: 105px; }
+    .student-workspace-canvas.canvas-p2 { min-height: 65px; }
+    .student-workspace-canvas.canvas-p2-last { min-height: 75px; }
+
     .handwriting-grid {
       min-height: 110px;
       border: 1px dashed #cbd5e1;
@@ -1761,11 +1789,25 @@
     .sheet-footer-line {
       margin-top: auto;
       border-top: 1px solid #e2e8f0;
-      padding-top: 0.5rem;
+      padding-top: 0.4rem;
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
+      align-items: center;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: 7.5pt;
       color: #94a3b8;
+    }
+    .sheet-footer-line .footer-left {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 68%;
+    }
+    .sheet-footer-line .footer-right {
+      flex-shrink: 0;
+      text-align: right;
+      font-weight: 500;
     }
 
     /* -------------------------------------------------------------
@@ -2826,7 +2868,22 @@
         color: #064e3b !important;
       }
 
-      /* 10. Student Handwriting Response Grids (Clean Blank Workspace) */
+      /* 10. Student Handwriting Response Grids & Clean Blank Canvas */
+      .student-workspace-canvas {
+        display: block !important;
+        background: #ffffff !important;
+        border: 1px dashed #cbd5e1 !important;
+        border-radius: 4px !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin-top: 0.25rem !important;
+      }
+      .student-workspace-canvas.canvas-p1 { min-height: 102px !important; }
+      .student-workspace-canvas.canvas-p2 { min-height: 58px !important; }
+      .student-workspace-canvas.canvas-p2-last { min-height: 68px !important; }
+
       .handwriting-grid {
         display: block !important;
         background: #ffffff !important;
@@ -2918,9 +2975,25 @@
         page-break-inside: avoid !important;
         border-top: 1px solid #cbd5e1 !important;
         color: #64748b !important;
-        font-size: 8pt !important;
-        margin-top: 0.85rem !important;
-        padding-top: 0.4rem !important;
+        font-size: 7.5pt !important;
+        margin-top: 0.4rem !important;
+        padding-top: 0.25rem !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+      }
+      .sheet-footer-line .footer-left {
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+        white-space: nowrap !important;
+        max-width: 68% !important;
+      }
+      .sheet-footer-line .footer-right {
+        flex-shrink: 0 !important;
+        text-align: right !important;
+        font-weight: 500 !important;
       }
 
       /* 12. KaTeX Print Scaling & Overflow Avoidance */
