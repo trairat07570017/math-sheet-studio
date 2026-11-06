@@ -43,7 +43,7 @@
       <div class="sidebar-search">
         <div class="search-input-box">
           <span class="search-icon">🔍</span>
-          <input type="text" id="topicSearchBox" placeholder="ค้นหาคาบเรียน เช่น เลขยกกำลัง, กราฟ, log, ครึ่งชีวิต..." oninput="handleSearchTopics()">
+          <input type="text" id="topicSearchBox" placeholder="ค้นหาใบงาน เช่น เลขยกกำลัง, กราฟ, log, ครึ่งชีวิต..." oninput="handleSearchTopics()">
           <span class="search-kbd-hint">⌘K</span>
         </div>
       </div>
@@ -64,7 +64,7 @@
             <div class="unit-info">
               <div class="unit-badge-row">
                 <span class="unit-grade-tag">ม.4 (เทอม 2)</span>
-                <span class="unit-status-tag ready">พร้อมสอน • 24 คาบ</span>
+                <span class="unit-status-tag ready">พร้อมสอน • 24 ใบงาน</span>
               </div>
               <div class="unit-title-text">ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม</div>
               <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 2 (ค31202)</div>
@@ -77,7 +77,7 @@
         <div class="unit-chapters-body">
           <div class="chapters-banner-bar">
             <span class="chapters-banner-title">📚 เลือกบทเรียนหลัก (6 บท)</span>
-            <span class="chapters-banner-hint">คลิกบทเพื่อดูคาบย่อย</span>
+            <span class="chapters-banner-hint">คลิกบทเพื่อดูใบงานย่อย</span>
           </div>
           <div class="chapters-tree-list">
     
@@ -85,7 +85,7 @@
           <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-1')">
             <div class="chapter-tree-title-group">
               <span class="chapter-tree-title">บทที่ 1: เลขยกกำลังและกรณฑ์ในระบบจำนวนจริง</span>
-              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 1 - 4</span>
+              <span class="chapter-tree-sub">4 ใบงาน • ใบงานที่ 1 - 4</span>
             </div>
             <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-1')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 1: เลขยกกำลังและกรณฑ์ในระบบจำนวนจริง)">
               ⚙️
@@ -94,10 +94,10 @@
           </button>
           <div class="chapter-quick-action-bar">
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
-            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-1')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-1')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
-            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-1')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-1')" title="รวมเล่มเฉพาะบทนี้ (4 ใบงาน) เป็นไฟล์ PDF เดียว">
               <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
@@ -106,7 +106,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item active" data-id="expo-l01" onclick="selectTopic('expo-l01')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 1: เลขยกกำลังชี้กำลังเต็ม</span>
+                <span class="topic-title-text">ใบงานที่ 1: เลขยกกำลังชี้กำลังเต็ม</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">5 สมบัติหลัก นิยาม $a^0=1$ และ $a^{-n}=\frac{1}{a^n}$</div>
@@ -116,7 +116,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l02" onclick="selectTopic('expo-l02')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 2: รากที่ n และกรณฑ์</span>
+                <span class="topic-title-text">ใบงานที่ 2: รากที่ n และกรณฑ์</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">ค่าหลักของรากที่ n และเงื่อนไข $|a|$ เมื่อ n คู่</div>
@@ -126,7 +126,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l03" onclick="selectTopic('expo-l03')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 3: การดำเนินการของกรณฑ์ & สังยุค</span>
+                <span class="topic-title-text">ใบงานที่ 3: การดำเนินการของกรณฑ์ & สังยุค</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">บวก ลบ คูณ หารกรณฑ์ และจัดรูปตัวส่วนด้วยสังยุค</div>
@@ -136,7 +136,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l04" onclick="selectTopic('expo-l04')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 4: เลขยกกำลังชี้กำลังตรรกยะ</span>
+                <span class="topic-title-text">ใบงานที่ 4: เลขยกกำลังชี้กำลังตรรกยะ</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$a^{\frac{m}{n}} = (\sqrt[n]{a})^m$ และการแปลงรูป</div>
@@ -150,7 +150,7 @@
           <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-2')">
             <div class="chapter-tree-title-group">
               <span class="chapter-tree-title">บทที่ 2: ฟังก์ชันเอกซ์โพเนนเชียลและกราฟ</span>
-              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 5 - 8</span>
+              <span class="chapter-tree-sub">4 ใบงาน • ใบงานที่ 5 - 8</span>
             </div>
             <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-2')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 2: ฟังก์ชันเอกซ์โพเนนเชียลและกราฟ)">
               ⚙️
@@ -159,10 +159,10 @@
           </button>
           <div class="chapter-quick-action-bar">
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
-            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-2')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-2')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
-            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-2')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-2')" title="รวมเล่มเฉพาะบทนี้ (4 ใบงาน) เป็นไฟล์ PDF เดียว">
               <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
@@ -171,7 +171,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l05" onclick="selectTopic('expo-l05')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 5: นิยามฟังก์ชันเอกซ์โพเนนเชียล</span>
+                <span class="topic-title-text">ใบงานที่ 5: นิยามฟังก์ชันเอกซ์โพเนนเชียล</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">รูปแบบ $y = a^x$ เงื่อนไข $a > 0, a \neq 1$</div>
@@ -181,7 +181,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l06" onclick="selectTopic('expo-l06')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 6: กราฟเอกซ์โพเนนเชียล</span>
+                <span class="topic-title-text">ใบงานที่ 6: กราฟเอกซ์โพเนนเชียล</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">ฟังก์ชันเพิ่ม/ลด จุดตัด $(0,1)$ เส้นกำกับ $y=0$</div>
@@ -191,7 +191,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l07" onclick="selectTopic('expo-l07')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 7: การเลื่อนขนานกราฟ & โดเมนเรนจ์</span>
+                <span class="topic-title-text">ใบงานที่ 7: การเลื่อนขนานกราฟ & โดเมนเรนจ์</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$y = a^{x-h} + k$ การหาโดเมน เรนจ์ เส้นกำกับ</div>
@@ -201,7 +201,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l08" onclick="selectTopic('expo-l08')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 8: การเปรียบเทียบค่าเลขยกกำลัง</span>
+                <span class="topic-title-text">ใบงานที่ 8: การเปรียบเทียบค่าเลขยกกำลัง</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">เปรียบเทียบค่าเมื่อฐาน $a > 1$ และ $0 < a < 1$</div>
@@ -215,7 +215,7 @@
           <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-3')">
             <div class="chapter-tree-title-group">
               <span class="chapter-tree-title">บทที่ 3: สมการและอสมการเอกซ์โพเนนเชียล</span>
-              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 9 - 12</span>
+              <span class="chapter-tree-sub">4 ใบงาน • ใบงานที่ 9 - 12</span>
             </div>
             <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-3')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 3: สมการและอสมการเอกซ์โพเนนเชียล)">
               ⚙️
@@ -224,10 +224,10 @@
           </button>
           <div class="chapter-quick-action-bar">
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
-            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-3')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-3')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
-            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-3')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-3')" title="รวมเล่มเฉพาะบทนี้ (4 ใบงาน) เป็นไฟล์ PDF เดียว">
               <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
@@ -236,7 +236,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l09" onclick="selectTopic('expo-l09')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 9: สมการเอกซ์โพ: ฐานเท่ากัน</span>
+                <span class="topic-title-text">ใบงานที่ 9: สมการเอกซ์โพ: ฐานเท่ากัน</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$a^{f(x)} = a^{g(x)} \iff f(x) = g(x)$</div>
@@ -246,7 +246,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l10" onclick="selectTopic('expo-l10')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 10: สมการเอกซ์โพ: แปลงตัวแปรพหุนาม</span>
+                <span class="topic-title-text">ใบงานที่ 10: สมการเอกซ์โพ: แปลงตัวแปรพหุนาม</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">จัดรูป $A(a^x)^2 + B(a^x) + C = 0$ กำหนด $u = a^x$</div>
@@ -256,7 +256,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l11" onclick="selectTopic('expo-l11')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 11: สมการเอกซ์โพ: ฐานไม่เท่า & สมมาตร</span>
+                <span class="topic-title-text">ใบงานที่ 11: สมการเอกซ์โพ: ฐานไม่เท่า & สมมาตร</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$a^u = b^u$ และสมการรูป $a^x + a^{-x} = k$</div>
@@ -266,7 +266,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l12" onclick="selectTopic('expo-l12')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 12: อสมการเอกซ์โพเนนเชียล</span>
+                <span class="topic-title-text">ใบงานที่ 12: อสมการเอกซ์โพเนนเชียล</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">การกลับเครื่องหมายอสมการเมื่อฐาน $0 < a < 1$</div>
@@ -280,7 +280,7 @@
           <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-4')">
             <div class="chapter-tree-title-group">
               <span class="chapter-tree-title">บทที่ 4: ฟังก์ชันลอการิทึมและสมบัติพื้นฐาน</span>
-              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 13 - 16</span>
+              <span class="chapter-tree-sub">4 ใบงาน • ใบงานที่ 13 - 16</span>
             </div>
             <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-4')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 4: ฟังก์ชันลอการิทึมและสมบัติพื้นฐาน)">
               ⚙️
@@ -289,10 +289,10 @@
           </button>
           <div class="chapter-quick-action-bar">
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
-            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-4')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-4')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
-            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-4')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-4')" title="รวมเล่มเฉพาะบทนี้ (4 ใบงาน) เป็นไฟล์ PDF เดียว">
               <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
@@ -301,7 +301,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l13" onclick="selectTopic('expo-l13')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 13: นิยามลอการิทึม (อินเวอร์ส Expo)</span>
+                <span class="topic-title-text">ใบงานที่ 13: นิยามลอการิทึม (อินเวอร์ส Expo)</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$y = \log_a x \iff x = a^y$ เงื่อนไข $x > 0$</div>
@@ -311,7 +311,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l14" onclick="selectTopic('expo-l14')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 14: กราฟของฟังก์ชันลอการิทึม</span>
+                <span class="topic-title-text">ใบงานที่ 14: กราฟของฟังก์ชันลอการิทึม</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">ฟังก์ชันเพิ่ม/ลด จุดตัด $(1,0)$ เส้นกำกับ $x=0$</div>
@@ -321,7 +321,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l15" onclick="selectTopic('expo-l15')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 15: สมบัติพื้นฐานลอการิทึม 5 ข้อแรก</span>
+                <span class="topic-title-text">ใบงานที่ 15: สมบัติพื้นฐานลอการิทึม 5 ข้อแรก</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$\log_a 1, \log_a a, \log_a(MN), \log_a(\frac{M}{N}), \log_a(M^p)$</div>
@@ -331,7 +331,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l16" onclick="selectTopic('expo-l16')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 16: การเปลี่ยนฐาน & ยกกำลังที่ฐาน</span>
+                <span class="topic-title-text">ใบงานที่ 16: การเปลี่ยนฐาน & ยกกำลังที่ฐาน</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$\log_b a = \frac{\log_c a}{\log_c b}$ และ $\log_{b^q} a^p = \frac{p}{q}\log_b a$</div>
@@ -345,7 +345,7 @@
           <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-5')">
             <div class="chapter-tree-title-group">
               <span class="chapter-tree-title">บทที่ 5: ลอการิทึมขั้นสูงและสมการลอการิทึม</span>
-              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 17 - 20</span>
+              <span class="chapter-tree-sub">4 ใบงาน • ใบงานที่ 17 - 20</span>
             </div>
             <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-5')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 5: ลอการิทึมขั้นสูงและสมการลอการิทึม)">
               ⚙️
@@ -354,10 +354,10 @@
           </button>
           <div class="chapter-quick-action-bar">
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
-            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-5')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-5')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
-            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-5')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-5')" title="รวมเล่มเฉพาะบทนี้ (4 ใบงาน) เป็นไฟล์ PDF เดียว">
               <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
@@ -366,7 +366,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l17" onclick="selectTopic('expo-l17')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 17: ลอการิทึมสามัญ ธรรมชาติ & แมนทิสซา</span>
+                <span class="topic-title-text">ใบงานที่ 17: ลอการิทึมสามัญ ธรรมชาติ & แมนทิสซา</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$\log x, \ln x$, แคแรกเทอริสติกและแมนทิสซา</div>
@@ -376,7 +376,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l18" onclick="selectTopic('expo-l18')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 18: การเปิดตาราง & Antilogarithm</span>
+                <span class="topic-title-text">ใบงานที่ 18: การเปิดตาราง & Antilogarithm</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">การประมาณค่าลอการิทึมและการหาค่าแอนติลอการิทึม</div>
@@ -386,7 +386,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l19" onclick="selectTopic('expo-l19')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 19: สมการลอการิทึม: ฐานเท่า & ยุบ log</span>
+                <span class="topic-title-text">ใบงานที่ 19: สมการลอการิทึม: ฐานเท่า & ยุบ log</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$\log_a u = \log_a v$ และการตรวจเงื่อนไข $u, v > 0$</div>
@@ -396,7 +396,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l20" onclick="selectTopic('expo-l20')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 20: สมการลอการิทึม: เปลี่ยนตัวแปร & Take log</span>
+                <span class="topic-title-text">ใบงานที่ 20: สมการลอการิทึม: เปลี่ยนตัวแปร & Take log</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">สมการกำลังสองของ log และการ take log 2 ข้าง</div>
@@ -410,7 +410,7 @@
           <button type="button" class="chapter-tree-header" onclick="toggleChapterTree('chapter-6')">
             <div class="chapter-tree-title-group">
               <span class="chapter-tree-title">บทที่ 6: อสมการลอการิทึมและการประยุกต์โจทย์จริง</span>
-              <span class="chapter-tree-sub">4 คาบเรียน • คาบที่ 21 - 24</span>
+              <span class="chapter-tree-sub">4 ใบงาน • ใบงานที่ 21 - 24</span>
             </div>
             <button type="button" class="btn-chapter-tree-gear" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-6')" title="ตั้งค่ารหัสวิชาประจำบท (บทที่ 6: อสมการลอการิทึมและการประยุกต์โจทย์จริง)">
               ⚙️
@@ -419,10 +419,10 @@
           </button>
           <div class="chapter-quick-action-bar">
             <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ค31202">🏷️ ค31202</span>
-            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-6')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+            <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('chapter-6')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
               <span>⚙️ ตั้งค่าบท</span>
             </button>
-            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-6')" title="รวมเล่มเฉพาะบทนี้ (4 คาบ) เป็นไฟล์ PDF เดียว">
+            <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('chapter-6')" title="รวมเล่มเฉพาะบทนี้ (4 ใบงาน) เป็นไฟล์ PDF เดียว">
               <span>📖 รวมเล่มบทนี้</span>
             </button>
           </div>
@@ -431,7 +431,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l21" onclick="selectTopic('expo-l21')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 21: อสมการลอการิทึม & โดเมน</span>
+                <span class="topic-title-text">ใบงานที่ 21: อสมการลอการิทึม & โดเมน</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">ระวังโดเมน $u > 0$ และกลับเครื่องหมายเมื่อ $0 < a < 1$</div>
@@ -441,7 +441,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l22" onclick="selectTopic('expo-l22')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 22: ประยุกต์: กัมมันตรังสี & ครึ่งชีวิต</span>
+                <span class="topic-title-text">ใบงานที่ 22: ประยุกต์: กัมมันตรังสี & ครึ่งชีวิต</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$N(t) = N_0 (\frac{1}{2})^{\frac{t}{T}}$ และ $N(t) = N_0 e^{-\lambda t}$</div>
@@ -451,7 +451,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l23" onclick="selectTopic('expo-l23')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 23: ประยุกต์: ประชากร & ดอกเบี้ยทบต้น</span>
+                <span class="topic-title-text">ใบงานที่ 23: ประยุกต์: ประชากร & ดอกเบี้ยทบต้น</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$P(t) = P_0 e^{kt}$ และ $A = P(1+\frac{r}{n})^{nt}$</div>
@@ -461,7 +461,7 @@
           <li>
             <a href="javascript:void(0)" class="topic-item " data-id="expo-l24" onclick="selectTopic('expo-l24')">
               <div class="topic-row-top">
-                <span class="topic-title-text">คาบที่ 24: ประยุกต์: pH กรดด่าง & เดซิเบลเสียง</span>
+                <span class="topic-title-text">ใบงานที่ 24: ประยุกต์: pH กรดด่าง & เดซิเบลเสียง</span>
                 <span class="topic-tag highlight">สสวท.</span>
               </div>
               <div class="topic-desc-snippet">$pH = -\log[H^+]$ และ $\beta = 10\log(\frac{I}{I_0})$</div>
@@ -485,7 +485,7 @@
                 <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
               </div>
               <div class="unit-title-text">เรขาคณิตวิเคราะห์และภาคตัดกรวย</div>
-              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 2 (ค31202) • 18 คาบเรียน</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 2 (ค31202) • 18 ใบงาน</div>
             </div>
           </div>
           <span class="unit-upcoming-lock">🔒</span>
@@ -502,7 +502,7 @@
                 <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
               </div>
               <div class="unit-title-text">ระบบจำนวนจริงและพหุนาม</div>
-              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 1 (ค31201) • 20 คาบเรียน</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 1 (ค31201) • 20 ใบงาน</div>
             </div>
           </div>
           <span class="unit-upcoming-lock">🔒</span>
@@ -519,7 +519,7 @@
                 <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
               </div>
               <div class="unit-title-text">ฟังก์ชันตรีโกณมิติและการประยุกต์</div>
-              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 3 (ค32201) • 24 คาบเรียน</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 3 (ค32201) • 24 ใบงาน</div>
             </div>
           </div>
           <span class="unit-upcoming-lock">🔒</span>
@@ -536,7 +536,7 @@
                 <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
               </div>
               <div class="unit-title-text">เวกเตอร์ในสามมิติ</div>
-              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 3 (ค32201) • 16 คาบเรียน</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 3 (ค32201) • 16 ใบงาน</div>
             </div>
           </div>
           <span class="unit-upcoming-lock">🔒</span>
@@ -553,7 +553,7 @@
                 <span class="unit-status-tag upcoming">เร็วๆ นี้</span>
               </div>
               <div class="unit-title-text">แคลคูลัสเบื้องต้น</div>
-              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 5 (ค33201) • 28 คาบเรียน</div>
+              <div class="unit-sub-text">คณิตศาสตร์เพิ่มเติม 5 (ค33201) • 28 ใบงาน</div>
             </div>
           </div>
           <span class="unit-upcoming-lock">🔒</span>
@@ -564,7 +564,7 @@
 
       <div class="sidebar-footer">
         <div><span class="pulse-dot"></span>สสวท. Curriculum Ready</div>
-        <span>24 คาบเรียน (สัปดาห์ที่ 1 - 6)</span>
+        <span>24 ใบงาน (สัปดาห์ที่ 1 - 6)</span>
       </div>
     </aside>
 
@@ -580,7 +580,7 @@
 
           <div class="active-topic-flow">
             <div class="flow-title" id="flowBreadcrumb">
-              <span>คาบที่ 1: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนเต็ม</span>
+              <span>ใบงานที่ 1: เลขยกกำลังที่มีเลขชี้กำลังเป็นจำนวนเต็ม</span>
             </div>
             <div class="flow-sub" id="flowGradeSub">
               <span>มัธยมศึกษาปีที่ 4 (ภาคเรียนที่ 2)</span>
@@ -615,7 +615,7 @@
             <span>พิมพ์ / PDF</span>
           </button>
 
-          <button type="button" class="btn-action btn-book-export btn-save-glow" id="btnOpenBookExport" onclick="openBookExportModal()" title="รวมเล่มเอกสารหลายคาบเป็นไฟล์ PDF สมบูรณ์ พร้อมหน้าปก A4 และเลขหน้า สำหรับพิมพ์หรือจำหน่าย">
+          <button type="button" class="btn-action btn-book-export btn-save-glow" id="btnOpenBookExport" onclick="openBookExportModal()" title="รวมเล่มเอกสารหลายใบงานเป็นไฟล์ PDF สมบูรณ์ พร้อมหน้าปก A4 และเลขหน้า สำหรับพิมพ์หรือจำหน่าย">
             <span>📚</span>
             <span>รวมเล่ม PDF</span>
           </button>
@@ -1232,7 +1232,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
         <div style="background: rgba(0, 245, 212, 0.08); border: 1px solid rgba(0, 245, 212, 0.25); border-radius: var(--radius-sm); padding: 0.75rem; font-size: 0.8rem; color: #e2e8f0; line-height: 1.45;">
           💡 <strong>สถานะปัจจุบัน:</strong> หน่วยนี้กำลังจัดทำข้อสอบและใบงานมาตรฐาน สสวท. เพิ่มเติมในระบบ<br>
-          ปัจจุบันคุณครูสามารถสอนและพิมพ์ชีท <strong>ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม</strong> ได้ครบถ้วนทั้ง 24 คาบ (144 ข้อ) ครับ
+          ปัจจุบันคุณครูสามารถสอนและพิมพ์ชีท <strong>ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม</strong> ได้ครบถ้วนทั้ง 24 ใบงาน (144 ข้อ) ครับ
         </div>
       </div>
 
@@ -1347,7 +1347,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           <span style="font-size: 1.3rem;">📚</span>
           <div>
             <h3 style="color: #ffffff; margin: 0; font-size: 1.1rem;" id="chapterModalTitle">ตั้งค่าข้อมูลหลักประจำบทเรียน</h3>
-            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">กำหนดรหัสวิชาและข้อมูลหลักของบทนี้ ระบบจะส่งต่อ (Cascade) ไปยังทุกคาบย่อยในบททันที</p>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">กำหนดรหัสวิชาและข้อมูลหลักของบทนี้ ระบบจะส่งต่อ (Cascade) ไปยังทุกใบงานย่อยในบททันที</p>
           </div>
         </div>
         <button class="modal-close-btn" onclick="closeChapterSettingsModal()">&times;</button>
@@ -1396,7 +1396,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <!-- CASCADING SUB-WORKSHEETS PREVIEW -->
         <div class="field-wrap">
           <label class="field-label" style="font-size: 0.85rem; color: #94a3b8;">
-            📋 ใบงานย่อยที่จะได้รับผลกระทบ (Cascade 4 คาบเรียน):
+            📋 ใบงานย่อยที่จะได้รับผลกระทบ (Cascade 4 ใบงาน):
           </label>
           <div id="chapterModalAffectedTopics" style="display: flex; flex-direction: column; gap: 0.4rem; max-height: 140px; overflow-y: auto; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 0.6rem;">
             <!-- Rendered dynamically -->
@@ -1409,7 +1409,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           ยกเลิก
         </button>
         <button type="button" class="btn-action btn-save-glow" onclick="saveChapterSettings()">
-          <span>🚀 บันทึกและปรับใช้กับทุกคาบในบทนี้</span>
+          <span>🚀 บันทึกและปรับใช้กับทุกใบงานในบทนี้</span>
         </button>
       </div>
     </div>
@@ -1423,7 +1423,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           <span style="font-size: 1.35rem;">📚</span>
           <div>
             <h3 style="color: #ffffff; margin: 0; font-size: 1.15rem;">สร้างเอกสารรวมเล่ม PDF (Commercial Workbook)</h3>
-            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">รวมเอกสารหลายคาบเป็นเล่มเดียว พร้อมหน้าปก A4 และเลขหน้าต่อเนื่อง สำหรับพิมพ์หรือจำหน่าย</p>
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 2px 0 0 0;">รวมเอกสารหลายใบงานเป็นเล่มเดียว พร้อมหน้าปก A4 และเลขหน้าต่อเนื่อง สำหรับพิมพ์หรือจำหน่าย</p>
           </div>
         </div>
         <button class="modal-close-btn" onclick="closeBookExportModal()">&times;</button>
@@ -1457,7 +1457,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         <div class="field-wrap">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
             <label class="field-label" style="font-size: 0.88rem; color: #e2e8f0; font-weight: 500; margin: 0;">
-              📌 3. ติ๊กเลือกคาบเรียนที่จะพิมพ์ในเล่ม (<span id="bookSelectedCount" style="color: var(--neon-cyan); font-weight: 700;">0</span> คาบ):
+              📌 3. ติ๊กเลือกใบงานที่จะพิมพ์ในเล่ม (<span id="bookSelectedCount" style="color: var(--neon-cyan); font-weight: 700;">0</span> ใบงาน):
             </label>
             <div style="display: flex; gap: 0.4rem;">
               <button type="button" class="btn-action" style="font-size: 0.72rem; padding: 2px 8px; background: rgba(0, 245, 212, 0.15); border-color: rgba(0, 245, 212, 0.4); color: #a7f3d0;" onclick="selectAllBookTopics(true)">✓ เลือกทั้งหมด</button>
@@ -1477,7 +1477,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           <select class="penpot-input" id="selectBookEdition" style="cursor: pointer;" onchange="updateBookEditionNotice()">
             <option value="student" selected>📘 ฉบับแบบฝึกหัดนักเรียน (Student Workbook) — สรุปสูตร + ตัวอย่าง + เว้นบรรทัดเขียนตอบ ซ่อนเฉลย 100%</option>
             <option value="teacher">🔑 ฉบับเฉลยละเอียดสำหรับครู (Teacher Solution Key) — เฉลยคำตอบและวิธีทำละเอียดทุกข้อ 100%</option>
-            <option value="complete">📦 ฉบับรวมสมบูรณ์ (Complete Pack) — แบบฝึกหัดทุกคาบในส่วนแรก + ภาคผนวกเฉลยรวมท้ายเล่ม</option>
+            <option value="complete">📦 ฉบับรวมสมบูรณ์ (Complete Pack) — แบบฝึกหัดทุกใบงานในส่วนแรก + ภาคผนวกเฉลยรวมท้ายเล่ม</option>
           </select>
           <span id="bookEditionNotice" style="font-size: 0.78rem; color: #38bdf8;">โหมดแนะนำสำหรับการจำหน่าย: ให้นักเรียนฝึกทำโจทย์อย่างเป็นระเบียบ</span>
         </div>
@@ -1531,7 +1531,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           </label>
           <label style="display: inline-flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; color: #cbd5e1; cursor: pointer;">
             <input type="checkbox" id="checkHideStudentHeader" checked style="accent-color: var(--neon-cyan);">
-            <span>ซ่อนช่องกรอกชื่อ-สกุลนักเรียนซ้ำๆ ทุกคาบ</span>
+            <span>ซ่อนช่องกรอกชื่อ-สกุลนักเรียนซ้ำๆ ทุกใบงาน</span>
           </label>
         </div>
 

@@ -702,10 +702,10 @@
                 <div class="cover-curriculum-standard-note">อิงมาตรฐานการเรียนรู้และตัวชี้วัด สาระคณิตศาสตร์เพิ่มเติม (ฉบับปรับปรุง 2560)</div>
 
                 <div class="cover-toc-container">
-                  <div class="cover-toc-title">📋 สารบัญเนื้อหาภายในเล่ม (${topics.length} คาบเรียนสมบูรณ์):</div>
+                  <div class="cover-toc-title">📋 สารบัญเนื้อหาภายในเล่ม (${topics.length} ใบงานสมบูรณ์):</div>
                   <div class="cover-toc-grid">
                     ${topics.map(function(t, idx) {
-                      const cleanTitle = (t.title || '').replace(/^คาบที่\s*\d+\s*:\s*/i, '').trim();
+                      const cleanTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
                       return `
                         <div class="cover-toc-item">
                           <span class="toc-num">${idx + 1}</span>
@@ -747,7 +747,7 @@
               <div class="appendix-icon">🔑</div>
               <div class="appendix-badge">ภาคผนวกพิเศษ (Teacher Solution Appendix)</div>
               <h2 class="appendix-title">เฉลยคำตอบและวิธีทำละเอียดทุกข้อ</h2>
-              <p class="appendix-desc">แสดงขั้นตอนการคำนวณและเทคนิคคิดลัด สำหรับแบบฝึกหัดทั้ง ${totalLessons} คาบเรียน</p>
+              <p class="appendix-desc">แสดงขั้นตอนการคำนวณและเทคนิคคิดลัด สำหรับแบบฝึกหัดทั้ง ${totalLessons} ใบงาน</p>
               <div class="appendix-line"></div>
             </div>
           </div>
@@ -766,7 +766,7 @@
       if (bookType === 'complete') {
         // Student part
         topics.forEach(function(t, idx) {
-          const pageStr = showPageNums ? `คาบที่ ${idx + 1} จาก ${totalLessons} (ตอนที่ 1: แบบฝึกหัด)` : '';
+          const pageStr = showPageNums ? `ใบงานที่ ${idx + 1} จาก ${totalLessons} (ตอนที่ 1: แบบฝึกหัด)` : '';
           renderedPages.push(buildTopicSheetHtml(t, {
             mode: 'worksheet',
             isTeacherKey: false,
@@ -779,7 +779,7 @@
 
         // Teacher part
         topics.forEach(function(t, idx) {
-          const pageStr = showPageNums ? `เฉลยคาบที่ ${idx + 1} จาก ${totalLessons} (ตอนที่ 2: เฉลยละเอียด)` : '';
+          const pageStr = showPageNums ? `เฉลยใบงานที่ ${idx + 1} จาก ${totalLessons} (ตอนที่ 2: เฉลยละเอียด)` : '';
           renderedPages.push(buildTopicSheetHtml(t, {
             mode: 'worksheet',
             isTeacherKey: true,
@@ -789,7 +789,7 @@
       } else {
         const isTeacher = (bookType === 'teacher');
         topics.forEach(function(t, idx) {
-          const pageStr = showPageNums ? `คาบที่ ${idx + 1} จาก ${totalLessons}` : '';
+          const pageStr = showPageNums ? `ใบงานที่ ${idx + 1} จาก ${totalLessons}` : '';
           renderedPages.push(buildTopicSheetHtml(t, {
             mode: 'worksheet',
             isTeacherKey: isTeacher,
@@ -1320,7 +1320,7 @@
       <span style="font-size: 1.4rem;">📚</span>
       <div>
         <div style="font-weight: 700; font-size: 1rem; color: #ffffff;">${coverTitle}</div>
-        <div style="font-size: 0.8rem; color: #94a3b8;">${totalLessons} คาบเรียนสมบูรณ์ • ${editionBadge}</div>
+        <div style="font-size: 0.8rem; color: #94a3b8;">${totalLessons} ใบงานสมบูรณ์ • ${editionBadge}</div>
         <div style="font-size: 0.74rem; color: #67e8f9; margin-top: 3px;">
           💡 แนะนำการพิมพ์: ตรวจดูว่าเลือก <strong>&quot;บันทึกเป็น PDF&quot;</strong>, ติ๊กถูกที่ <strong>&quot;กราฟิกพื้นหลัง (Background graphics)&quot;</strong> และเอาติ๊กถูกออกจาก <strong>&quot;หัวกระดาษและท้ายกระดาษ&quot;</strong>
         </div>

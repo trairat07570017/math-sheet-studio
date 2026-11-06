@@ -64,7 +64,7 @@
             <div class="unit-chapters-body">
               <div class="chapters-banner-bar">
                 <span class="chapters-banner-title">📚 เลือกบทเรียนหลัก (${unit.chapters ? unit.chapters.length : 0} บท)</span>
-                <span class="chapters-banner-hint">คลิกบทเพื่อดูคาบย่อย</span>
+                <span class="chapters-banner-hint">คลิกบทเพื่อดูใบงานย่อย</span>
               </div>
               <div class="chapters-tree-list">
         `;
@@ -86,10 +86,10 @@
               </button>
               <div class="chapter-quick-action-bar">
                 <span class="chapter-code-pill" title="รหัสวิชาปัจจุบัน: ${currentCode}">🏷️ ${currentCode}</span>
-                <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('${chap.id}')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 คาบย่อย">
+                <button type="button" class="btn-chapter-settings-chip" onclick="event.stopPropagation(); openChapterSettingsModal('${chap.id}')" title="ตั้งค่ารหัสวิชาและส่งต่อไปยัง 4 ใบงานย่อย">
                   <span>⚙️ ตั้งค่าบท</span>
                 </button>
-                <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('${chap.id}')" title="รวมเล่มเฉพาะบทนี้ (${chap.topics ? chap.topics.length : 4} คาบ) เป็นไฟล์ PDF เดียว">
+                <button type="button" class="btn-chapter-settings-chip btn-chapter-book-chip" onclick="event.stopPropagation(); openBookExportModal('${chap.id}')" title="รวมเล่มเฉพาะบทนี้ (${chap.topics ? chap.topics.length : 4} ใบงาน) เป็นไฟล์ PDF เดียว">
                   <span>📖 รวมเล่มบทนี้</span>
                 </button>
               </div>
@@ -1175,7 +1175,7 @@
     chapters.forEach(function(c) {
       const isSelected = (c.id === selectedChapId) ? 'selected' : '';
       const topicCount = c.topics ? c.topics.length : 4;
-      html += `<option value="${c.id}" ${isSelected}>${c.chapterTitle || c.title} (${topicCount} คาบ)</option>`;
+      html += `<option value="${c.id}" ${isSelected}>${c.chapterTitle || c.title} (${topicCount} ใบงาน)</option>`;
     });
 
     selectChapter.innerHTML = html;
@@ -1236,7 +1236,7 @@
     }
 
     if (!topicsToRender.length) {
-      container.innerHTML = '<div style="color: #94a3b8; font-size: 0.85rem; padding: 0.5rem; text-align: center;">ไม่มีรายการคาบเรียนในหัวข้อนี้</div>';
+      container.innerHTML = '<div style="color: #94a3b8; font-size: 0.85rem; padding: 0.5rem; text-align: center;">ไม่มีรายการใบงานในหัวข้อนี้</div>';
       updateBookSelectedCount();
       return;
     }
@@ -1327,7 +1327,7 @@
     const topicIds = Array.from(checkedBoxes).map(function(cb) { return cb.value; });
 
     if (!topicIds.length) {
-      alert('กรุณาติ๊กเลือกคาบเรียนที่ต้องการรวมเล่มอย่างน้อย 1 คาบ');
+      alert('กรุณาติ๊กเลือกใบงานที่ต้องการรวมเล่มอย่างน้อย 1 ใบงาน');
       return;
     }
 
