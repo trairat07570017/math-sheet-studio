@@ -512,6 +512,22 @@ enderBackCoverHtml()
 
 ---
 
+### ADR-029: การแก้ไขการเรนเดอร์ KaTeX ในแผ่นสรุปสูตรฉบับพกพา (Cheat Sheet Formula Rendering Fix) และระบบ Polling ป้องกัน Race Condition ในแท็บพิมพ์รวมเล่ม (Print Tab KaTeX Polling Engine)
+- **บริบท**:
+  1. จากการตรวจทานไฟล์เล่มรวม PDF (\[เล่มรวมนักเรียน] จำนวนเชิงซ้อน (Complex Numbers).pdf\) พบว่ายังมีบางจุดที่สมการคณิตศาสตร์ไม่ถูกประมวลผลด้วย KaTeX หรือแสดงผลเป็นอักขระหลุด เช่น \r{z}\, ac{1}{z}\, \n heta\, \ext{cis}  2. **การวินิจฉัยเชิงลึก (Root Cause Diagnosis):**
+     - ในฟังก์ชัน enderCheatSheetHtml()\ (หน้า 3 และ 4) สตริงถูกครอบด้วย JavaScript Template Literals (Backticks) โดยมีคำสั่ง LaTeX ที่ใช้แบ็กสแลชเดี่ยว เช่น \ar\, \rac\, \	ext\, \	an\, \	heta\ ส่งผลให้ JS Engine แปลความหมายเป็น Control Characters: \\ (Backspace), \\ (Form Feed), \	\ (Tab) ทำให้สตริงที่ส่งไปยัง KaTeX กลายเป็นข้อความผิดรูป KaTeX จึงไม่สามารถเรนเดอร์ได้
+     - ในฟังก์ชัน \	ypesetAndAutoDownload()\ เดิมเรียก enderMathInElement\ ทันที หากเกิด Network Latency ทำให้ KaTeX CDN ดาวน์โหลดล่าช้า สคริปต์จะไม่เรนเดอร์สมการและไม่มีกลไก Polling รองรับ
+     - ตรวจพบโจทย์ตัวอย่างที่ 1 ของ \stat-l43\ ใน \curriculum.json\ ขาดเครื่องหมาย \$\ ปิดท้าย
+- **การตัดสินใจและสถาปัตยกรรม**:
+  1. **Escape Double Backslashes ใน Template Strings**:
+     - ปรับคำสั่ง LaTeX ทั้งหมดใน enderCheatSheetHtml()\ ให้ใช้แบ็กสแลชคู่ (\\	ext\, \\rac\, \\ar\, \\\sqrt\, \\\pm\, \\	an\, \\	heta\, \\\sum\, \\\implies\ ฯลฯ) เพื่อให้สตริงที่เข้าสู่ DOM มีแบ็กสแลชเดี่ยวจริง 100% ทำให้ KaTeX เรนเดอร์สูตรในแผ่นสรุปสูตรหน้า 3–4 ได้อย่างสมบูรณ์แบบ
+  2. **KaTeX Polling Engine ป้องกัน Race Condition**:
+     - สร้างฟังก์ชัน \waitForKaTeXAndRender(callback)\ ตรวจสอบสถานะการโหลดของ KaTeX ทุก 50ms สูงสุด 4 วินาที และทำ Pre-sanitizing ให้กับบล็อกสมการที่มี \\egin{\ แต่ขาด \$$\ ก่อนสั่งเรนเดอร์
+  3. **Data Integrity Audit**:
+     - แก้ไขเครื่องหมาย \$\ ใน \stat-l43\ และตรวจสอบความสมบูรณ์ของไวยากรณ์คณิตศาสตร์ครบทั้ง 110 บทเรียน
+
+---
+
 ## 4. สถานะปัจจุบัน (Current State)
 - [x] โครงร่างหน้าเว็บและ UI สไตล์ Penpot AI Workflows (Dark Cyber Canvas + Glow)
 - [x] เมนูด้านซ้ายแบบ **Multi-Unit Tree Architecture**: หน้าแรกแสดงรายการหน่วยการเรียนรู้ สลับระหว่าง **"เลขยกกำลังและฟังก์ชันเอกซ์โพเนนเชียล (ศิลป์คำนวณ)"**, **"ฟังก์ชันเอกซ์โพเนนเชียลและลอการิทึม (ม.4 วิทย์)"** และ **"จำนวนเชิงซ้อน (ม.5)"** ได้อย่างอิสระ พร้อมระบบขยายอัตโนมัติตามคาบเรียนที่เลือก

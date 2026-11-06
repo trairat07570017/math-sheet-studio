@@ -14038,7 +14038,7 @@
       "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เปอร์เซ็นไทล์กับการแจกแจงปกติ (Percentiles: $P_r$)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{เปอร์เซ็นไทล์ที่ } r \\ (P_r) &\\iff \\text{มีข้อมูลที่มีค่าน้อยกว่าหรือเท่ากับค่านั้นอยู่ } r\\% \\\\[4pt]\nP(X \\le P_r) &= \\frac{r}{100} \\implies P\\left(Z \\le \\frac{P_r - \\mu}{\\sigma}\\right) = \\frac{r}{100} \\\\[4pt]\nP_{50} &= \\text{Median} = \\mu \\quad (Z = 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สูตรลัดจำง่าย: 'เปอร์เซ็นไทล์ที่เท่าไร พื้นที่สะสมทางซ้ายก็เท่านั้นส่วนร้อย' เช่น $P_{90} \\implies$ พื้นที่ซ้ายคือ $0.9000$, $P_{25} \\implies$ พื้นที่ซ้ายคือ $0.2500$\n  </div>\n</div>",
       "exercises": [
         {
-          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) คะแนนสอบวิชาสถิติแจกแจงปกติด้วย $\\mu = 60$ และ $\\sigma = 10$ จงหาคะแนนที่ตรงกับเปอร์เซ็นไทล์ที่ 90 ($P_{90}$) กำหนด $P(Z \\le 1.28) = 0.90",
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) คะแนนสอบวิชาสถิติแจกแจงปกติด้วย $\\mu = 60$ และ $\\sigma = 10$ จงหาคะแนนที่ตรงกับเปอร์เซ็นไทล์ที่ 90 ($P_{90}$) กำหนด $P(Z \\le 1.28) = 0.90$",
           "points": "",
           "latex": "\\begin{aligned}\nP(X \\le P_{90}) &= 0.90 \\implies Z = 1.28 \\\\[4pt]\nP_{90} &= \\mu + Z \\cdot \\sigma \\\\[4pt]\n&= 60 + (1.28)(10) = 60 + 12.8 = 72.8 \\text{ คะแนน}\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลง Pr เป็นพื้นที่สะสม เปิดตารางหา Z แล้วแปลงเป็นคะแนนจริง)"

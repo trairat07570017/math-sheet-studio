@@ -18780,7 +18780,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เปอร์เซ็นไทล์กับการแจกแจงปกติ (Percentiles: $P_r$)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{เปอร์เซ็นไทล์ที่ } r \\ (P_r) &\\iff \\text{มีข้อมูลที่มีค่าน้อยกว่าหรือเท่ากับค่านั้นอยู่ } r\\% \\\\[4pt]\nP(X \\le P_r) &= \\frac{r}{100} \\implies P\\left(Z \\le \\frac{P_r - \\mu}{\\sigma}\\right) = \\frac{r}{100} \\\\[4pt]\nP_{50} &= \\text{Median} = \\mu \\quad (Z = 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สูตรลัดจำง่าย: 'เปอร์เซ็นไทล์ที่เท่าไร พื้นที่สะสมทางซ้ายก็เท่านั้นส่วนร้อย' เช่น $P_{90} \\implies$ พื้นที่ซ้ายคือ $0.9000$, $P_{25} \\implies$ พื้นที่ซ้ายคือ $0.2500$\n  </div>\n</div>",
       "exercises": [
         {
-          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) คะแนนสอบวิชาสถิติแจกแจงปกติด้วย $\\mu = 60$ และ $\\sigma = 10$ จงหาคะแนนที่ตรงกับเปอร์เซ็นไทล์ที่ 90 ($P_{90}$) กำหนด $P(Z \\le 1.28) = 0.90",
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) คะแนนสอบวิชาสถิติแจกแจงปกติด้วย $\\mu = 60$ และ $\\sigma = 10$ จงหาคะแนนที่ตรงกับเปอร์เซ็นไทล์ที่ 90 ($P_{90}$) กำหนด $P(Z \\le 1.28) = 0.90$",
           "points": "",
           "latex": "\\begin{aligned}\nP(X \\le P_{90}) &= 0.90 \\implies Z = 1.28 \\\\[4pt]\nP_{90} &= \\mu + Z \\cdot \\sigma \\\\[4pt]\n&= 60 + (1.28)(10) = 60 + 12.8 = 72.8 \\text{ คะแนน}\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลง Pr เป็นพื้นที่สะสม เปิดตารางหา Z แล้วแปลงเป็นคะแนนจริง)"
@@ -23330,17 +23330,17 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="cs-card">
                 <div class="cs-card-title">1. หน่วยจินตภาพ $i$ และคาบยกกำลัง</div>
                 <div class="cs-card-body">
-                  $$i = \sqrt{-1}, \quad i^2 = -1, \quad i^3 = -i, \quad i^4 = 1$$
-                  $$i^{4k+r} = i^r \quad (r \in \{0, 1, 2, 3\}) \implies \text{นำกำลังหาร 4 ดูเศษ}$$
-                  $$\sum_{k=1}^{4} i^k = i + (-1) + (-i) + 1 = 0 \quad (\text{ผลบวก 4 ตัวเรียงกัน = 0})$$
+                  $$i = \\sqrt{-1}, \\quad i^2 = -1, \\quad i^3 = -i, \\quad i^4 = 1$$
+                  $$i^{4k+r} = i^r \\quad (r \\in \\{0, 1, 2, 3\\}) \\implies \\text{นำกำลังหาร 4 ดูเศษ}$$
+                  $$\\sum_{k=1}^{4} i^k = i + (-1) + (-i) + 1 = 0 \\quad (\\text{ผลบวก 4 ตัวเรียงกัน = 0})$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">2. รูปมาตรฐานและการดำเนินการ</div>
                 <div class="cs-card-body">
-                  $$z = a + bi \implies a = \text{Re}(z), \; b = \text{Im}(z) \in \mathbb{R}$$
-                  $$a + bi = c + di \iff a = c \;\text{และ}\; b = d$$
+                  $$z = a + bi \\implies a = \\text{Re}(z), \\; b = \\text{Im}(z) \\in \\mathbb{R}$$
+                  $$a + bi = c + di \\iff a = c \\;\\text{และ}\\; b = d$$
                   $$(a + bi)(c + di) = (ac - bd) + (ad + bc)i$$
                 </div>
               </div>
@@ -23348,35 +23348,35 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="cs-card">
                 <div class="cs-card-title">3. สังยุค (Conjugate) และสมบัติ</div>
                 <div class="cs-card-body">
-                  $$z = a + bi \implies \bar{z} = a - bi$$
-                  $$\overline{z_1 \pm z_2} = \bar{z_1} \pm \bar{z_2}, \quad \overline{z_1 z_2} = \bar{z_1}\bar{z_2}$$
-                  $$z\bar{z} = |z|^2 = a^2 + b^2, \quad z + \bar{z} = 2\text{Re}(z)$$
+                  $$z = a + bi \\implies \\bar{z} = a - bi$$
+                  $$\\overline{z_1 \\pm z_2} = \\bar{z_1} \\pm \\bar{z_2}, \\quad \\overline{z_1 z_2} = \\bar{z_1}\\bar{z_2}$$
+                  $$z\\bar{z} = |z|^2 = a^2 + b^2, \\quad z + \\bar{z} = 2\\text{Re}(z)$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">4. ตัวผกผันการคูณและการหาร</div>
                 <div class="cs-card-body">
-                  $$z^{-1} = \frac{1}{z} = \frac{\bar{z}}{|z|^2} = \frac{a - bi}{a^2 + b^2} \quad (z \neq 0)$$
-                  $$\frac{z_1}{z_2} = \frac{z_1 \bar{z_2}}{|z_2|^2} \implies \text{นำสังยุคของตัวส่วนคูณทั้งเศษและส่วน}$$
+                  $$z^{-1} = \\frac{1}{z} = \\frac{\\bar{z}}{|z|^2} = \\frac{a - bi}{a^2 + b^2} \\quad (z \\neq 0)$$
+                  $$\\frac{z_1}{z_2} = \\frac{z_1 \\bar{z_2}}{|z_2|^2} \\implies \\text{นำสังยุคของตัวส่วนคูณทั้งเศษและส่วน}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">5. ค่าสัมบูรณ์ (Modulus) และสมบัติ</div>
                 <div class="cs-card-body">
-                  $$|z| = \sqrt{a^2 + b^2} = |\bar{z}| = |-z| = |-\bar{z}|$$
-                  $$|z_1 z_2| = |z_1||z_2|, \quad \left|\frac{z_1}{z_2}\right| = \frac{|z_1|}{|z_2|}, \quad |z^n| = |z|^n$$
-                  $$|z_1 + z_2| \le |z_1| + |z_2| \quad (\text{อสมการสามเหลี่ยม})$$
+                  $$|z| = \\sqrt{a^2 + b^2} = |\\bar{z}| = |-z| = |-\\bar{z}|$$
+                  $$|z_1 z_2| = |z_1||z_2|, \\quad \\left|\\frac{z_1}{z_2}\\right| = \\frac{|z_1|}{|z_2|}, \\quad |z^n| = |z|^n$$
+                  $$|z_1 + z_2| \\le |z_1| + |z_2| \\quad (\\text{อสมการสามเหลี่ยม})$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">6. ระนาบเชิงซ้อนและการหมุนเวกเตอร์</div>
                 <div class="cs-card-body">
-                  $$\text{แกน } X = \text{แกนจริง (Real)}, \quad \text{แกน } Y = \text{แกนจินตภาพ (Imaginary)}$$
-                  $$\text{การคูณด้วย } i \implies \text{หมุนเวกเตอร์ทวนเข็มนาฬิกา } 90^\circ$$
-                  $$\text{การคูณด้วย } -1 \implies \text{หมุนเวกเตอร์ } 180^\circ$$
+                  $$\\text{แกน } X = \\text{แกนจริง (Real)}, \\quad \\text{แกน } Y = \\text{แกนจินตภาพ (Imaginary)}$$
+                  $$\\text{การคูณด้วย } i \\implies \\text{หมุนเวกเตอร์ทวนเข็มนาฬิกา } 90^\\circ$$
+                  $$\\text{การคูณด้วย } -1 \\implies \\text{หมุนเวกเตอร์ } 180^\\circ$$
                 </div>
               </div>
             `;
@@ -23385,52 +23385,52 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="cs-card">
                 <div class="cs-card-title">7. รูปเชิงขั้ว (Polar Form)</div>
                 <div class="cs-card-body">
-                  $$z = r(\cos\theta + i\sin\theta) = r\,\text{cis}\,\theta$$
-                  $$r = |z| = \sqrt{a^2 + b^2}, \quad \tan\theta = \frac{b}{a}$$
-                  $$\bar{z} = r\,\text{cis}(-\theta), \quad z^{-1} = \frac{1}{r}\,\text{cis}(-\theta)$$
+                  $$z = r(\\cos\\theta + i\\sin\\theta) = r\\,\\text{cis}\\,\\theta$$
+                  $$r = |z| = \\sqrt{a^2 + b^2}, \\quad \\tan\\theta = \\frac{b}{a}$$
+                  $$\\bar{z} = r\\,\\text{cis}(-\\theta), \\quad z^{-1} = \\frac{1}{r}\\,\\text{cis}(-\\theta)$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">8. การคูณและหารในรูปเชิงขั้ว</div>
                 <div class="cs-card-body">
-                  $$z_1 z_2 = r_1 r_2\,\text{cis}(\theta_1 + \theta_2) \implies \text{คูณขนาด บวกมุม}$$
-                  $$\frac{z_1}{z_2} = \frac{r_1}{r_2}\,\text{cis}(\theta_1 - \theta_2) \implies \text{หารขนาด ลบมุม}$$
+                  $$z_1 z_2 = r_1 r_2\\,\\text{cis}(\\theta_1 + \\theta_2) \\implies \\text{คูณขนาด บวกมุม}$$
+                  $$\\frac{z_1}{z_2} = \\frac{r_1}{r_2}\\,\\text{cis}(\\theta_1 - \\theta_2) \\implies \\text{หารขนาด ลบมุม}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">9. ทฤษฎีบทเดอมัวฟ์ (De Moivre)</div>
                 <div class="cs-card-body">
-                  $$z^n = r^n\,\text{cis}(n\theta) = r^n(\cos n\theta + i\sin n\theta)$$
-                  $$(1 \pm i)^n = (\sqrt{2})^n \,\text{cis}\left(\pm \frac{n\pi}{4}\right)$$
-                  $$(1 \pm \sqrt{3}i)^n = 2^n \,\text{cis}\left(\pm \frac{n\pi}{3}\right)$$
+                  $$z^n = r^n\\,\\text{cis}(n\\theta) = r^n(\\cos n\\theta + i\\sin n\\theta)$$
+                  $$(1 \\pm i)^n = (\\sqrt{2})^n \\,\\text{cis}\\left(\\pm \\frac{n\\pi}{4}\\right)$$
+                  $$(1 \\pm \\sqrt{3}i)^n = 2^n \\,\\text{cis}\\left(\\pm \\frac{n\\pi}{3}\\right)$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">10. การหารากที่ $n$ ของจำนวนเชิงซ้อน</div>
                 <div class="cs-card-body">
-                  $$w_k = \sqrt[n]{r}\,\text{cis}\left(\frac{\theta + 2k\pi}{n}\right), \quad k = 0, 1, \dots, n-1$$
-                  $$\sum_{k=0}^{n-1} w_k = 0 \quad (\text{ผลรวมรากที่ } n \text{ เป็น } 0 \text{ เสมอ เมื่อ } n \ge 2)$$
-                  $$\text{รากทั้ง } n \text{ ตัวเป็นจุดยอดของรูป } n \text{ เหลี่ยมด้านเท่ามุมเท่า}$$
+                  $$w_k = \\sqrt[n]{r}\\,\\text{cis}\\left(\\frac{\\theta + 2k\\pi}{n}\\right), \\quad k = 0, 1, \\dots, n-1$$
+                  $$\\sum_{k=0}^{n-1} w_k = 0 \\quad (\\text{ผลรวมรากที่ } n \\text{ เป็น } 0 \\text{ เสมอ เมื่อ } n \\ge 2)$$
+                  $$\\text{รากทั้ง } n \\text{ ตัวเป็นจุดยอดของรูป } n \\text{ เหลี่ยมด้านเท่ามุมเท่า}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">11. การแก้สมการกำลังสอง</div>
                 <div class="cs-card-body">
-                  $$ax^2 + bx + c = 0 \implies x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
-                  $$\text{ถ้า } b^2 - 4ac < 0 \implies x = \frac{-b \pm i\sqrt{4ac - b^2}}{2a}$$
+                  $$ax^2 + bx + c = 0 \\implies x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$$
+                  $$\\text{ถ้า } b^2 - 4ac < 0 \\implies x = \\frac{-b \\pm i\\sqrt{4ac - b^2}}{2a}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">12. ทฤษฎีบทรากสังยุค (Conjugate Root)</div>
                 <div class="cs-card-body">
-                  $$\text{ถ้า } a_n x^n + \dots + a_0 = 0 \text{ มีสัมประสิทธิ์เป็นจริง}$$
-                  $$\text{และมีรากเป็น } z_0 = a+bi \implies \bar{z_0} = a-bi \text{ ต้องเป็นรากด้วย}$$
-                  $$(x - z_0)(x - \bar{z_0}) = x^2 - 2ax + (a^2 + b^2) \text{ เป็นตัวประกอบ}$$
+                  $$\\text{ถ้า } a_n x^n + \\dots + a_0 = 0 \\text{ มีสัมประสิทธิ์เป็นจริง}$$
+                  $$\\text{และมีรากเป็น } z_0 = a+bi \\implies \\bar{z_0} = a-bi \\text{ ต้องเป็นรากด้วย}$$
+                  $$(x - z_0)(x - \\bar{z_0}) = x^2 - 2ax + (a^2 + b^2) \\text{ เป็นตัวประกอบ}$$
                 </div>
               </div>
             `;
@@ -23441,37 +23441,37 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="cs-card">
                 <div class="cs-card-title">1. สมบัติพื้นฐานของเลขยกกำลัง</div>
                 <div class="cs-card-body">
-                  $$a^m \cdot a^n = a^{m+n}, \quad \frac{a^m}{a^n} = a^{m-n}$$
-                  $$(a^m)^n = a^{mn}, \quad (ab)^n = a^n b^n, \quad \left(\frac{a}{b}\right)^n = \frac{a^n}{b^n}$$
-                  $$a^0 = 1 \; (a \neq 0), \quad a^{-n} = \frac{1}{a^n}, \quad a^{m/n} = \sqrt[n]{a^m}$$
+                  $$a^m \\cdot a^n = a^{m+n}, \\quad \\frac{a^m}{a^n} = a^{m-n}$$
+                  $$(a^m)^n = a^{mn}, \\quad (ab)^n = a^n b^n, \\quad \\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}$$
+                  $$a^0 = 1 \\; (a \\neq 0), \\quad a^{-n} = \\frac{1}{a^n}, \\quad a^{m/n} = \\sqrt[n]{a^m}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">2. ฟังก์ชันเอกซ์โพเนนเชียล</div>
                 <div class="cs-card-body">
-                  $$f = \{(x, y) \in \mathbb{R} \times \mathbb{R}^+ \mid y = a^x, \; a > 0, \; a \neq 1\}$$
-                  $$\text{โดเมน } D_f = \mathbb{R}, \quad \text{เรนจ์ } R_f = (0, \infty)$$
-                  $$\text{กราฟผ่านจุด } (0, 1) \text{ เสมอ และมีแกน } X \text{ เป็นเส้นกำกับแนวนอน}$$
+                  $$f = \\{(x, y) \\in \\mathbb{R} \\times \\mathbb{R}^+ \\mid y = a^x, \\; a > 0, \\; a \\neq 1\\}$$
+                  $$\\text{โดเมน } D_f = \\mathbb{R}, \\quad \\text{เรนจ์ } R_f = (0, \\infty)$$
+                  $$\\text{กราฟผ่านจุด } (0, 1) \\text{ เสมอ และมีแกน } X \\text{ เป็นเส้นกำกับแนวนอน}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">3. พฤติกรรมฟังก์ชันเพิ่ม-ฟังก์ชันลด</div>
                 <div class="cs-card-body">
-                  $$a > 1 \implies \text{ฟังก์ชันเพิ่ม } (x_1 < x_2 \iff a^{x_1} < a^{x_2})$$
-                  $$0 < a < 1 \implies \text{ฟังก์ชันลด } (x_1 < x_2 \iff a^{x_1} > a^{x_2})$$
-                  $$\text{ฟังก์ชัน } 1-1 \implies a^{x_1} = a^{x_2} \iff x_1 = x_2$$
+                  $$a > 1 \\implies \\text{ฟังก์ชันเพิ่ม } (x_1 < x_2 \\iff a^{x_1} < a^{x_2})$$
+                  $$0 < a < 1 \\implies \\text{ฟังก์ชันลด } (x_1 < x_2 \\iff a^{x_1} > a^{x_2})$$
+                  $$\\text{ฟังก์ชัน } 1-1 \\implies a^{x_1} = a^{x_2} \\iff x_1 = x_2$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">4. สมการและอสมการเอกซ์โพเนนเชียล</div>
                 <div class="cs-card-body">
-                  $$\text{ทำฐานให้เท่ากัน: } a^{f(x)} = a^{g(x)} \implies f(x) = g(x)$$
-                  $$\text{สมมุติตัวแปร: } A(a^x)^2 + B(a^x) + C = 0 \implies \text{ให้ } u = a^x > 0$$
-                  $$\text{อสมการ: ถ้า } a > 1 \implies f(x) < g(x) \iff a^{f(x)} < a^{g(x)}$$
-                  $$\text{ถ้า } 0 < a < 1 \implies \text{กลับเครื่องหมายอสมการ}$$
+                  $$\\text{ทำฐานให้เท่ากัน: } a^{f(x)} = a^{g(x)} \\implies f(x) = g(x)$$
+                  $$\\text{สมมุติตัวแปร: } A(a^x)^2 + B(a^x) + C = 0 \\implies \\text{ให้ } u = a^x > 0$$
+                  $$\\text{อสมการ: ถ้า } a > 1 \\implies f(x) < g(x) \\iff a^{f(x)} < a^{g(x)}$$
+                  $$\\text{ถ้า } 0 < a < 1 \\implies \\text{กลับเครื่องหมายอสมการ}$$
                 </div>
               </div>
             `;
@@ -23480,36 +23480,36 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="cs-card">
                 <div class="cs-card-title">5. นิยามฟังก์ชันลอการิทึม</div>
                 <div class="cs-card-body">
-                  $$y = \log_a x \iff x = a^y \quad (a > 0, \; a \neq 1, \; x > 0)$$
-                  $$\text{โดเมน } D_f = (0, \infty), \quad \text{เรนจ์ } R_f = \mathbb{R}$$
-                  $$\text{เป็นอินเวอร์สของ } y = a^x, \quad \text{กราฟผ่าน } (1, 0) \text{ เสมอ}$$
+                  $$y = \\log_a x \\iff x = a^y \\quad (a > 0, \\; a \\neq 1, \\; x > 0)$$
+                  $$\\text{โดเมน } D_f = (0, \\infty), \\quad \\text{เรนจ์ } R_f = \\mathbb{R}$$
+                  $$\\text{เป็นอินเวอร์สของ } y = a^x, \\quad \\text{กราฟผ่าน } (1, 0) \\text{ เสมอ}$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">6. เอกลักษณ์และสมบัติของลอการิทึม</div>
                 <div class="cs-card-body">
-                  $$\log_a 1 = 0, \quad \log_a a = 1, \quad a^{\log_a x} = x, \quad \log_a(a^x) = x$$
-                  $$\log_a(MN) = \log_a M + \log_a N, \quad \log_a\left(\frac{M}{N}\right) = \log_a M - \log_a N$$
-                  $$\log_a(M^k) = k\log_a M, \quad \log_{a^p}(M) = \frac{1}{p}\log_a M$$
+                  $$\\log_a 1 = 0, \\quad \\log_a a = 1, \\quad a^{\\log_a x} = x, \\quad \\log_a(a^x) = x$$
+                  $$\\log_a(MN) = \\log_a M + \\log_a N, \\quad \\log_a\\left(\\frac{M}{N}\\right) = \\log_a M - \\log_a N$$
+                  $$\\log_a(M^k) = k\\log_a M, \\quad \\log_{a^p}(M) = \\frac{1}{p}\\log_a M$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">7. การเปลี่ยนฐานลอการิทึม</div>
                 <div class="cs-card-body">
-                  $$\log_a b = \frac{\log_c b}{\log_c a} = \frac{1}{\log_b a}, \quad a^{\log_b c} = c^{\log_b a}$$
-                  $$\log x = \log_{10} x \; (\text{ลอการิทึมสามัญ}), \quad \ln x = \log_e x \; (e \approx 2.71828)$$
-                  $$\log N = \text{Characteristic (จำนวนเต็ม)} + \text{Mantissa } [0, 1)$$
+                  $$\\log_a b = \\frac{\\log_c b}{\\log_c a} = \\frac{1}{\\log_b a}, \\quad a^{\\log_b c} = c^{\\log_b a}$$
+                  $$\\log x = \\log_{10} x \\; (\\text{ลอการิทึมสามัญ}), \\quad \\ln x = \\log_e x \\; (e \\approx 2.71828)$$
+                  $$\\log N = \\text{Characteristic (จำนวนเต็ม)} + \\text{Mantissa } [0, 1)$$
                 </div>
               </div>
 
               <div class="cs-card">
                 <div class="cs-card-title">8. สมการและอสมการลอการิทึม</div>
                 <div class="cs-card-body">
-                  $$\log_a f(x) = \log_a g(x) \implies f(x) = g(x) \; (\text{ต้องตรวจคำตอบ } > 0)$$
-                  $$\text{อสมการ: ถ้า } a > 1 \implies \text{คงเครื่องหมาย}$$
-                  $$\text{ถ้า } 0 < a < 1 \implies \text{กลับเครื่องหมาย และอย่าลืมเงื่อนไขหลัง } \log > 0$$
+                  $$\\log_a f(x) = \\log_a g(x) \\implies f(x) = g(x) \\; (\\text{ต้องตรวจคำตอบ } > 0)$$
+                  $$\\text{อสมการ: ถ้า } a > 1 \\implies \\text{คงเครื่องหมาย}$$
+                  $$\\text{ถ้า } 0 < a < 1 \\implies \\text{กลับเครื่องหมาย และอย่าลืมเงื่อนไขหลัง } \\log > 0$$
                 </div>
               </div>
             `;
@@ -23524,7 +23524,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
             const cleanTitle = (t.title || '').replace(/^(?:คาบที่|ใบงานที่)\s*\d+\s*:\s*/i, '').trim();
             const ch = (t.worksheet && t.worksheet.conceptHtml) || '';
             const matchStage = ch.match(/<div class="equation-stage">([\s\S]*?)<\/div>/);
-            const mathSnippet = matchStage ? matchStage[1].trim() : '$$f(x) \text{ มาตรฐาน สสวท.}$$';
+            const mathSnippet = matchStage ? matchStage[1].trim() : '$$f(x) \\text{ มาตรฐาน สสวท.}$$';
             
             return `
               <div class="cs-card">
@@ -23562,7 +23562,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         `;
       }
 
-      // Helper for Summary Answer Key (2 Pages)
+            // Helper for Summary Answer Key (2 Pages)
       function renderSummaryAnswerKeyHtml(chunk, pageIdx, totalPages, pNum) {
         return `
           <div class="a4-paper-sheet book-answerkey-page">
@@ -24569,6 +24569,46 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
   </div>
 
   <script>
+    function waitForKaTeXAndRender(callback) {
+      // Pre-sanitize any equation-stage or math blocks that contain unclosed \begin{
+      try {
+        const stages = document.querySelectorAll('.equation-stage, .cs-card-body, .answerkey-answers-list, .sheet-concept-body');
+        stages.forEach(function(s) {
+          const raw = s.textContent.trim();
+          if (raw.indexOf('\\begin{') !== -1 && raw.indexOf('$$') === -1 && raw.indexOf('\\[') === -1) {
+            s.innerHTML = '$$' + s.innerHTML.trim() + '$$';
+          }
+        });
+      } catch (e) {}
+
+      let attempts = 0;
+      const interval = setInterval(function() {
+        attempts++;
+        if (typeof renderMathInElement === 'function') {
+          clearInterval(interval);
+          try {
+            renderMathInElement(document.body, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '$', right: '$', display: false },
+                { left: '\\[', right: '\\]', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ],
+              throwOnError: false,
+              errorColor: '#ef4444'
+            });
+          } catch (renderErr) {
+            console.error('KaTeX rendering error:', renderErr);
+          }
+          if (callback) callback();
+        } else if (attempts > 80) { // 4 seconds timeout
+          clearInterval(interval);
+          console.warn('KaTeX load timed out after 4 seconds');
+          if (callback) callback();
+        }
+      }, 50);
+    }
+
     async function typesetAndAutoDownload() {
       try {
         if (document.fonts && document.fonts.ready) {
@@ -24577,23 +24617,15 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       } catch (err) {
         console.warn('Font loading check:', err);
       }
-      if (typeof renderMathInElement === 'function') {
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
-            { left: '\\\\[', right: '\\\\]', display: true },
-            { left: '\\\\(', right: '\\\\)', display: false }
-          ],
-          throwOnError: false,
-          errorColor: '#ef4444'
-        });
-      }
-      await new Promise(function(r) { setTimeout(r, 200); });
-      ${opts.autoDownload ? `
-        window.print();
-      ` : ''}
+
+      waitForKaTeXAndRender(async function() {
+        await new Promise(function(r) { setTimeout(r, 250); });
+        ${opts.autoDownload ? `
+          window.print();
+        ` : ''}
+      });
     }
+
     if (document.readyState === 'complete') {
       typesetAndAutoDownload();
     } else {
