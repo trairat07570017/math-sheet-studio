@@ -44,7 +44,12 @@ _Avoid_: Rigid manual break, fragmented pagination
 The precision engineering of vertical padding, margins, formula block heights, and calculation canvas dimensions to guarantee a target page count (such as exactly 4 A4 pages / 2 double-sided sheets for a 20-item exam) without orphaned trailing pages or excessive bottom whitespace.
 _Avoid_: Uncontrolled spillover, arbitrary page count
 
-**Ultra-Compact Exam Density (ความหนาแน่นข้อสอบแบบกระชับพิเศษ)**:
-A high-efficiency print density profile that maintains question atomicity (`break-inside: avoid`) while compressing vertical margins (0.35rem–0.45rem) and calculation scratchpads (18px–22px), ensuring maximal item density with zero question fragmentation across page breaks.
-_Avoid_: Loose spacing, oversized scratchpad
+**Blueprint-Pure Item Bank (คลังข้อสอบตรงผัง สทศ. 100%)**:
+An exam bank strictly aligned with the official NIETS O-NET Upper Secondary Basic Mathematics Test Blueprint (`TB_04MaM6`), encompassing exactly 25 items and 100.00 points across 2 balanced sessions, with all out-of-scope topics (e.g., circular permutations, substitution exponential equations, quantifiers) rigorously eliminated.
+_Avoid_: Out-of-scope bloated bank, unverified mock exam
+
+**Ruled Handwriting Workspace (พื้นที่บรรทัดเขียนแสดงวิธีทำ 5 บรรทัด)**:
+A pedagogical student workspace consisting of exactly 5 horizontal dotted ruled lines (~19px line height, ~100px total height) with a watermark, providing structured ruled space for students to write working steps, arithmetic, and reasoning cleanly on printed worksheets.
+_Avoid_: Blank unguided box, cramped scratchpad
+
 

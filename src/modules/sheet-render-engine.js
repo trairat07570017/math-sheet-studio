@@ -505,6 +505,11 @@
     .trap-buster-box { margin: 0.25rem 0; padding: 0.35rem 0.65rem; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 5px; font-size: 0.82rem; color: #78350f; line-height: 1.45; }
     .trap-buster-title { font-weight: 700; color: #b45309; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 0.4rem; font-size: 0.86rem; }
 
+    /* 5-Line Ruled Handwriting Workspace (ADR-038) */
+    .ruled-workspace-5lines { margin-top: 0.45rem; margin-bottom: 0.35rem; border: 1px dashed #cbd5e1; border-radius: 4px; background: #ffffff; padding: 4px 10px 6px 10px; position: relative; box-sizing: border-box; break-inside: avoid !important; page-break-inside: avoid !important; }
+    .ruled-workspace-5lines .ruled-line { height: 19px; border-bottom: 1px dotted #cbd5e1; box-sizing: border-box; }
+    .ruled-workspace-5lines .canvas-watermark { position: absolute; bottom: 4px; right: 8px; font-size: 0.68rem; color: #94a3b8; font-family: 'Prompt', sans-serif; pointer-events: none; opacity: 0.7; }
+
     /* Continuous Flow Sheet Ultra-Compact Density Rules */
     .continuous-flow-sheet .sheet-main-header { margin-bottom: 0.45rem !important; padding-bottom: 0.35rem !important; }
     .continuous-flow-sheet .sheet-block { margin-bottom: 0.45rem !important; padding: 0.4rem 0.65rem !important; }
@@ -564,6 +569,11 @@
       .continuous-flow-sheet .trap-buster-box { margin: 0.18rem 0 !important; padding: 0.25rem 0.45rem !important; font-size: 8.2pt !important; line-height: 1.38 !important; }
       .continuous-flow-sheet .grid-in-answer-box { margin-top: 0.2rem !important; padding: 0.25rem 0.45rem !important; }
       .continuous-flow-sheet .complex-mc-table th, .continuous-flow-sheet .complex-mc-table td { padding: 0.2rem 0.4rem !important; font-size: 8.5pt !important; }
+
+      /* 5-Line Ruled Workspace Print Rules (ADR-038) */
+      .ruled-workspace-5lines { display: block !important; margin-top: 0.35rem !important; margin-bottom: 0.25rem !important; border: 1px dashed #cbd5e1 !important; border-radius: 4px !important; background: #ffffff !important; padding: 3px 8px 5px 8px !important; position: relative !important; box-sizing: border-box !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+      .ruled-workspace-5lines .ruled-line { height: 18px !important; border-bottom: 1px dotted #cbd5e1 !important; box-sizing: border-box !important; }
+      .ruled-workspace-5lines .canvas-watermark { position: absolute !important; bottom: 3px !important; right: 6px !important; font-size: 6.8pt !important; color: #94a3b8 !important; opacity: 0.6 !important; }
     }
   </style>
   <script src="${katexJs}"><\/script>
@@ -2933,6 +2943,23 @@
 
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
+        const ruledWorkspaceHtml = isContinuousFlow
+          ? `
+            <div class="ruled-workspace-5lines">
+              <div class="ruled-line"></div>
+              <div class="ruled-line"></div>
+              <div class="ruled-line"></div>
+              <div class="ruled-line"></div>
+              <div class="ruled-line"></div>
+              <span class="canvas-watermark">✏️ พื้นที่แสดงวิธีทำ</span>
+            </div>
+          `
+          : `
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+            </div>
+          `;
+
         if (ex.answerType === 'multiple-choice') {
           const hasE = !!ex.choiceE;
           answerAreaHtml = `
@@ -2943,9 +2970,7 @@
               <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${formatChoiceText(ex.choiceD)}</span></div>
               ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${formatChoiceText(ex.choiceE)}</span></div>` : ''}
             </div>
-            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '20px' : '70px'};">
-              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
-            </div>
+            ${ruledWorkspaceHtml}
           `;
         } else if (ex.answerType === 'grid-in') {
           const gVal = (isTeacher && ex.gridValue) ? String(ex.gridValue) : '';
@@ -2968,9 +2993,7 @@
                 ${cells}
               </div>
             </div>
-            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '22px' : '80px'};">
-              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
-            </div>
+            ${ruledWorkspaceHtml}
           `;
         } else if (ex.answerType === 'complex-multiple-choice') {
           let stRows = '';
@@ -3003,9 +3026,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '20px' : '70px'};">
-              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
-            </div>
+            ${ruledWorkspaceHtml}
           `;
         } else if (ex.answerType === 'short-answer') {
           answerAreaHtml = `

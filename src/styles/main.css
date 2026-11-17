@@ -1711,6 +1711,36 @@
       opacity: 0.6;
     }
 
+    /* 5-Line Ruled Handwriting Workspace (ADR-038) */
+    .ruled-workspace-5lines {
+      margin-top: 0.45rem;
+      margin-bottom: 0.35rem;
+      border: 1px dashed #cbd5e1;
+      border-radius: 4px;
+      background: #ffffff;
+      padding: 4px 10px 6px 10px;
+      position: relative;
+      box-sizing: border-box;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    .ruled-workspace-5lines .ruled-line {
+      height: 19px;
+      border-bottom: 1px dotted #cbd5e1;
+      box-sizing: border-box;
+    }
+    .ruled-workspace-5lines .canvas-watermark {
+      position: absolute;
+      bottom: 4px;
+      right: 8px;
+      font-size: 0.68rem;
+      color: #94a3b8;
+      font-family: 'Prompt', sans-serif;
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.7;
+    }
+
     /* Continuous Flow Sheet & Ultra-Compact Exam Calibration (ADR-037) */
     .continuous-flow-sheet .sheet-main-header {
       margin-bottom: 0.45rem !important;
@@ -3215,6 +3245,34 @@
       .continuous-flow-sheet .complex-mc-table td {
         padding: 0.2rem 0.4rem !important;
         font-size: 8.5pt !important;
+      }
+
+      /* 5-Line Ruled Workspace Print Rules (ADR-038) */
+      .ruled-workspace-5lines {
+        display: block !important;
+        margin-top: 0.35rem !important;
+        margin-bottom: 0.25rem !important;
+        border: 1px dashed #cbd5e1 !important;
+        border-radius: 4px !important;
+        background: #ffffff !important;
+        padding: 3px 8px 5px 8px !important;
+        position: relative !important;
+        box-sizing: border-box !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .ruled-workspace-5lines .ruled-line {
+        height: 18px !important;
+        border-bottom: 1px dotted #cbd5e1 !important;
+        box-sizing: border-box !important;
+      }
+      .ruled-workspace-5lines .canvas-watermark {
+        position: absolute !important;
+        bottom: 3px !important;
+        right: 6px !important;
+        font-size: 6.8pt !important;
+        color: #94a3b8 !important;
+        opacity: 0.6 !important;
       }
 
       .handwriting-grid {
