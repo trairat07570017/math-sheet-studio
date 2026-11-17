@@ -60,14 +60,27 @@
     const el = rootElement || document.body;
     if (typeof window.renderMathInElement === 'function') {
       try {
-        // Pre-sanitize any containers that might have unrendered \begin{...} without delimiters
+        // Pre-sanitize any containers that might have unrendered \begin{...} or raw LaTeX without delimiters
         const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage, .sheet-formula-box, .exercise-header, .mc-choice-item, td') : [];
         if (stages.length) {
           stages.forEach(function(stg) {
             if (!stg.querySelector('.katex')) {
-              const raw = stg.innerHTML;
+              let raw = stg.innerHTML;
+              let changed = false;
               if (raw.indexOf('\\begin{aligned}') !== -1 && raw.indexOf('$$') === -1 && raw.indexOf('\\[') === -1) {
-                stg.innerHTML = raw.replace(/(\\begin\{aligned\}[\s\S]*?\\end\{aligned\})/g, '$$$1$$');
+                raw = raw.replace(/(\\begin\{aligned\}[\s\S]*?\\end\{aligned\})/g, '$$$1$$');
+                changed = true;
+              }
+              // Auto-wrap raw LaTeX commands in $...$ if no math delimiters exist
+              if ((raw.indexOf('\\frac') !== -1 || raw.indexOf('\\sqrt') !== -1 || raw.indexOf('\\sum') !== -1) && !raw.includes('$') && !raw.includes('\\[') && !raw.includes('\\(')) {
+                const trimmed = raw.trim();
+                if (trimmed.startsWith('\\')) {
+                  raw = '$' + trimmed + '$';
+                  changed = true;
+                }
+              }
+              if (changed) {
+                stg.innerHTML = raw;
               }
             }
           });
@@ -719,6 +732,15 @@
           .replace(/'/g, '&#39;');
       }
 
+      function formatChoiceText(text) {
+        if (!text) return '................................';
+        const str = String(text).trim();
+        if (str.indexOf('\\') !== -1 && !str.includes('$') && !str.includes('\\[') && !str.includes('\\(')) {
+          return '$' + str + '$';
+        }
+        return str;
+      }
+
       // Helper function to render a single topic sheet as 2 explicit physical A4 pages
       function buildTopicSheetHtml(topicData, sheetOpts) {
         const sOpts = sheetOpts || {};
@@ -778,11 +800,11 @@
               const hasE = !!ex.choiceE;
               answerAreaHtml = `
                 <div class="mc-choices-grid">
-                  <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${escapeHtml(ex.choiceA) || '................................'}</span></div>
-                  <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${escapeHtml(ex.choiceB) || '................................'}</span></div>
-                  <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${escapeHtml(ex.choiceC) || '................................'}</span></div>
-                  <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${escapeHtml(ex.choiceD) || '................................'}</span></div>
-                  ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${escapeHtml(ex.choiceE)}</span></div>` : ''}
+                  <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${escapeHtml(formatChoiceText(ex.choiceA))}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${escapeHtml(formatChoiceText(ex.choiceB))}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${escapeHtml(formatChoiceText(ex.choiceC))}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${escapeHtml(formatChoiceText(ex.choiceD))}</span></div>
+                  ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${escapeHtml(formatChoiceText(ex.choiceE))}</span></div>` : ''}
                 </div>
               `;
             } else if (ex.answerType === 'grid-in') {
@@ -2900,17 +2922,26 @@
         }
       }
 
+      function formatChoiceText(text) {
+        if (!text) return '................................';
+        const str = String(text).trim();
+        if (str.indexOf('\\') !== -1 && !str.includes('$') && !str.includes('\\[') && !str.includes('\\(')) {
+          return '$' + str + '$';
+        }
+        return str;
+      }
+
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
         if (ex.answerType === 'multiple-choice') {
           const hasE = !!ex.choiceE;
           answerAreaHtml = `
             <div class="mc-choices-grid">
-              <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${ex.choiceA || '................................'}</span></div>
-              <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${ex.choiceB || '................................'}</span></div>
-              <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${ex.choiceC || '................................'}</span></div>
-              <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
-              ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
+              <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${formatChoiceText(ex.choiceA)}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${formatChoiceText(ex.choiceB)}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${formatChoiceText(ex.choiceC)}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${formatChoiceText(ex.choiceD)}</span></div>
+              ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${formatChoiceText(ex.choiceE)}</span></div>` : ''}
             </div>
             <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '20px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>

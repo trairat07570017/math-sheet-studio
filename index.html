@@ -19335,7 +19335,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       "conceptHtml": "<div class=\"sheet-formula-box\">\n  <div style=\"font-weight: 600; color: #1e3a8a; margin-bottom: 0.35rem;\">📌 เปอร์เซ็นไทล์กับการแจกแจงปกติ (Percentiles: $P_r$)</div>\n  <div class=\"equation-stage\">\n    $$\\begin{aligned}\n\\text{เปอร์เซ็นไทล์ที่ } r \\ (P_r) &\\iff \\text{มีข้อมูลที่มีค่าน้อยกว่าหรือเท่ากับค่านั้นอยู่ } r\\% \\\\[4pt]\nP(X \\le P_r) &= \\frac{r}{100} \\implies P\\left(Z \\le \\frac{P_r - \\mu}{\\sigma}\\right) = \\frac{r}{100} \\\\[4pt]\nP_{50} &= \\text{Median} = \\mu \\quad (Z = 0)\n\\end{aligned}$$\n  </div>\n  <div style=\"font-size: 0.88rem; color: #475569; margin-top: 0.25rem;\">\n    💡 <strong>เทคนิคคิดเร็ว:</strong> สูตรลัดจำง่าย: 'เปอร์เซ็นไทล์ที่เท่าไร พื้นที่สะสมทางซ้ายก็เท่านั้นส่วนร้อย' เช่น $P_{90} \\implies$ พื้นที่ซ้ายคือ $0.9000$, $P_{25} \\implies$ พื้นที่ซ้ายคือ $0.2500$\n  </div>\n</div>",
       "exercises": [
         {
-          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) คะแนนสอบวิชาสถิติแจกแจงปกติด้วย $\\mu = 60$ และ $\\sigma = 10$ จงหาคะแนนที่ตรงกับเปอร์เซ็นไทล์ที่ 90 ($P_{90}$) กำหนด $P(Z \\le 1.28) = 0.90",
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีทำ) คะแนนสอบวิชาสถิติแจกแจงปกติด้วย $\\mu = 60$ และ $\\sigma = 10$ จงหาคะแนนที่ตรงกับเปอร์เซ็นไทล์ที่ 90 ($P_{90}$) กำหนด $P(Z \\le 1.28) = 0.90$",
           "points": "",
           "latex": "\\begin{aligned}\nP(X \\le P_{90}) &= 0.90 \\implies Z = 1.28 \\\\[4pt]\nP_{90} &= \\mu + Z \\cdot \\sigma \\\\[4pt]\n&= 60 + (1.28)(10) = 60 + 12.8 = 72.8 \\text{ คะแนน}\n\\end{aligned}",
           "placeholder": "(วิธีทำตามเฉลยด้านบน: แปลง Pr เป็นพื้นที่สะสม เปิดตารางหา Z แล้วแปลงเป็นคะแนนจริง)"
@@ -21875,11 +21875,11 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "title": "ข้อที่ 12. (ปรนัย 3.75 คะแนน) ทอดลูกเต๋าที่เที่ยงตรง 2 ลูกพร้อมกัน 1 ครั้ง ความน่าจะเป็นที่ผลรวมของแต้มบนหน้าลูกเต๋าทั้งสองจะมากกว่าหรือเท่ากับ 9 มีค่าเท่ากับข้อใด",
           "points": "3.75",
           "answerType": "multiple-choice",
-          "choiceA": "\\frac{1}{6}",
-          "choiceB": "\\frac{5}{18}",
-          "choiceC": "\\frac{7}{36}",
-          "choiceD": "\\frac{1}{4}",
-          "choiceE": "\\frac{11}{36}",
+          "choiceA": "$\\frac{1}{6}$",
+          "choiceB": "$\\frac{5}{18}$",
+          "choiceC": "$\\frac{7}{36}$",
+          "choiceD": "$\\frac{1}{4}$",
+          "choiceE": "$\\frac{11}{36}$",
           "answer": "ข. 5/18 (n(S) = 36, ผลรวม >= 9: รวม 9 มี 4 แบบ (3,6; 4,5; 5,4; 6,3), รวม 10 มี 3 แบบ (4,6; 5,5; 6,4), รวม 11 มี 2 แบบ (5,6; 6,5), รวม 12 มี 1 แบบ (6,6) รวม n(E) = 4+3+2+1 = 10, P(E) = 10/36 = 5/18)"
         },
         {
@@ -23569,14 +23569,27 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     const el = rootElement || document.body;
     if (typeof window.renderMathInElement === 'function') {
       try {
-        // Pre-sanitize any containers that might have unrendered \begin{...} without delimiters
+        // Pre-sanitize any containers that might have unrendered \begin{...} or raw LaTeX without delimiters
         const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage, .sheet-formula-box, .exercise-header, .mc-choice-item, td') : [];
         if (stages.length) {
           stages.forEach(function(stg) {
             if (!stg.querySelector('.katex')) {
-              const raw = stg.innerHTML;
+              let raw = stg.innerHTML;
+              let changed = false;
               if (raw.indexOf('\\begin{aligned}') !== -1 && raw.indexOf('$$') === -1 && raw.indexOf('\\[') === -1) {
-                stg.innerHTML = raw.replace(/(\\begin\{aligned\}[\s\S]*?\\end\{aligned\})/g, '$$$1$$');
+                raw = raw.replace(/(\\begin\{aligned\}[\s\S]*?\\end\{aligned\})/g, '$$$1$$');
+                changed = true;
+              }
+              // Auto-wrap raw LaTeX commands in $...$ if no math delimiters exist
+              if ((raw.indexOf('\\frac') !== -1 || raw.indexOf('\\sqrt') !== -1 || raw.indexOf('\\sum') !== -1) && !raw.includes('$') && !raw.includes('\\[') && !raw.includes('\\(')) {
+                const trimmed = raw.trim();
+                if (trimmed.startsWith('\\')) {
+                  raw = '$' + trimmed + '$';
+                  changed = true;
+                }
+              }
+              if (changed) {
+                stg.innerHTML = raw;
               }
             }
           });
@@ -24228,6 +24241,15 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           .replace(/'/g, '&#39;');
       }
 
+      function formatChoiceText(text) {
+        if (!text) return '................................';
+        const str = String(text).trim();
+        if (str.indexOf('\\') !== -1 && !str.includes('$') && !str.includes('\\[') && !str.includes('\\(')) {
+          return '$' + str + '$';
+        }
+        return str;
+      }
+
       // Helper function to render a single topic sheet as 2 explicit physical A4 pages
       function buildTopicSheetHtml(topicData, sheetOpts) {
         const sOpts = sheetOpts || {};
@@ -24287,11 +24309,11 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               const hasE = !!ex.choiceE;
               answerAreaHtml = `
                 <div class="mc-choices-grid">
-                  <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${escapeHtml(ex.choiceA) || '................................'}</span></div>
-                  <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${escapeHtml(ex.choiceB) || '................................'}</span></div>
-                  <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${escapeHtml(ex.choiceC) || '................................'}</span></div>
-                  <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${escapeHtml(ex.choiceD) || '................................'}</span></div>
-                  ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${escapeHtml(ex.choiceE)}</span></div>` : ''}
+                  <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${escapeHtml(formatChoiceText(ex.choiceA))}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${escapeHtml(formatChoiceText(ex.choiceB))}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${escapeHtml(formatChoiceText(ex.choiceC))}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${escapeHtml(formatChoiceText(ex.choiceD))}</span></div>
+                  ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${escapeHtml(formatChoiceText(ex.choiceE))}</span></div>` : ''}
                 </div>
               `;
             } else if (ex.answerType === 'grid-in') {
@@ -26409,17 +26431,26 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         }
       }
 
+      function formatChoiceText(text) {
+        if (!text) return '................................';
+        const str = String(text).trim();
+        if (str.indexOf('\\') !== -1 && !str.includes('$') && !str.includes('\\[') && !str.includes('\\(')) {
+          return '$' + str + '$';
+        }
+        return str;
+      }
+
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
         if (ex.answerType === 'multiple-choice') {
           const hasE = !!ex.choiceE;
           answerAreaHtml = `
             <div class="mc-choices-grid">
-              <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${ex.choiceA || '................................'}</span></div>
-              <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${ex.choiceB || '................................'}</span></div>
-              <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${ex.choiceC || '................................'}</span></div>
-              <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
-              ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
+              <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${formatChoiceText(ex.choiceA)}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${formatChoiceText(ex.choiceB)}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${formatChoiceText(ex.choiceC)}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${formatChoiceText(ex.choiceD)}</span></div>
+              ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${formatChoiceText(ex.choiceE)}</span></div>` : ''}
             </div>
             <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '20px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
