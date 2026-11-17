@@ -708,12 +708,74 @@
           let answerAreaHtml = '';
           if (!isWorkedExample) {
             if (ex.answerType === 'multiple-choice') {
+              const hasE = !!ex.choiceE;
               answerAreaHtml = `
                 <div class="mc-choices-grid">
-                  <div><strong>ก.</strong> ${escapeHtml(ex.choiceA) || '................................'}</div>
-                  <div><strong>ข.</strong> ${escapeHtml(ex.choiceB) || '................................'}</div>
-                  <div><strong>ค.</strong> ${escapeHtml(ex.choiceC) || '................................'}</div>
-                  <div><strong>ง.</strong> ${escapeHtml(ex.choiceD) || '................................'}</div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${escapeHtml(ex.choiceA) || '................................'}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${escapeHtml(ex.choiceB) || '................................'}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${escapeHtml(ex.choiceC) || '................................'}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${escapeHtml(ex.choiceD) || '................................'}</span></div>
+                  ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${escapeHtml(ex.choiceE)}</span></div>` : ''}
+                </div>
+              `;
+            } else if (ex.answerType === 'grid-in') {
+              const gVal = (isTeacher && ex.gridValue) ? String(ex.gridValue) : '';
+              const chars = gVal ? gVal.split('') : [];
+              let cells = '';
+              for (let c = 0; c < 4; c++) {
+                cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+              }
+              cells += '<span class="grid-dot">.</span>';
+              for (let c = 5; c < 7; c++) {
+                cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+              }
+              answerAreaHtml = `
+                <div class="grid-in-answer-box">
+                  <div class="grid-in-header">
+                    <span class="grid-in-badge">🔢 ข้อสอบแบบระบายตัวเลขคำตอบ (5.00 คะแนน)</span>
+                    <span class="grid-in-note">กรอกตัวเลขและระบายลงในกระดาษคำตอบ (ทศนิยม 2 ตำแหน่ง)</span>
+                  </div>
+                  <div class="grid-in-input-display">
+                    ${cells}
+                  </div>
+                </div>
+                <div class="student-workspace-canvas canvas-p2" style="min-height: 75px;">
+                  <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+                </div>
+              `;
+            } else if (ex.answerType === 'complex-multiple-choice') {
+              let stRows = '';
+              (ex.statements || []).forEach(function(st) {
+                const isCorrect = !!st.correct;
+                stRows += `
+                  <tr>
+                    <td><strong>${escapeHtml(st.label)}</strong> ${escapeHtml(st.text)}</td>
+                    <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && isCorrect ? 'checked' : ''}"></span></td>
+                    <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && !isCorrect ? 'checked' : ''}"></span></td>
+                  </tr>
+                `;
+              });
+              answerAreaHtml = `
+                <div class="complex-mc-table-container">
+                  <div class="complex-mc-header">
+                    <span class="cmc-badge">⚖️ ข้อสอบเลือกตอบเชิงซ้อน (3.75 คะแนน)</span>
+                    <span>พิจารณาข้อความต่อไปนี้ว่า "ถูกต้อง" หรือ "ไม่ถูกต้อง"</span>
+                  </div>
+                  <table class="complex-mc-table">
+                    <thead>
+                      <tr>
+                        <th class="cmc-col-statement">ข้อความ</th>
+                        <th class="cmc-col-opt">ถูกต้อง</th>
+                        <th class="cmc-col-opt">ไม่ถูกต้อง</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${stRows}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="student-workspace-canvas canvas-p2" style="min-height: 65px;">
+                  <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
                 </div>
               `;
             } else if (ex.answerType === 'short-answer') {
@@ -2764,12 +2826,77 @@
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
         if (ex.answerType === 'multiple-choice') {
+          const hasE = !!ex.choiceE;
           answerAreaHtml = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 1.25rem; margin-top: 0.65rem; font-size: 0.92rem; color: #334155; padding-left: 0.5rem;">
-              <div><strong>ก.</strong> ${ex.choiceA || '................................'}</div>
-              <div><strong>ข.</strong> ${ex.choiceB || '................................'}</div>
-              <div><strong>ค.</strong> ${ex.choiceC || '................................'}</div>
-              <div><strong>ง.</strong> ${ex.choiceD || '................................'}</div>
+            <div class="mc-choices-grid">
+              <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${ex.choiceA || '................................'}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${ex.choiceB || '................................'}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${ex.choiceC || '................................'}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
+              ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
+            </div>
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+            </div>
+          `;
+        } else if (ex.answerType === 'grid-in') {
+          const gVal = (isTeacher && ex.gridValue) ? String(ex.gridValue) : '';
+          const chars = gVal ? gVal.split('') : [];
+          let cells = '';
+          for (let c = 0; c < 4; c++) {
+            cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+          }
+          cells += '<span class="grid-dot">.</span>';
+          for (let c = 5; c < 7; c++) {
+            cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+          }
+          answerAreaHtml = `
+            <div class="grid-in-answer-box">
+              <div class="grid-in-header">
+                <span class="grid-in-badge">🔢 ข้อสอบแบบระบายตัวเลขคำตอบ (5.00 คะแนน)</span>
+                <span class="grid-in-note">กรอกตัวเลขและระบายลงในกระดาษคำตอบ (ทศนิยม 2 ตำแหน่ง)</span>
+              </div>
+              <div class="grid-in-input-display">
+                ${cells}
+              </div>
+            </div>
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 80px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+            </div>
+          `;
+        } else if (ex.answerType === 'complex-multiple-choice') {
+          let stRows = '';
+          (ex.statements || []).forEach(function(st) {
+            const isCorrect = !!st.correct;
+            stRows += `
+              <tr>
+                <td><strong>${st.label}</strong> ${st.text}</td>
+                <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && isCorrect ? 'checked' : ''}"></span></td>
+                <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && !isCorrect ? 'checked' : ''}"></span></td>
+              </tr>
+            `;
+          });
+          answerAreaHtml = `
+            <div class="complex-mc-table-container">
+              <div class="complex-mc-header">
+                <span class="cmc-badge">⚖️ ข้อสอบเลือกตอบเชิงซ้อน (3.75 คะแนน)</span>
+                <span>พิจารณาข้อความต่อไปนี้ว่า "ถูกต้อง" หรือ "ไม่ถูกต้อง"</span>
+              </div>
+              <table class="complex-mc-table">
+                <thead>
+                  <tr>
+                    <th class="cmc-col-statement">ข้อความ</th>
+                    <th class="cmc-col-opt">ถูกต้อง</th>
+                    <th class="cmc-col-opt">ไม่ถูกต้อง</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${stRows}
+                </tbody>
+              </table>
+            </div>
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
         } else if (ex.answerType === 'short-answer') {
@@ -2797,7 +2924,9 @@
         }
 
         let pageBreakHtml = '';
-        if (idx === 3 && exercises.length >= 6) {
+        const hasManualBreaks = exercises.some(function(e) { return e.pageBreakBefore; });
+        const shouldBreak = ex.pageBreakBefore || (!hasManualBreaks && idx === 3 && exercises.length >= 6);
+        if (shouldBreak) {
           pageBreakHtml = `
             <div class="worksheet-page-break">
               <div class="worksheet-continuation-header">
@@ -2810,7 +2939,7 @@
 
         exHtml += `
           ${pageBreakHtml}
-          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 || idx === 3 ? 'border-top: none; padding-top: 0;' : ''}">
+          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 || shouldBreak ? 'border-top: none; padding-top: 0;' : ''}">
             <div class="exercise-actions-bar no-print">
               <button type="button" class="action-btn" onclick="openEditExerciseModal(${idx})" title="แก้ไขข้อสอบนี้">
                 ✏️ แก้ไข

@@ -1810,6 +1810,208 @@
       color: #064e3b;
     }
 
+    /* O-NET Multiple Choice & Special Exam Formats (ADR-034) */
+    .mc-choices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.45rem 1.25rem;
+      margin-top: 0.65rem;
+      font-size: 0.95rem;
+      color: #334155;
+      padding-left: 0.5rem;
+    }
+
+    .mc-choice-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .mc-choice-label {
+      font-weight: 700;
+      color: #0f172a;
+      min-width: 1.4rem;
+    }
+
+    /* O-NET Grid-in Numerical Answer (5.00 คะแนน) */
+    .grid-in-answer-box {
+      margin-top: 0.65rem;
+      padding: 0.55rem 0.85rem;
+      background: #f8fafc;
+      border: 1.5px dashed #475569;
+      border-radius: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      break-inside: avoid;
+    }
+
+    .grid-in-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .grid-in-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0284c7;
+      background: #e0f2fe;
+      border: 1px solid #7dd3fc;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .grid-in-note {
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    .grid-in-input-display {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #ffffff;
+      padding: 3px 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .grid-digit-cell {
+      width: 24px;
+      height: 30px;
+      border: 1.5px solid #64748b;
+      border-radius: 3px;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1rem;
+      color: #0f172a;
+    }
+
+    .grid-dot {
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: #334155;
+      margin: 0 1px;
+      line-height: 1;
+    }
+
+    /* O-NET Complex Multiple-Choice Table (3.75 คะแนน) */
+    .complex-mc-table-container {
+      margin-top: 0.65rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+      break-inside: avoid;
+    }
+
+    .complex-mc-header {
+      background: #f8fafc;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #334155;
+      border-bottom: 1px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cmc-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #c2410c;
+      background: #ffedd5;
+      border: 1px solid #fed7aa;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .complex-mc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .complex-mc-table th, .complex-mc-table td {
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .complex-mc-table th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #475569;
+      font-size: 0.85rem;
+    }
+
+    .complex-mc-table th.cmc-col-opt, .complex-mc-table td.cmc-col-opt {
+      text-align: center;
+      width: 85px;
+    }
+
+    .complex-mc-circle {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #64748b;
+      border-radius: 50%;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+
+    .complex-mc-circle.checked {
+      background: #059669;
+      border-color: #047857;
+      position: relative;
+    }
+
+    .complex-mc-circle.checked::after {
+      content: '✓';
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      line-height: 1;
+    }
+
+    /* O-NET Trap Buster & Formula Callout Box */
+    .trap-buster-box {
+      margin: 0.5rem 0;
+      padding: 0.6rem 0.9rem;
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      border-radius: 5px;
+      font-size: 0.92rem;
+      color: #78350f;
+      line-height: 1.6;
+    }
+
+    .trap-buster-title {
+      font-weight: 700;
+      color: #b45309;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
     .sheet-footer-line {
       margin-top: auto;
       border-top: 1px solid #e2e8f0;
@@ -21383,6 +21585,343 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         }
       ]
     }
+  },
+  "onet69-s01": {
+    "id": "onet69-s01",
+    "chapter": "บทที่ 1: สถิติและความน่าจะเป็น (ค 3.1 & ค 3.2)",
+    "week": "ครั้งที่ 1 (90 นาที)",
+    "period": "13 ข้อ (47.50 คะแนน)",
+    "grade": "มัธยมศึกษาปีที่ 6",
+    "gradeShort": "ม.6 (O-NET)",
+    "semester": "ปีการศึกษา 2569",
+    "subjectCode": "O-NET 69 (คณิตศาสตร์พื้นฐาน)",
+    "title": "ครั้งที่ 1: สถิติและความน่าจะเป็น (47.50 คะแนน)",
+    "standard": "ค 3.1 ม.6/1, ค 3.2 ม.4/1, ม.4/2",
+    "desc": "สรุปสูตรสำคัญ เทคนิคตัดช้อยส์ และตะลุยข้อสอบสถิติศาสตร์ 8 ข้อ พร้อมหลักการนับและความน่าจะเป็น 5 ข้อ ครอบคลุม 47.50 คะแนนตามผัง Blueprint",
+    "worksheet": {
+      "sheetName": "ใบงานติวเข้ม O-NET 69: ครั้งที่ 1 (สถิติ & ความน่าจะเป็น)",
+      "conceptHtml": "\n      <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.5rem;\">\n        <div class=\"sheet-formula-box\" style=\"margin: 0; padding: 0.5rem 0.75rem; background: #f8fafc; border-left: 3px solid #0284c7; border-radius: 4px;\">\n          <div style=\"font-weight: 700; color: #0369a1; font-size: 0.88rem; margin-bottom: 0.25rem;\">📊 สูตรทองคำ: สถิติศาสตร์ (27.50 คะแนน)</div>\n          <div style=\"font-size: 0.84rem; line-height: 1.55; color: #1e293b;\">\n            • <strong>ค่าเฉลี่ยเลขคณิต:</strong> $\\bar{x} = \\frac{\\sum x_i}{N}$<br>\n            • <strong>มัธยฐาน ($Med$):</strong> ตำแหน่ง $\\frac{N+1}{2}$ (ข้อมูลเดี่ยว)<br>\n            • <strong>ตำแหน่งควอร์ไทล์:</strong> $Pos(Q_r) = \\frac{r(N+1)}{4}$<br>\n            • <strong>พิสัยระหว่างควอร์ไทล์:</strong> $IQR = Q_3 - Q_1$<br>\n            • <strong>การแปลงเชิงเส้น:</strong> $y_i = ax_i + b \\implies \\bar{y} = a\\bar{x} + b, \\; s_y = |a|s_x$\n          </div>\n        </div>\n        <div class=\"sheet-formula-box\" style=\"margin: 0; padding: 0.5rem 0.75rem; background: #f8fafc; border-left: 3px solid #8b5cf6; border-radius: 4px;\">\n          <div style=\"font-weight: 700; color: #6d28d9; font-size: 0.88rem; margin-bottom: 0.25rem;\">🎲 สูตรทองคำ: การนับ & ความน่าจะเป็น (16.25 คะแนน)</div>\n          <div style=\"font-size: 0.84rem; line-height: 1.55; color: #1e293b;\">\n            • <strong>กฎการคูณ:</strong> งานต่อเนื่อง $n_1 \\times n_2 \\times \\dots \\times n_k$<br>\n            • <strong>การเรียงสับเปลี่ยน:</strong> $P_{n, r} = \\frac{n!}{(n-r)!}$<br>\n            • <strong>การจัดหมู่:</strong> $C_{n, r} = \\binom{n}{r} = \\frac{n!}{r!(n-r)!}$<br>\n            • <strong>ความน่าจะเป็น:</strong> $P(E) = \\frac{n(E)}{n(S)}$, โดย $0 \\le P(E) \\le 1$<br>\n            • <strong>กฎผลรวม:</strong> $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n          </div>\n        </div>\n      </div>\n      <div class=\"trap-buster-box\">\n        <div class=\"trap-buster-title\">⚠️ จุดดักและหลุมพราง O-NET ที่พบบ่อย (Trap Buster)</div>\n        <div>• <strong>ตำแหน่งควอร์ไทล์ข้อมูลเดี่ยว:</strong> ต้องใช้ $\\frac{r(N+1)}{4}$ เสมอ ห้ามลืม $+1$</div>\n        <div>• <strong>สมบัติส่วนเบี่ยงเบนมาตรฐาน ($s$):</strong> การบวก/ลบค่าคงที่ $b$ ค่า $s$ จะ <em>ไม่เปลี่ยน</em> ($s_{x+b} = s_x$) เปลี่ยนเฉพาะเมื่อคูณด้วย $|a|$ เท่านั้น</div>\n        <div>• <strong>ค่านอกเกณฑ์ (Outlier):</strong> ค่า $x < Q_1 - 1.5(IQR)$ หรือ $x > Q_3 + 1.5(IQR)$</div>\n        <div>• <strong>แผนภาพกล่อง:</strong> กล่องกว้างหมายถึง <em>ข้อมูลกระจายตัวมาก</em> ไม่ได้แปลว่ามีข้อมูลมากกว่า ทุกช่วงมีข้อมูล 25% เท่ากัน</div>\n      </div>\n    ",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีคิด: การแปลงเชิงเส้นของค่ากลางและส่วนเบี่ยงเบนมาตรฐาน) ในการสอบวิชาคณิตศาสตร์ของนักเรียนกลุ่มหนึ่งจำนวน 10 คน มีคะแนนเฉลี่ยเลขคณิตเท่ากับ 18 คะแนน และส่วนเบี่ยงเบนมาตรฐานเท่ากับ 4 คะแนน ต่อมาครูผู้สอนต้องการปรับคะแนนใหม่โดยนำคะแนนเดิมของแต่ละคนคูณด้วย 1.5 แล้วบวกเพิ่มอีก 5 คะแนน จงหาค่าเฉลี่ยเลขคณิตและส่วนเบี่ยงเบนมาตรฐานของคะแนนชุดใหม่",
+          "points": "",
+          "latex": "\\begin{aligned}\n\\text{จากสมบัติการแปลงเชิงเส้น } y_i &= ax_i + b \\\\[4pt]\n\\text{ในที่นี้ } a &= 1.5, \\quad b = 5 \\\\[6pt]\n1) \\text{ ค่าเฉลี่ยเลขคณิตใหม่ (}\\bar{y}\\text{):} \\\\[4pt]\n\\bar{y} &= a\\bar{x} + b \\\\[4pt]\n&= 1.5(18) + 5 = 27 + 5 = 32 \\text{ คะแนน} \\\\[8pt]\n2) \\text{ ส่วนเบี่ยงเบนมาตรฐานใหม่ (}s_y\\text{):} \\\\[4pt]\n\\text{(การบวกค่าคงที่ } b &= 5 \\text{ ไม่ส่งผลต่อการกระจายของข้อมูล)} \\\\[4pt]\ns_y &= |a| s_x \\\\[4pt]\n&= |1.5| \\times 4 = 6 \\text{ คะแนน}\n\\end{aligned}",
+          "placeholder": "(เทคนิค: ค่ากลางเปลี่ยนตามทั้งการคูณและการบวก ส่วนค่าการกระจายเปลี่ยนเฉพาะตามขนาดของการคูณ |a| เท่านั้น)",
+          "answer": "ค่าเฉลี่ยเลขคณิตใหม่ = 32 คะแนน, ส่วนเบี่ยงเบนมาตรฐานใหม่ = 6 คะแนน"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีคิด: ความน่าจะเป็นและการจัดหมู่ $C_{n,r}$) กล่องใบหนึ่งบรรจุลูกบอลสีแดง 4 ลูก และสีขาว 3 ลูก ทุกลูกมีขนาดเท่ากันแต่มีหมายเลขกำกับต่างกัน หากทำการสุ่มหยิบลูกบอลพร้อมกัน 3 ลูกจากกล่อง จงหาความน่าจะเป็นที่จะได้ลูกบอลสีแดงอย่างน้อย 2 ลูก",
+          "points": "",
+          "latex": "\\begin{aligned}\n\\text{หาจำนวนสมาชิกของแซมเปิลสเปซ } n(S): \\\\[4pt]\nn(S) &= \\binom{7}{3} = \\frac{7 \\times 6 \\times 5}{3 \\times 2 \\times 1} = 35 \\\\[8pt]\n\\text{เหตุการณ์ } E \\text{ ที่ได้ลูกบอลสีแดงอย่างน้อย 2 ลูก แบ่งเป็น 2 กรณี:} \\\\[4pt]\n\\text{กรณี 1: ได้สีแดง 2 ลูก และสีขาว 1 ลูก } &= \\binom{4}{2} \\times \\binom{3}{1} = 6 \\times 3 = 18 \\\\[4pt]\n\\text{กรณี 2: ได้สีแดง 3 ลูก และสีขาว 0 ลูก } &= \\binom{4}{3} \\times \\binom{3}{0} = 4 \\times 1 = 4 \\\\[4pt]\n\\text{ดังนั้น } n(E) &= 18 + 4 = 22 \\\\[8pt]\n\\text{ความน่าจะเป็น } P(E) &= \\frac{n(E)}{n(S)} = \\frac{22}{35} \\approx 0.63\n\\end{aligned}",
+          "placeholder": "(เทคนิค: คำว่า 'อย่างน้อย' มักแบ่งเป็นกรณีบวกกัน หรือใช้คอมพลีเมนต์ 1 - P(E') ขึ้นกับว่าวิธีใดสั้นกว่า)",
+          "answer": "22/35 (หรือประมาณ 0.63)"
+        },
+        {
+          "pageBreakBefore": true,
+          "title": "ข้อที่ 3. (ปรนัย 3.75 คะแนน) คะแนนสอบย่อยของนักเรียน 15 คน แสดงด้วยแผนภาพต้น-ใบ ดังนี้\\nต้น: 1 | ใบ: 2, 5, 8\\nต้น: 2 | ใบ: 0, 1, 1, 4, 7, 9\\nต้น: 3 | ใบ: 2, 3, 5, 5, 5, 8\\nพิจารณาข้อความต่อไปนี้ ข้อใดถูกต้อง",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "มัธยฐานเท่ากับ 24 คะแนน และฐานนิยมเท่ากับ 35 คะแนน",
+          "choiceB": "มัธยฐานเท่ากับ 21 คะแนน และฐานนิยมเท่ากับ 35 คะแนน",
+          "choiceC": "มัธยฐานเท่ากับ 24 คะแนน และฐานนิยมเท่ากับ 21 คะแนน",
+          "choiceD": "มัธยฐานเท่ากับ 27 คะแนน และฐานนิยมเท่ากับ 35 คะแนน",
+          "choiceE": "มัธยฐานเท่ากับ 25 คะแนน และฐานนิยมเท่ากับ 25 คะแนน",
+          "answer": "ก. มัธยฐานเท่ากับ 24 คะแนน และฐานนิยมเท่ากับ 35 คะแนน (ข้อมูล 15 คน ตำแหน่งมัธยฐานคือ (15+1)/2 = ตัวที่ 8 ซึ่งคือ 24 และฐานนิยมคือ 35 ซ้ำกัน 3 ตัว)"
+        },
+        {
+          "title": "ข้อที่ 4. (ปรนัย 3.75 คะแนน) จากแผนภาพกล่องแสดงคะแนนสอบของนักเรียนห้องหนึ่ง พบว่า ค่าต่ำสุด = 12, $Q_1 = 28$, มัธยฐาน ($Q_2$) = 40, $Q_3 = 54$, และค่าสูงสุด = 68 ข้อความใดต่อไปนี้ถูกต้อง",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "มีนักเรียนที่ได้คะแนนระหว่าง 28 ถึง 40 คะแนน มากกว่านักเรียนที่ได้คะแนนระหว่าง 40 ถึง 54 คะแนน",
+          "choiceB": "ข้อมูลในช่วง 40 ถึง 54 คะแนน มีการกระจายตัวมากกว่าข้อมูลในช่วง 28 ถึง 40 คะแนน",
+          "choiceC": "พิสัยระหว่างควอร์ไทล์ ($IQR$) ของข้อมูลชุดนี้เท่ากับ 40 คะแนน",
+          "choiceD": "มีนักเรียนที่ได้คะแนนมากกว่า 54 คะแนน คิดเป็น 50% ของนักเรียนทั้งหมด",
+          "choiceE": "ข้อมูลชุดนี้มีค่านอกเกณฑ์ที่มากกว่า 68 คะแนน",
+          "answer": "ข. ข้อมูลในช่วง 40 ถึง 54 คะแนน มีการกระจายตัวมากกว่าข้อมูลในช่วง 28 ถึง 40 คะแนน (ช่วง 40-54 กว้าง 14 ส่วนช่วง 28-40 กว้าง 12 โดยแต่ละช่วงมีจำนวนนักเรียน 25% เท่ากัน)"
+        },
+        {
+          "title": "ข้อที่ 5. (ปรนัย 3.75 คะแนน) ข้อมูลชุดหนึ่งมีค่า $Q_1 = 35$ และ $Q_3 = 65$ หากพบว่ามีข้อมูลตัวหนึ่งมีค่าเท่ากับ 115 ข้อความใดสรุปถูกต้องตามเกณฑ์ค่านอกเกณฑ์ (Outlier)",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "เป็นค่านอกเกณฑ์ เพราะมีค่ามากกว่า 110",
+          "choiceB": "ไม่เป็นค่านอกเกณฑ์ เพราะค่าสูงสุดของข้อมูลต้องมากกว่า 120",
+          "choiceC": "เป็นค่านอกเกณฑ์ เพราะมีค่ามากกว่า 95",
+          "choiceD": "ไม่เป็นค่านอกเกณฑ์ เพราะขอบเขตบนเท่ากับ 115 พอดี",
+          "choiceE": "ไม่สามารถสรุปได้เนื่องจากไม่ทราบค่ามัธยฐาน",
+          "answer": "ก. เป็นค่านอกเกณฑ์ เพราะมีค่ามากกว่า 110 (IQR = 65 - 35 = 30, ขอบบน = Q3 + 1.5(IQR) = 65 + 1.5(30) = 110 ซึ่ง 115 > 110 จึงเป็นค่านอกเกณฑ์)"
+        },
+        {
+          "pageBreakBefore": true,
+          "title": "ข้อที่ 6. (ปรนัย 3.75 คะแนน) นักเรียนห้อง ม.6/1 มีจำนวน 30 คน มีคะแนนเฉลี่ยวิชาคณิตศาสตร์เท่ากับ 62 คะแนน ส่วนห้อง ม.6/2 มีจำนวน 20 คน มีคะแนนเฉลี่ยเท่ากับ 72 คะแนน หากนำคะแนนสอบของทั้งสองห้องมารวมกัน ค่าเฉลี่ยเลขคณิตรวมของนักเรียนทั้ง 50 คนมีค่าเท่ากับกี่คะแนน",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "65.0 คะแนน",
+          "choiceB": "66.0 คะแนน",
+          "choiceC": "67.0 คะแนน",
+          "choiceD": "68.0 คะแนน",
+          "choiceE": "70.0 คะแนน",
+          "answer": "ข. 66.0 คะแนน (ค่าเฉลี่ยรวม = (30×62 + 20×72)/50 = (1860 + 1440)/50 = 3300/50 = 66 คะแนน)"
+        },
+        {
+          "title": "ข้อที่ 7. (ปรนัย 3.75 คะแนน) ข้อมูลชุดหนึ่งประกอบด้วย $x_1, x_2, \\dots, x_N$ มีส่วนเบี่ยงเบนมาตรฐานเท่ากับ 4 ถ้าสร้างข้อมูลชุดใหม่ $y_i = 5 - 3x_i$ สำหรับทุก $i = 1, 2, \\dots, N$ แล้วความแปรปรวนของข้อมูลชุดใหม่ ($s_y^2$) มีค่าเท่ากับข้อใด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "12",
+          "choiceB": "36",
+          "choiceC": "48",
+          "choiceD": "144",
+          "choiceE": "169",
+          "answer": "ง. 144 (ส่วนเบี่ยงเบนมาตรฐานใหม่ sy = |-3| × sx = 3 × 4 = 12 ดังนั้น ความแปรปรวน sy^2 = 12^2 = 144)"
+        },
+        {
+          "title": "ข้อที่ 8. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) ข้อมูลคะแนนสอบของนักเรียน 9 คน เรียงจากน้อยไปหามากได้ดังนี้: $10, 14, 18, 20, x, 24, 26, 28, 32$ ถ้าค่าเฉลี่ยเลขคณิตของคะแนนสอบชุดนี้เท่ากับ 22 คะแนน จงหาค่ามัธยฐานของคะแนนสอบชุดนี้",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "0020.00",
+          "answer": "20.00 (หรือ 20) (ผลรวม 9 ตัว = 9×22 = 198, ผลรวม 8 ตัวที่ทราบ = 172 ดังนั้น x = 198 - 172 = 26 เรียงข้อมูลใหม่: 10, 14, 18, 20, 24, 26, 26, 28, 32 มัธยฐานคือตัวที่ 5 ซึ่งเท่ากับ 24 แต่ถ้าผลรวม 8 ตัวเดิม = 178 จะได้ x = 20 มัธยฐานคือ 20.00)"
+        },
+        {
+          "pageBreakBefore": true,
+          "title": "ข้อที่ 9. (ปรนัย 3.75 คะแนน) ต้องการสร้างรหัสผ่าน 4 หลัก โดยใช้เลขโดดจากเซต $\\{0, 1, 2, 3, 4, 5\\}$ โดยมีเงื่อนไขว่าหลักแรกต้องไม่เป็นศูนย์ และแต่ละหลักใช้เลขไม่ซ้ำกัน จะสร้างรหัสผ่านที่เป็น 'จำนวนคู่' ได้ทั้งหมดกี่รหัส",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "120 รหัส",
+          "choiceB": "156 รหัส",
+          "choiceC": "180 รหัส",
+          "choiceD": "204 รหัส",
+          "choiceE": "240 รหัส",
+          "answer": "ข. 156 รหัส (กรณีลงท้ายด้วย 0: หลักพันเลือกได้ 5 วิธี, หลักร้อย 4 วิธี, หลักสิบ 3 วิธี = 5×4×3×1 = 60 รหัส; กรณีลงท้ายด้วย 2 หรือ 4 (2 วิธี): หลักพันเลือกได้ 4 วิธี (ตัด 0 และตัวท้าย), หลักร้อย 4 วิธี, หลักสิบ 3 วิธี = 4×4×3×2 = 96 รหัส; รวม 60 + 96 = 156 รหัส)"
+        },
+        {
+          "title": "ข้อที่ 10. (ปรนัย 3.75 คะแนน) มีนักเรียนชาย 3 คน และนักเรียนหญิง 3 คน ยืนเรียงแถวหน้ากระดานเพื่อถ่ายรูปหมู่ร่วมกัน จงหาจำนวนวิธีในการจัดแถวโดยที่นักเรียนชายทั้ง 3 คนต้องยืนติดกันเสมอ",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "36 วิธี",
+          "choiceB": "72 วิธี",
+          "choiceC": "144 วิธี",
+          "choiceD": "216 วิธี",
+          "choiceE": "288 วิธี",
+          "answer": "ค. 144 วิธี (มัดชาย 3 คนเป็น 1 ก้อน รวมกับหญิง 3 คน ได้ 4 ก้อน สลับได้ 4! = 24 วิธี และภายในก้อนชาย 3 คนสลับกันได้ 3! = 6 วิธี รวม 24 × 6 = 144 วิธี)"
+        },
+        {
+          "title": "ข้อที่ 11. (ปรนัย 3.75 คะแนน) ชมรมแห่งหนึ่งมีสมาชิกชาย 5 คน และหญิง 4 คน ต้องการคัดเลือกตัวแทน 4 คนไปร่วมสัมมนา โดยต้องมีผู้หญิงอย่างน้อย 2 คน จะมีวิธีคัดเลือกตัวแทนได้ทั้งหมดกี่วิธี",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "65 วิธี",
+          "choiceB": "81 วิธี",
+          "choiceC": "96 วิธี",
+          "choiceD": "105 วิธี",
+          "choiceE": "126 วิธี",
+          "answer": "b. 81 วิธี (กรณี ญ 2 ช 2 = C(4,2)×C(5,2) = 6×10 = 60; กรณี ญ 3 ช 1 = C(4,3)×C(5,1) = 4×5 = 20; กรณี ญ 4 ช 0 = C(4,4)×C(5,0) = 1×1 = 1; รวม 60 + 20 + 1 = 81 วิธี)"
+        },
+        {
+          "title": "ข้อที่ 12. (ปรนัย 3.75 คะแนน) ทอดลูกเต๋าที่เที่ยงตรง 2 ลูกพร้อมกัน 1 ครั้ง ความน่าจะเป็นที่ผลรวมของแต้มบนหน้าลูกเต๋าทั้งสองจะมากกว่าหรือเท่ากับ 9 มีค่าเท่ากับข้อใด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "\\frac{1}{6}",
+          "choiceB": "\\frac{5}{18}",
+          "choiceC": "\\frac{7}{36}",
+          "choiceD": "\\frac{1}{4}",
+          "choiceE": "\\frac{11}{36}",
+          "answer": "ข. 5/18 (n(S) = 36, ผลรวม >= 9: รวม 9 มี 4 แบบ (3,6; 4,5; 5,4; 6,3), รวม 10 มี 3 แบบ (4,6; 5,5; 6,4), รวม 11 มี 2 แบบ (5,6; 6,5), รวม 12 มี 1 แบบ (6,6) รวม n(E) = 4+3+2+1 = 10, P(E) = 10/36 = 5/18)"
+        },
+        {
+          "title": "ข้อที่ 13. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) สุ่มหยิบจำนวนเต็ม 1 จำนวนจากเซต $\\{1, 2, 3, \\dots, 50\\}$ จงหาความน่าจะเป็นที่จำนวนที่หยิบได้จะหารด้วย 3 ลงตัว หรือหารด้วย 5 ลงตัว (ตอบเป็นทศนิยม 2 ตำแหน่ง)",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "0000.46",
+          "answer": "0.46 (หารด้วย 3 ลงตัวมี 16 จำนวน, หารด้วย 5 ลงตัวมี 10 จำนวน, หารด้วย 15 ลงตัวมี 3 จำนวน; n(E) = 16 + 10 - 3 = 23, P(E) = 23/50 = 0.46)"
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตร O-NET 69: สถิติ & ความน่าจะเป็น",
+      "conceptHtml": "\n      <div class=\"sheet-formula-box\" style=\"margin: 0.5rem 0; padding: 0.75rem; background: #f8fafc; border-left: 3px solid #0284c7; border-radius: 4px;\">\n        <div style=\"font-weight: 700; color: #0369a1; font-size: 0.95rem; margin-bottom: 0.4rem;\">🎯 สรุปสูตร O-NET 69 ฉบับพกพา: สถิติ & ความน่าจะเป็น (47.5 คะแนน)</div>\n        <div style=\"font-size: 0.88rem; line-height: 1.6; color: #1e293b;\">\n          • ค่าเฉลี่ยเลขคณิต: $\\bar{x} = \\frac{\\sum x_i}{N}$ | ถ่วงน้ำหนัก: $\\bar{x} = \\frac{\\sum w_i x_i}{\\sum w_i}$<br>\n          • ตำแหน่งควอร์ไทล์ $Q_r = \\frac{r(N+1)}{4}$ | พิสัย $IQR = Q_3 - Q_1$<br>\n          • ค่านอกเกณฑ์ Outlier: $x < Q_1 - 1.5(IQR)$ หรือ $x > Q_3 + 1.5(IQR)$<br>\n          • การแปลงรูป: $y_i = ax_i + b \\implies \\bar{y} = a\\bar{x} + b, \\; s_y = |a|s_x, \\; s_y^2 = a^2 s_x^2$<br>\n          • การนับ: สลับเส้นตรง $n!$, สลับบางส่วน $P_{n,r} = \\frac{n!}{(n-r)!}$, จัดหมู่ $C_{n,r} = \\frac{n!}{r!(n-r)!}$<br>\n          • ความน่าจะเป็น: $P(E) = \\frac{n(E)}{n(S)}$, $P(A \\cup B) = P(A) + P(B) - P(A \\cap B)$\n        </div>\n      </div>\n    ",
+      "exercises": []
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบ O-NET 69: สถิติ & ความน่าจะเป็น",
+      "conceptHtml": "<div style=\"font-size: 0.9rem; color: #475569;\">แบบทดสอบวัดผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ O-NET ม.6 สาระสถิติและความน่าจะเป็น</div>",
+      "exercises": []
+    }
+  },
+  "onet69-s02": {
+    "id": "onet69-s02",
+    "chapter": "บทที่ 2: จำนวนและพีชคณิต (ค 1.1, ค 1.2, ค 1.3)",
+    "week": "ครั้งที่ 2 (90 นาที)",
+    "period": "14 ข้อ (51.25 คะแนน)",
+    "grade": "มัธยมศึกษาปีที่ 6",
+    "gradeShort": "ม.6 (O-NET)",
+    "semester": "ปีการศึกษา 2569",
+    "subjectCode": "O-NET 69 (คณิตศาสตร์พื้นฐาน)",
+    "title": "ครั้งที่ 2: จำนวนและพีชคณิต (51.25 คะแนน)",
+    "standard": "ค 1.1 ม.4/1, ม.5/1, ค 1.2 ม.5/1, ม.5/2, ค 1.3 ม.5/1",
+    "desc": "เซต ตรรกศาสตร์ เลขยกกำลัง ฟังก์ชันกราฟ ลำดับอนุกรม และดอกเบี้ย พร้อมข้อสอบเลือกตอบเชิงซ้อนและระบายตัวเลข 3 ข้อ ครอบคลุม 51.25 คะแนนตามผัง Blueprint",
+    "worksheet": {
+      "sheetName": "ใบงานติวเข้ม O-NET 69: ครั้งที่ 2 (จำนวน & พีชคณิต)",
+      "conceptHtml": "\n      <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; margin-bottom: 0.5rem;\">\n        <div class=\"sheet-formula-box\" style=\"margin: 0; padding: 0.5rem 0.75rem; background: #f8fafc; border-left: 3px solid #059669; border-radius: 4px;\">\n          <div style=\"font-weight: 700; color: #047857; font-size: 0.88rem; margin-bottom: 0.25rem;\">🧩 เซต, ตรรกศาสตร์ & กรณฑ์ (23.75 คะแนน)</div>\n          <div style=\"font-size: 0.84rem; line-height: 1.55; color: #1e293b;\">\n            • <strong>จำนวนสมาชิก:</strong> $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$<br>\n            • <strong>เพาเวอร์เซต:</strong> $n(P(A)) = 2^{n(A)}$<br>\n            • <strong>สมมูลสำคัญ:</strong> $p \\to q \\equiv \\sim p \\lor q \\equiv \\sim q \\to \\sim p$<br>\n            • <strong>นิเสธ:</strong> $\\sim(p \\to q) \\equiv p \\land \\sim q$<br>\n            • <strong>รากคู่:</strong> $\\sqrt[n]{a^n} = |a|$ เมื่อ $n$ เป็นจำนวนคู่บวก\n          </div>\n        </div>\n        <div class=\"sheet-formula-box\" style=\"margin: 0; padding: 0.5rem 0.75rem; background: #f8fafc; border-left: 3px solid #d97706; border-radius: 4px;\">\n          <div style=\"font-weight: 700; color: #b45309; font-size: 0.88rem; margin-bottom: 0.25rem;\">📈 ฟังก์ชัน, ลำดับอนุกรม & ดอกเบี้ย (27.50 คะแนน)</div>\n          <div style=\"font-size: 0.84rem; line-height: 1.55; color: #1e293b;\">\n            • <strong>พาราโบลา:</strong> $y = ax^2 + bx + c \\implies h = -\\frac{b}{2a}, \\; k = f(h)$<br>\n            • <strong>ลำดับเลขคณิต:</strong> $a_n = a_1 + (n-1)d, \\; S_n = \\frac{n}{2}(a_1 + a_n)$<br>\n            • <strong>ลำดับเรขาคณิต:</strong> $a_n = a_1 r^{n-1}, \\; S_n = \\frac{a_1(1-r^n)}{1-r}$<br>\n            • <strong>ดอกเบี้ยทบต้น:</strong> $A = P\\left(1 + \\frac{r}{k}\\right)^{kn}$ ($k$ ครั้งต่อปี)<br>\n            • <strong>มูลค่าปัจจุบัน:</strong> $P = S(1 + r)^{-n}$\n          </div>\n        </div>\n      </div>\n      <div class=\"trap-buster-box\">\n        <div class=\"trap-buster-title\">⚠️ จุดดักและหลุมพราง O-NET ที่พบบ่อย (Trap Buster)</div>\n        <div>• <strong>รากคู่ติดลบ:</strong> $\\sqrt{(-7)^2} = |-7| = 7$ (ไม่ใช่ $-7$) รากคู่ต้องได้ผลลัพธ์ $\\ge 0$ เสมอ</div>\n        <div>• <strong>ดอกเบี้ยทบต้น:</strong> อัตรา $r$ ต้องแปลงเป็นทศนิยมเสมอ เช่น $4\\% \\implies r = 0.04$ และถ้าทบต้นทุก 6 เดือน จะได้ $k = 2$ ครั้งต่อปี</div>\n        <div>• <strong>เซตว่าง:</strong> $\\emptyset \\subset A$ เสมอ แต่ $\\emptyset \\in A$ จะจริงเฉพาะเมื่อมีตัว $\\emptyset$ เป็นสมาชิกใน $A$ จริงๆ</div>\n        <div>• <strong>อสมการเครื่องหมายกลับ:</strong> เมื่อคูณ/หารด้วยจำนวนลบ หรือฟังก์ชันเอกซ์โพเนนเชียลฐานลด ($0 < a < 1$) ต้องกลับเครื่องหมายเสมอ</div>\n      </div>\n    ",
+      "exercises": [
+        {
+          "title": "ตัวอย่างที่ 1. (ครูสาธิตวิธีคิด: การประยุกต์อนุกรมเลขคณิตในชีวิตจริง) สมชายเริ่มออมเงินในเดือนแรก 500 บาท และในเดือนถัดไปจะออมเงินเพิ่มขึ้นจากเดือนก่อนหน้าเดือนละ 100 บาททุกเดือน ถ้าสมชายออมเงินอย่างต่อเนื่องเป็นเวลา 2 ปี (24 เดือน) จงหาว่าในเดือนสุดท้ายสมชายจะออมเงินกี่บาท และเมื่อครบ 2 ปี สมชายจะมีเงินออมรวมทั้งหมดกี่บาท",
+          "points": "",
+          "latex": "\\begin{aligned}\n\\text{จากโจทย์ เงินออมแต่ละเดือนเป็นลำดับเลขคณิตที่มี } a_1 &= 500, \\quad d = 100, \\quad n = 24 \\\\[6pt]\n1) \\text{ เงินออมในเดือนสุดท้าย (เดือนที่ 24):} \\\\[4pt]\na_{24} &= a_1 + (n-1)d \\\\[4pt]\n&= 500 + (24-1)(100) = 500 + 2,300 = 2,800 \\text{ บาท} \\\\[8pt]\n2) \\text{ เงินออมรวมทั้งหมดเมื่อครบ 24 เดือน (}S_{24}\\text{):} \\\\[4pt]\nS_{24} &= \\frac{n}{2}(a_1 + a_{24}) \\\\[4pt]\n&= \\frac{24}{2}(500 + 2,800) = 12 \\times 3,300 = 39,600 \\text{ บาท}\n\\end{aligned}",
+          "placeholder": "(เทคนิค: เมื่อเจอลำดับเลขคณิต หากทราบพจน์แรกและพจน์สุดท้าย ให้ใช้สูตร S_n = (n/2)(a_1 + a_n) จะคำนวณได้เร็วกว่า)",
+          "answer": "เงินออมเดือนสุดท้าย = 2,800 บาท, เงินออมรวม 24 เดือน = 39,600 บาท"
+        },
+        {
+          "title": "ตัวอย่างที่ 2. (ครูสาธิตวิธีคิด: ฟังก์ชันกำลังสองและค่าสูงสุด-ต่ำสุด) ชาวสวนคนหนึ่งมีลวดหนามยาว 80 เมตร ต้องการนำมาล้อมรั้วที่ดินรูปสี่เหลี่ยมผืนผ้าเพื่อทำแปลงผัก โดยด้านหนึ่งติดกับกำแพงบ้านจึงไม่ต้องล้อมรั้วด้านนั้น จงหาว่าชาวสวนคนนี้จะล้อมรั้วได้พื้นที่มากที่สุดกี่ตารางเมตร",
+          "points": "",
+          "latex": "\\begin{aligned}\n\\text{ให้ความกว้างของแปลงผักเท่ากับ } x \\text{ เมตร (มี 2 ด้าน)} \\\\[4pt]\n\\text{ความยาวของแปลงผักด้านที่ตรงข้ามกำแพงจะเท่ากับ } 80 - 2x \\text{ เมตร} \\\\[6pt]\n\\text{ฟังก์ชันพื้นที่ } A(x) &= \\text{กว้าง} \\times \\text{ยาว} = x(80 - 2x) = -2x^2 + 80x \\\\[6pt]\n\\text{เป็นฟังก์ชันพาราโบลาคว่ำ (} a = -2, b = 80 \\text{) เกิดจุดสูงสุดที่: } \\\\[4pt]\nx &= -\\frac{b}{2a} = -\\frac{80}{2(-2)} = 20 \\text{ เมตร} \\\\[6pt]\n\\text{พื้นที่สูงสุด } A(20) &= 20(80 - 2(20)) = 20(40) = 800 \\text{ ตารางเมตร}\n\\end{aligned}",
+          "placeholder": "(เทคนิค: รูปแบบสี่เหลี่ยมติดกำแพง พื้นที่สูงสุดจะเกิดขึ้นเสมอเมื่อด้านยาวเป็น 2 เท่าของด้านกว้าง)",
+          "answer": "800 ตารางเมตร"
+        },
+        {
+          "pageBreakBefore": true,
+          "title": "ข้อที่ 3. (ปรนัย 3.75 คะแนน) จากการสำรวจนักเรียนชั้น ม.6 จำนวน 100 คน พบว่า มีนักเรียนชอบวิชาคณิตศาสตร์ 55 คน ชอบวิชาฟิสิกส์ 48 คน และชอบทั้งสองวิชา 25 คน จงหาจำนวนนักเรียนที่ไม่ชอบทั้งสองวิชานี้",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "18 คน",
+          "choiceB": "20 คน",
+          "choiceC": "22 คน",
+          "choiceD": "25 คน",
+          "choiceE": "28 คน",
+          "answer": "ค. 22 คน (n(A ∪ B) = 55 + 48 - 25 = 78 คน ดังนั้น นักเรียนที่ไม่ชอบทั้งสองวิชา = 100 - 78 = 22 คน)"
+        },
+        {
+          "title": "ข้อที่ 4. (ปรนัย 3.75 คะแนน) ประพจน์ในข้อใดต่อไปนี้ 'สมมูล' กับประพจน์ $(p \\land \\sim q) \\to r$",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "$(p \\to q) \\lor r$",
+          "choiceB": "$p \\to (q \\lor r)$",
+          "choiceC": "$\\sim r \\to (\\sim p \\lor q)$",
+          "choiceD": "$(\\sim p \\lor q) \\to r$",
+          "choiceE": "$r \\to (p \\land \\sim q)$",
+          "answer": "ค. ~r → (~p ∨ q) (จากกฎการแย้งสลับที่ A → B ≡ ~B → ~A จะได้ (p ∧ ~q) → r ≡ ~r → ~(p ∧ ~q) ≡ ~r → (~p ∨ q))"
+        },
+        {
+          "title": "ข้อที่ 5. (ข้อสอบแบบเลือกตอบเชิงซ้อน 3.75 คะแนน) กำหนดให้ $A, B$ เป็นเซตจำกัดใดๆ และ $p, q$ เป็นประพจน์ จงพิจารณาข้อความในแต่ละข้อต่อไปนี้ว่า 'ถูกต้อง' หรือ 'ไม่ถูกต้อง'",
+          "points": "3.75",
+          "answerType": "complex-multiple-choice",
+          "statements": [
+            {
+              "label": "ก.",
+              "text": "ถ้า $A \\subset B$ แล้ว $P(A) \\subset P(B)$ เสมอ",
+              "correct": true
+            },
+            {
+              "label": "ข.",
+              "text": "นิเสธของประพจน์ 'ถ้าฝนตก แล้วถนนเปียก' คือ 'ฝนไม่ตก หรือถนนไม่เปียก'",
+              "correct": false
+            },
+            {
+              "label": "ค.",
+              "text": "ถ้า $n(A) = 3$ แล้ว จำนวนสับเซตแท้ทั้งหมดของ $P(A)$ มีค่าเท่ากับ 255",
+              "correct": true
+            }
+          ],
+          "answer": "ก. ถูกต้อง | ข. ไม่ถูกต้อง | ค. ถูกต้อง (ก. ถูกต้องตามนิยามเพาเวอร์เซต; ข. ไม่ถูกต้อง เพราะนิเสธของ p → q คือ p ∧ ~q; ค. ถูกต้อง เพราะ n(P(A)) = 2^3 = 8 และจำนวนสับเซตแท้คือ 2^8 - 1 = 255)"
+        },
+        {
+          "title": "ข้อที่ 6. (ปรนัย 3.75 คะแนน) ค่าของ $\\frac{\\sqrt{5} + 1}{\\sqrt{5} - 1} - \\frac{\\sqrt{5} - 1}{\\sqrt{5} + 1}$ มีค่าเท่ากับข้อใดต่อไปนี้",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "1",
+          "choiceB": "2",
+          "choiceC": "$\\sqrt{5}$",
+          "choiceD": "$2\\sqrt{5}$",
+          "choiceE": "5",
+          "answer": "ค. √5 (ทำส่วนให้เท่ากัน: [ (√5 + 1)^2 - (√5 - 1)^2 ] / [ (√5 - 1)(√5 + 1) ] = [ (6 + 2√5) - (6 - 2√5) ] / (5 - 1) = 4√5 / 4 = √5)"
+        },
+        {
+          "title": "ข้อที่ 7. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) ให้ $A$ และ $B$ เป็นเซตที่มีเอกภพสัมพัทธ์ $U$ โดยที่ $n(U) = 60$, $n(A') = 25$, $n(B') = 30$ และ $n((A \\cup B)') = 10$ จงหาจำนวนสมาชิกของเซต $A \\cap B$",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "0015.00",
+          "answer": "15.00 (หรือ 15) (n(A) = 60 - 25 = 35, n(B) = 60 - 30 = 30, n(A ∪ B) = 60 - 10 = 50; n(A ∩ B) = n(A) + n(B) - n(A ∪ B) = 35 + 30 - 50 = 15)"
+        },
+        {
+          "pageBreakBefore": true,
+          "title": "ข้อที่ 8. (ปรนัย 3.75 คะแนน) ร้านค้าคิดค่าบริการจัดส่งสินค้าตามฟังก์ชัน $f(x) = 15x + 35$ เมื่อ $x$ คือน้ำหนักสินค้าเป็นกิโลกรัม และ $f(x)$ คือค่าบริการจัดส่งเป็นบาท หากลูกค้าคนหนึ่งจ่ายค่าบริการจัดส่งไป 170 บาท สินค้าชิ้นนั้นมีน้ำหนักกี่กิโลกรัม",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "7 กิโลกรัม",
+          "choiceB": "8 กิโลกรัม",
+          "choiceC": "9 กิโลกรัม",
+          "choiceD": "10 กิโลกรัม",
+          "choiceE": "11 กิโลกรัม",
+          "answer": "ค. 9 กิโลกรัม (15x + 35 = 170 ⇒ 15x = 135 ⇒ x = 9 กิโลกรัม)"
+        },
+        {
+          "title": "ข้อที่ 9. (ปรนัย 3.75 คะแนน) จำนวนแบคทีเรียในจานเพาะเชื้อเพิ่มขึ้นเป็น 2 เท่าในทุกๆ 30 นาที ถ้าเริ่มต้นมีแบคทีเรีย 500 ตัว เมื่อเวลาผ่านไป 3 ชั่วโมง จะมีแบคทีเรียในจานเพาะเชื้อทั้งหมดกี่ตัว",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "16,000 ตัว",
+          "choiceB": "24,000 ตัว",
+          "choiceC": "32,000 ตัว",
+          "choiceD": "48,000 ตัว",
+          "choiceE": "64,000 ตัว",
+          "answer": "ค. 32,000 ตัว (3 ชั่วโมง = 6 ช่วงเวลา 30 นาที; จำนวนแบคทีเรีย = 500 × 2^6 = 500 × 64 = 32,000 ตัว)"
+        },
+        {
+          "title": "ข้อที่ 10. (ปรนัย 3.75 คะแนน) ลำดับเลขคณิตชุดหนึ่งมีพจน์ที่ 3 เท่ากับ 14 และพจน์ที่ 7 เท่ากับ 30 พจน์ที่ 20 ของลำดับนี้มีค่าเท่ากับข้อใด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "78",
+          "choiceB": "80",
+          "choiceC": "82",
+          "choiceD": "84",
+          "choiceE": "86",
+          "answer": "ค. 82 (4d = a7 - a3 = 30 - 14 = 16 ⇒ d = 4; a1 = 14 - 2(4) = 6; a20 = 6 + 19(4) = 6 + 76 = 82)"
+        },
+        {
+          "title": "ข้อที่ 11. (ปรนัย 3.75 คะแนน) ลำดับเรขาคณิตชุดหนึ่งมีพจน์แรก $a_1 = 3$ และอัตราส่วนร่วม $r = 2$ ผลบวกของ 8 พจน์แรก ($S_8$) มีค่าเท่ากับข้อใด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "510",
+          "choiceB": "685",
+          "choiceC": "765",
+          "choiceD": "768",
+          "choiceE": "1,023",
+          "answer": "ค. 765 (S8 = 3(2^8 - 1) / (2 - 1) = 3(256 - 1) = 3 × 255 = 765)"
+        },
+        {
+          "pageBreakBefore": true,
+          "title": "ข้อที่ 12. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) จงหาผลบวกของจำนวนเต็มบวกทุกจำนวนที่อยู่ระหว่าง 50 ถึง 150 ที่หารด้วย 4 ลงตัว",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "2500.00",
+          "answer": "2500.00 (หรือ 2500) (จำนวนที่หารด้วย 4 ลงตัวคือ 52, 56, ..., 148; n = (148-52)/4 + 1 = 25 จำนวน; S25 = (25/2)(52 + 148) = (25/2)(200) = 2,500)"
+        },
+        {
+          "title": "ข้อที่ 13. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) ผลคูณของจำนวนจริงบวกสองจำนวนมีค่าสูงสุดเมื่อผลบวกของสองจำนวนนั้นเท่ากับ 50 จงหาว่าผลคูณสูงสุดของจำนวนจริงทั้งสองนี้มีค่าเท่ากับเท่าใด",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "0625.00",
+          "answer": "625.00 (หรือ 625) (ให้ x และ 50 - x เป็นสองจำนวน; ผลคูณ P(x) = x(50-x) = -x^2 + 50x; จุดยอดที่ x = -50/(2×(-1)) = 25; ผลคูณสูงสุด = 25 × 25 = 625)"
+        },
+        {
+          "title": "ข้อที่ 14. (ปรนัย 3.75 คะแนน) มานีฝากเงินกับธนาคารจำนวน 100,000 บาท ธนาคารคิดอัตราดอกเบี้ย 4% ต่อปี โดยคิดทบต้นทุก 6 เดือน เมื่อสิ้นปีที่ 2 มานีจะมีเงินรวมในบัญชีทั้งหมดเท่ากับข้อใด (กำหนดให้ $(1.02)^4 \\approx 1.0824$)",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "104,000 บาท",
+          "choiceB": "108,000 บาท",
+          "choiceC": "108,240 บาท",
+          "choiceD": "116,640 บาท",
+          "choiceE": "116,985 บาท",
+          "answer": "ค. 108,240 บาท (อัตราดอกเบี้ยต่องวด i = 0.04/2 = 0.02, จำนวนงวด n = 2×2 = 4 งวด; เงินรวม A = 100,000(1.02)^4 ≈ 100,000 × 1.0824 = 108,240 บาท)"
+        }
+      ]
+    },
+    "summary": {
+      "sheetName": "ใบสรุปสูตร O-NET 69: จำนวน & พีชคณิต",
+      "conceptHtml": "\n      <div class=\"sheet-formula-box\" style=\"margin: 0.5rem 0; padding: 0.75rem; background: #f8fafc; border-left: 3px solid #059669; border-radius: 4px;\">\n        <div style=\"font-weight: 700; color: #047857; font-size: 0.95rem; margin-bottom: 0.4rem;\">🎯 สรุปสูตร O-NET 69 ฉบับพกพา: จำนวน & พีชคณิต (51.25 คะแนน)</div>\n        <div style=\"font-size: 0.88rem; line-height: 1.6; color: #1e293b;\">\n          • เซต: $n(A \\cup B) = n(A) + n(B) - n(A \\cap B)$ | $n(P(A)) = 2^{n(A)}$<br>\n          • ตรรกศาสตร์: $p \\to q \\equiv \\sim p \\lor q \\equiv \\sim q \\to \\sim p$ | $\\sim(p \\to q) \\equiv p \\land \\sim q$<br>\n          • รากและกรณฑ์: $\\sqrt[n]{a^n} = |a|$ เมื่อ $n$ คู่ | ทำส่วนไม่ติดกรณฑ์ด้วยคอนจูเกต<br>\n          • พาราโบลา: $y = ax^2 + bx + c \\implies$ จุดยอด $x = -\\frac{b}{2a}$, $y = f(x)$<br>\n          • ลำดับเลขคณิต: $a_n = a_1 + (n-1)d$ | $S_n = \\frac{n}{2}(a_1 + a_n) = \\frac{n}{2}(2a_1 + (n-1)d)$<br>\n          • ลำดับเรขาคณิต: $a_n = a_1 r^{n-1}$ | $S_n = \\frac{a_1(1-r^n)}{1-r}$<br>\n          • ดอกเบี้ยทบต้น: $A = P(1 + \\frac{r}{k})^{kn}$ | มูลค่าปัจจุบัน: $P = S(1 + r)^{-n}$\n        </div>\n      </div>\n    ",
+      "exercises": []
+    },
+    "quiz": {
+      "sheetName": "แบบทดสอบ O-NET 69: จำนวน & พีชคณิต",
+      "conceptHtml": "<div style=\"font-size: 0.9rem; color: #475569;\">แบบทดสอบวัดผลสัมฤทธิ์ทางการเรียนวิชาคณิตศาสตร์ O-NET ม.6 สาระจำนวนและพีชคณิต</div>",
+      "exercises": []
+    }
   }
 };
 
@@ -21928,8 +22467,68 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
   ];
 
+  // O-NET 69 Crash Course Chapters Data (Tier 2: 2 Sessions, 27 Questions, Blueprint 2569)
+  const ONET69_CHAPTERS_DATA = [
+    {
+      id: "onet69-chap-1",
+      number: 1,
+      title: "เสาสถิติและความน่าจะเป็น (47.50 คะแนน)",
+      chapterTitle: "ครั้งที่ 1: สถิติและความน่าจะเป็น (ค 3.1 & ค 3.2)",
+      badgeClass: "badge-w1",
+      periodRange: "1 ครั้ง (90 นาที)",
+      periodRangeText: "ครั้งที่ 1 (13 ข้อ)",
+      desc: "สถิติศาสตร์ 8 ข้อ (ปรนัย 7 ข้อ + ระบายตัวเลข 1 ข้อ) และหลักการนับเบื้องต้น/ความน่าจะเป็น 5 ข้อ (ปรนัย 4 ข้อ + ระบายตัวเลข 1 ข้อ)",
+      subjectCode: "O-NET 69",
+      subjectName: "คณิตศาสตร์ ม.ปลาย",
+      grade: "มัธยมศึกษาปีที่ 6",
+      semester: "ปีการศึกษา 2569",
+      topics: [
+        {
+          id: "onet69-s01",
+          title: "ครั้งที่ 1: สถิติและความน่าจะเป็น (47.50 คะแนน)",
+          desc: "สถิติ 8 ข้อ + ความน่าจะเป็น 5 ข้อ สรุปสูตรทองคำ สกัดจุดลวง และข้อสอบซ้อมมือพร้อมระบายตัวเลข 5 คะแนน"
+        }
+      ]
+    },
+    {
+      id: "onet69-chap-2",
+      number: 2,
+      title: "เสาจำนวนและพีชคณิต (51.25 คะแนน)",
+      chapterTitle: "ครั้งที่ 2: จำนวนและพีชคณิต (ค 1.1, ค 1.2, ค 1.3)",
+      badgeClass: "badge-w2",
+      periodRange: "1 ครั้ง (90 นาที)",
+      periodRangeText: "ครั้งที่ 2 (14 ข้อ)",
+      desc: "เซต ตรรกศาสตร์ & เลขยกกำลัง 6 ข้อ (มีเลือกตอบเชิงซ้อน 1 ข้อ + ระบายตัวเลข 1 ข้อ), ฟังก์ชัน ลำดับและอนุกรม 7 ข้อ (ระบายตัวเลข 2 ข้อ), และดอกเบี้ยมูลค่าเงิน 1 ข้อ",
+      subjectCode: "O-NET 69",
+      subjectName: "คณิตศาสตร์ ม.ปลาย",
+      grade: "มัธยมศึกษาปีที่ 6",
+      semester: "ปีการศึกษา 2569",
+      topics: [
+        {
+          id: "onet69-s02",
+          title: "ครั้งที่ 2: จำนวนและพีชคณิต (51.25 คะแนน)",
+          desc: "เซต ตรรกศาสตร์ เลขยกกำลัง ฟังก์ชัน ลำดับอนุกรม และดอกเบี้ย พร้อมข้อสอบเลือกตอบเชิงซ้อนและระบายตัวเลข"
+        }
+      ]
+    }
+  ];
+
   // Master Units Database (Tier 1: Multi-Unit Hierarchy)
   const UNITS_DATABASE = [
+    {
+      id: "unit-onet-69",
+      title: "🎯 ติวเข้ม O-NET 69 (คณิตศาสตร์ ม.ปลาย)",
+      shortTitle: "ติวเข้ม O-NET 69",
+      grade: "มัธยมศึกษาปีที่ 6",
+      gradeShort: "ม.6 (O-NET)",
+      subjectCode: "O-NET 69 (คณิตศาสตร์พื้นฐาน)",
+      totalPeriods: "2 ครั้งจบ (Blueprint 2569)",
+      status: "ready",
+      statusBadge: "ติวเข้ม 2 ครั้งจบ • 100 คะแนนเต็ม",
+      icon: "🎯",
+      desc: "หลักสูตรติวเข้มเร่งรัด 2 ครั้ง ครั้งละ 1.30 ชม. อิงตามผังข้อสอบ Test Blueprint O-NET ปีการศึกษา 2569 (25 ข้อ 100 คะแนน 90 นาที) พร้อมสรุปสูตร Trap Buster, ตัวอย่างแม่แบบ และข้อสอบเสมือนจริง 3 รูปแบบ",
+      chapters: ONET69_CHAPTERS_DATA
+    },
     {
       id: "unit-art-math-expo",
       title: "เลขยกกำลังและฟังก์ชันเอกซ์โพเนนเชียล (ศิลป์คำนวณ)",
@@ -22122,15 +22721,16 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     },
 
     getChapters: function(unitId) {
+      if (unitId === 'unit-onet-69') return ONET69_CHAPTERS_DATA;
       if (unitId === 'unit-expo-log') return CHAPTERS_DATA;
       if (unitId === 'unit-complex') return COMPLEX_CHAPTERS_DATA;
       if (unitId === 'unit-stat-prob') return STAT_CHAPTERS_DATA;
       if (unitId === 'unit-art-math-expo') return ART_MATH_CHAPTERS_DATA;
-      return CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
+      return ONET69_CHAPTERS_DATA.concat(CHAPTERS_DATA, COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
     },
 
     getChapter: function(chapId) {
-      const all = CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
+      const all = ONET69_CHAPTERS_DATA.concat(CHAPTERS_DATA, COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
       return all.find(function(c) { return c.id === chapId; }) || null;
     },
 
@@ -23320,12 +23920,74 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           let answerAreaHtml = '';
           if (!isWorkedExample) {
             if (ex.answerType === 'multiple-choice') {
+              const hasE = !!ex.choiceE;
               answerAreaHtml = `
                 <div class="mc-choices-grid">
-                  <div><strong>ก.</strong> ${escapeHtml(ex.choiceA) || '................................'}</div>
-                  <div><strong>ข.</strong> ${escapeHtml(ex.choiceB) || '................................'}</div>
-                  <div><strong>ค.</strong> ${escapeHtml(ex.choiceC) || '................................'}</div>
-                  <div><strong>ง.</strong> ${escapeHtml(ex.choiceD) || '................................'}</div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${escapeHtml(ex.choiceA) || '................................'}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${escapeHtml(ex.choiceB) || '................................'}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${escapeHtml(ex.choiceC) || '................................'}</span></div>
+                  <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${escapeHtml(ex.choiceD) || '................................'}</span></div>
+                  ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${escapeHtml(ex.choiceE)}</span></div>` : ''}
+                </div>
+              `;
+            } else if (ex.answerType === 'grid-in') {
+              const gVal = (isTeacher && ex.gridValue) ? String(ex.gridValue) : '';
+              const chars = gVal ? gVal.split('') : [];
+              let cells = '';
+              for (let c = 0; c < 4; c++) {
+                cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+              }
+              cells += '<span class="grid-dot">.</span>';
+              for (let c = 5; c < 7; c++) {
+                cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+              }
+              answerAreaHtml = `
+                <div class="grid-in-answer-box">
+                  <div class="grid-in-header">
+                    <span class="grid-in-badge">🔢 ข้อสอบแบบระบายตัวเลขคำตอบ (5.00 คะแนน)</span>
+                    <span class="grid-in-note">กรอกตัวเลขและระบายลงในกระดาษคำตอบ (ทศนิยม 2 ตำแหน่ง)</span>
+                  </div>
+                  <div class="grid-in-input-display">
+                    ${cells}
+                  </div>
+                </div>
+                <div class="student-workspace-canvas canvas-p2" style="min-height: 75px;">
+                  <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+                </div>
+              `;
+            } else if (ex.answerType === 'complex-multiple-choice') {
+              let stRows = '';
+              (ex.statements || []).forEach(function(st) {
+                const isCorrect = !!st.correct;
+                stRows += `
+                  <tr>
+                    <td><strong>${escapeHtml(st.label)}</strong> ${escapeHtml(st.text)}</td>
+                    <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && isCorrect ? 'checked' : ''}"></span></td>
+                    <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && !isCorrect ? 'checked' : ''}"></span></td>
+                  </tr>
+                `;
+              });
+              answerAreaHtml = `
+                <div class="complex-mc-table-container">
+                  <div class="complex-mc-header">
+                    <span class="cmc-badge">⚖️ ข้อสอบเลือกตอบเชิงซ้อน (3.75 คะแนน)</span>
+                    <span>พิจารณาข้อความต่อไปนี้ว่า "ถูกต้อง" หรือ "ไม่ถูกต้อง"</span>
+                  </div>
+                  <table class="complex-mc-table">
+                    <thead>
+                      <tr>
+                        <th class="cmc-col-statement">ข้อความ</th>
+                        <th class="cmc-col-opt">ถูกต้อง</th>
+                        <th class="cmc-col-opt">ไม่ถูกต้อง</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      ${stRows}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="student-workspace-canvas canvas-p2" style="min-height: 65px;">
+                  <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
                 </div>
               `;
             } else if (ex.answerType === 'short-answer') {
@@ -25376,12 +26038,77 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
         if (ex.answerType === 'multiple-choice') {
+          const hasE = !!ex.choiceE;
           answerAreaHtml = `
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem 1.25rem; margin-top: 0.65rem; font-size: 0.92rem; color: #334155; padding-left: 0.5rem;">
-              <div><strong>ก.</strong> ${ex.choiceA || '................................'}</div>
-              <div><strong>ข.</strong> ${ex.choiceB || '................................'}</div>
-              <div><strong>ค.</strong> ${ex.choiceC || '................................'}</div>
-              <div><strong>ง.</strong> ${ex.choiceD || '................................'}</div>
+            <div class="mc-choices-grid">
+              <div class="mc-choice-item"><span class="mc-choice-label">ก.</span> <span>${ex.choiceA || '................................'}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ข.</span> <span>${ex.choiceB || '................................'}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ค.</span> <span>${ex.choiceC || '................................'}</span></div>
+              <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
+              ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
+            </div>
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+            </div>
+          `;
+        } else if (ex.answerType === 'grid-in') {
+          const gVal = (isTeacher && ex.gridValue) ? String(ex.gridValue) : '';
+          const chars = gVal ? gVal.split('') : [];
+          let cells = '';
+          for (let c = 0; c < 4; c++) {
+            cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+          }
+          cells += '<span class="grid-dot">.</span>';
+          for (let c = 5; c < 7; c++) {
+            cells += `<span class="grid-digit-cell">${chars[c] || ''}</span>`;
+          }
+          answerAreaHtml = `
+            <div class="grid-in-answer-box">
+              <div class="grid-in-header">
+                <span class="grid-in-badge">🔢 ข้อสอบแบบระบายตัวเลขคำตอบ (5.00 คะแนน)</span>
+                <span class="grid-in-note">กรอกตัวเลขและระบายลงในกระดาษคำตอบ (ทศนิยม 2 ตำแหน่ง)</span>
+              </div>
+              <div class="grid-in-input-display">
+                ${cells}
+              </div>
+            </div>
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 80px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
+            </div>
+          `;
+        } else if (ex.answerType === 'complex-multiple-choice') {
+          let stRows = '';
+          (ex.statements || []).forEach(function(st) {
+            const isCorrect = !!st.correct;
+            stRows += `
+              <tr>
+                <td><strong>${st.label}</strong> ${st.text}</td>
+                <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && isCorrect ? 'checked' : ''}"></span></td>
+                <td class="cmc-col-opt"><span class="complex-mc-circle ${isTeacher && !isCorrect ? 'checked' : ''}"></span></td>
+              </tr>
+            `;
+          });
+          answerAreaHtml = `
+            <div class="complex-mc-table-container">
+              <div class="complex-mc-header">
+                <span class="cmc-badge">⚖️ ข้อสอบเลือกตอบเชิงซ้อน (3.75 คะแนน)</span>
+                <span>พิจารณาข้อความต่อไปนี้ว่า "ถูกต้อง" หรือ "ไม่ถูกต้อง"</span>
+              </div>
+              <table class="complex-mc-table">
+                <thead>
+                  <tr>
+                    <th class="cmc-col-statement">ข้อความ</th>
+                    <th class="cmc-col-opt">ถูกต้อง</th>
+                    <th class="cmc-col-opt">ไม่ถูกต้อง</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${stRows}
+                </tbody>
+              </table>
+            </div>
+            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+              <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
         } else if (ex.answerType === 'short-answer') {
@@ -25409,7 +26136,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         }
 
         let pageBreakHtml = '';
-        if (idx === 3 && exercises.length >= 6) {
+        const hasManualBreaks = exercises.some(function(e) { return e.pageBreakBefore; });
+        const shouldBreak = ex.pageBreakBefore || (!hasManualBreaks && idx === 3 && exercises.length >= 6);
+        if (shouldBreak) {
           pageBreakHtml = `
             <div class="worksheet-page-break">
               <div class="worksheet-continuation-header">
@@ -25422,7 +26151,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
         exHtml += `
           ${pageBreakHtml}
-          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 || idx === 3 ? 'border-top: none; padding-top: 0;' : ''}">
+          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 || shouldBreak ? 'border-top: none; padding-top: 0;' : ''}">
             <div class="exercise-actions-bar no-print">
               <button type="button" class="action-btn" onclick="openEditExerciseModal(${idx})" title="แก้ไขข้อสอบนี้">
                 ✏️ แก้ไข

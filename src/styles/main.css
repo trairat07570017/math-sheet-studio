@@ -1786,6 +1786,208 @@
       color: #064e3b;
     }
 
+    /* O-NET Multiple Choice & Special Exam Formats (ADR-034) */
+    .mc-choices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.45rem 1.25rem;
+      margin-top: 0.65rem;
+      font-size: 0.95rem;
+      color: #334155;
+      padding-left: 0.5rem;
+    }
+
+    .mc-choice-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .mc-choice-label {
+      font-weight: 700;
+      color: #0f172a;
+      min-width: 1.4rem;
+    }
+
+    /* O-NET Grid-in Numerical Answer (5.00 คะแนน) */
+    .grid-in-answer-box {
+      margin-top: 0.65rem;
+      padding: 0.55rem 0.85rem;
+      background: #f8fafc;
+      border: 1.5px dashed #475569;
+      border-radius: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+      break-inside: avoid;
+    }
+
+    .grid-in-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .grid-in-badge {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #0284c7;
+      background: #e0f2fe;
+      border: 1px solid #7dd3fc;
+      padding: 2px 8px;
+      border-radius: 4px;
+    }
+
+    .grid-in-note {
+      font-size: 0.82rem;
+      color: #64748b;
+    }
+
+    .grid-in-input-display {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #ffffff;
+      padding: 3px 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+    }
+
+    .grid-digit-cell {
+      width: 24px;
+      height: 30px;
+      border: 1.5px solid #64748b;
+      border-radius: 3px;
+      background: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1rem;
+      color: #0f172a;
+    }
+
+    .grid-dot {
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: #334155;
+      margin: 0 1px;
+      line-height: 1;
+    }
+
+    /* O-NET Complex Multiple-Choice Table (3.75 คะแนน) */
+    .complex-mc-table-container {
+      margin-top: 0.65rem;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #ffffff;
+      break-inside: avoid;
+    }
+
+    .complex-mc-header {
+      background: #f8fafc;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: #334155;
+      border-bottom: 1px solid #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cmc-badge {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #c2410c;
+      background: #ffedd5;
+      border: 1px solid #fed7aa;
+      padding: 2px 7px;
+      border-radius: 4px;
+    }
+
+    .complex-mc-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    .complex-mc-table th, .complex-mc-table td {
+      padding: 0.45rem 0.75rem;
+      border-bottom: 1px solid #e2e8f0;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    .complex-mc-table th {
+      background: #f1f5f9;
+      font-weight: 600;
+      color: #475569;
+      font-size: 0.85rem;
+    }
+
+    .complex-mc-table th.cmc-col-opt, .complex-mc-table td.cmc-col-opt {
+      text-align: center;
+      width: 85px;
+    }
+
+    .complex-mc-circle {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid #64748b;
+      border-radius: 50%;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+
+    .complex-mc-circle.checked {
+      background: #059669;
+      border-color: #047857;
+      position: relative;
+    }
+
+    .complex-mc-circle.checked::after {
+      content: '✓';
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      line-height: 1;
+    }
+
+    /* O-NET Trap Buster & Formula Callout Box */
+    .trap-buster-box {
+      margin: 0.5rem 0;
+      padding: 0.6rem 0.9rem;
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      border-radius: 5px;
+      font-size: 0.92rem;
+      color: #78350f;
+      line-height: 1.6;
+    }
+
+    .trap-buster-title {
+      font-weight: 700;
+      color: #b45309;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.95rem;
+    }
+
     .sheet-footer-line {
       margin-top: auto;
       border-top: 1px solid #e2e8f0;

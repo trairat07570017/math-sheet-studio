@@ -539,8 +539,68 @@
     }
   ];
 
+  // O-NET 69 Crash Course Chapters Data (Tier 2: 2 Sessions, 27 Questions, Blueprint 2569)
+  const ONET69_CHAPTERS_DATA = [
+    {
+      id: "onet69-chap-1",
+      number: 1,
+      title: "เสาสถิติและความน่าจะเป็น (47.50 คะแนน)",
+      chapterTitle: "ครั้งที่ 1: สถิติและความน่าจะเป็น (ค 3.1 & ค 3.2)",
+      badgeClass: "badge-w1",
+      periodRange: "1 ครั้ง (90 นาที)",
+      periodRangeText: "ครั้งที่ 1 (13 ข้อ)",
+      desc: "สถิติศาสตร์ 8 ข้อ (ปรนัย 7 ข้อ + ระบายตัวเลข 1 ข้อ) และหลักการนับเบื้องต้น/ความน่าจะเป็น 5 ข้อ (ปรนัย 4 ข้อ + ระบายตัวเลข 1 ข้อ)",
+      subjectCode: "O-NET 69",
+      subjectName: "คณิตศาสตร์ ม.ปลาย",
+      grade: "มัธยมศึกษาปีที่ 6",
+      semester: "ปีการศึกษา 2569",
+      topics: [
+        {
+          id: "onet69-s01",
+          title: "ครั้งที่ 1: สถิติและความน่าจะเป็น (47.50 คะแนน)",
+          desc: "สถิติ 8 ข้อ + ความน่าจะเป็น 5 ข้อ สรุปสูตรทองคำ สกัดจุดลวง และข้อสอบซ้อมมือพร้อมระบายตัวเลข 5 คะแนน"
+        }
+      ]
+    },
+    {
+      id: "onet69-chap-2",
+      number: 2,
+      title: "เสาจำนวนและพีชคณิต (51.25 คะแนน)",
+      chapterTitle: "ครั้งที่ 2: จำนวนและพีชคณิต (ค 1.1, ค 1.2, ค 1.3)",
+      badgeClass: "badge-w2",
+      periodRange: "1 ครั้ง (90 นาที)",
+      periodRangeText: "ครั้งที่ 2 (14 ข้อ)",
+      desc: "เซต ตรรกศาสตร์ & เลขยกกำลัง 6 ข้อ (มีเลือกตอบเชิงซ้อน 1 ข้อ + ระบายตัวเลข 1 ข้อ), ฟังก์ชัน ลำดับและอนุกรม 7 ข้อ (ระบายตัวเลข 2 ข้อ), และดอกเบี้ยมูลค่าเงิน 1 ข้อ",
+      subjectCode: "O-NET 69",
+      subjectName: "คณิตศาสตร์ ม.ปลาย",
+      grade: "มัธยมศึกษาปีที่ 6",
+      semester: "ปีการศึกษา 2569",
+      topics: [
+        {
+          id: "onet69-s02",
+          title: "ครั้งที่ 2: จำนวนและพีชคณิต (51.25 คะแนน)",
+          desc: "เซต ตรรกศาสตร์ เลขยกกำลัง ฟังก์ชัน ลำดับอนุกรม และดอกเบี้ย พร้อมข้อสอบเลือกตอบเชิงซ้อนและระบายตัวเลข"
+        }
+      ]
+    }
+  ];
+
   // Master Units Database (Tier 1: Multi-Unit Hierarchy)
   const UNITS_DATABASE = [
+    {
+      id: "unit-onet-69",
+      title: "🎯 ติวเข้ม O-NET 69 (คณิตศาสตร์ ม.ปลาย)",
+      shortTitle: "ติวเข้ม O-NET 69",
+      grade: "มัธยมศึกษาปีที่ 6",
+      gradeShort: "ม.6 (O-NET)",
+      subjectCode: "O-NET 69 (คณิตศาสตร์พื้นฐาน)",
+      totalPeriods: "2 ครั้งจบ (Blueprint 2569)",
+      status: "ready",
+      statusBadge: "ติวเข้ม 2 ครั้งจบ • 100 คะแนนเต็ม",
+      icon: "🎯",
+      desc: "หลักสูตรติวเข้มเร่งรัด 2 ครั้ง ครั้งละ 1.30 ชม. อิงตามผังข้อสอบ Test Blueprint O-NET ปีการศึกษา 2569 (25 ข้อ 100 คะแนน 90 นาที) พร้อมสรุปสูตร Trap Buster, ตัวอย่างแม่แบบ และข้อสอบเสมือนจริง 3 รูปแบบ",
+      chapters: ONET69_CHAPTERS_DATA
+    },
     {
       id: "unit-art-math-expo",
       title: "เลขยกกำลังและฟังก์ชันเอกซ์โพเนนเชียล (ศิลป์คำนวณ)",
@@ -733,15 +793,16 @@
     },
 
     getChapters: function(unitId) {
+      if (unitId === 'unit-onet-69') return ONET69_CHAPTERS_DATA;
       if (unitId === 'unit-expo-log') return CHAPTERS_DATA;
       if (unitId === 'unit-complex') return COMPLEX_CHAPTERS_DATA;
       if (unitId === 'unit-stat-prob') return STAT_CHAPTERS_DATA;
       if (unitId === 'unit-art-math-expo') return ART_MATH_CHAPTERS_DATA;
-      return CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
+      return ONET69_CHAPTERS_DATA.concat(CHAPTERS_DATA, COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
     },
 
     getChapter: function(chapId) {
-      const all = CHAPTERS_DATA.concat(COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
+      const all = ONET69_CHAPTERS_DATA.concat(CHAPTERS_DATA, COMPLEX_CHAPTERS_DATA, STAT_CHAPTERS_DATA, ART_MATH_CHAPTERS_DATA);
       return all.find(function(c) { return c.id === chapId; }) || null;
     },
 
