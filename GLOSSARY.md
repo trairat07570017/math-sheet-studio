@@ -39,3 +39,12 @@ _Avoid_: Lazy math load, unverified LaTeX
 **Continuous Natural Flow (การจัดพิมพ์แบบต่อเนื่องธรรมชาติ)**:
 A print layout standard that lets exercises flow seamlessly down pages according to physical content height without arbitrary manual page breaks, preventing wasted whitespace at the bottom of printed sheets.
 _Avoid_: Rigid manual break, fragmented pagination
+
+**Page-Budget Calibration (การจัดสรรงบประมาณหน้าพิมพ์)**:
+The precision engineering of vertical padding, margins, formula block heights, and calculation canvas dimensions to guarantee a target page count (such as exactly 4 A4 pages / 2 double-sided sheets for a 20-item exam) without orphaned trailing pages or excessive bottom whitespace.
+_Avoid_: Uncontrolled spillover, arbitrary page count
+
+**Ultra-Compact Exam Density (ความหนาแน่นข้อสอบแบบกระชับพิเศษ)**:
+A high-efficiency print density profile that maintains question atomicity (`break-inside: avoid`) while compressing vertical margins (0.35rem–0.45rem) and calculation scratchpads (18px–22px), ensuring maximal item density with zero question fragmentation across page breaks.
+_Avoid_: Loose spacing, oversized scratchpad
+

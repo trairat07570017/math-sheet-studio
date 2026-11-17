@@ -1698,7 +1698,72 @@
     .student-workspace-canvas.canvas-p1 { min-height: 105px; }
     .student-workspace-canvas.canvas-p2 { min-height: 65px; }
     .student-workspace-canvas.canvas-p2-last { min-height: 75px; }
-    .student-workspace-canvas.canvas-continuous { min-height: 42px; margin-top: 0.25rem; margin-bottom: 0.25rem; }
+    .student-workspace-canvas.canvas-continuous { 
+      min-height: 20px; 
+      margin-top: 0.15rem; 
+      margin-bottom: 0.15rem; 
+      background: #fafafa;
+    }
+    .student-workspace-canvas.canvas-continuous .canvas-watermark {
+      font-size: 0.65rem;
+      bottom: 2px;
+      right: 6px;
+      opacity: 0.6;
+    }
+
+    /* Continuous Flow Sheet & Ultra-Compact Exam Calibration (ADR-037) */
+    .continuous-flow-sheet .sheet-main-header {
+      margin-bottom: 0.45rem !important;
+      padding-bottom: 0.35rem !important;
+    }
+    .continuous-flow-sheet .sheet-block {
+      margin-bottom: 0.45rem !important;
+      padding: 0.4rem 0.65rem !important;
+    }
+    .continuous-flow-sheet .sheet-block-badge {
+      font-size: 0.88rem !important;
+      margin-bottom: 0.25rem !important;
+    }
+    .continuous-flow-sheet .sheet-exercise {
+      margin-top: 0.45rem !important;
+      padding-top: 0.35rem !important;
+      border-top: 1px dotted #cbd5e1 !important;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    .continuous-flow-sheet .exercise-header {
+      font-size: 0.95rem !important;
+      line-height: 1.45 !important;
+      margin-bottom: 0.2rem !important;
+    }
+    .continuous-flow-sheet .mc-choices-grid {
+      gap: 0.25rem 1rem !important;
+      margin-top: 0.25rem !important;
+      margin-bottom: 0.2rem !important;
+      font-size: 0.9rem !important;
+    }
+    .continuous-flow-sheet .trap-buster-box {
+      margin: 0.25rem 0 !important;
+      padding: 0.35rem 0.65rem !important;
+      font-size: 0.82rem !important;
+      line-height: 1.45 !important;
+    }
+    .continuous-flow-sheet .trap-buster-title {
+      font-size: 0.86rem !important;
+      margin-bottom: 0.2rem !important;
+    }
+    .continuous-flow-sheet .grid-in-answer-box {
+      margin-top: 0.25rem !important;
+      padding: 0.3rem 0.5rem !important;
+    }
+    .continuous-flow-sheet .complex-mc-table-container {
+      margin-top: 0.25rem !important;
+    }
+    .continuous-flow-sheet .complex-mc-table th,
+    .continuous-flow-sheet .complex-mc-table td {
+      padding: 0.25rem 0.5rem !important;
+      font-size: 0.88rem !important;
+    }
 
     .handwriting-grid {
       min-height: 110px;
@@ -3086,7 +3151,71 @@
       .student-workspace-canvas.canvas-p1 { min-height: 102px !important; }
       .student-workspace-canvas.canvas-p2 { min-height: 58px !important; }
       .student-workspace-canvas.canvas-p2-last { min-height: 68px !important; }
-      .student-workspace-canvas.canvas-continuous { min-height: 36px !important; margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
+      .student-workspace-canvas.canvas-continuous { 
+        min-height: 18px !important; 
+        margin-top: 0.1rem !important; 
+        margin-bottom: 0.1rem !important; 
+      }
+      .student-workspace-canvas.canvas-continuous .canvas-watermark {
+        font-size: 6.8pt !important;
+        bottom: 2px !important;
+        right: 6px !important;
+        opacity: 0.5 !important;
+      }
+
+      /* Continuous Flow Sheet Print Calibration (ADR-037) */
+      .continuous-flow-sheet .sheet-main-header {
+        margin-bottom: 0.35rem !important;
+        padding-bottom: 0.25rem !important;
+      }
+      .continuous-flow-sheet .sheet-block {
+        margin-bottom: 0.35rem !important;
+        padding: 0.3rem 0.5rem !important;
+      }
+      .continuous-flow-sheet .sheet-block-badge {
+        font-size: 8.5pt !important;
+        margin-bottom: 0.2rem !important;
+      }
+      .continuous-flow-sheet .sheet-exercise {
+        margin-top: 0.35rem !important;
+        padding-top: 0.25rem !important;
+        border-top: 1px dotted #cbd5e1 !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .continuous-flow-sheet .exercise-header {
+        font-size: 9.6pt !important;
+        line-height: 1.42 !important;
+        margin-bottom: 0.15rem !important;
+      }
+      .continuous-flow-sheet .mc-choices-grid {
+        gap: 0.18rem 0.85rem !important;
+        margin-top: 0.18rem !important;
+        margin-bottom: 0.12rem !important;
+        font-size: 9pt !important;
+      }
+      .continuous-flow-sheet .trap-buster-box {
+        margin: 0.18rem 0 !important;
+        padding: 0.25rem 0.45rem !important;
+        font-size: 8.2pt !important;
+        line-height: 1.38 !important;
+      }
+      .continuous-flow-sheet .trap-buster-title {
+        font-size: 8.4pt !important;
+        margin-bottom: 0.15rem !important;
+      }
+      .continuous-flow-sheet .grid-in-answer-box {
+        margin-top: 0.2rem !important;
+        padding: 0.25rem 0.45rem !important;
+      }
+      .continuous-flow-sheet .complex-mc-table-container {
+        margin-top: 0.2rem !important;
+      }
+      .continuous-flow-sheet .complex-mc-table th,
+      .continuous-flow-sheet .complex-mc-table td {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 8.5pt !important;
+      }
 
       .handwriting-grid {
         display: block !important;

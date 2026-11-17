@@ -401,6 +401,8 @@
     .student-workspace-canvas.canvas-p1 { min-height: 105px; }
     .student-workspace-canvas.canvas-p2 { min-height: 65px; }
     .student-workspace-canvas.canvas-p2-last { min-height: 75px; }
+    .student-workspace-canvas.canvas-continuous { min-height: 20px; margin-top: 0.15rem; margin-bottom: 0.15rem; background: #fafafa; }
+    .student-workspace-canvas.canvas-continuous .canvas-watermark { font-size: 0.65rem; bottom: 2px; right: 6px; opacity: 0.6; }
     .handwriting-grid {
       min-height: 110px;
       border: 1px dashed #cbd5e1;
@@ -467,6 +469,43 @@
     .katex-display { margin: 0.2rem 0; font-size: 1.08em; line-height: 1.5; }
     .katex { font-size: 1.06em; }
     .no-print, .exercise-actions-bar, .add-exercise-container { display: none !important; }
+
+    /* O-NET & Continuous Elements */
+    .mc-choices-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.45rem 1.25rem; margin-top: 0.5rem; font-size: 0.95rem; color: #334155; padding-left: 0.5rem; }
+    .mc-choice-item { display: flex; align-items: baseline; gap: 0.35rem; line-height: 1.5; }
+    .mc-choice-label { font-weight: 700; color: #0f172a; min-width: 1.4rem; }
+    .grid-in-answer-box { margin-top: 0.45rem; padding: 0.45rem 0.75rem; background: #f8fafc; border: 1.5px dashed #475569; border-radius: 6px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; break-inside: avoid; }
+    .grid-in-header { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+    .grid-in-badge { background: #0284c7; color: #ffffff; font-weight: 700; font-size: 0.78rem; padding: 2px 7px; border-radius: 4px; }
+    .grid-in-note { font-size: 0.8rem; color: #64748b; }
+    .grid-in-input-display { display: flex; align-items: center; gap: 4px; }
+    .grid-digit-cell { width: 22px; height: 26px; border: 1.5px solid #0f172a; border-radius: 3px; display: inline-flex; align-items: center; justify-content: center; font-family: monospace; font-weight: 700; font-size: 1rem; color: #0369a1; background: #ffffff; }
+    .grid-dot { font-size: 1.4rem; font-weight: 700; line-height: 1; color: #0f172a; }
+    .complex-mc-table-container { margin-top: 0.45rem; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; background: #ffffff; break-inside: avoid; }
+    .complex-mc-header { background: #f8fafc; padding: 0.35rem 0.65rem; border-bottom: 1px solid #cbd5e1; display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: #475569; }
+    .cmc-badge { background: #7c3aed; color: #ffffff; font-weight: 700; font-size: 0.76rem; padding: 2px 7px; border-radius: 4px; }
+    .complex-mc-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .complex-mc-table th, .complex-mc-table td { padding: 0.35rem 0.6rem; border-bottom: 1px solid #e2e8f0; text-align: left; }
+    .complex-mc-table th.cmc-col-opt, .complex-mc-table td.cmc-col-opt { text-align: center; width: 75px; }
+    .complex-mc-circle { display: inline-block; width: 14px; height: 14px; border: 1.5px solid #64748b; border-radius: 50%; vertical-align: middle; }
+    .complex-mc-circle.checked { background: #10b981; border-color: #059669; box-shadow: inset 0 0 0 2px #ffffff; }
+    .trap-buster-box { margin: 0.25rem 0; padding: 0.35rem 0.65rem; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 5px; font-size: 0.82rem; color: #78350f; line-height: 1.45; }
+    .trap-buster-title { font-weight: 700; color: #b45309; margin-bottom: 0.2rem; display: flex; align-items: center; gap: 0.4rem; font-size: 0.86rem; }
+
+    /* Continuous Flow Sheet Ultra-Compact Density Rules */
+    .continuous-flow-sheet .sheet-main-header { margin-bottom: 0.45rem !important; padding-bottom: 0.35rem !important; }
+    .continuous-flow-sheet .sheet-block { margin-bottom: 0.45rem !important; padding: 0.4rem 0.65rem !important; }
+    .continuous-flow-sheet .sheet-block-badge { font-size: 0.88rem !important; margin-bottom: 0.25rem !important; }
+    .continuous-flow-sheet .sheet-exercise { margin-top: 0.45rem !important; padding-top: 0.35rem !important; border-top: 1px dotted #cbd5e1 !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+    .continuous-flow-sheet .exercise-header { font-size: 0.95rem !important; line-height: 1.45 !important; margin-bottom: 0.2rem !important; }
+    .continuous-flow-sheet .mc-choices-grid { gap: 0.25rem 1rem !important; margin-top: 0.25rem !important; margin-bottom: 0.2rem !important; font-size: 0.9rem !important; }
+    .continuous-flow-sheet .trap-buster-box { margin: 0.25rem 0 !important; padding: 0.35rem 0.65rem !important; font-size: 0.82rem !important; line-height: 1.45 !important; }
+    .continuous-flow-sheet .trap-buster-title { font-size: 0.86rem !important; margin-bottom: 0.2rem !important; }
+    .continuous-flow-sheet .grid-in-answer-box { margin-top: 0.25rem !important; padding: 0.3rem 0.5rem !important; }
+    .continuous-flow-sheet .complex-mc-table-container { margin-top: 0.25rem !important; }
+    .continuous-flow-sheet .complex-mc-table th, .continuous-flow-sheet .complex-mc-table td { padding: 0.25rem 0.5rem !important; font-size: 0.88rem !important; }
+    .continuous-flow-sheet .student-workspace-canvas.canvas-continuous { min-height: 20px !important; margin-top: 0.15rem !important; margin-bottom: 0.15rem !important; }
+
     @media print {
       body {
         margin: 0 !important;
@@ -502,6 +541,16 @@
         break-inside: avoid !important;
         page-break-inside: avoid !important;
       }
+
+      /* Continuous Flow Sheet Print Overrides */
+      .continuous-flow-sheet .sheet-exercise { margin-top: 0.35rem !important; padding-top: 0.25rem !important; border-top: 1px dotted #cbd5e1 !important; break-inside: avoid !important; page-break-inside: avoid !important; }
+      .continuous-flow-sheet .exercise-header { font-size: 9.6pt !important; line-height: 1.42 !important; margin-bottom: 0.15rem !important; }
+      .continuous-flow-sheet .mc-choices-grid { gap: 0.18rem 0.85rem !important; margin-top: 0.18rem !important; margin-bottom: 0.12rem !important; font-size: 9pt !important; }
+      .continuous-flow-sheet .student-workspace-canvas.canvas-continuous { min-height: 18px !important; margin-top: 0.1rem !important; margin-bottom: 0.1rem !important; }
+      .continuous-flow-sheet .student-workspace-canvas.canvas-continuous .canvas-watermark { font-size: 6.8pt !important; bottom: 2px !important; right: 6px !important; opacity: 0.5 !important; }
+      .continuous-flow-sheet .trap-buster-box { margin: 0.18rem 0 !important; padding: 0.25rem 0.45rem !important; font-size: 8.2pt !important; line-height: 1.38 !important; }
+      .continuous-flow-sheet .grid-in-answer-box { margin-top: 0.2rem !important; padding: 0.25rem 0.45rem !important; }
+      .continuous-flow-sheet .complex-mc-table th, .continuous-flow-sheet .complex-mc-table td { padding: 0.2rem 0.4rem !important; font-size: 8.5pt !important; }
     }
   </style>
   <script src="${katexJs}"><\/script>
@@ -2842,6 +2891,15 @@
       const exercises = modeData.exercises || [];
       const isContinuousFlow = (topicData.id && topicData.id.indexOf('onet') !== -1) || !!topicData.continuousFlow;
 
+      const paperEl = document.getElementById('a4Paper');
+      if (paperEl) {
+        if (isContinuousFlow) {
+          paperEl.classList.add('continuous-flow-sheet');
+        } else {
+          paperEl.classList.remove('continuous-flow-sheet');
+        }
+      }
+
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
         if (ex.answerType === 'multiple-choice') {
@@ -2854,7 +2912,7 @@
               <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
               ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
             </div>
-            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '42px' : '70px'};">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '20px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -2879,7 +2937,7 @@
                 ${cells}
               </div>
             </div>
-            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '48px' : '80px'};">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '22px' : '80px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -2914,7 +2972,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '42px' : '70px'};">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '20px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -2958,7 +3016,7 @@
 
         exHtml += `
           ${pageBreakHtml}
-          <div class="sheet-exercise interactive-block" data-index="${idx}" style="${idx === 0 || shouldBreak ? 'border-top: none; padding-top: 0;' : ''}">
+          <div class="sheet-exercise interactive-block ${isContinuousFlow ? 'continuous-exercise' : ''}" data-index="${idx}" style="${idx === 0 || shouldBreak ? 'border-top: none; padding-top: 0;' : ''}">
             <div class="exercise-actions-bar no-print">
               <button type="button" class="action-btn" onclick="openEditExerciseModal(${idx})" title="แก้ไขข้อสอบนี้">
                 ✏️ แก้ไข
