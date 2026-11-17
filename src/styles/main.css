@@ -1882,6 +1882,110 @@
       color: #064e3b;
     }
 
+    /* Detailed KaTeX Solution Box (ADR-039) */
+    .sheet-detailed-solution-box {
+      display: none;
+      flex-direction: column;
+      gap: 0.35rem;
+      background: #f0fdf4 !important;
+      border: 1.5px solid #10b981 !important;
+      border-left: 4.5px solid #059669 !important;
+      border-radius: 6px;
+      padding: 0.55rem 0.85rem;
+      margin: 0.45rem 0 0.55rem 0;
+      font-size: 0.92rem;
+      color: #064e3b;
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+
+    .show-teacher-key .sheet-detailed-solution-box {
+      display: flex !important;
+    }
+
+    .show-teacher-key .ruled-workspace-5lines {
+      display: none !important;
+    }
+
+    .sheet-detailed-solution-box .solution-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed #6ee7b7;
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .sheet-detailed-solution-box .solution-badge {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: #047857;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .sheet-detailed-solution-box .solution-points {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #065f46;
+      background: #d1fae5;
+      padding: 1px 7px;
+      border-radius: 4px;
+    }
+
+    .sheet-detailed-solution-box .solution-tier {
+      line-height: 1.5;
+    }
+
+    .sheet-detailed-solution-box .tier-label {
+      font-weight: 700;
+      color: #065f46;
+      margin-right: 0.35rem;
+      font-size: 0.88rem;
+    }
+
+    .sheet-detailed-solution-box .tier-content {
+      color: #0f172a;
+    }
+
+    .sheet-detailed-solution-box .solution-steps {
+      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .sheet-detailed-solution-box .solution-katex-stage {
+      background: #ffffff;
+      border: 1px solid #a7f3d0;
+      border-radius: 5px;
+      padding: 0.5rem 0.85rem;
+      margin: 0.3rem 0;
+      color: #0f172a;
+      overflow-x: auto;
+    }
+
+    .sheet-detailed-solution-box .solution-conclusion {
+      background: #e6fcf5;
+      border: 1px solid #a7f3d0;
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      font-weight: 600;
+      color: #064e3b;
+    }
+
+    .sheet-detailed-solution-box .solution-trap {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      color: #92400e;
+      font-size: 0.85rem;
+    }
+
+    .sheet-detailed-solution-box .solution-trap .tier-label {
+      color: #b45309;
+    }
+
     /* O-NET Multiple Choice & Special Exam Formats (ADR-034) */
     .mc-choices-grid {
       display: grid;
@@ -3164,6 +3268,86 @@
       .show-teacher-key .sheet-teacher-answer .answer-text {
         font-weight: 600 !important;
         color: #064e3b !important;
+      }
+
+      .show-teacher-key .ruled-workspace-5lines {
+        display: none !important;
+      }
+
+      .sheet-detailed-solution-box {
+        display: none !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0.3rem !important;
+        background: #f8fafc !important;
+        border: 1.5px solid #0f172a !important;
+        border-left: 4.5px solid #047857 !important;
+        border-radius: 4px !important;
+        padding: 0.4rem 0.7rem !important;
+        margin: 0.35rem 0 0.45rem 0 !important;
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .solution-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        border-bottom: 1px dashed #94a3b8 !important;
+        padding-bottom: 0.2rem !important;
+        margin-bottom: 0.15rem !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .solution-badge {
+        font-weight: 700 !important;
+        font-size: 0.85rem !important;
+        color: #047857 !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .solution-points {
+        font-weight: 600 !important;
+        font-size: 0.78rem !important;
+        color: #0f172a !important;
+        background: #e2e8f0 !important;
+        padding: 1px 6px !important;
+        border-radius: 3px !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .tier-label {
+        font-weight: 700 !important;
+        color: #065f46 !important;
+        font-size: 0.85rem !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .solution-katex-stage {
+        background: #ffffff !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 4px !important;
+        padding: 0.35rem 0.6rem !important;
+        margin: 0.2rem 0 !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .solution-conclusion {
+        background: #f1f5f9 !important;
+        border: 1px solid #cbd5e1 !important;
+        border-radius: 3px !important;
+        padding: 0.25rem 0.5rem !important;
+        font-weight: 600 !important;
+        color: #0f172a !important;
+      }
+
+      .show-teacher-key .sheet-detailed-solution-box .solution-trap {
+        background: #fefce8 !important;
+        border: 1px solid #fef08a !important;
+        border-radius: 3px !important;
+        padding: 0.25rem 0.5rem !important;
+        color: #78350f !important;
+        font-size: 0.82rem !important;
       }
 
       /* 10. Student Handwriting Response Grids & Clean Blank Canvas */

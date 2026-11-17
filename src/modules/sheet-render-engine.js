@@ -509,6 +509,24 @@
     .ruled-workspace-5lines { margin-top: 0.45rem; margin-bottom: 0.35rem; border: 1px dashed #cbd5e1; border-radius: 4px; background: #ffffff; padding: 4px 10px 6px 10px; position: relative; box-sizing: border-box; break-inside: avoid !important; page-break-inside: avoid !important; }
     .ruled-workspace-5lines .ruled-line { height: 19px; border-bottom: 1px dotted #cbd5e1; box-sizing: border-box; }
     .ruled-workspace-5lines .canvas-watermark { position: absolute; bottom: 4px; right: 8px; font-size: 0.68rem; color: #94a3b8; font-family: 'Prompt', sans-serif; pointer-events: none; opacity: 0.7; }
+    .show-teacher-key .ruled-workspace-5lines { display: none !important; }
+
+    /* Teacher Key & Detailed Solution Box (ADR-039) */
+    .sheet-teacher-answer { display: none; background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 0.45rem 0.75rem; margin: 0.4rem 0 0.5rem 0; color: #065f46; font-size: 0.95rem; font-weight: 500; }
+    .show-teacher-key .sheet-teacher-answer { display: flex !important; }
+    .sheet-detailed-solution-box { display: none; flex-direction: column; gap: 0.35rem; background: #f0fdf4 !important; border: 1.5px solid #10b981 !important; border-left: 4.5px solid #059669 !important; border-radius: 6px; padding: 0.55rem 0.85rem; margin: 0.45rem 0 0.55rem 0; font-size: 0.92rem; color: #064e3b; break-inside: avoid !important; page-break-inside: avoid !important; }
+    .show-teacher-key .sheet-detailed-solution-box { display: flex !important; }
+    .sheet-detailed-solution-box .solution-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #6ee7b7; padding-bottom: 0.25rem; margin-bottom: 0.2rem; }
+    .sheet-detailed-solution-box .solution-badge { font-weight: 700; font-size: 0.88rem; color: #047857; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .sheet-detailed-solution-box .solution-points { font-weight: 600; font-size: 0.8rem; color: #065f46; background: #d1fae5; padding: 1px 7px; border-radius: 4px; }
+    .sheet-detailed-solution-box .solution-tier { line-height: 1.5; }
+    .sheet-detailed-solution-box .tier-label { font-weight: 700; color: #065f46; margin-right: 0.35rem; font-size: 0.88rem; }
+    .sheet-detailed-solution-box .tier-content { color: #0f172a; }
+    .sheet-detailed-solution-box .solution-steps { margin-top: 0.2rem; margin-bottom: 0.2rem; }
+    .sheet-detailed-solution-box .solution-katex-stage { background: #ffffff; border: 1px solid #a7f3d0; border-radius: 5px; padding: 0.5rem 0.85rem; margin: 0.3rem 0; color: #0f172a; overflow-x: auto; }
+    .sheet-detailed-solution-box .solution-conclusion { background: #e6fcf5; border: 1px solid #a7f3d0; border-radius: 4px; padding: 0.3rem 0.6rem; font-weight: 600; color: #064e3b; }
+    .sheet-detailed-solution-box .solution-trap { background: #fffbeb; border: 1px solid #fde68a; border-radius: 4px; padding: 0.3rem 0.6rem; color: #92400e; font-size: 0.85rem; }
+    .sheet-detailed-solution-box .solution-trap .tier-label { color: #b45309; }
 
     /* Continuous Flow Sheet Ultra-Compact Density Rules */
     .continuous-flow-sheet .sheet-main-header { margin-bottom: 0.45rem !important; padding-bottom: 0.35rem !important; }
@@ -574,6 +592,18 @@
       .ruled-workspace-5lines { display: block !important; margin-top: 0.35rem !important; margin-bottom: 0.25rem !important; border: 1px dashed #cbd5e1 !important; border-radius: 4px !important; background: #ffffff !important; padding: 3px 8px 5px 8px !important; position: relative !important; box-sizing: border-box !important; break-inside: avoid !important; page-break-inside: avoid !important; }
       .ruled-workspace-5lines .ruled-line { height: 18px !important; border-bottom: 1px dotted #cbd5e1 !important; box-sizing: border-box !important; }
       .ruled-workspace-5lines .canvas-watermark { position: absolute !important; bottom: 3px !important; right: 6px !important; font-size: 6.8pt !important; color: #94a3b8 !important; opacity: 0.6 !important; }
+      .show-teacher-key .ruled-workspace-5lines { display: none !important; }
+
+      /* Detailed KaTeX Solution Box Print Rules (ADR-039) */
+      .sheet-detailed-solution-box { display: none !important; }
+      .show-teacher-key .sheet-detailed-solution-box { display: flex !important; flex-direction: column !important; gap: 0.25rem !important; background: #f8fafc !important; border: 1.5px solid #0f172a !important; border-left: 4.5px solid #047857 !important; border-radius: 4px !important; padding: 0.35rem 0.65rem !important; margin: 0.3rem 0 0.45rem 0 !important; break-inside: avoid !important; page-break-inside: avoid !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-header { display: flex !important; justify-content: space-between !important; align-items: center !important; border-bottom: 1px dashed #94a3b8 !important; padding-bottom: 0.15rem !important; margin-bottom: 0.1rem !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-badge { font-weight: 700 !important; font-size: 0.84rem !important; color: #047857 !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-points { font-weight: 600 !important; font-size: 0.78rem !important; color: #0f172a !important; background: #e2e8f0 !important; padding: 1px 6px !important; border-radius: 3px !important; }
+      .show-teacher-key .sheet-detailed-solution-box .tier-label { font-weight: 700 !important; color: #065f46 !important; font-size: 0.84rem !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-katex-stage { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 4px !important; padding: 0.3rem 0.55rem !important; margin: 0.2rem 0 !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-conclusion { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; border-radius: 3px !important; padding: 0.2rem 0.45rem !important; font-weight: 600 !important; color: #0f172a !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-trap { background: #fefce8 !important; border: 1px solid #fef08a !important; border-radius: 3px !important; padding: 0.2rem 0.45rem !important; color: #78350f !important; font-size: 0.8rem !important; }
     }
   </style>
   <script src="${katexJs}"><\/script>
@@ -3098,13 +3128,49 @@
                 ${ex.placeholder ? `<div style="font-size: 0.82rem; color: #64748b; font-style: italic; margin-top: 0.2rem;">${ex.placeholder}</div>` : ''}
               </div>
             ` : `
-              ${ex.answer ? `
+              ${!ex.solutionDetail && ex.answer ? `
                 <div class="sheet-teacher-answer">
                   <span class="answer-badge">🔑 เฉลย:</span>
                   <span class="answer-text">${ex.answer}</span>
                 </div>
               ` : ''}
               ${answerAreaHtml}
+              ${ex.solutionDetail ? `
+                <div class="sheet-detailed-solution-box sheet-teacher-answer">
+                  <div class="solution-header">
+                    <span class="solution-badge">🔑 เฉลยวิธีทำละเอียด (Teacher Solution Key)</span>
+                    <span class="solution-points">${ex.points ? ex.points + ' คะแนน' : ''}</span>
+                  </div>
+                  ${ex.solutionDetail.concept ? `
+                    <div class="solution-tier solution-concept">
+                      <span class="tier-label">💡 มโนทัศน์/สูตรที่ใช้:</span>
+                      <span class="tier-content">${ex.solutionDetail.concept}</span>
+                    </div>
+                  ` : ''}
+                  ${ex.solutionDetail.steps ? `
+                    <div class="solution-tier solution-steps">
+                      <div class="tier-label">📐 แสดงวิธีทำทีละขั้นตอน:</div>
+                      <div class="solution-katex-stage equation-stage">
+                        $$${(function(s) {
+                          let st = (s || '').trim();
+                          if (st.startsWith('$$') && st.endsWith('$$')) st = st.slice(2, -2).trim();
+                          return st.replace(/\\\\([a-zA-Z]+)/g, '\\$1');
+                        })(ex.solutionDetail.steps)}$$
+                      </div>
+                    </div>
+                  ` : ''}
+                  <div class="solution-tier solution-conclusion">
+                    <span class="tier-label">🎯 สรุปคำตอบ:</span>
+                    <span class="tier-content font-bold">${ex.answer}</span>
+                  </div>
+                  ${ex.solutionDetail.trapTip ? `
+                    <div class="solution-tier solution-trap">
+                      <span class="tier-label">⚡ เทคนิคคิดเร็ว & จุดลวง:</span>
+                      <span class="tier-content">${ex.solutionDetail.trapTip}</span>
+                    </div>
+                  ` : ''}
+                </div>
+              ` : ''}
             `}
           </div>
         `;

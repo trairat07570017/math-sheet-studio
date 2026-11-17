@@ -52,4 +52,13 @@ _Avoid_: Out-of-scope bloated bank, unverified mock exam
 A pedagogical student workspace consisting of exactly 5 horizontal dotted ruled lines (~19px line height, ~100px total height) with a watermark, providing structured ruled space for students to write working steps, arithmetic, and reasoning cleanly on printed worksheets.
 _Avoid_: Blank unguided box, cramped scratchpad
 
+**Detailed Step-by-Step Solution (เฉลยวิธีทำละเอียด KaTeX)**:
+A 3-tier instructional solution block displayed in Teacher Key Mode, featuring mathematical concept/formula references, step-by-step aligned LaTeX derivations (`\begin{aligned}`), numeric substitutions, and fast-track test-taking / trap-busting explanations.
+_Avoid_: Bare answer number, unformatted scratch text
+
+**Teacher Solution Manual (คู่มือเฉลยละเอียดสำหรับครู)**:
+A complete printed or exportable document edition of the O-NET crash course where blank ruled handwriting workspaces are replaced by detailed step-by-step KaTeX solution blocks under a Continuous Solution Flow layout.
+_Avoid_: Answer key cheat sheet, raw markup printout
+
+
 
