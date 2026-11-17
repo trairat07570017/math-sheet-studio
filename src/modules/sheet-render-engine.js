@@ -3080,7 +3080,6 @@
         footerLabel.textContent = 'หัวข้อ: ' + topicData.title;
       }
 
-      const paperEl = document.getElementById('a4Paper');
       if (paperEl) {
         paperEl.classList.toggle('show-teacher-key', isTeacher);
         typesetMath(paperEl);
