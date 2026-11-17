@@ -763,6 +763,26 @@ enderBackCoverHtml()
      - ในโหมดครู ปล่อยให้วิธีทำแต่ละข้อไหลต่อเนื่องธรรมชาติ ไม่จำกัดบีบ 4 หน้า เพื่อให้อ่านขั้นตอนคำนวณและสูตร KaTeX ได้สบายตาที่สุด
      - กำหนด `break-inside: avoid !important;` ทั้งในหน้าเว็บและใน Clean Tab View (`openCleanPrintTab`) ป้องกันไม่ให้วิธีทำถูกตัดครึ่งข้อข้ามหน้าระหว่างการพิมพ์ 100%
 
+### ADR-040: การแก้ปัญหากล่องเฉลยหลุดกรอบตอนสั่งพิมพ์ (Print-Fidelity Solution Box Bound & KaTeX Math Scale Guard)
+- **วันที่:** 17 พฤศจิกายน 2569
+- **บริบทและผลการวินิจฉัย (Diagnosis Findings)**:
+  1. ผู้ใช้รายงานอาการ "ลองกดพิมพ์ ตัวเฉลยมันหลุดกรอบ"
+  2. การตรวจสอบโค้ดและสไตล์การพิมพ์พบ 3 สาเหตุสำคัญ:
+     - **Horizontal Math Explosion:** ใน `@media print` มีกฎเดิม `.sheet-exercise .katex { font-size: 1.18em !important; }` ซึ่งขยายขนาดสมการทุกตัวในข้อสอบขึ้น 18% เมื่อกล่องเฉลย `.sheet-detailed-solution-box` อยู่ภายใน `.sheet-exercise` ทำให้สมการและข้อความขยายใหญ่จนกว้างกว่าความกว้างที่พิมพ์ได้ของกระดาษ A4 (~638px) และทะลักออกนอกกรอบสีเขียวและขอบขวาของหน้ากระดาษ
+     - **Unbroken Long Equation Lines:** ใน `solutionDetail.steps` มีบางบรรทัดที่มีข้อความภาษาไทยยาวและตัวเลขเรียงกันในบรรทัดเดียว ซึ่ง KaTeX เรนเดอร์เป็น `white-space: nowrap` ทำให้ไม่ตัดขึ้นบรรทัดใหม่
+     - **Vertical Page Lockup:** การใช้ `break-inside: avoid !important;` ซ้อนกันทั้งในระดับ `.sheet-exercise` และ `.sheet-detailed-solution-box` ทำให้ข้อสอบที่มีเฉลยละเอียดสูง 500px - 600px ไม่สามารถตัดหน้าได้อย่างราบรื่นในบางเบราว์เซอร์ ส่งผลให้ล้นขอบล่างของหน้ากระดาษ
+- **การตัดสินใจทางสถาปัตยกรรม (Design Decisions & Fixes)**:
+  1. **KaTeX Math Scale Guard (`0.90em !important`):**
+     - กำหนดกฎเฉพาะสำหรับ `.sheet-detailed-solution-box .katex` และ `.sheet-detailed-solution-box .katex-display` ให้มีขนาด `0.90em !important;` ในโหมดพิมพ์
+     - บังคับ `box-sizing: border-box !important; width: 100% !important; max-width: 100% !important;` บนทั้งตัวกล่องเฉลยและ `.solution-katex-stage`
+     - กำหนด `word-break: break-word !important; overflow-wrap: break-word !important;` บนเนื้อหาทุก Tier เพื่อป้องกันข้อความล้น
+  2. **Streamlined Aligned Derivations (ปรับสมการ 25 ข้อให้กระชับรับหน้า A4):**
+     - ปรับโครงสร้างรหัส LaTeX ใน `curriculum.json` ของทั้ง 25 ข้อ ให้แบ่งเป็นบรรทัดย่อยที่กระชับ ไม่เกิน 50-55 ตัวอักษรต่อบรรทัด จัดวางเครื่องหมายเท่ากับ `&=` ตรงกันอย่างประณีต
+  3. **Atomic Pairing with Clean Page Split (สถาปัตยกรรมการตัดหน้าพิมพ์แบบสมดุล):**
+     - ผูกตัวโจทย์และตัวเลือก/ตารางไว้ด้วยกัน (`break-inside: avoid; break-after: avoid;`) ไม่ให้แยกจากกัน
+     - ผูกกล่องเฉลยละเอียดเป็นหนึ่งเดียว (`break-inside: avoid !important;`) ไม่ให้ขั้นตอนแสดงวิธีทำถูกตัดขาดกลางกล่อง
+     - ปลด `.show-teacher-key .sheet-exercise` ให้เป็น `break-inside: auto;` เพื่อให้เบราว์เซอร์สามารถแยกหน้าระหว่างโจทย์และเฉลย หรือยกข้อขึ้นหน้าใหม่ได้อย่างเป็นธรรมชาติ ปราศจากปัญหากล่องเฉลยตกขอบล่างของหน้ากระดาษ 100%
+
 ---
 
 ## 4. สถานะปัจจุบัน (Current State)

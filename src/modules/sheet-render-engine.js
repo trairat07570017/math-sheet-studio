@@ -514,18 +514,18 @@
     /* Teacher Key & Detailed Solution Box (ADR-039) */
     .sheet-teacher-answer { display: none; background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 0.45rem 0.75rem; margin: 0.4rem 0 0.5rem 0; color: #065f46; font-size: 0.95rem; font-weight: 500; }
     .show-teacher-key .sheet-teacher-answer { display: flex !important; }
-    .sheet-detailed-solution-box { display: none; flex-direction: column; gap: 0.35rem; background: #f0fdf4 !important; border: 1.5px solid #10b981 !important; border-left: 4.5px solid #059669 !important; border-radius: 6px; padding: 0.55rem 0.85rem; margin: 0.45rem 0 0.55rem 0; font-size: 0.92rem; color: #064e3b; break-inside: avoid !important; page-break-inside: avoid !important; }
+    .sheet-detailed-solution-box { display: none; flex-direction: column; gap: 0.35rem; background: #f0fdf4 !important; border: 1.5px solid #10b981 !important; border-left: 4.5px solid #059669 !important; border-radius: 6px; padding: 0.45rem 0.75rem; margin: 0.35rem 0 0.45rem 0; font-size: 0.90rem; color: #064e3b; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; word-break: break-word !important; overflow-wrap: break-word !important; break-inside: avoid !important; page-break-inside: avoid !important; }
     .show-teacher-key .sheet-detailed-solution-box { display: flex !important; }
-    .sheet-detailed-solution-box .solution-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #6ee7b7; padding-bottom: 0.25rem; margin-bottom: 0.2rem; }
-    .sheet-detailed-solution-box .solution-badge { font-weight: 700; font-size: 0.88rem; color: #047857; display: inline-flex; align-items: center; gap: 0.35rem; }
-    .sheet-detailed-solution-box .solution-points { font-weight: 600; font-size: 0.8rem; color: #065f46; background: #d1fae5; padding: 1px 7px; border-radius: 4px; }
-    .sheet-detailed-solution-box .solution-tier { line-height: 1.5; }
-    .sheet-detailed-solution-box .tier-label { font-weight: 700; color: #065f46; margin-right: 0.35rem; font-size: 0.88rem; }
-    .sheet-detailed-solution-box .tier-content { color: #0f172a; }
-    .sheet-detailed-solution-box .solution-steps { margin-top: 0.2rem; margin-bottom: 0.2rem; }
-    .sheet-detailed-solution-box .solution-katex-stage { background: #ffffff; border: 1px solid #a7f3d0; border-radius: 5px; padding: 0.5rem 0.85rem; margin: 0.3rem 0; color: #0f172a; overflow-x: auto; }
-    .sheet-detailed-solution-box .solution-conclusion { background: #e6fcf5; border: 1px solid #a7f3d0; border-radius: 4px; padding: 0.3rem 0.6rem; font-weight: 600; color: #064e3b; }
-    .sheet-detailed-solution-box .solution-trap { background: #fffbeb; border: 1px solid #fde68a; border-radius: 4px; padding: 0.3rem 0.6rem; color: #92400e; font-size: 0.85rem; }
+    .sheet-detailed-solution-box .solution-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #6ee7b7; padding-bottom: 0.2rem; margin-bottom: 0.15rem; }
+    .sheet-detailed-solution-box .solution-badge { font-weight: 700; font-size: 0.85rem; color: #047857; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .sheet-detailed-solution-box .solution-points { font-weight: 600; font-size: 0.78rem; color: #065f46; background: #d1fae5; padding: 1px 7px; border-radius: 4px; }
+    .sheet-detailed-solution-box .solution-tier { line-height: 1.45; word-break: break-word !important; overflow-wrap: break-word !important; }
+    .sheet-detailed-solution-box .tier-label { font-weight: 700; color: #065f46; margin-right: 0.35rem; font-size: 0.85rem; }
+    .sheet-detailed-solution-box .tier-content { color: #0f172a; word-break: break-word !important; overflow-wrap: break-word !important; }
+    .sheet-detailed-solution-box .solution-steps { margin-top: 0.15rem; margin-bottom: 0.15rem; }
+    .sheet-detailed-solution-box .solution-katex-stage { background: #ffffff; border: 1px solid #a7f3d0; border-radius: 5px; padding: 0.35rem 0.65rem; margin: 0.2rem 0; color: #0f172a; overflow-x: auto; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; font-size: 0.95em; }
+    .sheet-detailed-solution-box .solution-conclusion { background: #e6fcf5; border: 1px solid #a7f3d0; border-radius: 4px; padding: 0.25rem 0.5rem; font-weight: 600; color: #064e3b; word-break: break-word !important; overflow-wrap: break-word !important; }
+    .sheet-detailed-solution-box .solution-trap { background: #fffbeb; border: 1px solid #fde68a; border-radius: 4px; padding: 0.25rem 0.5rem; color: #92400e; font-size: 0.82rem; word-break: break-word !important; overflow-wrap: break-word !important; }
     .sheet-detailed-solution-box .solution-trap .tier-label { color: #b45309; }
 
     /* Continuous Flow Sheet Ultra-Compact Density Rules */
@@ -596,14 +596,20 @@
 
       /* Detailed KaTeX Solution Box Print Rules (ADR-039) */
       .sheet-detailed-solution-box { display: none !important; }
-      .show-teacher-key .sheet-detailed-solution-box { display: flex !important; flex-direction: column !important; gap: 0.25rem !important; background: #f8fafc !important; border: 1.5px solid #0f172a !important; border-left: 4.5px solid #047857 !important; border-radius: 4px !important; padding: 0.35rem 0.65rem !important; margin: 0.3rem 0 0.45rem 0 !important; break-inside: avoid !important; page-break-inside: avoid !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-      .show-teacher-key .sheet-detailed-solution-box .solution-header { display: flex !important; justify-content: space-between !important; align-items: center !important; border-bottom: 1px dashed #94a3b8 !important; padding-bottom: 0.15rem !important; margin-bottom: 0.1rem !important; }
-      .show-teacher-key .sheet-detailed-solution-box .solution-badge { font-weight: 700 !important; font-size: 0.84rem !important; color: #047857 !important; }
-      .show-teacher-key .sheet-detailed-solution-box .solution-points { font-weight: 600 !important; font-size: 0.78rem !important; color: #0f172a !important; background: #e2e8f0 !important; padding: 1px 6px !important; border-radius: 3px !important; }
-      .show-teacher-key .sheet-detailed-solution-box .tier-label { font-weight: 700 !important; color: #065f46 !important; font-size: 0.84rem !important; }
-      .show-teacher-key .sheet-detailed-solution-box .solution-katex-stage { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 4px !important; padding: 0.3rem 0.55rem !important; margin: 0.2rem 0 !important; }
-      .show-teacher-key .sheet-detailed-solution-box .solution-conclusion { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; border-radius: 3px !important; padding: 0.2rem 0.45rem !important; font-weight: 600 !important; color: #0f172a !important; }
-      .show-teacher-key .sheet-detailed-solution-box .solution-trap { background: #fefce8 !important; border: 1px solid #fef08a !important; border-radius: 3px !important; padding: 0.2rem 0.45rem !important; color: #78350f !important; font-size: 0.8rem !important; }
+      .show-teacher-key .sheet-detailed-solution-box { display: flex !important; flex-direction: column !important; gap: 0.25rem !important; background: #f8fafc !important; border: 1.5px solid #0f172a !important; border-left: 4.5px solid #047857 !important; border-radius: 4px !important; padding: 0.35rem 0.65rem !important; margin: 0.25rem 0 0.35rem 0 !important; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; break-inside: avoid !important; page-break-inside: avoid !important; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-header { display: flex !important; justify-content: space-between !important; align-items: center !important; border-bottom: 1px dashed #94a3b8 !important; padding-bottom: 0.15rem !important; margin-bottom: 0.12rem !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-badge { font-weight: 700 !important; font-size: 8.5pt !important; color: #047857 !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-points { font-weight: 600 !important; font-size: 7.5pt !important; color: #0f172a !important; background: #e2e8f0 !important; padding: 1px 6px !important; border-radius: 3px !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-tier { line-height: 1.38 !important; font-size: 8.8pt !important; }
+      .show-teacher-key .sheet-detailed-solution-box .tier-label { font-weight: 700 !important; color: #065f46 !important; font-size: 8.5pt !important; }
+      .show-teacher-key .sheet-detailed-solution-box .tier-content { word-break: break-word !important; overflow-wrap: break-word !important; font-size: 8.8pt !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-katex-stage { background: #ffffff !important; border: 1px solid #cbd5e1 !important; border-radius: 4px !important; padding: 0.25rem 0.5rem !important; margin: 0.15rem 0 !important; box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; overflow: visible !important; line-height: 1.35 !important; }
+      .sheet-detailed-solution-box .katex { font-size: 0.90em !important; line-height: 1.3 !important; }
+      .sheet-detailed-solution-box .katex-display { font-size: 0.90em !important; margin: 0.12rem 0 !important; max-width: 100% !important; overflow-x: visible !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-conclusion { background: #f1f5f9 !important; border: 1px solid #cbd5e1 !important; border-radius: 3px !important; padding: 0.2rem 0.45rem !important; font-weight: 600 !important; color: #0f172a !important; font-size: 8.8pt !important; }
+      .show-teacher-key .sheet-detailed-solution-box .solution-trap { background: #fefce8 !important; border: 1px solid #fef08a !important; border-radius: 3px !important; padding: 0.2rem 0.45rem !important; color: #78350f !important; font-size: 8.2pt !important; }
+      .show-teacher-key .sheet-exercise { break-inside: auto !important; page-break-inside: auto !important; }
+      .show-teacher-key .exercise-header, .show-teacher-key .mc-choices-grid, .show-teacher-key .grid-in-answer-box, .show-teacher-key .complex-mc-table-container { break-inside: avoid !important; page-break-inside: avoid !important; break-after: avoid !important; page-break-after: avoid !important; }
     }
   </style>
   <script src="${katexJs}"><\/script>
