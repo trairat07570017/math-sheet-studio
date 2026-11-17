@@ -1698,6 +1698,7 @@
     .student-workspace-canvas.canvas-p1 { min-height: 105px; }
     .student-workspace-canvas.canvas-p2 { min-height: 65px; }
     .student-workspace-canvas.canvas-p2-last { min-height: 75px; }
+    .student-workspace-canvas.canvas-continuous { min-height: 42px; margin-top: 0.25rem; margin-bottom: 0.25rem; }
 
     .handwriting-grid {
       min-height: 110px;
@@ -3085,6 +3086,7 @@
       .student-workspace-canvas.canvas-p1 { min-height: 102px !important; }
       .student-workspace-canvas.canvas-p2 { min-height: 58px !important; }
       .student-workspace-canvas.canvas-p2-last { min-height: 68px !important; }
+      .student-workspace-canvas.canvas-continuous { min-height: 36px !important; margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
 
       .handwriting-grid {
         display: block !important;

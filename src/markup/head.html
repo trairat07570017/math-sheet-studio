@@ -13,9 +13,30 @@
   <!-- KaTeX for high-performance mathematical equation rendering -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script>
+    window.renderAllMath = function(targetEl) {
+      const el = targetEl || document.body;
+      if (typeof window.renderMathInElement === 'function') {
+        try {
+          window.renderMathInElement(el, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\[', right: '\\]', display: true },
+              { left: '\\(', right: '\\)', display: false }
+            ],
+            throwOnError: false,
+            errorColor: 'inherit'
+          });
+        } catch (e) {
+          console.warn('KaTeX typeset warning:', e);
+        }
+      }
+    };
     window.handleKaTeXLoaded = function() {
-      if (typeof renderAllMath === 'function') {
-        renderAllMath(document.body);
+      if (window.SheetRenderEngine && typeof window.SheetRenderEngine.typesetMath === 'function') {
+        window.SheetRenderEngine.typesetMath(document.body);
+      } else if (typeof window.renderAllMath === 'function') {
+        window.renderAllMath(document.body);
       }
     };
   </script>

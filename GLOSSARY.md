@@ -23,9 +23,19 @@ _Avoid_: Cheatsheet card, rule summary
 ## O-NET Blueprint Context
 
 **O-NET 69 Crash Course**:
-A 2-session intensive curriculum module matching the 27-question, 100-point structure of the NIETS O-NET Math blueprint for Grade 12 (ปีการศึกษา 2569).
+A curriculum module matching the high-yield questions of the NIETS O-NET Math blueprint for Grade 12 (ปีการศึกษา 2569).
 _Avoid_: Mock exam, short course, crash review
 
 **Grid-In Question (ข้อสอบแบบระบายตัวเลขคำตอบ)**:
 A non-multiple-choice exam item worth 5.00 points requiring numeric filling/bubbling.
 _Avoid_: Free response, fill-in-the-blank, open-ended problem
+
+## Rendering & Print Architecture
+
+**KaTeX Pre-render Guard**:
+An automated lifecycle hook ensuring all mathematical formulas are strictly parsed and converted to crisp vector DOM nodes before display, topic switching, and print execution, with fallback polling and error recovery.
+_Avoid_: Lazy math load, unverified LaTeX
+
+**Continuous Natural Flow (การจัดพิมพ์แบบต่อเนื่องธรรมชาติ)**:
+A print layout standard that lets exercises flow seamlessly down pages according to physical content height without arbitrary manual page breaks, preventing wasted whitespace at the bottom of printed sheets.
+_Avoid_: Rigid manual break, fragmented pagination

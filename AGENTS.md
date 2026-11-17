@@ -12,8 +12,13 @@
   - `src/markup/`: ส่วนโครงร่างหน้าเว็บ (`head.html`, `body.html`)
   - `src/modules/`: โมดูลเชิงลึก (`curriculum-store.js`, `storage-gateway.js`, `sheet-render-engine.js`, `app.js`)
   - `src/data/curriculum.json`: ฐานข้อมูลหลักสูตร สสวท. ม.ปลาย
-* **KaTeX & Print Fidelity:**
-  - รักษาความคมชัดระดับเวกเตอร์ 100% สำหรับสมการ KaTeX ทั้งหมด
-  - ห้ามใช้ Raster Canvas / ภาพแตก ในการส่งออก PDF ให้ใช้ Native Print Flow หรือ Standalone Tab View เสมอ
+* **KaTeX & Print Fidelity (กฎเหล็ก KaTeX Pre-render Guard):**
+  - **ต้องรัน KaTeX เสมอ:** ห้ามปล่อยให้สมการ LaTeX ดิบหลุดรอดเด็ดขาด ทั้งในหน้าพรีวิวและตอนพิมพ์/ส่งออก PDF
+  - ต้องผูก KaTeX Pre-render Guard ทุกจุด: เมื่อโหลดหน้าเว็บ, สลับหัวข้อ (`selectTopic`), สลับโหมดเฉลย, และก่อนคำสั่งพิมพ์ (`beforeprint`, `prepareAndPrint`, Clean Tab View) ต้องเรียก typesetMath ให้สมบูรณ์ก่อนเสมอ
+  - Delimiters ต้องรองรับครบถ้วน: `$$...$$`, `$..$`, `\[...\]`, และ `\(...\)` พร้อมกลไกตรวจจับและห่อหุ้ม `\begin{aligned}` อัตโนมัติ
+  - รักษาความคมชัดระดับเวกเตอร์ 100% สำหรับสมการ KaTeX ทั้งหมด ห้ามใช้ Raster Canvas / ภาพแตก
+* **Continuous Natural Flow (การจัดพิมพ์ต่อเนื่อง ไร้ที่ว่างทิ้งขว้าง):**
+  - ในชีทติวเข้มและคลังข้อสอบ ห้ามใส่ Hard Page Break แบบตายตัวที่ทำให้เกิดช่องว่างทิ้งขว้างด้านล่างของหน้ากระดาษ
+  - ให้ใช้เลย์เอาต์ไหลยาวต่อเนื่อง (Natural Continuous Flow) พร้อมพื้นที่ทดเลขกะทัดรัดสมดุล เพื่อการใช้พื้นที่หน้ากระดาษ A4 คุ้มค่าที่สุด
 * **ADR & Documentation:**
   - ทุกการตัดสินใจทางสถาปัตยกรรมที่สำคัญ ให้บันทึกลงใน `CONTEXT.md` (ADRs) เพื่อรักษา Paper Trail

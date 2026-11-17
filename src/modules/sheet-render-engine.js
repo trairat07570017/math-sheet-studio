@@ -55,19 +55,19 @@
     }
   };
 
-  // Typeset math on any element using KaTeX
+  // Typeset math on any element using KaTeX (Bulletproof Pre-render Guard)
   function typesetMath(rootElement) {
     const el = rootElement || document.body;
     if (typeof window.renderMathInElement === 'function') {
       try {
-        // Pre-sanitize any equation-stage that might have unrendered \begin{...} without $$
-        const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage') : [];
+        // Pre-sanitize any containers that might have unrendered \begin{...} without delimiters
+        const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage, .sheet-formula-box, .exercise-header, .mc-choice-item, td') : [];
         if (stages.length) {
           stages.forEach(function(stg) {
             if (!stg.querySelector('.katex')) {
-              const raw = stg.textContent.trim();
+              const raw = stg.innerHTML;
               if (raw.indexOf('\\begin{aligned}') !== -1 && raw.indexOf('$$') === -1 && raw.indexOf('\\[') === -1) {
-                stg.innerHTML = '$$' + raw + '$$';
+                stg.innerHTML = raw.replace(/(\\begin\{aligned\}[\s\S]*?\\end\{aligned\})/g, '$$$1$$');
               }
             }
           });
@@ -76,7 +76,9 @@
         window.renderMathInElement(el, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
+            { left: '$', right: '$', display: false },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false }
           ],
           throwOnError: false,
           errorColor: 'inherit'
@@ -84,8 +86,15 @@
       } catch (err) {
         console.warn('KaTeX rendering error:', err);
       }
+    } else {
+      initKaTeXPolling(function() {
+        if (rootElement) typesetMath(rootElement);
+      });
     }
   }
+
+  // Globally bind to window.renderAllMath
+  window.renderAllMath = typesetMath;
 
   // Poll until KaTeX is ready if it loaded deferred
   function initKaTeXPolling(callback) {
@@ -103,7 +112,7 @@
         if (callback) callback();
         clearInterval(_katexPollingInterval);
         _katexPollingInterval = null;
-      } else if (attempts > 40) {
+      } else if (attempts > 80) {
         clearInterval(_katexPollingInterval);
         _katexPollingInterval = null;
       }
@@ -112,6 +121,7 @@
 
   const SheetRenderEngine = {
     EnvironmentSniffer: EnvironmentSniffer,
+    typesetMath: typesetMath,
 
     init: function() {
       const self = this;
@@ -125,7 +135,10 @@
       // Window print listeners for automatic PDF filename & zoom neutralization
       window.addEventListener('beforeprint', function() {
         const paper = document.getElementById('a4Paper');
-        if (paper) paper.style.transform = 'none';
+        if (paper) {
+          paper.style.transform = 'none';
+          typesetMath(paper);
+        }
         _originalDocTitle = document.title;
         document.title = self.getPrintFileName();
       });
@@ -224,7 +237,10 @@
       if (canvasArea) canvasArea.style.display = 'flex';
 
       const paper = document.getElementById('a4Paper');
-      if (paper) paper.style.transform = 'none';
+      if (paper) {
+        paper.style.transform = 'none';
+        typesetMath(paper);
+      }
 
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
@@ -504,7 +520,9 @@
         renderMathInElement(document.body, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
+            { left: '$', right: '$', display: false },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false }
           ],
           throwOnError: false,
           errorColor: 'inherit'
@@ -512,7 +530,7 @@
       }
       setTimeout(function() {
         window.print();
-      }, 150);
+      }, 250);
     }
     if (document.readyState === 'complete') {
       initAndPrint();
@@ -2822,6 +2840,7 @@
 
       let exHtml = '';
       const exercises = modeData.exercises || [];
+      const isContinuousFlow = (topicData.id && topicData.id.indexOf('onet') !== -1) || !!topicData.continuousFlow;
 
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
@@ -2835,7 +2854,7 @@
               <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
               ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
             </div>
-            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '42px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -2860,7 +2879,7 @@
                 ${cells}
               </div>
             </div>
-            <div class="student-workspace-canvas canvas-p2" style="min-height: 80px;">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '48px' : '80px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -2895,7 +2914,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '42px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -2925,7 +2944,7 @@
 
         let pageBreakHtml = '';
         const hasManualBreaks = exercises.some(function(e) { return e.pageBreakBefore; });
-        const shouldBreak = ex.pageBreakBefore || (!hasManualBreaks && idx === 3 && exercises.length >= 6);
+        const shouldBreak = !isContinuousFlow && (ex.pageBreakBefore || (!hasManualBreaks && idx === 3 && exercises.length >= 6));
         if (shouldBreak) {
           pageBreakHtml = `
             <div class="worksheet-page-break">

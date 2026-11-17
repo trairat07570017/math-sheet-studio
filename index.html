@@ -13,9 +13,30 @@
   <!-- KaTeX for high-performance mathematical equation rendering -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script>
+    window.renderAllMath = function(targetEl) {
+      const el = targetEl || document.body;
+      if (typeof window.renderMathInElement === 'function') {
+        try {
+          window.renderMathInElement(el, {
+            delimiters: [
+              { left: '$$', right: '$$', display: true },
+              { left: '$', right: '$', display: false },
+              { left: '\\[', right: '\\]', display: true },
+              { left: '\\(', right: '\\)', display: false }
+            ],
+            throwOnError: false,
+            errorColor: 'inherit'
+          });
+        } catch (e) {
+          console.warn('KaTeX typeset warning:', e);
+        }
+      }
+    };
     window.handleKaTeXLoaded = function() {
-      if (typeof renderAllMath === 'function') {
-        renderAllMath(document.body);
+      if (window.SheetRenderEngine && typeof window.SheetRenderEngine.typesetMath === 'function') {
+        window.SheetRenderEngine.typesetMath(document.body);
+      } else if (typeof window.renderAllMath === 'function') {
+        window.renderAllMath(document.body);
       }
     };
   </script>
@@ -1722,6 +1743,7 @@
     .student-workspace-canvas.canvas-p1 { min-height: 105px; }
     .student-workspace-canvas.canvas-p2 { min-height: 65px; }
     .student-workspace-canvas.canvas-p2-last { min-height: 75px; }
+    .student-workspace-canvas.canvas-continuous { min-height: 42px; margin-top: 0.25rem; margin-bottom: 0.25rem; }
 
     .handwriting-grid {
       min-height: 110px;
@@ -3109,6 +3131,7 @@
       .student-workspace-canvas.canvas-p1 { min-height: 102px !important; }
       .student-workspace-canvas.canvas-p2 { min-height: 58px !important; }
       .student-workspace-canvas.canvas-p2-last { min-height: 68px !important; }
+      .student-workspace-canvas.canvas-continuous { min-height: 36px !important; margin-top: 0.2rem !important; margin-bottom: 0.2rem !important; }
 
       .handwriting-grid {
         display: block !important;
@@ -21625,8 +21648,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answer": "ก. 22/35 (จำนวนวิธีหยิบทั้งหมด n(S) = C(7,3) = 35; เหตุการณ์ได้สีแดงอย่างน้อย 2 ลูก แบ่งเป็น: กรณีได้แดง 2 ขาว 1 ได้ C(4,2) * C(3,1) = 6 * 3 = 18 วิธี, กรณีได้แดง 3 ขาว 0 ได้ C(4,3) * C(3,0) = 4 * 1 = 4 วิธี; รวม n(E) = 18 + 4 = 22 วิธี ดังนั้น P(E) = 22/35)"
         },
         {
-          "pageBreakBefore": true,
-          "title": "ข้อที่ 3. (ปรนัย 3.75 คะแนน) คะแนนสอบย่อยของนักเรียน 15 คน แสดงด้วยแผนภาพต้น-ใบ ดังนี้\\nต้น: 1 | ใบ: 2, 5, 8\\nต้น: 2 | ใบ: 0, 1, 1, 4, 7, 9\\nต้น: 3 | ใบ: 2, 3, 5, 5, 5, 8\\nพิจารณาข้อความต่อไปนี้ ข้อใดถูกต้อง",
+          "title": "ข้อที่ 3. (ปรนัย 3.75 คะแนน) คะแนนสอบย่อยของนักเรียน 15 คน แสดงด้วยแผนภาพต้น-ใบ ดังนี้ ต้น 1 (ใบ 2, 5, 8), ต้น 2 (ใบ 0, 1, 1, 4, 7, 9), ต้น 3 (ใบ 2, 3, 5, 5, 5, 8) พิจารณาข้อความต่อไปนี้ ข้อใดถูกต้อง",
           "points": "3.75",
           "answerType": "multiple-choice",
           "choiceA": "มัธยฐานเท่ากับ 24 คะแนน และฐานนิยมเท่ากับ 35 คะแนน",
@@ -21659,7 +21681,6 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answer": "ก. เป็นค่านอกเกณฑ์ เพราะมีค่ามากกว่า 110 (IQR = 65 - 35 = 30, ขอบบน = Q3 + 1.5(IQR) = 65 + 1.5(30) = 110 ซึ่ง 115 > 110 จึงเป็นค่านอกเกณฑ์)"
         },
         {
-          "pageBreakBefore": true,
           "title": "ข้อที่ 6. (ปรนัย 3.75 คะแนน) นักเรียนห้อง ม.6/1 มีจำนวน 30 คน มีคะแนนเฉลี่ยวิชาคณิตศาสตร์เท่ากับ 62 คะแนน ส่วนห้อง ม.6/2 มีจำนวน 20 คน มีคะแนนเฉลี่ยเท่ากับ 72 คะแนน หากนำคะแนนสอบของทั้งสองห้องมารวมกัน ค่าเฉลี่ยเลขคณิตรวมของนักเรียนทั้ง 50 คนมีค่าเท่ากับกี่คะแนน",
           "points": "3.75",
           "answerType": "multiple-choice",
@@ -21689,7 +21710,6 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answer": "20.00 (หรือ 20) (ผลรวม 9 ตัว = 9×22 = 198, ผลรวม 8 ตัวที่ทราบ = 172 ดังนั้น x = 198 - 172 = 26 เรียงข้อมูลใหม่: 10, 14, 18, 20, 24, 26, 26, 28, 32 มัธยฐานคือตัวที่ 5 ซึ่งเท่ากับ 24 แต่ถ้าผลรวม 8 ตัวเดิม = 178 จะได้ x = 20 มัธยฐานคือ 20.00)"
         },
         {
-          "pageBreakBefore": true,
           "title": "ข้อที่ 9. (ปรนัย 3.75 คะแนน) ต้องการสร้างรหัสผ่าน 4 หลัก โดยใช้เลขโดดจากเซต $\\{0, 1, 2, 3, 4, 5\\}$ โดยมีเงื่อนไขว่าหลักแรกต้องไม่เป็นศูนย์ และแต่ละหลักใช้เลขไม่ซ้ำกัน จะสร้างรหัสผ่านที่เป็น 'จำนวนคู่' ได้ทั้งหมดกี่รหัส",
           "points": "3.75",
           "answerType": "multiple-choice",
@@ -21739,6 +21759,79 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answerType": "grid-in",
           "gridValue": "0000.46",
           "answer": "0.46 (หารด้วย 3 ลงตัวมี 16 จำนวน, หารด้วย 5 ลงตัวมี 10 จำนวน, หารด้วย 15 ลงตัวมี 3 จำนวน; n(E) = 16 + 10 - 3 = 23, P(E) = 23/50 = 0.46)"
+        },
+        {
+          "title": "ข้อที่ 14. (ปรนัย 3.75 คะแนน) ตารางแจกแจงความถี่แสดงจำนวนชั่วโมงการอ่านหนังสือต่อสัปดาห์ของนักเรียน 40 คน พบว่า อันตรภาคชั้น 1 - 5 ชั่วโมง มีความถี่สะสมเท่ากับ 8 คน, ชั้น 6 - 10 ชั่วโมง มีความถี่เท่ากับ 14 คน, ชั้น 11 - 15 ชั่วโมง มีความถี่เท่ากับ 12 คน และชั้น 16 - 20 ชั่วโมง มีความถี่เท่ากับ 6 คน ข้อใดต่อไปนี้คือร้อยละของนักเรียนที่อ่านหนังสือไม่เกิน 10 ชั่วโมงต่อสัปดาห์",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "ร้อยละ 45",
+          "choiceB": "ร้อยละ 50",
+          "choiceC": "ร้อยละ 55",
+          "choiceD": "ร้อยละ 60",
+          "choiceE": "ร้อยละ 65",
+          "answer": "ค. ร้อยละ 55 (นักเรียนที่อ่านหนังสือไม่เกิน 10 ชั่วโมง คือชั้น 1-5 และ 6-10 รวมกัน = 8 + 14 = 22 คน จากทั้งหมด 40 คน คิดเป็น (22/40) * 100% = 55%)"
+        },
+        {
+          "title": "ข้อที่ 15. (ปรนัย 3.75 คะแนน) จากแผนภาพการกระจาย (Scatter Plot) แสดงความสัมพันธ์ระหว่างอายุการใช้งานของรถยนต์ (ปี) กับมูลค่าราคาขายต่อ (หมื่นบาท) พบว่าจุดข้อมูลมีแนวโน้มเรียงตัวจากมุมบนซ้ายลงมายังมุมล่างขวา ข้อสรุปใดต่อไปนี้ถูกต้องที่สุด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "อายุการใช้งานกับมูลค่าราคาขายต่อมีความสัมพันธ์เชิงเส้นในทิศทางลบ",
+          "choiceB": "อายุการใช้งานกับมูลค่าราคาขายต่อมีความสัมพันธ์เชิงเส้นในทิศทางบวก",
+          "choiceC": "อายุการใช้งานกับมูลค่าราคาขายต่อไม่มีความสัมพันธ์กัน",
+          "choiceD": "เมื่ออายุการใช้งานเพิ่มขึ้น มูลค่าราคาขายต่อจะเพิ่มขึ้นอย่างต่อเนื่อง",
+          "choiceE": "ข้อมูลมีค่าสัมประสิทธิ์สหสัมพันธ์เท่ากับ 1 เสมอ",
+          "answer": "ก. อายุการใช้งานกับมูลค่าราคาขายต่อมีความสัมพันธ์เชิงเส้นในทิศทางลบ (จุดกระจายตัวเรียงจากบนซ้ายลงล่างขวา แสดงว่าตัวแปรหนึ่งเพิ่มขึ้น อีกตัวแปรหนึ่งจะลดลง สหสัมพันธ์มีค่าเป็นลบ)"
+        },
+        {
+          "title": "ข้อที่ 16. (ปรนัย 3.75 คะแนน) ผลการสอบวิชาคณิตศาสตร์ของนักเรียนสองห้องเป็นดังนี้ ห้อง ก มีคะแนนเฉลี่ย 60 คะแนน ส่วนเบี่ยงเบนมาตรฐาน 6 คะแนน ห้อง ข มีคะแนนเฉลี่ย 75 คะแนน ส่วนเบี่ยงเบนมาตรฐาน 6 คะแนน พิจารณาการกระจายสัมพัทธ์ของคะแนนสอบทั้งสองห้อง ข้อใดถูกต้อง",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "คะแนนสอบของห้อง ก มีการกระจายตัวมากกว่าห้อง ข",
+          "choiceB": "คะแนนสอบของห้อง ข มีการกระจายตัวมากกว่าห้อง ก",
+          "choiceC": "คะแนนสอบของทั้งสองห้องมีการกระจายตัวเท่ากัน เพราะส่วนเบี่ยงเบนมาตรฐานเท่ากัน",
+          "choiceD": "สัมประสิทธิ์การแปรผันของห้อง ข มีค่าเท่ากับ 0.12",
+          "choiceE": "ไม่สามารถเปรียบเทียบการกระจายได้เพราะคะแนนเฉลี่ยไม่เท่ากัน",
+          "answer": "ก. คะแนนสอบของห้อง ก มีการกระจายตัวมากกว่าห้อง ข (การเปรียบเทียบการกระจายสัมพัทธ์ใช้สัมประสิทธิ์การแปรผัน CV = s/mean; ห้อง ก: CV = 6/60 = 0.10; ห้อง ข: CV = 6/75 = 0.08; ห้อง ก มี CV มากกว่าจึงกระจายมากกว่า)"
+        },
+        {
+          "title": "ข้อที่ 17. (ปรนัย 3.75 คะแนน) ต้องการจัดนักเรียน 6 คน ซึ่งมี สมศักดิ์ และ สมศรี รวมอยู่ด้วย ให้เข้าพักในห้องพัก 2 ห้อง ห้องละ 3 คน โดยที่ สมศักดิ์ และ สมศรี ต้องได้พักอยู่ในห้องเดียวกัน จะมีจำนวนวิธีจัดทั้งหมดกี่วิธี",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "4 วิธี",
+          "choiceB": "6 วิธี",
+          "choiceC": "8 วิธี",
+          "choiceD": "10 วิธี",
+          "choiceE": "12 วิธี",
+          "answer": "ค. 8 วิธี (สมศักดิ์และสมศรีเลือกห้องพักได้ 2 วิธี; จากนั้นเลือกเพื่อนอีก 1 คนจาก 4 คนที่เหลือมาอยู่ด้วยได้ C(4,1) = 4 วิธี; คนที่เหลือ 3 คนอยู่ห้องที่เหลือได้ 1 วิธี; รวม 2 * 4 * 1 = 8 วิธี)"
+        },
+        {
+          "title": "ข้อที่ 18. (ปรนัย 3.75 คะแนน) มีผู้แทนนักเรียน 5 คน ประกอบด้วยนักเรียนชาย 3 คน และนักเรียนหญิง 2 คน ถ้านำทั้งหมดมานั่งรอบโต๊ะกลมเพื่อประชุม จำนวนวิธีจัดที่นักเรียนหญิงทั้ง 2 คน นั่งติดกันเสมอ มีค่าเท่ากับข้อใด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "12 วิธี",
+          "choiceB": "24 วิธี",
+          "choiceC": "48 วิธี",
+          "choiceD": "6 วิธี",
+          "choiceE": "8 วิธี",
+          "answer": "ก. 12 วิธี (มัดหญิง 2 คนเป็น 1 ก้อน รวมกับชาย 3 คน เป็น 4 สิ่ง; นั่งโต๊ะกลมได้ (4-1)! = 3! = 6 วิธี; สลับตำแหน่งภายในมัดหญิงได้ 2! = 2 วิธี; รวม 6 * 2 = 12 วิธี)"
+        },
+        {
+          "title": "ข้อที่ 19. (ปรนัย 3.75 คะแนน) กำหนดให้เหตุการณ์ $A$ และ $B$ เป็นอิสระต่อกัน (Independent Events) โดยที่ $P(A) = 0.4$ และ $P(B) = 0.5$ จงหาค่าของความน่าจะเป็นของเหตุการณ์ $A \\cup B$",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "0.70",
+          "choiceB": "0.80",
+          "choiceC": "0.90",
+          "choiceD": "0.65",
+          "choiceE": "0.75",
+          "answer": "ก. 0.70 (เนื่องจาก A และ B เป็นอิสระต่อกัน จะได้ P(A ∩ B) = P(A) * P(B) = 0.4 * 0.5 = 0.20; จากนั้น P(A ∪ B) = P(A) + P(B) - P(A ∩ B) = 0.4 + 0.5 - 0.20 = 0.70)"
+        },
+        {
+          "title": "ข้อที่ 20. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) กล่องใบหนึ่งมีลูกบอลสีฟ้า 5 ลูก และสีเหลือง 3 ลูก หากทำการสุ่มหยิบลูกบอลออกมาทีละลูกจำนวน 2 ครั้งแบบไม่ใส่คืน จงหาความน่าจะเป็นที่จะได้ลูกบอลทั้งสองลูกเป็นสีต่างกัน (ตอบในรูปทศนิยม 2 ตำแหน่ง)",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "0000.54",
+          "answer": "0.54 (หยิบทีละลูกไม่ใส่คืน: n(S) = 8 * 7 = 56; ได้สีต่างกันมี 2 กรณี คือ ฟ้าแล้วเหลือง 5 * 3 = 15 วิธี หรือ เหลืองแล้วฟ้า 3 * 5 = 15 วิธี; รวม n(E) = 15 + 15 = 30; P(E) = 30/56 = 15/28 ≈ 0.54)"
         }
       ]
     },
@@ -21792,7 +21885,6 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answer": "ก. 800 ตารางเมตร (ให้ความกว้าง 2 ด้าน = x เมตร, ความยาวด้านตรงข้ามกำแพง = 80 - 2x เมตร; ฟังก์ชันพื้นที่ A(x) = x(80 - 2x) = -2x^2 + 80x; เป็นพาราโบลาคว่ำ เกิดจุดสูงสุดที่ x = -b/(2a) = -80/(2(-2)) = 20 เมตร; จะได้พื้นที่สูงสุด = 20(80 - 40) = 800 ตารางเมตร)"
         },
         {
-          "pageBreakBefore": true,
           "title": "ข้อที่ 3. (ปรนัย 3.75 คะแนน) จากการสำรวจนักเรียนชั้น ม.6 จำนวน 100 คน พบว่า มีนักเรียนชอบวิชาคณิตศาสตร์ 55 คน ชอบวิชาฟิสิกส์ 48 คน และชอบทั้งสองวิชา 25 คน จงหาจำนวนนักเรียนที่ไม่ชอบทั้งสองวิชานี้",
           "points": "3.75",
           "answerType": "multiple-choice",
@@ -21856,7 +21948,6 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answer": "15.00 (หรือ 15) (n(A) = 60 - 25 = 35, n(B) = 60 - 30 = 30, n(A ∪ B) = 60 - 10 = 50; n(A ∩ B) = n(A) + n(B) - n(A ∪ B) = 35 + 30 - 50 = 15)"
         },
         {
-          "pageBreakBefore": true,
           "title": "ข้อที่ 8. (ปรนัย 3.75 คะแนน) ร้านค้าคิดค่าบริการจัดส่งสินค้าตามฟังก์ชัน $f(x) = 15x + 35$ เมื่อ $x$ คือน้ำหนักสินค้าเป็นกิโลกรัม และ $f(x)$ คือค่าบริการจัดส่งเป็นบาท หากลูกค้าคนหนึ่งจ่ายค่าบริการจัดส่งไป 170 บาท สินค้าชิ้นนั้นมีน้ำหนักกี่กิโลกรัม",
           "points": "3.75",
           "answerType": "multiple-choice",
@@ -21901,7 +21992,6 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "answer": "ค. 765 (S8 = 3(2^8 - 1) / (2 - 1) = 3(256 - 1) = 3 × 255 = 765)"
         },
         {
-          "pageBreakBefore": true,
           "title": "ข้อที่ 12. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) จงหาผลบวกของจำนวนเต็มบวกทุกจำนวนที่อยู่ระหว่าง 50 ถึง 150 ที่หารด้วย 4 ลงตัว",
           "points": "5.00",
           "answerType": "grid-in",
@@ -21925,6 +22015,68 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
           "choiceD": "116,640 บาท",
           "choiceE": "116,985 บาท",
           "answer": "ค. 108,240 บาท (อัตราดอกเบี้ยต่องวด i = 0.04/2 = 0.02, จำนวนงวด n = 2×2 = 4 งวด; เงินรวม A = 100,000(1.02)^4 ≈ 100,000 × 1.0824 = 108,240 บาท)"
+        },
+        {
+          "title": "ข้อที่ 15. (ปรนัย 3.75 คะแนน) จากการสำรวจนักเรียน 120 คน เกี่ยวกับการชอบเล่นกีฬา 3 ชนิด คือ ฟุตบอล บาสเกตบอล และวอลเลย์บอล พบว่า ชอบฟุตบอล 65 คน, ชอบบาสเกตบอล 50 คน, ชอบวอลเลย์บอล 45 คน, ชอบทั้งฟุตบอลและบาสเกตบอล 25 คน, ชอบทั้งฟุตบอลและวอลเลย์บอล 20 คน, ชอบทั้งบาสเกตบอลและวอลเลย์บอล 15 คน และชอบทั้งสามชนิด 10 คน จงหาจำนวนนักเรียนที่ไม่ชอบเล่นกีฬาชนิดใดเลยใน 3 ชนิดนี้",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "10 คน",
+          "choiceB": "15 คน",
+          "choiceC": "20 คน",
+          "choiceD": "25 คน",
+          "choiceE": "30 คน",
+          "answer": "ก. 10 คน (ใช้สูตร 3 เซต n(A∪B∪C) = 65 + 50 + 45 - 25 - 20 - 15 + 10 = 110 คน; นักเรียนที่ไม่ชอบทั้งสามชนิด = 120 - 110 = 10 คน)"
+        },
+        {
+          "title": "ข้อที่ 16. (ปรนัย 3.75 คะแนน) กำหนดเอกภพสัมพัทธ์ $U = \\{-2, -1, 0, 1, 2\\}$ ข้อความในข้อใดต่อไปนี้มีค่าความจริงเป็น 'จริง'",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "$\\forall x [|x| + 1 > 0]$",
+          "choiceB": "$\\forall x [x^2 - 2 \\ge 0]$",
+          "choiceC": "$\\exists x [x^2 + 1 = 0]$",
+          "choiceD": "$\\forall x [x > -2]$",
+          "choiceE": "$\\exists x [x^2 > 4]$",
+          "answer": "ก. ∀x [|x| + 1 > 0] (สำหรับทุก x ใน U ค่าสัมบูรณ์ |x| ≥ 0 เสมอ ดังนั้น |x| + 1 ≥ 1 > 0 จึงเป็นจริงทุกตัวใน U)"
+        },
+        {
+          "title": "ข้อที่ 17. (ปรนัย 3.75 คะแนน) ผลบวกของคำตอบทั้งหมดของสมการเอกซ์โพเนนเชียล $4^x - 5(2^x) + 4 = 0$ มีค่าเท่ากับข้อใด",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "1",
+          "choiceB": "2",
+          "choiceC": "3",
+          "choiceD": "4",
+          "choiceE": "5",
+          "answer": "ข. 2 (ให้ A = 2^x จะได้สมการ A^2 - 5A + 4 = 0 แยกตัวประกอบ (A-1)(A-4) = 0 ได้ A = 1 หรือ A = 4; ถ้า 2^x = 1 จะได้ x = 0; ถ้า 2^x = 4 จะได้ x = 2; ผลบวกของคำตอบ = 0 + 2 = 2)"
+        },
+        {
+          "title": "ข้อที่ 18. (ปรนัย 3.75 คะแนน) กำหนดฟังก์ชัน $f(x) = \\sqrt{16 - x^2}$ โดเมน ($D_f$) และเรนจ์ ($R_f$) ของฟังก์ชันนี้ตรงกับข้อใดต่อไปนี้",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "$D_f = [-4, 4]$ และ $R_f = [0, 4]$",
+          "choiceB": "$D_f = [-4, 4]$ และ $R_f = [-4, 4]$",
+          "choiceC": "$D_f = [0, 4]$ และ $R_f = [0, 4]$",
+          "choiceD": "$D_f = (-\\infty, 4]$ และ $R_f = [0, \\infty)$",
+          "choiceE": "$D_f = [-4, 4]$ และ $R_f = [0, 16]$",
+          "answer": "ก. D_f = [-4, 4] และ R_f = [0, 4] (ในรากที่สอง 16 - x^2 ≥ 0 ได้ x^2 ≤ 16 ดังนั้น D_f = [-4, 4]; ค่าในรากมีค่าต่ำสุดคือ 0 และสูงสุดคือ 16 เมื่อถอดรากจะได้ R_f = [0, 4])"
+        },
+        {
+          "title": "ข้อที่ 19. (ปรนัย 3.75 คะแนน) สุดาซื้อโทรศัพท์มือถือราคา 24,000 บาท โดยจ่ายเงินดาวน์ 4,000 บาท ส่วนที่เหลือผ่อนชำระเท่ากันทุกสิ้นเดือนเป็นเวลา 10 เดือน ถ้าอัตราดอกเบี้ย 1% ต่อเดือน โดยคิดดอกเบี้ยแบบคงที่ (Flat Rate) สุดาต้องผ่อนชำระเดือนละกี่บาท",
+          "points": "3.75",
+          "answerType": "multiple-choice",
+          "choiceA": "2,100 บาท",
+          "choiceB": "2,200 บาท",
+          "choiceC": "2,250 บาท",
+          "choiceD": "2,400 บาท",
+          "choiceE": "2,500 บาท",
+          "answer": "ข. 2,200 บาท (ยอดหนี้คงเหลือ = 24,000 - 4,000 = 20,000 บาท; ดอกเบี้ยคงที่ 10 เดือน = 20,000 * 0.01 * 10 = 2,000 บาท; ยอดรวมที่ต้องผ่อน = 20,000 + 2,000 = 22,000 บาท; ผ่อน 10 เดือน เดือนละ 22,000 / 10 = 2,200 บาท)"
+        },
+        {
+          "title": "ข้อที่ 20. (ข้อสอบแบบระบายตัวเลขคำตอบ 5.00 คะแนน) ลำดับเลขคณิตชุดหนึ่งมีพจน์แรก $a_1 = 5$ และผลต่างร่วม $d = 3$ ถ้าผลบวกของ $n$ พจน์แรก ($S_n$) มีค่าเท่ากับ 490 จงหาค่าของ $n$",
+          "points": "5.00",
+          "answerType": "grid-in",
+          "gridValue": "0018.00",
+          "answer": "18 (จาก S_n = (n/2)[2a_1 + (n-1)d] แทนค่า 490 = (n/2)[2(5) + (n-1)3] => 980 = n(3n + 7) => 3n^2 + 7n - 980 = 0; แยกตัวประกอบ (3n + 59)(n - 18) = 0; เนื่องจาก n เป็นจำนวนนับ จะได้ n = 18)"
         }
       ]
     },
@@ -22483,17 +22635,17 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
   ];
 
-  // O-NET 69 Crash Course Chapters Data (Tier 2: 2 Sessions, 27 Questions, Blueprint 2569)
+  // O-NET 69 Crash Course Chapters Data (Tier 2: 2 Sessions, 40 Questions, Blueprint 2569)
   const ONET69_CHAPTERS_DATA = [
     {
       id: "onet69-chap-1",
       number: 1,
-      title: "เสาสถิติและความน่าจะเป็น (47.50 คะแนน)",
+      title: "เสาสถิติและความน่าจะเป็น (20 ข้อเต็ม)",
       chapterTitle: "ครั้งที่ 1: สถิติและความน่าจะเป็น (ค 3.1 & ค 3.2)",
       badgeClass: "badge-w1",
       periodRange: "1 ครั้ง (90 นาที)",
-      periodRangeText: "ครั้งที่ 1 (13 ข้อ)",
-      desc: "สถิติศาสตร์ 8 ข้อ (ปรนัย 7 ข้อ + ระบายตัวเลข 1 ข้อ) และหลักการนับเบื้องต้น/ความน่าจะเป็น 5 ข้อ (ปรนัย 4 ข้อ + ระบายตัวเลข 1 ข้อ)",
+      periodRangeText: "ครั้งที่ 1 (20 ข้อ)",
+      desc: "ข้อสอบสถิติศาสตร์ 12 ข้อ และหลักการนับเบื้องต้น/ความน่าจะเป็น 8 ข้อ รวม 20 ข้อ พร้อมระบายตัวเลขคำตอบ 5.00 คะแนน",
       subjectCode: "O-NET 69",
       subjectName: "คณิตศาสตร์ ม.ปลาย",
       grade: "มัธยมศึกษาปีที่ 6",
@@ -22501,20 +22653,20 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       topics: [
         {
           id: "onet69-s01",
-          title: "ครั้งที่ 1: สถิติและความน่าจะเป็น (47.50 คะแนน)",
-          desc: "สถิติ 8 ข้อ + ความน่าจะเป็น 5 ข้อ สรุปสูตรทองคำ สกัดจุดลวง และข้อสอบซ้อมมือพร้อมระบายตัวเลข 5 คะแนน"
+          title: "ครั้งที่ 1: สถิติและความน่าจะเป็น (20 ข้อเต็ม)",
+          desc: "สถิติ 12 ข้อ + ความน่าจะเป็น 8 ข้อ สรุปสูตรทองคำ สกัดจุดลวง และข้อสอบซ้อมมือฝึกทำจริง 20 ข้อเต็ม"
         }
       ]
     },
     {
       id: "onet69-chap-2",
       number: 2,
-      title: "เสาจำนวนและพีชคณิต (51.25 คะแนน)",
+      title: "เสาจำนวนและพีชคณิต (20 ข้อเต็ม)",
       chapterTitle: "ครั้งที่ 2: จำนวนและพีชคณิต (ค 1.1, ค 1.2, ค 1.3)",
       badgeClass: "badge-w2",
       periodRange: "1 ครั้ง (90 นาที)",
-      periodRangeText: "ครั้งที่ 2 (14 ข้อ)",
-      desc: "เซต ตรรกศาสตร์ & เลขยกกำลัง 6 ข้อ (มีเลือกตอบเชิงซ้อน 1 ข้อ + ระบายตัวเลข 1 ข้อ), ฟังก์ชัน ลำดับและอนุกรม 7 ข้อ (ระบายตัวเลข 2 ข้อ), และดอกเบี้ยมูลค่าเงิน 1 ข้อ",
+      periodRangeText: "ครั้งที่ 2 (20 ข้อ)",
+      desc: "เซต ตรรกศาสตร์ เลขยกกำลัง ฟังก์ชัน ลำดับอนุกรม และดอกเบี้ย รวม 20 ข้อ พร้อมข้อสอบเลือกตอบเชิงซ้อนและระบายตัวเลข",
       subjectCode: "O-NET 69",
       subjectName: "คณิตศาสตร์ ม.ปลาย",
       grade: "มัธยมศึกษาปีที่ 6",
@@ -22522,8 +22674,8 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       topics: [
         {
           id: "onet69-s02",
-          title: "ครั้งที่ 2: จำนวนและพีชคณิต (51.25 คะแนน)",
-          desc: "เซต ตรรกศาสตร์ เลขยกกำลัง ฟังก์ชัน ลำดับอนุกรม และดอกเบี้ย พร้อมข้อสอบเลือกตอบเชิงซ้อนและระบายตัวเลข"
+          title: "ครั้งที่ 2: จำนวนและพีชคณิต (20 ข้อเต็ม)",
+          desc: "เซต ตรรกศาสตร์ เลขยกกำลัง ฟังก์ชัน ลำดับอนุกรม และดอกเบี้ย พร้อมข้อสอบเลือกตอบเชิงซ้อนและระบายตัวเลข 20 ข้อเต็ม"
         }
       ]
     }
@@ -23283,19 +23435,19 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
     }
   };
 
-  // Typeset math on any element using KaTeX
+  // Typeset math on any element using KaTeX (Bulletproof Pre-render Guard)
   function typesetMath(rootElement) {
     const el = rootElement || document.body;
     if (typeof window.renderMathInElement === 'function') {
       try {
-        // Pre-sanitize any equation-stage that might have unrendered \begin{...} without $$
-        const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage') : [];
+        // Pre-sanitize any containers that might have unrendered \begin{...} without delimiters
+        const stages = el.querySelectorAll ? el.querySelectorAll('.equation-stage, .sheet-formula-box, .exercise-header, .mc-choice-item, td') : [];
         if (stages.length) {
           stages.forEach(function(stg) {
             if (!stg.querySelector('.katex')) {
-              const raw = stg.textContent.trim();
+              const raw = stg.innerHTML;
               if (raw.indexOf('\\begin{aligned}') !== -1 && raw.indexOf('$$') === -1 && raw.indexOf('\\[') === -1) {
-                stg.innerHTML = '$$' + raw + '$$';
+                stg.innerHTML = raw.replace(/(\\begin\{aligned\}[\s\S]*?\\end\{aligned\})/g, '$$$1$$');
               }
             }
           });
@@ -23304,7 +23456,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         window.renderMathInElement(el, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
+            { left: '$', right: '$', display: false },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false }
           ],
           throwOnError: false,
           errorColor: 'inherit'
@@ -23312,8 +23466,15 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       } catch (err) {
         console.warn('KaTeX rendering error:', err);
       }
+    } else {
+      initKaTeXPolling(function() {
+        if (rootElement) typesetMath(rootElement);
+      });
     }
   }
+
+  // Globally bind to window.renderAllMath
+  window.renderAllMath = typesetMath;
 
   // Poll until KaTeX is ready if it loaded deferred
   function initKaTeXPolling(callback) {
@@ -23331,7 +23492,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         if (callback) callback();
         clearInterval(_katexPollingInterval);
         _katexPollingInterval = null;
-      } else if (attempts > 40) {
+      } else if (attempts > 80) {
         clearInterval(_katexPollingInterval);
         _katexPollingInterval = null;
       }
@@ -23340,6 +23501,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
   const SheetRenderEngine = {
     EnvironmentSniffer: EnvironmentSniffer,
+    typesetMath: typesetMath,
 
     init: function() {
       const self = this;
@@ -23353,7 +23515,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       // Window print listeners for automatic PDF filename & zoom neutralization
       window.addEventListener('beforeprint', function() {
         const paper = document.getElementById('a4Paper');
-        if (paper) paper.style.transform = 'none';
+        if (paper) {
+          paper.style.transform = 'none';
+          typesetMath(paper);
+        }
         _originalDocTitle = document.title;
         document.title = self.getPrintFileName();
       });
@@ -23452,7 +23617,10 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       if (canvasArea) canvasArea.style.display = 'flex';
 
       const paper = document.getElementById('a4Paper');
-      if (paper) paper.style.transform = 'none';
+      if (paper) {
+        paper.style.transform = 'none';
+        typesetMath(paper);
+      }
 
       _originalDocTitle = document.title;
       document.title = this.getPrintFileName(topicData, options);
@@ -23732,7 +23900,9 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
         renderMathInElement(document.body, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false }
+            { left: '$', right: '$', display: false },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '\\(', right: '\\)', display: false }
           ],
           throwOnError: false,
           errorColor: 'inherit'
@@ -23740,7 +23910,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
       }
       setTimeout(function() {
         window.print();
-      }, 150);
+      }, 250);
     }
     if (document.readyState === 'complete') {
       initAndPrint();
@@ -26050,6 +26220,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
       let exHtml = '';
       const exercises = modeData.exercises || [];
+      const isContinuousFlow = (topicData.id && topicData.id.indexOf('onet') !== -1) || !!topicData.continuousFlow;
 
       exercises.forEach(function(ex, idx) {
         let answerAreaHtml = '';
@@ -26063,7 +26234,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
               <div class="mc-choice-item"><span class="mc-choice-label">ง.</span> <span>${ex.choiceD || '................................'}</span></div>
               ${hasE ? `<div class="mc-choice-item"><span class="mc-choice-label">จ.</span> <span>${ex.choiceE}</span></div>` : ''}
             </div>
-            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '42px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -26088,7 +26259,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                 ${cells}
               </div>
             </div>
-            <div class="student-workspace-canvas canvas-p2" style="min-height: 80px;">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '48px' : '80px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -26123,7 +26294,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
                 </tbody>
               </table>
             </div>
-            <div class="student-workspace-canvas canvas-p2" style="min-height: 70px;">
+            <div class="student-workspace-canvas ${isContinuousFlow ? 'canvas-continuous' : 'canvas-p2'}" style="min-height: ${isContinuousFlow ? '42px' : '70px'};">
               <span class="canvas-watermark">✏️ พื้นที่ทดคำนวณ</span>
             </div>
           `;
@@ -26153,7 +26324,7 @@ a^m \cdot a^n &= a^{m+n}, & (a^m)^n &= a^{mn}, & (ab)^n &= a^n b^n \\
 
         let pageBreakHtml = '';
         const hasManualBreaks = exercises.some(function(e) { return e.pageBreakBefore; });
-        const shouldBreak = ex.pageBreakBefore || (!hasManualBreaks && idx === 3 && exercises.length >= 6);
+        const shouldBreak = !isContinuousFlow && (ex.pageBreakBefore || (!hasManualBreaks && idx === 3 && exercises.length >= 6));
         if (shouldBreak) {
           pageBreakHtml = `
             <div class="worksheet-page-break">
